@@ -1,0 +1,22 @@
+---
+import { SITE } from "@lib/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  message?: string;
+  label?: string;
+}
+const { message = "Ciao, vorrei info su Roma284", label = "WhatsApp" } = Astro.props;
+const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener"
+  aria-label={label}
+  data-evt="whatsapp_click"
+  class="fixed bottom-5 right-5 z-50 flex size-13 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:scale-105 hover:bg-[#1faa52] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] sm:bottom-6 sm:right-6 max-lg:bottom-20"
+>
+  <Icon name="whatsapp" class="size-7" />
+</a>

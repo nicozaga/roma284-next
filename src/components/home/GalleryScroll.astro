@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { GALLERY_ALT_IT } from "@data/gallery";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+const { title, subtitle } = Astro.props;
+
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/gallery/*.jpg",
+  { eager: true },
+);
+
+// Solo le foto numerate 1..10, in ordine.
+const photos = Object.entries(modules)
+  .map(([path, mod]) => {
+    const num = path.match(/\/(\d+)\.jpg$/)?.[1];
+    return num ? { num, src: mod.default } : null;
+  })
+  .filter((x): x is { num: string; src: ImageMetadata } => x !== null)
+  .sort((a, b) => Number(a.num) - Number(b.num));
+---
+
+<section aria-label={title} class="py-8 lg:py-12">
+  <div class="mx-auto max-w-(--breakpoint-xl) px-6">
+    <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
+    {subtitle && <p class="mt-2 max-w-2xl text-grigio">{subtitle}</p>}
+  </div>
+
+  <ul
+    class="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:thin]"
+  >
+    {
+      photos.map(({ num, src }) => (
+        <li class="shrink-0 snap-start">
+          <a href={`#g${num}`} class="block">
+            <Image
+              src={src}
+              alt={GALLERY_ALT_IT[num] ?? "Foto dell'appartamento Roma284"}
+              widths={[400, 640]}
+              sizes="(max-width: 640px) 80vw, 420px"
+              format="avif"
+              loading="lazy"
+              class="h-64 w-[20rem] rounded-2xl object-cover lg:h-72 lg:w-[24rem]"
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  {/* Lightbox CSS-only via :target — nessun JS */}
+  {
+    photos.map(({ num, src }) => (
+      <div id={`g${num}`} class="lightbox" aria-hidden="true">
+        <a href="#_" class="lightbox__bg" aria-label="Chiudi" />
+        <figure class="lightbox__fig">
+          <Image
+            src={src}
+            alt={GALLERY_ALT_IT[num] ?? "Foto dell'appartamento Roma284"}
+            widths={[800, 1200]}
+            sizes="90vw"
+            format="avif"
+            loading="lazy"
+            class="max-h-[85vh] w-auto rounded-xl object-contain"
+          />
+          <figcaption class="mt-2 text-center text-sm text-crema/80">
+            {GALLERY_ALT_IT[num]}
+          </figcaption>
+        </figure>
+        <a href="#_" class="lightbox__close" aria-label="Chiudi">×</a>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .lightbox:target {
+    display: flex;
+  }
+  .lightbox__bg {
+    position: absolute;
+    inset: 0;
+    background: rgb(26 26 26 / 0.9);
+    backdrop-filter: blur(4px);
+  }
+  .lightbox__fig {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+  }
+  .lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 2;
+    font-size: 2rem;
+    line-height: 1;
+    color: #faf5ee;
+  }
+</style>

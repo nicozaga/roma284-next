@@ -1,0 +1,102 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import Hero from "@components/home/Hero.astro";
+import TrustStrip from "@components/home/TrustStrip.astro";
+import UspCards from "@components/home/UspCards.astro";
+import GalleryScroll from "@components/home/GalleryScroll.astro";
+import ApartmentPreview from "@components/home/ApartmentPreview.astro";
+import LocationSection from "@components/home/LocationSection.astro";
+import Faq from "@components/home/Faq.astro";
+import Testimonials from "@components/home/Testimonials.astro";
+import WhyBookDirect from "@components/home/WhyBookDirect.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+import FinalCta from "@components/home/FinalCta.astro";
+
+import { LOCALE_META } from "@i18n/config";
+import { localizedPath, localizedUrl } from "@i18n/utils";
+import {
+  lodgingBusinessSchema,
+  organizationSchema,
+  faqPageSchema,
+  breadcrumbSchema,
+} from "@lib/schema";
+import { FAQ_HOME_IT } from "@data/faq";
+
+const locale = "it" as const;
+const lang = LOCALE_META[locale].htmlLang;
+
+const title = "Appartamento nel centro di Piacenza, 33 min da Milano | Roma284";
+const description =
+  "Roma284: appartamento boutique nel centro storico di Piacenza, a 33 minuti da Milano in Frecciarossa. WiFi 1 Gbit/s, patio privato. Prenota diretto.";
+
+const schema = [
+  lodgingBusinessSchema({ lang }),
+  organizationSchema(),
+  faqPageSchema(FAQ_HOME_IT.map((f) => ({ question: f.q, answer: f.a }))),
+  breadcrumbSchema([{ name: "Home", url: localizedUrl("home", locale) }]),
+];
+---
+
+<Layout
+  locale={locale}
+  page="home"
+  title={title}
+  description={description}
+  stickyCtaHref="#book"
+>
+  <JsonLd schema={schema} />
+
+  <Hero
+    eyebrow="Piacenza · Centro storico"
+    title="Roma284 — Appartamento nel cuore di Piacenza"
+    subtitle="La tua base elegante per Milano. 33 minuti in Frecciarossa, infinite possibilità."
+    ctaPrimary={{ label: "Verifica disponibilità", href: "#book" }}
+    ctaSecondary={{ label: "Scopri l'appartamento", href: "#apartment" }}
+    imageAlt="Soggiorno elegante dell'appartamento Roma284 nel centro storico di Piacenza"
+  />
+
+  <TrustStrip />
+
+  <UspCards />
+
+  <GalleryScroll
+    title="L'appartamento in immagini"
+    subtitle="Dieci scatti del bilocale, dalla cucina open space al patio privato sul cortile interno."
+  />
+
+  <ApartmentPreview
+    detailsHref={localizedPath("apartment", locale)}
+    ctaLabel="Vedi tutti i dettagli"
+  />
+
+  <LocationSection
+    ctaHref={localizedPath("getting-here", locale)}
+    ctaLabel="Come arrivare a Piacenza"
+  />
+
+  <Faq
+    title="Domande frequenti"
+    ctaHref={localizedPath("faq", locale)}
+    ctaLabel="Tutte le FAQ"
+  />
+
+  <Testimonials title="Cosa dicono gli ospiti" />
+
+  <WhyBookDirect
+    title="Perché prenotare direttamente"
+    subtitle="Stesso appartamento, vantaggi in più quando prenoti con noi senza intermediari."
+  />
+
+  <BookingWidget
+    locale={locale}
+    title="Verifica disponibilità e prenota"
+    subtitle="Scegli le date: conferma immediata, contatto diretto con noi."
+  />
+
+  <FinalCta
+    title="Hai domande prima di prenotare?"
+    text="Scrivici su WhatsApp: rispondiamo di solito entro un'ora."
+    buttonLabel="Scrivici su WhatsApp"
+  />
+</Layout>

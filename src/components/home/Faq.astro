@@ -1,0 +1,35 @@
+---
+import { FAQ_HOME_IT } from "@data/faq";
+
+interface Props {
+  title: string;
+  ctaHref: string;
+  ctaLabel: string;
+}
+const { title, ctaHref, ctaLabel } = Astro.props;
+---
+
+<section id="faq" class="scroll-mt-20 bg-avorio py-16 lg:py-24">
+  <div class="mx-auto max-w-(--breakpoint-xl) px-6">
+    <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
+
+    {/* Domande visibili (no accordion) — citation-friendly per gli AI */}
+    <div class="mt-10 grid gap-x-12 gap-y-8 lg:grid-cols-2">
+      {
+        FAQ_HOME_IT.map((item) => (
+          <div data-reveal>
+            <h3 class="text-lg font-semibold text-antracite">{item.q}</h3>
+            <p class="mt-2 leading-relaxed text-grigio">{item.a}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <a
+      href={ctaHref}
+      class="mt-10 inline-flex items-center gap-2 font-medium text-terracotta hover:text-terracotta-dark"
+    >
+      {ctaLabel} →
+    </a>
+  </div>
+</section>

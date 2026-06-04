@@ -1,0 +1,30 @@
+---
+import { SITE } from "@lib/site";
+import Icon from "../Icon.astro";
+
+interface Props {
+  title: string;
+  text: string;
+  buttonLabel: string;
+  message?: string;
+}
+const { title, text, buttonLabel, message = "Ciao, vorrei info su Roma284" } = Astro.props;
+const wa = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+---
+
+<section class="bg-terracotta">
+  <div class="mx-auto max-w-(--breakpoint-xl) px-6 py-16 text-center lg:py-20">
+    <h2 class="font-display text-3xl text-white lg:text-4xl">{title}</h2>
+    <p class="mx-auto mt-3 max-w-xl text-crema/90">{text}</p>
+    <a
+      href={wa}
+      target="_blank"
+      rel="noopener"
+      data-evt="whatsapp_click"
+      class="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-medium text-terracotta transition hover:bg-crema"
+    >
+      <Icon name="whatsapp" class="size-5" />
+      {buttonLabel}
+    </a>
+  </div>
+</section>

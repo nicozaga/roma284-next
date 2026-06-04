@@ -1,0 +1,29 @@
+---
+import type { Locale } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+import { useTranslations } from "@i18n/ui";
+import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+  /** Ancora interna se presente nella pagina (es. #book), altrimenti la pagina /prenota. */
+  href?: string;
+}
+const { locale, href } = Astro.props;
+const t = useTranslations(locale);
+const target = href ?? localizedPath("book", locale);
+---
+
+<div
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-antracite/10 bg-crema/95 px-4 py-3 backdrop-blur-md lg:hidden"
+>
+  <a
+    href={target}
+    data-evt="cta_click"
+    data-evt-label="sticky_mobile"
+    class="flex w-full items-center justify-center gap-2 rounded-full bg-terracotta px-6 py-3 font-medium text-white"
+  >
+    {t("cta.check_availability")}
+    <Icon name="arrow" class="size-4" />
+  </a>
+</div>

@@ -1,0 +1,76 @@
+---
+import { LOCALE_META, type Locale } from "@i18n/config";
+import { getAlternates, localizedUrl } from "@i18n/utils";
+import type { PageKey } from "@i18n/slugs";
+import { SITE } from "@lib/site";
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  page: PageKey;
+  /** URL immagine OG assoluta o relativa a /public (1200x630). */
+  image?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  locale,
+  page,
+  image = "/og/default.jpg",
+  ogType = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonical = localizedUrl(page, locale);
+const alternates = getAlternates(page);
+const meta = LOCALE_META[locale];
+const ogImage = image.startsWith("http") ? image : SITE.url + image;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+{/* Hreflang — tutte le varianti + x-default */}
+{
+  alternates.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+  ))
+}
+
+{/* Open Graph */}
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content={meta.ogLocale} />
+{
+  getAlternates(page)
+    .filter((a) => a.hreflang !== "x-default" && a.locale !== locale)
+    .map((a) => (
+      <meta property="og:locale:alternate" content={LOCALE_META[a.locale].ogLocale} />
+    ))
+}
+
+{/* Twitter */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{/* AI / citation */}
+<meta name="ai-content-declaration" content="human-written" />
+<meta name="citation_title" content={title} />
+<meta name="citation_author" content="Roma284" />
+<meta name="citation_publisher" content="Roma284" />
+<link rel="alternate" type="text/markdown" href="/llms.txt" />
+<link rel="alternate" type="text/markdown" href="/llms-full.txt" />

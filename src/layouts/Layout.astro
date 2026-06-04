@@ -1,0 +1,143 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { LOCALE_META, type Locale } from "@i18n/config";
+import type { PageKey } from "@i18n/slugs";
+import SEO from "@components/SEO.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import WhatsAppButton from "@components/WhatsAppButton.astro";
+import StickyMobileCta from "@components/StickyMobileCta.astro";
+import { SITE } from "@lib/site";
+import "../styles/global.css";
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+  title: string;
+  description: string;
+  image?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  /** Mostra la sticky CTA mobile (default true). Ancora opzionale es. "#book". */
+  stickyCta?: boolean;
+  stickyCtaHref?: string;
+}
+
+const {
+  locale,
+  page,
+  title,
+  description,
+  image,
+  ogType,
+  noindex,
+  stickyCta = true,
+  stickyCtaHref,
+} = Astro.props;
+const meta = LOCALE_META[locale];
+---
+
+<!doctype html>
+<html lang={meta.htmlLang} dir={meta.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#C67557" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Preconnect a Lodgify (widget prenotazione caricato lazy) */}
+    <link rel="preconnect" href="https://app.lodgify.com" crossorigin />
+
+    {/* Preload font critici self-hosted */}
+    <link
+      rel="preload"
+      href="/fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/fraunces-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <SEO
+      title={title}
+      description={description}
+      locale={locale}
+      page={page}
+      image={image}
+      ogType={ogType}
+      noindex={noindex}
+    />
+
+    <ClientRouter />
+
+    {/* GA4 con Consent Mode default DENIED (GDPR-safe).
+        Il banner cookie (Settimana 5) farà l'update del consenso. */}
+    <script is:inline define:vars={{ ga: SITE.ga4 }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500,
+      });
+      gtag("js", new Date());
+      gtag("config", ga, { anonymize_ip: true });
+    </script>
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}
+    ></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only rounded-full bg-terracotta px-4 py-2 text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
+    >{meta.htmlLang.startsWith("it") ? "Vai al contenuto" : "Skip to content"}</a>
+
+    <Header locale={locale} page={page} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer locale={locale} page={page} />
+    <WhatsAppButton />
+    {stickyCta && <StickyMobileCta locale={locale} href={stickyCtaHref} />}
+
+    {/* Scroll reveal leggero — Intersection Observer, no librerie */}
+    <script is:inline>
+      const reveal = () => {
+        const els = document.querySelectorAll("[data-reveal]");
+        if (!("IntersectionObserver" in window)) {
+          els.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px" },
+        );
+        els.forEach((el) => io.observe(el));
+      };
+      reveal();
+      document.addEventListener("astro:after-swap", reveal);
+    </script>
+  </body>
+</html>

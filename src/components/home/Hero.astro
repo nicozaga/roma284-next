@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "@assets/hero/IMG_4058-2211w.webp";
+import Icon from "../Icon.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  ctaPrimary: { label: string; href: string };
+  ctaSecondary: { label: string; href: string };
+  imageAlt: string;
+}
+const { eyebrow, title, subtitle, ctaPrimary, ctaSecondary, imageAlt } = Astro.props;
+---
+
+<section class="relative isolate flex min-h-[88vh] items-center overflow-hidden">
+  {/* LCP image — eager, alta priorità, NON lazy */}
+  <Image
+    src={heroImg}
+    alt={imageAlt}
+    widths={[800, 1200, 1920]}
+    sizes="100vw"
+    format="avif"
+    loading="eager"
+    fetchpriority="high"
+    class="absolute inset-0 -z-10 size-full object-cover"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-antracite/75 via-antracite/35 to-antracite/20"
+  >
+  </div>
+
+  <div class="mx-auto w-full max-w-(--breakpoint-xl) px-6 py-24">
+    <p class="text-sm font-medium uppercase tracking-[0.25em] text-crema/90">
+      {eyebrow}
+    </p>
+    <h1 class="mt-4 max-w-3xl text-4xl text-white sm:text-5xl lg:text-6xl">
+      {title}
+    </h1>
+    <p class="mt-5 max-w-xl text-lg text-crema/90">{subtitle}</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href={ctaPrimary.href}
+        data-evt="cta_click"
+        data-evt-label="hero_primary"
+        class="rounded-full bg-terracotta px-7 py-3.5 font-medium text-white shadow-lg shadow-black/10 transition hover:bg-terracotta-dark"
+      >
+        {ctaPrimary.label}
+      </a>
+      <a
+        href={ctaSecondary.href}
+        class="rounded-full border border-white/40 bg-white/5 px-7 py-3.5 font-medium text-white backdrop-blur-sm transition hover:bg-white/15"
+      >
+        {ctaSecondary.label}
+      </a>
+    </div>
+  </div>
+
+  <a
+    href="#apartment"
+    aria-label="Scorri"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce text-white/80"
+  >
+    <Icon name="chevron" class="size-7" />
+  </a>
+</section>

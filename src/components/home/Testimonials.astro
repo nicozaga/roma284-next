@@ -1,0 +1,48 @@
+---
+import { REVIEWS_IT } from "@data/reviews";
+import { SITE } from "@lib/site";
+import Icon from "../Icon.astro";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+const fmt = (iso: string) =>
+  new Date(iso).toLocaleDateString("it-IT", { month: "long", year: "numeric" });
+---
+
+<section class="mx-auto max-w-(--breakpoint-xl) px-6 py-16 lg:py-24">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
+    <p class="text-sm text-grigio">
+      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> ·
+      {SITE.rating.airbnbCount} recensioni
+    </p>
+  </div>
+
+  <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      REVIEWS_IT.map((r) => (
+        <figure
+          data-reveal
+          class="flex flex-col rounded-2xl border border-antracite/8 bg-white p-6"
+        >
+          <span class="flex text-terracotta" aria-label={`${r.rating} su 5`}>
+            {Array.from({ length: r.rating }).map(() => (
+              <Icon name="star" class="size-4 fill-terracotta" />
+            ))}
+          </span>
+          <blockquote class="mt-3 grow text-sm leading-relaxed text-antracite">
+            {r.body}
+          </blockquote>
+          <figcaption class="mt-4 text-sm text-grigio">
+            <span class="font-medium text-antracite">{r.author}</span>
+            <span class="block text-xs">
+              {fmt(r.date)} · {r.source}
+            </span>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

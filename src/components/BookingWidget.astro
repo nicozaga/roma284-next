@@ -1,0 +1,75 @@
+---
+import type { Locale } from "@i18n/config";
+import { SITE } from "@lib/site";
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  subtitle?: string;
+}
+const { locale, title, subtitle } = Astro.props;
+
+// Mappa locale sito → codice lingua Lodgify.
+const LODGIFY_LANG: Record<Locale, string> = {
+  it: "it", en: "en", fr: "fr", es: "es", pt: "pt", de: "de",
+  nl: "nl", sv: "sv", pl: "pl", ja: "ja", "zh-cn": "zh",
+};
+const lang = LODGIFY_LANG[locale];
+---
+
+<section id="book" class="scroll-mt-20 py-16 lg:py-24">
+  <div class="mx-auto max-w-3xl px-6 text-center">
+    {title && <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>}
+    {subtitle && <p class="mt-3 text-grigio">{subtitle}</p>}
+    <p class="mt-4 text-sm text-grigio">
+      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> su Airbnb ·
+      {SITE.rating.airbnbCount} recensioni · Superhost
+    </p>
+
+    <div class="mt-8" data-evt-view="booking_widget_view">
+      <div
+        id="lodgify-book-now-box"
+        data-rental-id={SITE.lodgify.rentalId}
+        data-website-id={SITE.lodgify.websiteId}
+        data-slug={SITE.lodgify.slug}
+        data-language-code={lang}
+        data-new-tab="true"
+        data-version="stable"
+        data-has-guests-breakdown
+      >
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Lazy-load: lo script Lodgify viene caricato solo quando il widget si avvicina
+    al viewport, così non blocca l'LCP. */}
+<script is:inline>
+  (() => {
+    const box = document.getElementById("lodgify-book-now-box");
+    if (!box) return;
+    let loaded = false;
+    const load = () => {
+      if (loaded) return;
+      loaded = true;
+      const s = document.createElement("script");
+      s.src = "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js";
+      s.defer = true;
+      document.body.appendChild(s);
+    };
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            load();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "400px" },
+      );
+      io.observe(box);
+    } else {
+      load();
+    }
+  })();
+</script>
