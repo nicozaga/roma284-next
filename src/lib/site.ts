@@ -17,7 +17,7 @@ export const SITE = {
     region: "Emilia-Romagna",
     countryCode: "IT",
   },
-  geo: { lat: 45.052236, lng: 9.692582 },
+  geo: { lat: 45.048520, lng: 9.704401 },
   rating: { airbnb: "4.97", airbnbCount: 38, booking: "9.6" },
   host: { name: "Romina", responseRate: "100%", responseTime: "entro un'ora" },
   stay: { checkIn: "15:00", checkOut: "10:00", maxGuests: 4, sizeSqm: 50 },

@@ -16,9 +16,10 @@ const T = {
   it: { eyebrow: "Posizione strategica", h2: "Nel centro di Piacenza, a un passo da Milano", intro: "Roma284 si trova in Via Roma 284, nel cuore del centro storico di Piacenza. La Frecciarossa porta a Milano Centrale in 33 minuti e tutto il centro è raggiungibile a piedi.", walk: "A piedi raggiungi:", load: "Carica la mappa" },
   en: { eyebrow: "Prime location", h2: "In central Piacenza, a step from Milan", intro: "Roma284 is on Via Roma 284, in the heart of Piacenza's historic centre. The Frecciarossa reaches Milan Centrale in 33 minutes and the whole centre is walkable.", walk: "On foot you reach:", load: "Load the map" },
 }[locale as "it" | "en"] ?? { eyebrow: "", h2: "", intro: "", walk: "", load: "" };
-const { lat, lng } = SITE.geo;
-const bbox = `${lng - 0.006},${lat - 0.004},${lng + 0.006},${lat + 0.004}`;
-const osmSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}`;
+// Mappa caricata per indirizzo (geocoding di Google): il pin punta sempre al
+// civico corretto senza dipendere da coordinate scritte a mano.
+const mapQuery = "Via Roma 284, 29121 Piacenza, Italia";
+const osmSrc = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`;
 ---
 
 <section class="mx-auto max-w-(--breakpoint-xl) px-6 py-16 lg:py-24">

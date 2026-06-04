@@ -42,34 +42,10 @@ const lang = LODGIFY_LANG[locale];
   </div>
 </section>
 
-{/* Lazy-load: lo script Lodgify viene caricato solo quando il widget si avvicina
-    al viewport, così non blocca l'LCP. */}
-<script is:inline>
-  (() => {
-    const box = document.getElementById("lodgify-book-now-box");
-    if (!box) return;
-    let loaded = false;
-    const load = () => {
-      if (loaded) return;
-      loaded = true;
-      const s = document.createElement("script");
-      s.src = "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js";
-      s.defer = true;
-      document.body.appendChild(s);
-    };
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((e) => e.isIntersecting)) {
-            load();
-            io.disconnect();
-          }
-        },
-        { rootMargin: "400px" },
-      );
-      io.observe(box);
-    } else {
-      load();
-    }
-  })();
-</script>
+{/* Script Lodgify caricato con defer (metodo ufficiale): non blocca il render
+    e si inizializza correttamente dopo il parsing della pagina. */}
+<script
+  is:inline
+  defer
+  src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js"
+></script>
