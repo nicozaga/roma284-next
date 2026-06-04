@@ -26,7 +26,8 @@ const CMAP = {
     crumbHome: "Home", crumb: "Quartiere",
     sightsTitle: "Cosa vedere a piedi", eatTitle: "Dove mangiare",
     eatIntro: "Una selezione di ristoranti, trattorie e pizzerie nel raggio di pochi minuti a piedi, dalla cucina piacentina tradizionale alle proposte di pesce e internazionali.",
-    shopTitle: "Spesa e servizi",
+    shopTitle: "Spesa e servizi", mapsLabel: "Apri in Maps",
+    distNote: "Distanze approssimative a piedi da Via Roma 284; il link Maps mostra il percorso esatto.",
     rel: [
       { page: "visit-piacenza", title: "Visitare Piacenza", text: "Itinerari da 1 giorno a un weekend tra arte e cucina." },
       { page: "getting-here", title: "Come arrivare", text: "Tutti i collegamenti da Milano, aeroporti e autostrada." },
@@ -41,7 +42,8 @@ const CMAP = {
     crumbHome: "Home", crumb: "Area",
     sightsTitle: "What to see on foot", eatTitle: "Where to eat",
     eatIntro: "A selection of restaurants, trattorias and pizzerias within a few minutes' walk, from traditional Piacenza cuisine to fish and international options.",
-    shopTitle: "Shopping and services",
+    shopTitle: "Shopping and services", mapsLabel: "Open in Maps",
+    distNote: "Approximate walking distances from Via Roma 284; the Maps link shows the exact route.",
     rel: [
       { page: "visit-piacenza", title: "Visit Piacenza", text: "Itineraries from 1 day to a weekend, between art and food." },
       { page: "getting-here", title: "Getting here", text: "All connections from Milan, airports and motorway." },
@@ -50,6 +52,9 @@ const CMAP = {
   },
 };
 const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
+
+const mapsUrl = (q: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
 const crumbs = [
   { name: C.crumbHome, href: localizedPath("home", locale) },
@@ -80,15 +85,23 @@ const schema = [
   </ContentSection>
 
   <ContentSection title={C.eatTitle} variant="avorio">
-    <p class="mb-6 max-w-2xl text-grigio">{C.eatIntro}</p>
+    <p class="mb-1 max-w-2xl text-grigio">{C.eatIntro}</p>
+    <p class="mb-6 text-xs text-grigio/80">{C.distNote}</p>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {n.restaurants.map((r) => (
-        <div class="rounded-xl border border-antracite/8 bg-white p-5">
+        <div class="flex flex-col rounded-xl border border-antracite/8 bg-white p-5">
           <div class="flex items-baseline justify-between gap-2">
             <h3 class="text-base font-semibold text-antracite">{r.name}</h3>
             <span class="text-xs uppercase tracking-wider text-terracotta">{r.type}</span>
           </div>
-          <p class="mt-1.5 text-sm text-grigio">{r.note}</p>
+          <p class="mt-1.5 grow text-sm text-grigio">{r.note}</p>
+          <p class="mt-3 flex items-center gap-1.5 text-xs text-grigio">
+            <Icon name="pin" class="size-3.5 text-salvia" />{r.address} · {r.dist}
+          </p>
+          <a href={mapsUrl(r.query)} target="_blank" rel="noopener"
+            class="mt-1 inline-flex items-center gap-1 text-xs font-medium text-terracotta hover:text-terracotta-dark">
+            {C.mapsLabel} →
+          </a>
         </div>
       ))}
     </div>
@@ -97,9 +110,16 @@ const schema = [
   <ContentSection title={C.shopTitle} variant="crema">
     <div class="grid gap-4 sm:grid-cols-3">
       {n.supermarkets.map((s) => (
-        <div class="rounded-xl bg-avorio p-5">
+        <div class="flex flex-col rounded-xl bg-avorio p-5">
           <h3 class="font-semibold text-antracite">{s.name}</h3>
-          <p class="mt-1 text-sm text-grigio">{s.note}</p>
+          <p class="mt-1 grow text-sm text-grigio">{s.note}</p>
+          <p class="mt-3 flex items-center gap-1.5 text-xs text-grigio">
+            <Icon name="pin" class="size-3.5 text-salvia" />{s.address} · {s.dist}
+          </p>
+          <a href={mapsUrl(s.query)} target="_blank" rel="noopener"
+            class="mt-1 inline-flex items-center gap-1 text-xs font-medium text-terracotta hover:text-terracotta-dark">
+            {C.mapsLabel} →
+          </a>
         </div>
       ))}
     </div>

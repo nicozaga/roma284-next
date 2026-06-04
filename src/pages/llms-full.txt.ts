@@ -58,7 +58,7 @@ export const GET: APIRoute = async () => {
   for (const s of SIGHTS_IT) p(`- ${s.name}: ${s.note}`);
   p();
   p("## Dove mangiare");
-  for (const r of RESTAURANTS_IT) p(`- ${r.name} (${r.type}): ${r.note}`);
+  for (const r of RESTAURANTS_IT) p(`- ${r.name} (${r.type}, ${r.address}, ${r.dist}): ${r.note}`);
   p();
   p("## Domande frequenti");
   for (const cat of FAQ_FULL_IT) {
