@@ -15,6 +15,16 @@ const LODGIFY_LANG: Record<Locale, string> = {
   nl: "nl", sv: "sv", pl: "pl", ja: "ja", "zh-cn": "zh",
 };
 const lang = LODGIFY_LANG[locale];
+
+// Etichette del widget Lodgify (il box non le mostra senza questi data-*-label).
+// Verificate dal vivo: check-in/check-out sono indispensabili.
+type WLabels = { checkIn: string; checkOut: string; guests: string };
+const LABELS: Partial<Record<Locale, WLabels>> = {
+  it: { checkIn: "Check-in", checkOut: "Check-out", guests: "Ospiti" },
+  en: { checkIn: "Check-in", checkOut: "Check-out", guests: "Guests" },
+  fr: { checkIn: "Arrivée", checkOut: "Départ", guests: "Voyageurs" },
+};
+const L = LABELS[locale] ?? LABELS.en!;
 ---
 
 <section id="book" class="scroll-mt-20 py-16 lg:py-24">
@@ -33,6 +43,9 @@ const lang = LODGIFY_LANG[locale];
         data-website-id={SITE.lodgify.websiteId}
         data-slug={SITE.lodgify.slug}
         data-language-code={lang}
+        data-check-in-label={L.checkIn}
+        data-check-out-label={L.checkOut}
+        data-guests-label={L.guests}
         data-new-tab="true"
         data-version="stable"
         data-has-guests-breakdown
