@@ -20,7 +20,7 @@ export const FAQ_HOME: Partial<Record<Locale, FaqEntry[]>> = {
     { q: "A che ora sono il check-in e il check-out?", a: "Il check-in è dalle 15:00 e il check-out entro le 10:00. Prenotando in diretta possiamo concordare orari flessibili in base al tuo viaggio." },
     { q: "L'appartamento ha una cucina attrezzata?", a: "Sì, la cucina open space è completamente attrezzata: piano a induzione a 4 fuochi, forno combinato, lavastoviglie, frigorifero con freezer e macchina caffè Nespresso con cialde omaggio." },
     { q: "C'è uno spazio all'aperto?", a: "Sì, l'appartamento ha un patio privato arredato con tavolo e sedie sul tranquillo cortile interno, perfetto per la colazione al sole o un aperitivo la sera." },
-    { q: "Perché conviene prenotare direttamente sul sito?", a: "Prenotando in diretta hai contatto diretto con noi, check-in flessibile su richiesta e conferma immediata via WhatsApp o email, senza intermediari." },
+    { q: "Perché conviene prenotare direttamente sul sito?", a: "Prenotando in diretta eviti le commissioni delle piattaforme di prenotazione e di solito paghi fino al 15% in meno per lo stesso soggiorno. In più hai contatto diretto con noi, check-in flessibile su richiesta e conferma immediata via WhatsApp o email." },
     { q: "Roma284 è adatto a chi viaggia per lavoro o per le fiere di Milano?", a: "Sì. Con la Frecciarossa raggiungi Milano Centrale in 33 minuti e da lì la Fiera di Rho con la metropolitana (M2 fino a Cadorna, poi M1). È una base tranquilla e ben collegata per trasferte di lavoro ed eventi." },
   ],
   en: [
@@ -33,7 +33,7 @@ export const FAQ_HOME: Partial<Record<Locale, FaqEntry[]>> = {
     { q: "What are the check-in and check-out times?", a: "Check-in is from 15:00 and check-out by 10:00. When you book direct, we can arrange flexible times around your trip." },
     { q: "Does the apartment have a fully equipped kitchen?", a: "Yes, the open-plan kitchen is fully equipped: 4-ring induction hob, combi oven, dishwasher, fridge with freezer and a Nespresso coffee machine with complimentary capsules." },
     { q: "Is there an outdoor space?", a: "Yes, the apartment has a furnished private patio with table and chairs on the quiet inner courtyard, perfect for breakfast in the sun or an evening aperitif." },
-    { q: "Why is it better to book directly on the website?", a: "Booking direct, you get direct contact with us, flexible check-in on request and instant confirmation by WhatsApp or email, with no middlemen." },
+    { q: "Why is it better to book directly on the website?", a: "Booking direct, you skip the booking platforms' fees and usually pay up to 15% less for the same stay. You also get direct contact with us, flexible check-in on request and instant confirmation by WhatsApp or email." },
     { q: "Is Roma284 suitable for business trips or the Milan fairs?", a: "Yes. The Frecciarossa reaches Milan Centrale in 33 minutes, and from there the Rho fairground by metro (M2 to Cadorna, then M1). It is a quiet, well-connected base for business trips and events." },
   ],
 };

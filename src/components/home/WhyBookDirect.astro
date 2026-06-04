@@ -10,20 +10,61 @@ interface Props {
 }
 const { title, subtitle, locale = "it" } = Astro.props;
 const items = pick(WHY_DIRECT, locale);
-const eyebrow = locale === "en" ? "Direct booking" : "Prenotazione diretta";
+
+const T = {
+  it: {
+    eyebrow: "Prenotazione diretta",
+    saveBadge: "Fino al 15% in meno",
+    saveTitle: "Il prezzo più basso lo trovi qui",
+    saveText: "Prenotando direttamente su questo sito eviti le commissioni delle piattaforme di prenotazione. A parità di soggiorno paghi di solito fino al 15% in meno: lo stesso appartamento, senza costi di intermediazione.",
+  },
+  en: {
+    eyebrow: "Direct booking",
+    saveBadge: "Up to 15% less",
+    saveTitle: "The best price is right here",
+    saveText: "Booking directly on this site, you skip the booking platforms' fees. For the same stay you usually pay up to 15% less: the same apartment, with no intermediary costs.",
+  },
+  fr: {
+    eyebrow: "Réservation directe",
+    saveBadge: "Jusqu'à 15 % de moins",
+    saveTitle: "Le meilleur prix, c'est ici",
+    saveText: "En réservant directement sur ce site, vous évitez les commissions des plateformes de réservation. Pour le même séjour, vous payez généralement jusqu'à 15 % de moins : le même appartement, sans frais d'intermédiaire.",
+  },
+}[locale as "it" | "en" | "fr"] ?? null;
+const L = T ?? {
+  eyebrow: "Direct booking", saveBadge: "Up to 15% less",
+  saveTitle: "The best price is right here",
+  saveText: "Booking directly on this site, you skip Airbnb and Booking fees. For the same stay you usually pay up to 15% less.",
+};
 ---
 
 <section class="bg-salvia/10 py-16 lg:py-24">
   <div class="mx-auto max-w-(--breakpoint-xl) px-6">
     <div class="max-w-2xl">
       <p class="text-sm font-medium uppercase tracking-[0.2em] text-salvia-dark">
-        {eyebrow}
+        {L.eyebrow}
       </p>
       <h2 class="mt-3 font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
       {subtitle && <p class="mt-4 text-grigio">{subtitle}</p>}
     </div>
 
-    <div class="mt-10 grid gap-6 md:grid-cols-3">
+    {/* Banner risparmio — il vantaggio economico, in evidenza */}
+    <div
+      data-reveal
+      class="mt-8 flex flex-col gap-4 rounded-2xl bg-terracotta px-6 py-6 text-white sm:flex-row sm:items-center sm:gap-6 lg:px-8"
+    >
+      <span
+        class="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold"
+      >
+        <Icon name="tag" class="size-4" />{L.saveBadge}
+      </span>
+      <div>
+        <p class="font-display text-xl">{L.saveTitle}</p>
+        <p class="mt-1 text-sm leading-relaxed text-crema/95">{L.saveText}</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
       {
         items.map((w) => (
           <article data-reveal class="rounded-2xl bg-white p-7">

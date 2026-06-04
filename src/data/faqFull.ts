@@ -10,7 +10,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
   it: [
     { category: "Prenotazione", items: [
       { q: "Come prenoto Roma284?", a: "Puoi prenotare direttamente dal sito nella pagina Prenota, scegliendo le date sul calendario. Ricevi la conferma immediata via email." },
-      { q: "Perché conviene prenotare in diretta?", a: "Prenotando in diretta hai contatto diretto con noi, check-in flessibile su richiesta e conferma immediata, senza intermediari." },
+      { q: "Perché conviene prenotare in diretta?", a: "Prenotando in diretta eviti le commissioni delle piattaforme di prenotazione e di solito paghi fino al 15% in meno per lo stesso soggiorno. Hai inoltre contatto diretto con noi, check-in flessibile su richiesta e conferma immediata." },
       { q: "Posso prenotare per una sola notte?", a: "La durata minima del soggiorno può variare in base al periodo. Scrivici su WhatsApp e verifichiamo subito la disponibilità per le tue date." },
       { q: "Quante persone posso ospitare?", a: "L'appartamento ospita fino a 4 persone: letto matrimoniale (separabile in due singoli) e due poltrone letto singolo in soggiorno." },
       { q: "Posso portare il mio animale domestico?", a: "Sì, gli animali domestici sono sempre benvenuti a Roma284, senza costi aggiuntivi." },
@@ -49,7 +49,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
   en: [
     { category: "Booking", items: [
       { q: "How do I book Roma284?", a: "You can book directly on the site from the Book page, choosing your dates on the calendar. You get instant confirmation by email." },
-      { q: "Why is booking direct better?", a: "Booking direct, you get direct contact with us, flexible check-in on request and instant confirmation, with no middlemen." },
+      { q: "Why is booking direct better?", a: "Booking direct, you skip the booking platforms' fees and usually pay up to 15% less for the same stay. You also get direct contact with us, flexible check-in on request and instant confirmation." },
       { q: "Can I book for a single night?", a: "The minimum stay can vary by season. Message us on WhatsApp and we'll check availability for your dates right away." },
       { q: "How many people can I host?", a: "The apartment hosts up to 4 people: a double bed (splittable into two singles) and two single sofa beds in the living room." },
       { q: "Can I bring my pet?", a: "Yes, pets are always welcome at Roma284, at no extra cost." },
