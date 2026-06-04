@@ -122,9 +122,5 @@ const L = LABELS[locale] ?? LABELS.en!;
   </div>
 </section>
 
-{/* Portable Search Bar — script ufficiale, defer (si inizializza dopo il parsing). */}
-<script
-  is:inline
-  defer
-  src="https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js"
-></script>
+{/* L'inizializzazione del widget Lodgify è centralizzata nel Layout
+    (gestisce View Transitions e prima visita). */}

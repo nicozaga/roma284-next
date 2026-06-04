@@ -138,6 +138,21 @@ const meta = LOCALE_META[locale];
       };
       reveal();
       document.addEventListener("astro:after-swap", reveal);
+
+      // Widget Lodgify (Portable Search Bar): (ri)render ad ogni page-load,
+      // così compare anche con le View Transitions e alla prima visita.
+      const ensureSearchBar = () => {
+        const box = document.getElementById("lodgify-search-bar");
+        if (!box || box.children.length > 0) return;
+        const old = document.getElementById("lodgify-psb-script");
+        if (old) old.remove();
+        const s = document.createElement("script");
+        s.id = "lodgify-psb-script";
+        s.src = "https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js";
+        document.body.appendChild(s);
+      };
+      document.addEventListener("astro:page-load", ensureSearchBar);
+      ensureSearchBar();
     </script>
   </body>
 </html>
