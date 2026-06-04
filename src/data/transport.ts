@@ -40,11 +40,11 @@ export const ROUTES: Partial<Record<Locale, Route[]>> = {
     },
     {
       id: "auto", from: "In auto (Autostrada A1)", duration: "uscita Piacenza Sud/Ovest",
-      summary: "Piacenza è sull'Autostrada del Sole A1, a circa un'ora da Milano in auto. In centro è disponibile parcheggio gratuito in strada.",
+      summary: "Piacenza è sull'Autostrada del Sole A1, a circa un'ora da Milano in auto. In Via Roma il parcheggio è su strisce blu; in alternativa c'è un parcheggio custodito a 300 metri a piedi.",
       steps: [
         { name: "Esci dall'A1", text: "Prendi l'uscita Piacenza Sud o Piacenza Ovest e segui per il centro storico." },
         { name: "Arriva in Via Roma", text: "Raggiungi Via Roma 284, nel cuore del centro." },
-        { name: "Parcheggia gratis", text: "Trovi parcheggio gratuito in strada nelle vicinanze; l'ingresso è al piano terra." },
+        { name: "Parcheggia", text: "In Via Roma il parcheggio è su strisce blu; in alternativa il parcheggio custodito Urban Center, a soli 4 € al giorno e 300 metri a piedi. L'ingresso all'appartamento è al piano terra." },
       ],
     },
     {
@@ -87,11 +87,11 @@ export const ROUTES: Partial<Record<Locale, Route[]>> = {
     },
     {
       id: "auto", from: "By car (A1 motorway)", duration: "Piacenza Sud/Ovest exit",
-      summary: "Piacenza is on the A1 motorway, about an hour from Milan by car. Free on-street parking is available in the centre.",
+      summary: "Piacenza is on the A1 motorway, about an hour from Milan by car. On Via Roma parking is on blue lines; alternatively there's a guarded car park a 300-metre walk away.",
       steps: [
         { name: "Exit the A1", text: "Take the Piacenza Sud or Piacenza Ovest exit and follow signs for the historic centre." },
         { name: "Reach Via Roma", text: "Reach Via Roma 284, in the heart of the centre." },
-        { name: "Park for free", text: "You'll find free on-street parking nearby; the entrance is on the ground floor." },
+        { name: "Park", text: "On Via Roma parking is on blue lines; alternatively the guarded Urban Center car park, just €4 a day and a 300-metre walk. The apartment entrance is on the ground floor." },
       ],
     },
     {
