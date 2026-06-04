@@ -17,8 +17,35 @@ export function organizationSchema() {
   };
 }
 
-export function lodgingBusinessSchema(opts: { lang: string }) {
+export interface ReviewInput {
+  author: string;
+  title: string;
+  score: number;
+  scale: number;
+  body: string;
+}
+
+export function lodgingBusinessSchema(opts: {
+  lang: string;
+  reviews?: ReviewInput[];
+}) {
+  const review =
+    opts.reviews && opts.reviews.length > 0
+      ? opts.reviews.map((r) => ({
+          "@type": "Review",
+          name: r.title,
+          author: { "@type": "Person", name: r.author },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: r.score,
+            bestRating: r.scale,
+            worstRating: 1,
+          },
+          reviewBody: r.body,
+        }))
+      : undefined;
   return {
+    ...(review ? { review } : {}),
     "@type": "LodgingBusiness",
     "@id": `${SITE.url}/#lodging`,
     name: SITE.name,
@@ -26,6 +53,7 @@ export function lodgingBusinessSchema(opts: { lang: string }) {
     email: SITE.email,
     telephone: SITE.phone,
     inLanguage: opts.lang,
+    petsAllowed: true,
     address: {
       "@type": "PostalAddress",
       streetAddress: SITE.address.street,

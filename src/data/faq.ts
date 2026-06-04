@@ -29,6 +29,10 @@ export const FAQ_HOME_IT: FaqEntry[] = [
     a: "Sì, è disponibile il parcheggio gratuito in strada nelle vicinanze. L'ingresso all'appartamento è al piano terra, senza scale.",
   },
   {
+    q: "Posso portare il mio animale domestico?",
+    a: "Sì, gli animali domestici sono sempre benvenuti a Roma284, senza costi aggiuntivi. Il patio privato sul cortile interno è comodo anche per chi viaggia con il cane.",
+  },
+  {
     q: "A che ora sono il check-in e il check-out?",
     a: "Il check-in è dalle 15:00 e il check-out entro le 10:00. Prenotando in diretta possiamo concordare orari flessibili in base al tuo viaggio.",
   },

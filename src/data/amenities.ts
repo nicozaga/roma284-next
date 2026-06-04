@@ -46,4 +46,11 @@ export const AMENITIES_IT: AmenityGroup[] = [
       "Parcheggio gratuito in strada",
     ],
   },
+  {
+    title: "Pet-friendly",
+    items: [
+      "Animali domestici sempre benvenuti, gratuitamente",
+      "Patio privato comodo anche per chi viaggia con il cane",
+    ],
+  },
 ];

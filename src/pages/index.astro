@@ -22,6 +22,7 @@ import {
   breadcrumbSchema,
 } from "@lib/schema";
 import { FAQ_HOME_IT } from "@data/faq";
+import { REVIEWS_IT, REVIEWS_VERIFIED } from "@data/reviews";
 
 const locale = "it" as const;
 const lang = LOCALE_META[locale].htmlLang;
@@ -30,8 +31,18 @@ const title = "Appartamento nel centro di Piacenza, 33 min da Milano | Roma284";
 const description =
   "Roma284: appartamento boutique nel centro storico di Piacenza, a 33 minuti da Milano in Frecciarossa. WiFi 1 Gbit/s, patio privato. Prenota diretto.";
 
+const reviews = REVIEWS_VERIFIED
+  ? REVIEWS_IT.map((r) => ({
+      author: r.author,
+      title: r.title,
+      score: r.score,
+      scale: r.scale,
+      body: r.body,
+    }))
+  : undefined;
+
 const schema = [
-  lodgingBusinessSchema({ lang }),
+  lodgingBusinessSchema({ lang, reviews }),
   organizationSchema(),
   faqPageSchema(FAQ_HOME_IT.map((f) => ({ question: f.q, answer: f.a }))),
   breadcrumbSchema([{ name: "Home", url: localizedUrl("home", locale) }]),
