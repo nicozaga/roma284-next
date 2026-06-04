@@ -29,13 +29,13 @@ export const CONNECTIONS: Partial<Record<Locale, Conn[]>> = {
     { from: "Milano Centrale", mode: "Frecciarossa", time: "33 min" },
     { from: "Stazione di Piacenza", mode: "a piedi", time: "9 min · 900 m" },
     { from: "Piazza Cavalli e Duomo", mode: "a piedi", time: "5 min · 350 m" },
-    { from: "Fiera Milano Rho", mode: "Frecciarossa + M1", time: "~1 h" },
+    { from: "Fiera Milano Rho", mode: "Frecciarossa + metro", time: "~1 h 30" },
   ],
   en: [
     { from: "Milan Centrale", mode: "Frecciarossa", time: "33 min" },
     { from: "Piacenza station", mode: "on foot", time: "9 min · 900 m" },
     { from: "Piazza Cavalli & Cathedral", mode: "on foot", time: "5 min · 350 m" },
-    { from: "Fiera Milano Rho", mode: "Frecciarossa + M1", time: "~1 h" },
+    { from: "Fiera Milano Rho", mode: "Frecciarossa + metro", time: "~1 h 30" },
   ],
 };
 

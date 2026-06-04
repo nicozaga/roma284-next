@@ -33,7 +33,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Dove si trova esattamente l'appartamento?", a: "In Via Roma 284, nel centro storico di Piacenza. Piazza Cavalli e il Duomo sono a 350 metri (5 minuti a piedi)." },
       { q: "Quanto dista la stazione?", a: "La stazione di Piacenza è a 900 metri, circa 9 minuti a piedi." },
       { q: "Quanto ci vuole per Milano?", a: "Milano Centrale è a 33 minuti in Frecciarossa, con fino a 52 treni diretti al giorno (prima 06:07, ultima 23:52)." },
-      { q: "Come raggiungo la Fiera di Rho?", a: "Con la Frecciarossa fino a Milano e poi la metro M1 fino a Rho Fiera, in circa un'ora complessiva." },
+      { q: "Come raggiungo la Fiera di Rho?", a: "Con la Frecciarossa fino a Milano Centrale, poi la metro M2 fino a Cadorna e cambio con la M1 fino a Rho Fieramilano, in circa un'ora e mezza complessiva." },
       { q: "C'è parcheggio?", a: "In Via Roma il parcheggio è su strisce blu, a pagamento di giorno e gratuito dopo le 19. A circa 300 metri c'è anche il parcheggio custodito Urban Center Parking, in Stradone Farnese 126." },
     ] },
     { category: "Pagamenti", items: [
@@ -72,7 +72,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Where exactly is the apartment?", a: "At Via Roma 284, in the historic centre of Piacenza. Piazza Cavalli and the Cathedral are 350 metres away (5-minute walk)." },
       { q: "How far is the station?", a: "Piacenza station is 900 metres away, about a 9-minute walk." },
       { q: "How long to Milan?", a: "Milan Centrale is 33 minutes away by Frecciarossa, with up to 52 direct trains a day (first 06:07, last 23:52)." },
-      { q: "How do I reach the Rho fairground?", a: "By Frecciarossa to Milan and then metro M1 to Rho Fiera, in about an hour overall." },
+      { q: "How do I reach the Rho fairground?", a: "By Frecciarossa to Milan Centrale, then metro M2 to Cadorna and a change to M1 to Rho Fieramilano, in about an hour and a half overall." },
       { q: "Is there parking?", a: "On Via Roma, parking is on blue lines, paid during the day and free after 7pm. About 300 metres away there's also the guarded Urban Center Parking, at Stradone Farnese 126." },
     ] },
     { category: "Payments", items: [
