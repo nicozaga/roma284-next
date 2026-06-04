@@ -1,0 +1,106 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import Hero from "@components/home/Hero.astro";
+import TrustStrip from "@components/home/TrustStrip.astro";
+import UspCards from "@components/home/UspCards.astro";
+import GalleryScroll from "@components/home/GalleryScroll.astro";
+import ApartmentPreview from "@components/home/ApartmentPreview.astro";
+import LocationSection from "@components/home/LocationSection.astro";
+import Faq from "@components/home/Faq.astro";
+import Testimonials from "@components/home/Testimonials.astro";
+import WhyBookDirect from "@components/home/WhyBookDirect.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+import FinalCta from "@components/home/FinalCta.astro";
+
+import type { Locale } from "@i18n/config";
+import { LOCALE_META } from "@i18n/config";
+import { localizedPath, localizedUrl } from "@i18n/utils";
+import {
+  lodgingBusinessSchema,
+  organizationSchema,
+  faqPageSchema,
+  breadcrumbSchema,
+} from "@lib/schema";
+import { FAQ_HOME } from "@data/faq";
+import { pick } from "@data/content";
+import { REVIEWS_IT, REVIEWS_VERIFIED } from "@data/reviews";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const lang = LOCALE_META[locale].htmlLang;
+
+const CMAP = {
+  it: {
+    title: "Appartamento nel centro di Piacenza, 33 min da Milano | Roma284",
+    description: "Roma284: appartamento boutique nel centro storico di Piacenza, a 33 minuti da Milano in Frecciarossa. WiFi 1 Gbit/s, patio privato. Prenota diretto.",
+    eyebrow: "Piacenza · Centro storico",
+    h1: "Roma284 — Appartamento nel cuore di Piacenza",
+    sub: "La tua base elegante per Milano. 33 minuti in Frecciarossa, infinite possibilità.",
+    ctaCheck: "Verifica disponibilità", ctaDiscover: "Scopri l'appartamento",
+    heroAlt: "Soggiorno elegante dell'appartamento Roma284 nel centro storico di Piacenza",
+    galleryTitle: "L'appartamento in immagini",
+    gallerySub: "Dieci scatti del bilocale, dalla cucina open space al patio privato sul cortile interno.",
+    seeDetails: "Vedi tutti i dettagli", gettingHere: "Come arrivare a Piacenza",
+    faqTitle: "Domande frequenti", allFaq: "Tutte le FAQ",
+    reviewsTitle: "Cosa dicono gli ospiti",
+    whyTitle: "Perché prenotare direttamente",
+    whySub: "Stesso appartamento, vantaggi in più quando prenoti con noi senza intermediari.",
+    bookTitle: "Verifica disponibilità e prenota", bookSub: "Scegli le date: conferma immediata, contatto diretto con noi.",
+    finalTitle: "Hai domande prima di prenotare?", finalText: "Scrivici su WhatsApp: rispondiamo di solito entro un'ora.", finalBtn: "Scrivici su WhatsApp",
+  },
+  en: {
+    title: "Apartment in central Piacenza, 33 min from Milan | Roma284",
+    description: "Roma284: boutique apartment in the historic centre of Piacenza, 33 minutes from Milan by Frecciarossa. 1 Gbit/s Wi-Fi, private patio. Book direct.",
+    eyebrow: "Piacenza · Historic centre",
+    h1: "Roma284 — An apartment in the heart of Piacenza",
+    sub: "Your elegant base for Milan. 33 minutes by Frecciarossa, endless possibilities.",
+    ctaCheck: "Check availability", ctaDiscover: "Discover the apartment",
+    heroAlt: "Elegant living room of the Roma284 apartment in the historic centre of Piacenza",
+    galleryTitle: "The apartment in pictures",
+    gallerySub: "Ten shots of the apartment, from the open-plan kitchen to the private patio on the inner courtyard.",
+    seeDetails: "See all details", gettingHere: "Getting to Piacenza",
+    faqTitle: "Frequently asked questions", allFaq: "All FAQs",
+    reviewsTitle: "What guests say",
+    whyTitle: "Why book directly",
+    whySub: "Same apartment, extra benefits when you book with us — no middlemen.",
+    bookTitle: "Check availability and book", bookSub: "Pick your dates: instant confirmation, direct contact with us.",
+    finalTitle: "Questions before you book?", finalText: "Message us on WhatsApp: we usually reply within an hour.", finalBtn: "Message us on WhatsApp",
+  },
+}[locale] ?? null as never;
+
+const reviews = REVIEWS_VERIFIED
+  ? REVIEWS_IT.map((r) => ({ author: r.author, title: r.title, score: r.score, scale: r.scale, body: r.body }))
+  : undefined;
+
+const schema = [
+  lodgingBusinessSchema({ lang, reviews }),
+  organizationSchema(),
+  faqPageSchema(pick(FAQ_HOME, locale).map((f) => ({ question: f.q, answer: f.a }))),
+  breadcrumbSchema([{ name: "Home", url: localizedUrl("home", locale) }]),
+];
+---
+
+<Layout locale={locale} page="home" title={C.title} description={C.description} stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <Hero
+    eyebrow={C.eyebrow}
+    title={C.h1}
+    subtitle={C.sub}
+    ctaPrimary={{ label: C.ctaCheck, href: "#book" }}
+    ctaSecondary={{ label: C.ctaDiscover, href: "#apartment" }}
+    imageAlt={C.heroAlt}
+  />
+
+  <TrustStrip locale={locale} />
+  <UspCards locale={locale} />
+  <GalleryScroll title={C.galleryTitle} subtitle={C.gallerySub} locale={locale} />
+  <ApartmentPreview detailsHref={localizedPath("apartment", locale)} ctaLabel={C.seeDetails} locale={locale} />
+  <LocationSection ctaHref={localizedPath("getting-here", locale)} ctaLabel={C.gettingHere} locale={locale} />
+  <Faq title={C.faqTitle} ctaHref={localizedPath("faq", locale)} ctaLabel={C.allFaq} locale={locale} />
+  <Testimonials title={C.reviewsTitle} locale={locale} />
+  <WhyBookDirect title={C.whyTitle} subtitle={C.whySub} locale={locale} />
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+  <FinalCta title={C.finalTitle} text={C.finalText} buttonLabel={C.finalBtn} />
+</Layout>

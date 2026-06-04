@@ -1,0 +1,122 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+import Icon from "@components/Icon.astro";
+
+import type { Locale } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const url = SITE.url + localizedPath("smart-working", locale);
+
+const CMAP = {
+  it: {
+    title: "Smart working a Piacenza: Wi-Fi 1 Gbit/s e postazione | Roma284",
+    description: "Lavora da remoto a Roma284: Wi-Fi in fibra 1 Gbit/s, spazio di lavoro dedicato, ambiente silenzioso e caffè di qualità. A 33 minuti da Milano in treno.",
+    eyebrow: "Smart working", h1: "Lavora da remoto come in ufficio",
+    intro: "Roma284 è pensato anche per chi lavora da remoto: Wi-Fi in fibra da 1 Gbit/s, una postazione di lavoro dedicata e un ambiente silenzioso, nel centro di Piacenza a 33 minuti da Milano.",
+    crumbHome: "Home", crumb: "Smart working",
+    featTitle: "Tutto quello che serve per lavorare", dayTitle: "Una giornata tipo", faqTitle: "Domande frequenti",
+    bookTitle: "Verifica le date", bookSub: "Conferma immediata, contatto diretto.",
+    day: "Inizi la mattina con un caffè sul patio, poi ti siedi alla postazione per le prime call. A pranzo fai una passeggiata di 5 minuti fino a Piazza Cavalli per mangiare in centro. Nel pomeriggio, se serve, prendi la Frecciarossa e in 33 minuti sei a Milano per una riunione in presenza, per poi tornare la sera in un appartamento silenzioso e tutto per te.",
+    features: [
+      { i: "wifi", t: "Fibra 1 Gbit/s", d: "Connessione ultraveloce e stabile: videochiamate fluide e upload pesanti senza interruzioni." },
+      { i: "check", t: "Postazione dedicata", d: "Tavolo ampio, sedia comoda e buona illuminazione per lavorare ore senza affaticarti." },
+      { i: "leaf", t: "Ambiente silenzioso", d: "Appartamento tranquillo sul cortile interno: niente rumori di traffico durante le call." },
+      { i: "clock", t: "Caffè di qualità", d: "Macchina Nespresso con cialde omaggio per la pausa giusta tra una riunione e l'altra." },
+    ],
+    faq: [
+      { q: "Quanto è veloce il Wi-Fi?", a: "L'appartamento ha Wi-Fi in fibra da 1 Gbit/s, adatto a videochiamate, streaming e trasferimenti di file di grandi dimensioni." },
+      { q: "È un buon posto per lavorare da remoto per più giorni?", a: "Sì: c'è una postazione dedicata, ambiente silenzioso, cucina completa e patio privato per le pause. Molti ospiti soggiornano lavorando da qui." },
+      { q: "Posso fare base qui e andare a Milano per riunioni?", a: "Certo. Milano Centrale è a 33 minuti in Frecciarossa e la stazione di Piacenza è a 9 minuti a piedi." },
+    ],
+    rel: [
+      { page: "apartment", title: "L'appartamento", text: "Foto, servizi e dotazioni tecnologiche." },
+      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base giusta per la metropoli." },
+      { page: "area", title: "Il quartiere", text: "Caffè, ristoranti e servizi a pochi passi." },
+    ],
+  },
+  en: {
+    title: "Remote work in Piacenza: 1 Gbit/s Wi-Fi and a desk | Roma284",
+    description: "Work remotely at Roma284: 1 Gbit/s fibre Wi-Fi, a dedicated workspace, a quiet setting and quality coffee. 33 minutes from Milan by train.",
+    eyebrow: "Smart working", h1: "Work remotely as if at the office",
+    intro: "Roma284 is designed for remote workers too: 1 Gbit/s fibre Wi-Fi, a dedicated workspace and a quiet setting, in central Piacenza 33 minutes from Milan.",
+    crumbHome: "Home", crumb: "Smart working",
+    featTitle: "Everything you need to work", dayTitle: "A typical day", faqTitle: "Frequently asked questions",
+    bookTitle: "Check your dates", bookSub: "Instant confirmation, direct contact.",
+    day: "Start the morning with a coffee on the patio, then sit at the desk for your first calls. At lunch take a 5-minute walk to Piazza Cavalli to eat in the centre. In the afternoon, if needed, take the Frecciarossa and in 33 minutes you're in Milan for an in-person meeting, then return in the evening to a quiet apartment all to yourself.",
+    features: [
+      { i: "wifi", t: "1 Gbit/s fibre", d: "Ultra-fast, stable connection: smooth video calls and heavy uploads without interruptions." },
+      { i: "check", t: "Dedicated desk", d: "Spacious table, comfortable chair and good lighting to work for hours without strain." },
+      { i: "leaf", t: "Quiet setting", d: "Calm apartment on the inner courtyard: no traffic noise during your calls." },
+      { i: "clock", t: "Quality coffee", d: "Nespresso machine with complimentary capsules for the right break between meetings." },
+    ],
+    faq: [
+      { q: "How fast is the Wi-Fi?", a: "The apartment has 1 Gbit/s fibre Wi-Fi, suitable for video calls, streaming and transferring large files." },
+      { q: "Is it a good place to work remotely for several days?", a: "Yes: there's a dedicated desk, a quiet setting, a full kitchen and a private patio for breaks. Many guests stay while working from here." },
+      { q: "Can I base myself here and go to Milan for meetings?", a: "Of course. Milan Centrale is 33 minutes away by Frecciarossa and Piacenza station is a 9-minute walk." },
+    ],
+    rel: [
+      { page: "apartment", title: "The apartment", text: "Photos, amenities and tech equipment." },
+      { page: "stay-near-milan", title: "Stay near Milan", text: "Why Piacenza is the right base for the metropolis." },
+      { page: "area", title: "The area", text: "Cafés, restaurants and services a few steps away." },
+    ],
+  },
+}[locale] ?? null as never;
+
+const crumbs = [
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("smart-working", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1"] }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="smart-working" title={C.title} description={C.description} stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
+
+  <ContentSection title={C.featTitle} variant="crema">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {C.features.map((f) => (
+        <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+          <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta">
+            <Icon name={f.i as any} class="size-6" />
+          </span>
+          <h3 class="mt-4 text-lg text-antracite">{f.t}</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-grigio">{f.d}</p>
+        </article>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection title={C.dayTitle} variant="avorio" narrow>
+    <p class="leading-relaxed text-grigio">{C.day}</p>
+  </ContentSection>
+
+  <ContentSection title={C.faqTitle} variant="crema" narrow>
+    <div class="space-y-6">
+      {C.faq.map((f) => (
+        <div>
+          <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
+          <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+
+  <RelatedLinks locale={locale} items={C.rel as any} />
+</Layout>

@@ -1,5 +1,6 @@
-import { DEFAULT_LOCALE, LOCALES, LOCALE_META, isLocale, type Locale } from "./config";
+import { DEFAULT_LOCALE, LOCALE_META, isLocale, type Locale } from "./config";
 import { SLUGS, type PageKey } from "./slugs";
+import { localesForPage } from "./available";
 
 const SITE = "https://www.roma284.it";
 
@@ -42,7 +43,7 @@ export interface Alternate {
  * Usato per generare i tag <link rel="alternate" hreflang>.
  */
 export function getAlternates(page: PageKey): Alternate[] {
-  const alts: Alternate[] = LOCALES.map((loc) => ({
+  const alts: Alternate[] = localesForPage(page).map((loc) => ({
     locale: loc,
     hreflang: LOCALE_META[loc].htmlLang.toLowerCase(),
     href: localizedUrl(page, loc),
@@ -58,6 +59,16 @@ export function getAlternates(page: PageKey): Alternate[] {
 /** Per il language switcher: stesso contenuto, lingua diversa. */
 export function switchLocale(page: PageKey, target: Locale): string {
   return localizedPath(page, target);
+}
+
+/**
+ * Path "sicuro": usa la lingua richiesta se la pagina è disponibile,
+ * altrimenti ripiega su IT. Evita link rotti durante la migrazione.
+ */
+export function bestPath(page: PageKey, locale: Locale): string {
+  return localesForPage(page).includes(locale)
+    ? localizedPath(page, locale)
+    : localizedPath(page, DEFAULT_LOCALE);
 }
 
 export { SITE };

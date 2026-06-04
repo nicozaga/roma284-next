@@ -1,0 +1,108 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+const locale = "it" as const;
+const url = SITE.url + localizedPath("visit-piacenza", locale);
+
+const title = "Visitare Piacenza: cosa vedere in 1 giorno o un weekend | Roma284";
+const description =
+  "Cosa vedere a Piacenza: Piazza Cavalli, il Duomo, Palazzo Farnese e la Galleria Ricci Oddi. Itinerari da 1 giorno a 3 giorni e i sapori della cucina piacentina.";
+
+const crumbs = [
+  { name: "Home", href: localizedPath("home", locale) },
+  { name: "Visitare Piacenza", href: localizedPath("visit-piacenza", locale) },
+];
+
+const itineraries = [
+  { t: "In 1 giorno", d: "Parti da Piazza Cavalli con i cavalli del Mochi, visita il Duomo romanico e passeggia nella zona pedonale. Pranzo con i salumi piacentini DOP, pomeriggio a Palazzo Farnese." },
+  { t: "In un weekend", d: "Aggiungi la Galleria d'Arte Moderna Ricci Oddi, una sosta nei caffè storici e una cena in trattoria. La domenica, mercato e ritmi lenti del centro." },
+  { t: "In 3 giorni", d: "Esplora i dintorni: i castelli del Ducato, le colline del vino dei Colli Piacentini e, volendo, una gita a Milano in 33 minuti di treno." },
+];
+
+const sights = [
+  { t: "Piazza Cavalli", d: "Il salotto della città, con le due statue equestri in bronzo del Mochi e il Palazzo Gotico." },
+  { t: "Duomo di Piacenza", d: "Cattedrale romanica del XII secolo, tra le più belle dell'Emilia." },
+  { t: "Palazzo Farnese", d: "Sede dei Musei Civici, con la celebre Madonna di Botticelli e il Museo delle Carrozze." },
+  { t: "Galleria Ricci Oddi", d: "Importante raccolta d'arte moderna italiana tra Otto e Novecento." },
+];
+
+const faq = [
+  { q: "Cosa vedere a Piacenza in un giorno?", a: "In un giorno puoi visitare Piazza Cavalli, il Duomo, la zona pedonale e Palazzo Farnese, tutti a pochi minuti a piedi da Roma284." },
+  { q: "Vale la pena visitare Piacenza?", a: "Sì: Piacenza è una città d'arte raccolta e autentica, con piazze monumentali, ottima cucina e ritmi tranquilli, perfetta anche come base per Milano e i Colli Piacentini." },
+  { q: "Cosa mangiare a Piacenza?", a: "I salumi DOP (coppa, pancetta e salame piacentino), i pisarei e fasò, i tortelli con la coda e i vini dei Colli Piacentini come Gutturnio e Ortrugo." },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  webPageSchema({ name: title, description, url, speakable: ["h1"] }),
+  faqPageSchema(faq.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="visit-piacenza" title={title} description={description} stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <PageHero
+    eyebrow="Visitare Piacenza"
+    title="Una città d'arte da scoprire a piedi"
+    intro="Piacenza è una città raccolta e autentica: piazze monumentali, chiese romaniche e una cucina di carattere. Da Roma284, nel centro storico, tutto è raggiungibile a piedi."
+    crumbs={crumbs}
+  />
+
+  <ContentSection title="Quanto tempo hai?" variant="crema">
+    <div class="grid gap-5 lg:grid-cols-3">
+      {
+        itineraries.map((it) => (
+          <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+            <h3 class="font-display text-xl text-terracotta">{it.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-grigio">{it.d}</p>
+          </article>
+        ))
+      }
+    </div>
+  </ContentSection>
+
+  <ContentSection title="Cosa vedere" variant="avorio">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {
+        sights.map((s) => (
+          <article class="rounded-2xl bg-white p-6">
+            <h3 class="text-lg text-antracite">{s.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-grigio">{s.d}</p>
+          </article>
+        ))
+      }
+    </div>
+  </ContentSection>
+
+  <ContentSection title="Domande frequenti" variant="crema" narrow>
+    <div class="space-y-6">
+      {faq.map((f) => (
+        <div>
+          <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
+          <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <BookingWidget locale={locale} title="Prenota il tuo soggiorno" subtitle="Conferma immediata, contatto diretto." />
+
+  <RelatedLinks
+    locale={locale}
+    items={[
+      { page: "area", title: "Il quartiere", text: "Ristoranti e servizi intorno all'appartamento." },
+      { page: "getting-here", title: "Come arrivare", text: "Collegamenti da Milano e dagli aeroporti." },
+      { page: "apartment", title: "L'appartamento", text: "Foto e dettagli del bilocale Roma284." },
+    ]}
+  />
+</Layout>

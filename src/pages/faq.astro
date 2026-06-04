@@ -1,0 +1,95 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+import { FAQ_FULL_IT, FAQ_FULL_FLAT_IT } from "@data/faqFull";
+
+const locale = "it" as const;
+
+const title = "Domande frequenti su Roma284 a Piacenza | Roma284";
+const description =
+  "Tutte le risposte su Roma284: prenotazione, check-in, servizi, posizione, pagamenti e cancellazione. Wi-Fi 1 Gbit/s, animali benvenuti, 33 min da Milano.";
+
+const crumbs = [
+  { name: "Home", href: localizedPath("home", locale) },
+  { name: "FAQ", href: localizedPath("faq", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  faqPageSchema(FAQ_FULL_FLAT_IT.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="faq" title={title} description={description}>
+  <JsonLd schema={schema} />
+
+  <PageHero
+    eyebrow="FAQ"
+    title="Domande frequenti"
+    intro="Tutto quello che c'è da sapere prima di prenotare. Non trovi la risposta? Scrivici su WhatsApp."
+    crumbs={crumbs}
+  />
+
+  <ContentSection variant="crema">
+    <label class="relative mx-auto block max-w-xl">
+      <span class="sr-only">Cerca nelle domande</span>
+      <input
+        id="faq-search"
+        type="search"
+        placeholder="Cerca una domanda…"
+        class="w-full rounded-full border border-antracite/15 bg-white px-5 py-3 outline-none focus:border-terracotta"
+      />
+    </label>
+
+    <p id="faq-empty" class="mt-6 hidden text-center text-grigio">
+      Nessun risultato. Prova con altre parole o scrivici su WhatsApp.
+    </p>
+
+    <div class="mt-10 space-y-12">
+      {
+        FAQ_FULL_IT.map((cat) => (
+          <div class="faq-cat" data-cat>
+            <h2 class="font-display text-2xl text-antracite">{cat.category}</h2>
+            <div class="mt-4 divide-y divide-antracite/8 overflow-hidden rounded-2xl border border-antracite/8 bg-white">
+              {cat.items.map((item) => (
+                <details class="faq-item group" data-q={`${item.q} ${item.a}`.toLowerCase()}>
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-antracite">
+                    <span class="font-medium">{item.q}</span>
+                    <span class="shrink-0 text-terracotta transition group-open:rotate-45">+</span>
+                  </summary>
+                  <p class="px-5 pb-4 leading-relaxed text-grigio">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </ContentSection>
+</Layout>
+
+<script is:inline>
+  const input = document.getElementById("faq-search");
+  const items = Array.from(document.querySelectorAll(".faq-item"));
+  const cats = Array.from(document.querySelectorAll(".faq-cat"));
+  const empty = document.getElementById("faq-empty");
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    items.forEach((el) => {
+      const match = !q || (el.dataset.q || "").includes(q);
+      el.style.display = match ? "" : "none";
+      if (match) visible++;
+    });
+    cats.forEach((cat) => {
+      const any = cat.querySelectorAll('.faq-item:not([style*="none"])').length;
+      cat.style.display = any ? "" : "none";
+    });
+    empty.classList.toggle("hidden", visible > 0);
+  });
+</script>

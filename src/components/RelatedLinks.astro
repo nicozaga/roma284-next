@@ -1,0 +1,39 @@
+---
+import { bestPath } from "@i18n/utils";
+import type { Locale } from "@i18n/config";
+import type { PageKey } from "@i18n/slugs";
+import Icon from "./Icon.astro";
+
+interface Item {
+  page: PageKey;
+  title: string;
+  text: string;
+}
+interface Props {
+  locale: Locale;
+  title?: string;
+  items: Item[];
+}
+const { locale, title, items } = Astro.props;
+const heading = title ?? (locale === "en" ? "Keep exploring" : "Continua a esplorare");
+---
+
+<section class="mx-auto max-w-(--breakpoint-xl) px-6 py-16">
+  <h2 class="font-display text-2xl text-antracite lg:text-3xl">{heading}</h2>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      items.map((it) => (
+        <a
+          href={bestPath(it.page, locale)}
+          class="group flex flex-col rounded-2xl border border-antracite/8 bg-white p-6 transition hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-lg hover:shadow-black/5"
+        >
+          <h3 class="flex items-center gap-2 text-lg text-antracite">
+            {it.title}
+            <Icon name="arrow" class="size-4 text-terracotta transition group-hover:translate-x-1" />
+          </h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-grigio">{it.text}</p>
+        </a>
+      ))
+    }
+  </div>
+</section>

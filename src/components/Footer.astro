@@ -1,6 +1,7 @@
 ---
-import { LOCALES, LOCALE_META, type Locale } from "@i18n/config";
-import { localizedPath, switchLocale } from "@i18n/utils";
+import { LOCALE_META, type Locale } from "@i18n/config";
+import { localizedPath, switchLocale, bestPath } from "@i18n/utils";
+import { localesForPage } from "@i18n/available";
 import { useTranslations } from "@i18n/ui";
 import type { PageKey } from "@i18n/slugs";
 import { SITE } from "@lib/site";
@@ -22,10 +23,10 @@ const cols: { key: PageKey; label: string }[][] = [
     { key: "visit-piacenza", label: t("nav.visit") },
   ],
   [
-    { key: "stay-near-milan", label: "Dormire vicino Milano" },
-    { key: "smart-working", label: "Smart working" },
-    { key: "milan-fairs", label: "Fiere Milano" },
-    { key: "milan-events", label: "Eventi Milano" },
+    { key: "stay-near-milan", label: t("nav.stay_near_milan") },
+    { key: "smart-working", label: t("nav.smart_working") },
+    { key: "milan-fairs", label: t("nav.milan_fairs") },
+    { key: "milan-events", label: t("nav.milan_events") },
   ],
   [
     { key: "about", label: t("nav.about") },
@@ -63,7 +64,7 @@ const cols: { key: PageKey; label: string }[][] = [
             <ul class="space-y-2.5">
               {col.map((l) => (
                 <li>
-                  <a href={localizedPath(l.key, locale)} class="hover:text-white">
+                  <a href={bestPath(l.key, locale)} class="hover:text-white">
                     {l.label}
                   </a>
                 </li>
@@ -81,7 +82,7 @@ const cols: { key: PageKey; label: string }[][] = [
       </p>
       <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
         {
-          LOCALES.map((loc) => (
+          localesForPage(page).map((loc) => (
             <li>
               <a
                 href={switchLocale(page, loc)}

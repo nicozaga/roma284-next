@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import chiSiamo from "@assets/gallery/chi-siamo.jpg";
+
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, organizationSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+const locale = "it" as const;
+
+const title = "Chi siamo: la famiglia dietro Roma284 a Piacenza | Roma284";
+const description =
+  "Roma284 è gestito con cura da una famiglia. Ospitalità diretta, attenzione ai dettagli e risposte rapide: Superhost con 4,97/5 su Airbnb e 9,6/10 su Booking.";
+
+const crumbs = [
+  { name: "Home", href: localizedPath("home", locale) },
+  { name: "Chi siamo", href: localizedPath("about", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  organizationSchema(),
+];
+---
+
+<Layout locale={locale} page="about" title={title} description={description}>
+  <JsonLd schema={schema} />
+
+  <PageHero
+    eyebrow="Chi siamo"
+    title="Una casa curata da una famiglia"
+    crumbs={crumbs}
+  />
+
+  <ContentSection variant="crema">
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <Image
+        src={chiSiamo}
+        alt="La famiglia che gestisce l'appartamento Roma284 a Piacenza"
+        widths={[480, 720]}
+        sizes="(max-width: 1024px) 100vw, 520px"
+        format="avif"
+        class="rounded-2xl object-cover"
+      />
+      <div class="space-y-4 leading-relaxed text-grigio">
+        <p>
+          Roma284 nasce dal desiderio di far vivere Piacenza come la viviamo noi: con i ritmi
+          tranquilli del centro storico e tutti i comfort di casa. Gestiamo l'appartamento in
+          prima persona, con attenzione ai dettagli e disponibilità reale.
+        </p>
+        <p>
+          Crediamo in un'ospitalità diretta e senza intermediari. Rispondiamo di solito
+          <strong class="text-antracite"> entro un'ora</strong>, concordiamo il check-in sui tuoi
+          orari e siamo a disposizione per ogni consiglio, dal ristorante giusto al treno migliore
+          per Milano.
+        </p>
+        <p>
+          Questa cura si riflette nelle valutazioni degli ospiti:
+          <strong class="text-antracite"> {SITE.rating.airbnb}/5 su Airbnb</strong> e
+          <strong class="text-antracite"> {SITE.rating.booking}/10 su Booking</strong>, con lo
+          status di Superhost.
+        </p>
+        <p>E sì, gli amici a quattro zampe sono sempre i benvenuti, gratuitamente.</p>
+      </div>
+    </div>
+  </ContentSection>
+
+  <RelatedLinks
+    locale={locale}
+    items={[
+      { page: "contact", title: "Contatti", text: "Scrivici: email, telefono o WhatsApp." },
+      { page: "apartment", title: "L'appartamento", text: "Tutti i dettagli e le foto del bilocale." },
+      { page: "faq", title: "Domande frequenti", text: "Tutto quello che c'è da sapere prima di prenotare." },
+    ]}
+  />
+</Layout>

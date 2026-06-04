@@ -15,6 +15,10 @@ export type UIKey =
   | "nav.contact"
   | "nav.faq"
   | "nav.blog"
+  | "nav.stay_near_milan"
+  | "nav.smart_working"
+  | "nav.milan_fairs"
+  | "nav.milan_events"
   | "cta.check_availability"
   | "cta.discover_apartment"
   | "cta.book_direct"
@@ -39,6 +43,10 @@ const it: Record<UIKey, string> = {
   "nav.contact": "Contatti",
   "nav.faq": "FAQ",
   "nav.blog": "Blog",
+  "nav.stay_near_milan": "Dormire vicino Milano",
+  "nav.smart_working": "Smart working",
+  "nav.milan_fairs": "Fiere Milano",
+  "nav.milan_events": "Eventi Milano",
   "cta.check_availability": "Verifica disponibilità",
   "cta.discover_apartment": "Scopri l'appartamento",
   "cta.book_direct": "Prenota diretto",
@@ -63,6 +71,10 @@ const en: Dict = {
   "nav.contact": "Contact",
   "nav.faq": "FAQ",
   "nav.blog": "Blog",
+  "nav.stay_near_milan": "Stay near Milan",
+  "nav.smart_working": "Smart working",
+  "nav.milan_fairs": "Milan fairs",
+  "nav.milan_events": "Milan events",
   "cta.check_availability": "Check availability",
   "cta.discover_apartment": "Discover the apartment",
   "cta.book_direct": "Book direct",

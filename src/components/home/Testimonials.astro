@@ -1,20 +1,23 @@
 ---
 import { REVIEWS_IT, toStars } from "@data/reviews";
 import { SITE } from "@lib/site";
+import type { Locale } from "@i18n/config";
 import Icon from "../Icon.astro";
 
 interface Props {
   title: string;
+  locale?: Locale;
 }
-const { title } = Astro.props;
+const { title, locale = "it" } = Astro.props;
+const on = locale === "en" ? "on" : "su";
 ---
 
 <section class="mx-auto max-w-(--breakpoint-xl) px-6 py-16 lg:py-24">
   <div class="flex flex-wrap items-end justify-between gap-4">
     <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
     <p class="text-sm text-grigio">
-      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> su Airbnb ·
-      <strong class="text-antracite">{SITE.rating.booking}/10</strong> su Booking
+      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> {on} Airbnb ·
+      <strong class="text-antracite">{SITE.rating.booking}/10</strong> {on} Booking
     </p>
   </div>
 

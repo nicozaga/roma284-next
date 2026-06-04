@@ -1,0 +1,133 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+import Icon from "@components/Icon.astro";
+
+import type { Locale } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const url = SITE.url + localizedPath("stay-near-milan", locale);
+
+const CMAP = {
+  it: {
+    title: "Dormire vicino Milano: la base intelligente a Piacenza | Roma284",
+    description: "Dormire vicino Milano senza i prezzi e il caos della città: a Piacenza sei a 33 minuti da Milano Centrale in Frecciarossa. Appartamento tranquillo, Wi-Fi 1 Gbit/s.",
+    eyebrow: "Dormire vicino Milano", h1: "La base intelligente per Milano è a Piacenza",
+    intro: "Roma284 è un appartamento nel centro storico di Piacenza, a 33 minuti da Milano Centrale in Frecciarossa. Dormi nella tranquillità di una città a misura d'uomo e raggiungi Milano in mezz'ora.",
+    crumbHome: "Home", crumb: "Dormire vicino Milano",
+    advTitle: "Perché Piacenza batte un hotel a Milano",
+    timesTitle: "Tempi e collegamenti con Milano", faqTitle: "Domande frequenti",
+    bookTitle: "Verifica le date", bookSub: "Conferma immediata, contatto diretto.",
+    dayNote: "Una giornata tipo: parti la mattina da Piacenza, sei a Milano per le riunioni o per visitare la città, e la sera torni in un appartamento silenzioso con il tuo patio privato.",
+    rows: [["Milano Centrale", "Frecciarossa", "33 min"], ["Treni diretti al giorno", "", "fino a 52"], ["Prima e ultima corsa", "", "06:07 – 23:52"], ["Stazione di Piacenza", "a piedi", "9 min"]],
+    advantages: [
+      { t: "Tranquillità", d: "Dormi nel centro storico di una città a misura d'uomo, lontano dal traffico di Milano, e raggiungi la metropoli in mezz'ora." },
+      { t: "Posizione", d: "La stazione di Piacenza è a 900 metri (9 minuti a piedi) e ti porta dritto a Milano Centrale, nodo di metro e collegamenti." },
+      { t: "Spazio vero", d: "Un intero appartamento di 50 m² con cucina e patio privato, invece di una camera d'albergo." },
+      { t: "Flessibilità", d: "Check-in flessibile, contatto diretto con noi e animali sempre benvenuti, gratuitamente." },
+    ],
+    faq: [
+      { q: "Quanto dista davvero Milano da Piacenza?", a: "Milano Centrale è a 33 minuti dalla stazione di Piacenza con il treno Frecciarossa. Ci sono fino a 52 corse dirette al giorno, dalle 06:07 alle 23:52." },
+      { q: "Conviene dormire a Piacenza invece che a Milano?", a: "Sì, se cerchi tranquillità e spazio: a Piacenza alloggi in un intero appartamento nel centro storico e raggiungi Milano in mezz'ora di treno, evitando il traffico della città." },
+      { q: "Posso usare Roma284 come base per più giorni a Milano?", a: "Assolutamente. Molti ospiti fanno avanti e indietro ogni giorno: la frequenza dei treni e la vicinanza alla stazione rendono Piacenza una base comoda per visite ripetute a Milano." },
+    ],
+    rel: [
+      { page: "milan-fairs", title: "Fiere di Milano", text: "La base comoda durante le grandi fiere milanesi." },
+      { page: "milan-events", title: "Eventi a Milano", text: "Concerti e partite a San Siro, Forum e Scala." },
+      { page: "getting-here", title: "Come arrivare", text: "Tutti i collegamenti da Milano e dagli aeroporti." },
+    ],
+  },
+  en: {
+    title: "Stay near Milan: the smart base in Piacenza | Roma284",
+    description: "Stay near Milan without the prices and chaos of the city: in Piacenza you're 33 minutes from Milan Centrale by Frecciarossa. Quiet apartment, 1 Gbit/s Wi-Fi.",
+    eyebrow: "Stay near Milan", h1: "The smart base for Milan is in Piacenza",
+    intro: "Roma284 is an apartment in the historic centre of Piacenza, 33 minutes from Milan Centrale by Frecciarossa. Sleep in the calm of a human-scale city and reach Milan in half an hour.",
+    crumbHome: "Home", crumb: "Stay near Milan",
+    advTitle: "Why Piacenza beats a Milan hotel",
+    timesTitle: "Times and connections to Milan", faqTitle: "Frequently asked questions",
+    bookTitle: "Check your dates", bookSub: "Instant confirmation, direct contact.",
+    dayNote: "A typical day: leave Piacenza in the morning, spend the day in Milan for meetings or sightseeing, and in the evening return to a quiet apartment with your private patio.",
+    rows: [["Milan Centrale", "Frecciarossa", "33 min"], ["Direct trains per day", "", "up to 52"], ["First and last train", "", "06:07 – 23:52"], ["Piacenza station", "on foot", "9 min"]],
+    advantages: [
+      { t: "Calm", d: "Sleep in the historic centre of a human-scale city, away from Milan's traffic, and reach the metropolis in half an hour." },
+      { t: "Location", d: "Piacenza station is 900 m away (9-minute walk) and takes you straight to Milan Centrale, a hub of metro and connections." },
+      { t: "Real space", d: "A whole 50 m² apartment with kitchen and private patio, instead of a hotel room." },
+      { t: "Flexibility", d: "Flexible check-in, direct contact with us and pets always welcome, free of charge." },
+    ],
+    faq: [
+      { q: "How far is Milan from Piacenza, really?", a: "Milan Centrale is 33 minutes from Piacenza station on the Frecciarossa train. There are up to 52 direct trains a day, from 06:07 to 23:52." },
+      { q: "Is it worth sleeping in Piacenza instead of Milan?", a: "Yes, if you want calm and space: in Piacenza you stay in a whole apartment in the historic centre and reach Milan in half an hour by train, avoiding the city traffic." },
+      { q: "Can I use Roma284 as a base for several days in Milan?", a: "Absolutely. Many guests commute back and forth each day: the frequency of trains and the closeness to the station make Piacenza a handy base for repeated visits to Milan." },
+    ],
+    rel: [
+      { page: "milan-fairs", title: "Milan fairs", text: "The handy base during the big Milan trade fairs." },
+      { page: "milan-events", title: "Milan events", text: "Concerts and matches at San Siro, the Forum and La Scala." },
+      { page: "getting-here", title: "Getting here", text: "All the connections from Milan and the airports." },
+    ],
+  },
+}[locale] ?? null as never;
+
+const crumbs = [
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("stay-near-milan", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1", ".speakable"] }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="stay-near-milan" title={C.title} description={C.description} stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
+
+  <ContentSection title={C.advTitle} variant="crema">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {C.advantages.map((a) => (
+        <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+          <h3 class="flex items-center gap-2 text-lg text-antracite">
+            <Icon name="check" class="size-5 text-salvia" />{a.t}
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-grigio">{a.d}</p>
+        </article>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection title={C.timesTitle} variant="avorio">
+    <dl class="speakable divide-y divide-antracite/8 border-y border-antracite/8">
+      {C.rows.map(([k, mode, v]) => (
+        <div class="flex items-baseline justify-between gap-4 py-3">
+          <dt class="text-antracite">{k} {mode && <span class="ml-2 text-sm text-grigio">{mode}</span>}</dt>
+          <dd class="font-display text-lg font-medium text-terracotta">{v}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="mt-6 max-w-2xl text-grigio">{C.dayNote}</p>
+  </ContentSection>
+
+  <ContentSection title={C.faqTitle} variant="crema" narrow>
+    <div class="space-y-6">
+      {C.faq.map((f) => (
+        <div>
+          <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
+          <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+
+  <RelatedLinks locale={locale} items={C.rel as any} />
+</Layout>

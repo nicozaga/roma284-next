@@ -1,22 +1,25 @@
 ---
-import { FAQ_HOME_IT } from "@data/faq";
+import { FAQ_HOME } from "@data/faq";
+import { pick } from "@data/content";
+import type { Locale } from "@i18n/config";
 
 interface Props {
   title: string;
   ctaHref: string;
   ctaLabel: string;
+  locale?: Locale;
 }
-const { title, ctaHref, ctaLabel } = Astro.props;
+const { title, ctaHref, ctaLabel, locale = "it" } = Astro.props;
+const items = pick(FAQ_HOME, locale);
 ---
 
 <section id="faq" class="scroll-mt-20 bg-avorio py-16 lg:py-24">
   <div class="mx-auto max-w-(--breakpoint-xl) px-6">
     <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
 
-    {/* Domande visibili (no accordion) — citation-friendly per gli AI */}
     <div class="mt-10 grid gap-x-12 gap-y-8 lg:grid-cols-2">
       {
-        FAQ_HOME_IT.map((item) => (
+        items.map((item) => (
           <div data-reveal>
             <h3 class="text-lg font-semibold text-antracite">{item.q}</h3>
             <p class="mt-2 leading-relaxed text-grigio">{item.a}</p>

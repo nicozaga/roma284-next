@@ -1,0 +1,32 @@
+---
+import Breadcrumbs from "./Breadcrumbs.astro";
+
+interface Crumb {
+  name: string;
+  href?: string;
+}
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+  crumbs: Crumb[];
+}
+const { eyebrow, title, intro, crumbs } = Astro.props;
+---
+
+<section class="border-b border-antracite/8 bg-avorio">
+  <div class="mx-auto max-w-(--breakpoint-xl) px-6 pb-12 pt-8 lg:pb-16 lg:pt-10">
+    <Breadcrumbs items={crumbs} />
+    {
+      eyebrow && (
+        <p class="mt-6 text-sm font-medium uppercase tracking-[0.2em] text-terracotta">
+          {eyebrow}
+        </p>
+      )
+    }
+    <h1 class="mt-2 max-w-3xl font-display text-4xl text-antracite lg:text-5xl">
+      {title}
+    </h1>
+    {intro && <p class="mt-4 max-w-2xl text-lg leading-relaxed text-grigio">{intro}</p>}
+  </div>
+</section>

@@ -1,6 +1,13 @@
 ---
 import { SITE } from "@lib/site";
+import type { Locale } from "@i18n/config";
 import Icon from "../Icon.astro";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const T = locale === "en"
+  ? { on: "on", reviews: "verified reviews", host: "Superhost · replies within an hour" }
+  : { on: "su", reviews: "recensioni verificate", host: "Superhost · risposta entro un'ora" };
 ---
 
 <section aria-label="Valutazioni" class="border-y border-antracite/8 bg-avorio">
@@ -15,13 +22,13 @@ import Icon from "../Icon.astro";
         <Icon name="star" class="size-4 fill-terracotta" />
         <Icon name="star" class="size-4 fill-terracotta" />
       </span>
-      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> su Airbnb
+      <strong class="text-antracite">{SITE.rating.airbnb}/5</strong> {T.on} Airbnb
     </span>
     <span class="hidden h-4 w-px bg-antracite/15 sm:block"></span>
-    <span><strong class="text-antracite">{SITE.rating.booking}/10</strong> su Booking</span>
+    <span><strong class="text-antracite">{SITE.rating.booking}/10</strong> {T.on} Booking</span>
     <span class="hidden h-4 w-px bg-antracite/15 sm:block"></span>
-    <span><strong class="text-antracite">{SITE.rating.airbnbCount}</strong> recensioni verificate</span>
+    <span><strong class="text-antracite">{SITE.rating.airbnbCount}</strong> {T.reviews}</span>
     <span class="hidden h-4 w-px bg-antracite/15 sm:block"></span>
-    <span>Superhost · risposta {SITE.host.responseTime}</span>
+    <span>{T.host}</span>
   </div>
 </section>

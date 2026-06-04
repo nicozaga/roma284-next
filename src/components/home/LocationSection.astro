@@ -1,13 +1,21 @@
 ---
-import { CONNECTIONS_IT, POI_IT } from "@data/content";
+import { CONNECTIONS, POI, pick } from "@data/content";
+import type { Locale } from "@i18n/config";
 import { SITE } from "@lib/site";
 import Icon from "../Icon.astro";
 
 interface Props {
   ctaHref: string;
   ctaLabel: string;
+  locale?: Locale;
 }
-const { ctaHref, ctaLabel } = Astro.props;
+const { ctaHref, ctaLabel, locale = "it" } = Astro.props;
+const connections = pick(CONNECTIONS, locale);
+const poi = pick(POI, locale);
+const T = {
+  it: { eyebrow: "Posizione strategica", h2: "Nel centro di Piacenza, a un passo da Milano", intro: "Roma284 si trova in Via Roma 284, nel cuore del centro storico di Piacenza. La Frecciarossa porta a Milano Centrale in 33 minuti e tutto il centro è raggiungibile a piedi.", walk: "A piedi raggiungi:", load: "Carica la mappa" },
+  en: { eyebrow: "Prime location", h2: "In central Piacenza, a step from Milan", intro: "Roma284 is on Via Roma 284, in the heart of Piacenza's historic centre. The Frecciarossa reaches Milan Centrale in 33 minutes and the whole centre is walkable.", walk: "On foot you reach:", load: "Load the map" },
+}[locale as "it" | "en"] ?? { eyebrow: "", h2: "", intro: "", walk: "", load: "" };
 const { lat, lng } = SITE.geo;
 const bbox = `${lng - 0.006},${lat - 0.004},${lng + 0.006},${lat + 0.004}`;
 const osmSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}`;
@@ -17,20 +25,18 @@ const osmSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
   <div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
     <div data-reveal>
       <p class="text-sm font-medium uppercase tracking-[0.2em] text-terracotta">
-        Posizione strategica
+        {T.eyebrow}
       </p>
       <h2 class="mt-3 font-display text-3xl text-antracite lg:text-4xl">
-        Nel centro di Piacenza, a un passo da Milano
+        {T.h2}
       </h2>
       <p class="mt-5 leading-relaxed text-grigio">
-        Roma284 si trova in Via Roma 284, nel cuore del centro storico di
-        Piacenza. La Frecciarossa porta a Milano Centrale in 33 minuti e tutto il
-        centro è raggiungibile a piedi.
+        {T.intro}
       </p>
 
       <dl class="mt-6 divide-y divide-antracite/8 border-y border-antracite/8">
         {
-          CONNECTIONS_IT.map((c) => (
+          connections.map((c) => (
             <div class="flex items-baseline justify-between gap-4 py-3">
               <dt class="text-antracite">
                 {c.from}
@@ -45,10 +51,10 @@ const osmSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
       </dl>
 
       <div class="mt-6">
-        <p class="text-sm font-semibold text-antracite">A piedi raggiungi:</p>
+        <p class="text-sm font-semibold text-antracite">{T.walk}</p>
         <ul class="mt-2 flex flex-wrap gap-2 text-sm text-grigio">
           {
-            POI_IT.map((p) => (
+            poi.map((p) => (
               <li class="flex items-center gap-1.5 rounded-full bg-avorio px-3 py-1.5">
                 <Icon name="pin" class="size-3.5 text-salvia" />
                 {p}
@@ -82,7 +88,7 @@ const osmSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
         >
           <Icon name="pin" class="size-7" />
         </span>
-        <span class="font-medium">Carica la mappa</span>
+        <span class="font-medium">{T.load}</span>
         <span class="text-sm text-grigio">Via Roma 284, Piacenza</span>
       </button>
     </div>

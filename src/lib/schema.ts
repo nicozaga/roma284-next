@@ -110,3 +110,111 @@ export function faqPageSchema(items: FaqItem[]) {
     })),
   };
 }
+
+const POSTAL = {
+  "@type": "PostalAddress",
+  streetAddress: SITE.address.street,
+  addressLocality: SITE.address.city,
+  postalCode: SITE.address.postalCode,
+  addressRegion: SITE.address.region,
+  addressCountry: SITE.address.countryCode,
+};
+
+const GEO = {
+  "@type": "GeoCoordinates",
+  latitude: SITE.geo.lat,
+  longitude: SITE.geo.lng,
+};
+
+export function apartmentSchema(opts: { name: string; description: string; lang: string }) {
+  return {
+    "@type": "Apartment",
+    name: opts.name,
+    description: opts.description,
+    address: POSTAL,
+    geo: GEO,
+    floorSize: { "@type": "QuantitativeValue", value: SITE.stay.sizeSqm, unitCode: "MTK" },
+    numberOfRooms: 2,
+    occupancy: { "@type": "QuantitativeValue", maxValue: SITE.stay.maxGuests },
+    petsAllowed: true,
+    url: SITE.url,
+    inLanguage: opts.lang,
+  };
+}
+
+export interface HowToStep {
+  name: string;
+  text: string;
+}
+
+export function howToSchema(opts: { name: string; description: string; steps: HowToStep[] }) {
+  return {
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+export function placeSchema(p: { name: string; description?: string }) {
+  return {
+    "@type": "Place",
+    name: p.name,
+    ...(p.description ? { description: p.description } : {}),
+    address: { "@type": "PostalAddress", addressLocality: "Piacenza", addressCountry: "IT" },
+  };
+}
+
+export function contactPageSchema(opts: { name: string }) {
+  return {
+    "@type": "ContactPage",
+    name: opts.name,
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE.name,
+      email: SITE.email,
+      telephone: SITE.phone,
+      address: POSTAL,
+    },
+  };
+}
+
+export function articleSchema(opts: {
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+  url: string;
+  lang: string;
+}) {
+  return {
+    "@type": "BlogPosting",
+    headline: opts.headline,
+    description: opts.description,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    ...(opts.image ? { image: opts.image } : {}),
+    mainEntityOfPage: opts.url,
+    inLanguage: opts.lang,
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  };
+}
+
+export function webPageSchema(opts: { name: string; description: string; url: string; speakable?: string[] }) {
+  return {
+    "@type": "WebPage",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    ...(opts.speakable
+      ? { speakable: { "@type": "SpeakableSpecification", cssSelector: opts.speakable } }
+      : {}),
+  };
+}

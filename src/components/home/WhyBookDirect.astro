@@ -1,19 +1,23 @@
 ---
-import { WHY_DIRECT_IT } from "@data/content";
+import { WHY_DIRECT, pick } from "@data/content";
+import type { Locale } from "@i18n/config";
 import Icon from "../Icon.astro";
 
 interface Props {
   title: string;
   subtitle?: string;
+  locale?: Locale;
 }
-const { title, subtitle } = Astro.props;
+const { title, subtitle, locale = "it" } = Astro.props;
+const items = pick(WHY_DIRECT, locale);
+const eyebrow = locale === "en" ? "Direct booking" : "Prenotazione diretta";
 ---
 
 <section class="bg-salvia/10 py-16 lg:py-24">
   <div class="mx-auto max-w-(--breakpoint-xl) px-6">
     <div class="max-w-2xl">
       <p class="text-sm font-medium uppercase tracking-[0.2em] text-salvia-dark">
-        Prenotazione diretta
+        {eyebrow}
       </p>
       <h2 class="mt-3 font-display text-3xl text-antracite lg:text-4xl">{title}</h2>
       {subtitle && <p class="mt-4 text-grigio">{subtitle}</p>}
@@ -21,7 +25,7 @@ const { title, subtitle } = Astro.props;
 
     <div class="mt-10 grid gap-6 md:grid-cols-3">
       {
-        WHY_DIRECT_IT.map((w) => (
+        items.map((w) => (
           <article data-reveal class="rounded-2xl bg-white p-7">
             <span class="flex size-12 items-center justify-center rounded-full bg-salvia/15 text-salvia-dark">
               <Icon name={w.icon as any} class="size-6" />

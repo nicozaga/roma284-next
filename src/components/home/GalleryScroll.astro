@@ -1,13 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import { GALLERY_ALT_IT } from "@data/gallery";
+import { GALLERY_ALT } from "@data/gallery";
+import { pick } from "@data/content";
+import type { Locale } from "@i18n/config";
 
 interface Props {
   title: string;
   subtitle?: string;
+  locale?: Locale;
 }
-const { title, subtitle } = Astro.props;
+const { title, subtitle, locale = "it" } = Astro.props;
+const ALT = pick(GALLERY_ALT, locale);
 
 const modules = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/gallery/*.jpg",
@@ -39,7 +43,7 @@ const photos = Object.entries(modules)
           <a href={`#g${num}`} class="block">
             <Image
               src={src}
-              alt={GALLERY_ALT_IT[num] ?? "Foto dell'appartamento Roma284"}
+              alt={ALT[num] ?? "Foto dell'appartamento Roma284"}
               widths={[400, 640]}
               sizes="(max-width: 640px) 80vw, 420px"
               format="avif"
@@ -60,7 +64,7 @@ const photos = Object.entries(modules)
         <figure class="lightbox__fig">
           <Image
             src={src}
-            alt={GALLERY_ALT_IT[num] ?? "Foto dell'appartamento Roma284"}
+            alt={ALT[num] ?? "Foto dell'appartamento Roma284"}
             widths={[800, 1200]}
             sizes="90vw"
             format="avif"
@@ -68,7 +72,7 @@ const photos = Object.entries(modules)
             class="max-h-[85vh] w-auto rounded-xl object-contain"
           />
           <figcaption class="mt-2 text-center text-sm text-crema/80">
-            {GALLERY_ALT_IT[num]}
+            {ALT[num]}
           </figcaption>
         </figure>
         <a href="#_" class="lightbox__close" aria-label="Chiudi">×</a>

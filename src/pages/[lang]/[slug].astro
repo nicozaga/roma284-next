@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths } from "astro";
+import Apartment from "../appartamento.astro";
+import StayNearMilan from "../dormire-vicino-milano.astro";
+import SmartWorking from "../smart-working.astro";
+import Contact from "../contatti.astro";
+import Book from "../prenota.astro";
+
+import { DEFAULT_LOCALE, type Locale } from "@i18n/config";
+import { SLUGS, type PageKey } from "@i18n/slugs";
+import { localesForPage } from "@i18n/available";
+
+// getStaticPaths viene estratto da Astro e non può referenziare const della
+// frontmatter (TDZ): l'elenco pagine è definito INLINE qui dentro.
+export const getStaticPaths = (() => {
+  const INNER: PageKey[] = ["apartment", "stay-near-milan", "smart-working", "contact", "book"];
+  const paths: { params: { lang: string; slug: string }; props: { locale: Locale; pageKey: PageKey } }[] = [];
+  for (const key of INNER) {
+    for (const loc of localesForPage(key)) {
+      if (loc === DEFAULT_LOCALE) continue;
+      paths.push({ params: { lang: loc, slug: SLUGS[key][loc] }, props: { locale: loc, pageKey: key } });
+    }
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+// Mappa pageKey → componente, usata solo in fase di render.
+const COMP: Partial<Record<PageKey, any>> = {
+  apartment: Apartment,
+  "stay-near-milan": StayNearMilan,
+  "smart-working": SmartWorking,
+  contact: Contact,
+  book: Book,
+};
+
+interface Props { locale: Locale; pageKey: PageKey }
+const { locale, pageKey } = Astro.props;
+const Comp = COMP[pageKey];
+---
+<Comp locale={locale} />
