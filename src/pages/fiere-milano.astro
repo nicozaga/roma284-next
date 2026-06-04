@@ -6,92 +6,116 @@ import ContentSection from "@components/ContentSection.astro";
 import RelatedLinks from "@components/RelatedLinks.astro";
 import BookingWidget from "@components/BookingWidget.astro";
 
+import type { Locale } from "@i18n/config";
 import { localizedPath } from "@i18n/utils";
 import { breadcrumbSchema, faqPageSchema, webPageSchema, howToSchema } from "@lib/schema";
 import { SITE } from "@lib/site";
 
-const locale = "it" as const;
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
 const url = SITE.url + localizedPath("milan-fairs", locale);
 
-const title = "Fiere di Milano: dormire a Piacenza e raggiungere Rho | Roma284";
-const description =
-  "Alloggio per le fiere di Milano: da Roma284 raggiungi Fiera Milano Rho in circa un'ora con Frecciarossa + metro M1. Base tranquilla quando gli hotel di Milano sono pieni.";
+const CMAP = {
+  it: {
+    title: "Fiere di Milano: dormire a Piacenza e raggiungere Rho | Roma284",
+    description: "Alloggio per le fiere di Milano: da Roma284 raggiungi Fiera Milano Rho in circa un'ora con Frecciarossa + metro M1. Base tranquilla quando gli hotel di Milano sono pieni.",
+    eyebrow: "Fiere di Milano", h1: "La base comoda per le fiere milanesi",
+    intro: "Quando gli hotel di Milano sono pieni e cari, Roma284 a Piacenza è la base ideale: raggiungi Fiera Milano Rho in circa un'ora con Frecciarossa e metro M1, e la sera torni in tranquillità.",
+    crumbHome: "Home", crumb: "Fiere Milano",
+    stepsTitle: "Come arrivare a Fiera Rho", fairsTitle: "Le principali fiere milanesi",
+    fairsIntro: "Milano ospita alcune delle fiere più importanti al mondo. Roma284 è una base comoda per raggiungerle, tra cui:",
+    faqTitle: "Domande frequenti", bookTitle: "Verifica le date della fiera", bookSub: "Conferma immediata, contatto diretto.",
+    howName: "Come raggiungere Fiera Milano Rho da Piacenza",
+    fairs: ["Salone del Mobile e Fuorisalone", "MICAM (calzature)", "MIDO (occhialeria)", "HOMI e Macef", "Host (ospitalità)", "EICMA (moto)"],
+    steps: [
+      { name: "Frecciarossa per Milano", text: "Dalla stazione di Piacenza prendi la Frecciarossa fino a Milano Centrale in 33 minuti." },
+      { name: "Metro M1 per Rho Fiera", text: "A Milano prendi la metro M1 (linea rossa) in direzione Rho Fieramilano: scendi al capolinea, davanti agli ingressi." },
+      { name: "Ritorno la sera", text: "La sera fai il percorso inverso: tornare a Piacenza è semplice grazie alla frequenza dei treni." },
+    ],
+    faq: [
+      { q: "Come arrivo a Fiera Milano Rho da Piacenza?", a: "Prendi la Frecciarossa fino a Milano Centrale (33 minuti) e poi la metro M1 fino a Rho Fieramilano, per un totale di circa un'ora." },
+      { q: "Conviene dormire a Piacenza durante le fiere di Milano?", a: "Sì: durante le grandi fiere gli hotel di Milano si riempiono e i prezzi salgono. Piacenza è una base tranquilla e ben collegata, con un intero appartamento a disposizione." },
+      { q: "Posso prenotare per più notti durante una fiera?", a: "Sì. Verifica la disponibilità per le tue date nella pagina di prenotazione: la conferma è immediata." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base intelligente per Milano." },
+      { page: "getting-here", title: "Come arrivare", text: "Collegamenti da Milano e dagli aeroporti." },
+      { page: "smart-working", title: "Smart working", text: "Wi-Fi 1 Gbit/s se unisci lavoro e fiera." },
+    ],
+  },
+  en: {
+    title: "Milan fairs: stay in Piacenza and reach Rho | Roma284",
+    description: "Accommodation for the Milan fairs: from Roma284 reach Fiera Milano Rho in about an hour with Frecciarossa + metro M1. A quiet base when Milan hotels are full.",
+    eyebrow: "Milan fairs", h1: "The handy base for the Milan trade fairs",
+    intro: "When Milan hotels are full and pricey, Roma284 in Piacenza is the ideal base: reach Fiera Milano Rho in about an hour with Frecciarossa and metro M1, and return to calm in the evening.",
+    crumbHome: "Home", crumb: "Milan fairs",
+    stepsTitle: "How to reach Rho Fiera", fairsTitle: "The main Milan trade fairs",
+    fairsIntro: "Milan hosts some of the most important trade fairs in the world. Roma284 is a handy base to reach them, including:",
+    faqTitle: "Frequently asked questions", bookTitle: "Check your fair dates", bookSub: "Instant confirmation, direct contact.",
+    howName: "How to reach Fiera Milano Rho from Piacenza",
+    fairs: ["Salone del Mobile and Fuorisalone", "MICAM (footwear)", "MIDO (eyewear)", "HOMI and Macef", "Host (hospitality)", "EICMA (motorcycles)"],
+    steps: [
+      { name: "Frecciarossa to Milan", text: "From Piacenza station take the Frecciarossa to Milan Centrale in 33 minutes." },
+      { name: "Metro M1 to Rho Fiera", text: "In Milan take metro M1 (red line) towards Rho Fieramilano: get off at the terminus, in front of the entrances." },
+      { name: "Return in the evening", text: "In the evening do the route in reverse: returning to Piacenza is easy thanks to the frequency of trains." },
+    ],
+    faq: [
+      { q: "How do I reach Fiera Milano Rho from Piacenza?", a: "Take the Frecciarossa to Milan Centrale (33 minutes) and then metro M1 to Rho Fieramilano, for about an hour total." },
+      { q: "Is it worth staying in Piacenza during the Milan fairs?", a: "Yes: during major fairs Milan hotels fill up and prices rise. Piacenza is a quiet, well-connected base, with a whole apartment available." },
+      { q: "Can I book several nights during a fair?", a: "Yes. Check availability for your dates on the booking page: confirmation is instant." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Stay near Milan", text: "Why Piacenza is the smart base for Milan." },
+      { page: "getting-here", title: "Getting here", text: "Connections from Milan and the airports." },
+      { page: "smart-working", title: "Smart working", text: "1 Gbit/s Wi-Fi if you combine work and the fair." },
+    ],
+  },
+};
+const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
 
 const crumbs = [
-  { name: "Home", href: localizedPath("home", locale) },
-  { name: "Fiere Milano", href: localizedPath("milan-fairs", locale) },
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("milan-fairs", locale) },
 ];
-
-const fairs = [
-  "Salone del Mobile e Fuorisalone",
-  "MICAM (calzature)",
-  "MIDO (occhialeria)",
-  "HOMI e Macef",
-  "Host (ospitalità)",
-  "EICMA (moto)",
-];
-
-const steps = [
-  { name: "Frecciarossa per Milano", text: "Dalla stazione di Piacenza prendi la Frecciarossa fino a Milano Centrale in 33 minuti." },
-  { name: "Metro M1 per Rho Fiera", text: "A Milano prendi la metro M1 (linea rossa) in direzione Rho Fieramilano: scendi al capolinea, davanti agli ingressi." },
-  { name: "Ritorno la sera", text: "La sera fai il percorso inverso: tornare a Piacenza è semplice grazie alla frequenza dei treni." },
-];
-
-const faq = [
-  { q: "Come arrivo a Fiera Milano Rho da Piacenza?", a: "Prendi la Frecciarossa fino a Milano Centrale (33 minuti) e poi la metro M1 fino a Rho Fieramilano, per un totale di circa un'ora." },
-  { q: "Conviene dormire a Piacenza durante le fiere di Milano?", a: "Sì: durante le grandi fiere gli hotel di Milano si riempiono e i prezzi salgono. Piacenza è una base tranquilla e ben collegata, con un intero appartamento a disposizione." },
-  { q: "Posso prenotare per più notti durante una fiera?", a: "Sì. Verifica la disponibilità per le tue date nella pagina di prenotazione: la conferma è immediata." },
-];
-
 const schema = [
   breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
-  webPageSchema({ name: title, description, url, speakable: ["h1"] }),
-  howToSchema({ name: "Come raggiungere Fiera Milano Rho da Piacenza", description: faq[0].a, steps }),
-  faqPageSchema(faq.map((f) => ({ question: f.q, answer: f.a }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1"] }),
+  howToSchema({ name: C.howName, description: C.faq[0].a, steps: C.steps }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
 ];
 ---
 
-<Layout locale={locale} page="milan-fairs" title={title} description={description} stickyCtaHref="#book">
+<Layout locale={locale} page="milan-fairs" title={C.title} description={C.description} stickyCtaHref="#book">
   <JsonLd schema={schema} />
 
-  <PageHero
-    eyebrow="Fiere di Milano"
-    title="La base comoda per le fiere milanesi"
-    intro="Quando gli hotel di Milano sono pieni e cari, Roma284 a Piacenza è la base ideale: raggiungi Fiera Milano Rho in circa un'ora con Frecciarossa e metro M1, e la sera torni in tranquillità."
-    crumbs={crumbs}
-  />
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
 
-  <ContentSection title="Come arrivare a Fiera Rho" variant="crema">
+  <ContentSection title={C.stepsTitle} variant="crema">
     <ol class="space-y-3">
-      {
-        steps.map((s, i) => (
-          <li class="flex gap-3">
-            <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-terracotta text-sm font-medium text-white">{i + 1}</span>
-            <div>
-              <p class="font-medium text-antracite">{s.name}</p>
-              <p class="text-sm text-grigio">{s.text}</p>
-            </div>
-          </li>
-        ))
-      }
+      {C.steps.map((s, i) => (
+        <li class="flex gap-3">
+          <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-terracotta text-sm font-medium text-white">{i + 1}</span>
+          <div>
+            <p class="font-medium text-antracite">{s.name}</p>
+            <p class="text-sm text-grigio">{s.text}</p>
+          </div>
+        </li>
+      ))}
     </ol>
   </ContentSection>
 
-  <ContentSection title="Le principali fiere milanesi" variant="avorio">
-    <p class="mb-5 max-w-2xl text-grigio">
-      Milano ospita alcune delle fiere più importanti al mondo. Roma284 è una base comoda per
-      raggiungerle, tra cui:
-    </p>
+  <ContentSection title={C.fairsTitle} variant="avorio">
+    <p class="mb-5 max-w-2xl text-grigio">{C.fairsIntro}</p>
     <ul class="flex flex-wrap gap-2">
-      {fairs.map((f) => (
+      {C.fairs.map((f) => (
         <li class="rounded-full bg-white px-4 py-2 text-sm text-antracite">{f}</li>
       ))}
     </ul>
   </ContentSection>
 
-  <ContentSection title="Domande frequenti" variant="crema" narrow>
+  <ContentSection title={C.faqTitle} variant="crema" narrow>
     <div class="space-y-6">
-      {faq.map((f) => (
+      {C.faq.map((f) => (
         <div>
           <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
           <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
@@ -100,14 +124,7 @@ const schema = [
     </div>
   </ContentSection>
 
-  <BookingWidget locale={locale} title="Verifica le date della fiera" subtitle="Conferma immediata, contatto diretto." />
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
 
-  <RelatedLinks
-    locale={locale}
-    items={[
-      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base intelligente per Milano." },
-      { page: "getting-here", title: "Come arrivare", text: "Collegamenti da Milano e dagli aeroporti." },
-      { page: "smart-working", title: "Smart working", text: "Wi-Fi 1 Gbit/s se unisci lavoro e fiera." },
-    ]}
-  />
+  <RelatedLinks locale={locale} items={C.rel as any} />
 </Layout>

@@ -4,13 +4,18 @@ import { SITE } from "@lib/site";
 import { APARTMENT_INTRO, USP } from "@data/content";
 import { AMENITIES } from "@data/amenities";
 
+import { ROUTES } from "@data/transport";
+import { NEIGHBORHOOD } from "@data/neighborhood";
+import { FAQ_FULL } from "@data/faqFull";
+import { REVIEWS_IT } from "@data/reviews";
+
 const APARTMENT_INTRO_IT = APARTMENT_INTRO.it!;
 const USP_IT = USP.it!;
 const AMENITIES_IT = AMENITIES.it!;
-import { ROUTES_IT } from "@data/transport";
-import { RESTAURANTS_IT, SIGHTS_IT } from "@data/neighborhood";
-import { FAQ_FULL_IT } from "@data/faqFull";
-import { REVIEWS_IT } from "@data/reviews";
+const ROUTES_IT = ROUTES.it!;
+const RESTAURANTS_IT = NEIGHBORHOOD.it!.restaurants;
+const SIGHTS_IT = NEIGHBORHOOD.it!.sights;
+const FAQ_FULL_IT = FAQ_FULL.it!;
 
 export const GET: APIRoute = async () => {
   const posts = (await getCollection("blog", (p) => !p.data.draft && p.data.lang === "it")).sort(

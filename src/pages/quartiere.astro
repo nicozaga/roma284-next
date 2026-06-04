@@ -6,92 +6,104 @@ import ContentSection from "@components/ContentSection.astro";
 import RelatedLinks from "@components/RelatedLinks.astro";
 import Icon from "@components/Icon.astro";
 
+import type { Locale } from "@i18n/config";
 import { localizedPath } from "@i18n/utils";
 import { breadcrumbSchema, placeSchema } from "@lib/schema";
 import { SITE } from "@lib/site";
-import { RESTAURANTS_IT, SUPERMARKETS_IT, SIGHTS_IT } from "@data/neighborhood";
+import { NEIGHBORHOOD } from "@data/neighborhood";
+import { pick } from "@data/content";
 
-const locale = "it" as const;
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const n = pick(NEIGHBORHOOD, locale);
 
-const title = "Il quartiere di Roma284: centro storico di Piacenza | Roma284";
-const description =
-  "Cosa c'è intorno a Roma284 nel centro di Piacenza: Piazza Cavalli e Duomo a 5 minuti a piedi, ristoranti tipici, supermercati e zona pedonale. La guida del quartiere.";
-
-const crumbs = [
-  { name: "Home", href: localizedPath("home", locale) },
-  { name: "Quartiere", href: localizedPath("area", locale) },
-];
-const schema = [
-  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
-  ...SIGHTS_IT.map((s) => placeSchema({ name: s.name, description: s.note })),
-];
----
-
-<Layout locale={locale} page="area" title={title} description={description}>
-  <JsonLd schema={schema} />
-
-  <PageHero
-    eyebrow="Il quartiere"
-    title="Nel cuore del centro storico di Piacenza"
-    intro="Roma284 si trova in Via Roma 284, nel centro storico di Piacenza. Da qui Piazza Cavalli e il Duomo sono a 5 minuti a piedi e tutto il centro è raggiungibile senza auto: monumenti, ristoranti tipici, caffè e negozi."
-    crumbs={crumbs}
-  />
-
-  <ContentSection title="Cosa vedere a piedi" variant="crema">
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        SIGHTS_IT.map((s) => (
-          <article class="rounded-2xl border border-antracite/8 bg-white p-6">
-            <h3 class="flex items-center gap-2 text-lg text-antracite">
-              <Icon name="pin" class="size-5 text-terracotta" />
-              {s.name}
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-grigio">{s.note}</p>
-          </article>
-        ))
-      }
-    </div>
-  </ContentSection>
-
-  <ContentSection title="Dove mangiare" variant="avorio">
-    <p class="mb-6 max-w-2xl text-grigio">
-      Una selezione di ristoranti, trattorie e pizzerie nel raggio di pochi minuti a piedi, dalla
-      cucina piacentina tradizionale alle proposte di pesce e internazionali.
-    </p>
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        RESTAURANTS_IT.map((r) => (
-          <div class="rounded-xl border border-antracite/8 bg-white p-5">
-            <div class="flex items-baseline justify-between gap-2">
-              <h3 class="text-base font-semibold text-antracite">{r.name}</h3>
-              <span class="text-xs uppercase tracking-wider text-terracotta">{r.type}</span>
-            </div>
-            <p class="mt-1.5 text-sm text-grigio">{r.note}</p>
-          </div>
-        ))
-      }
-    </div>
-  </ContentSection>
-
-  <ContentSection title="Spesa e servizi" variant="crema">
-    <div class="grid gap-4 sm:grid-cols-3">
-      {
-        SUPERMARKETS_IT.map((s) => (
-          <div class="rounded-xl bg-avorio p-5">
-            <h3 class="font-semibold text-antracite">{s.name}</h3>
-            <p class="mt-1 text-sm text-grigio">{s.note}</p>
-          </div>
-        ))
-      }
-    </div>
-  </ContentSection>
-
-  <RelatedLinks
-    locale={locale}
-    items={[
+const CMAP = {
+  it: {
+    title: "Il quartiere di Roma284: centro storico di Piacenza | Roma284",
+    description: "Cosa c'è intorno a Roma284 nel centro di Piacenza: Piazza Cavalli e Duomo a 5 minuti a piedi, ristoranti tipici, supermercati e zona pedonale. La guida del quartiere.",
+    eyebrow: "Il quartiere", h1: "Nel cuore del centro storico di Piacenza",
+    intro: "Roma284 si trova in Via Roma 284, nel centro storico di Piacenza. Da qui Piazza Cavalli e il Duomo sono a 5 minuti a piedi e tutto il centro è raggiungibile senza auto: monumenti, ristoranti tipici, caffè e negozi.",
+    crumbHome: "Home", crumb: "Quartiere",
+    sightsTitle: "Cosa vedere a piedi", eatTitle: "Dove mangiare",
+    eatIntro: "Una selezione di ristoranti, trattorie e pizzerie nel raggio di pochi minuti a piedi, dalla cucina piacentina tradizionale alle proposte di pesce e internazionali.",
+    shopTitle: "Spesa e servizi",
+    rel: [
       { page: "visit-piacenza", title: "Visitare Piacenza", text: "Itinerari da 1 giorno a un weekend tra arte e cucina." },
       { page: "getting-here", title: "Come arrivare", text: "Tutti i collegamenti da Milano, aeroporti e autostrada." },
       { page: "apartment", title: "L'appartamento", text: "Foto, servizi e dettagli del bilocale Roma284." },
-    ]}
-  />
+    ],
+  },
+  en: {
+    title: "The Roma284 neighbourhood: historic Piacenza | Roma284",
+    description: "What's around Roma284 in central Piacenza: Piazza Cavalli and the Cathedral a 5-minute walk away, traditional restaurants, supermarkets and the pedestrian area.",
+    eyebrow: "The area", h1: "In the heart of historic Piacenza",
+    intro: "Roma284 is on Via Roma 284, in the historic centre of Piacenza. From here Piazza Cavalli and the Cathedral are a 5-minute walk and the whole centre is reachable without a car: landmarks, traditional restaurants, cafés and shops.",
+    crumbHome: "Home", crumb: "Area",
+    sightsTitle: "What to see on foot", eatTitle: "Where to eat",
+    eatIntro: "A selection of restaurants, trattorias and pizzerias within a few minutes' walk, from traditional Piacenza cuisine to fish and international options.",
+    shopTitle: "Shopping and services",
+    rel: [
+      { page: "visit-piacenza", title: "Visit Piacenza", text: "Itineraries from 1 day to a weekend, between art and food." },
+      { page: "getting-here", title: "Getting here", text: "All connections from Milan, airports and motorway." },
+      { page: "apartment", title: "The apartment", text: "Photos, amenities and details of the Roma284 flat." },
+    ],
+  },
+};
+const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
+
+const crumbs = [
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("area", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  ...n.sights.map((s) => placeSchema({ name: s.name, description: s.note })),
+];
+---
+
+<Layout locale={locale} page="area" title={C.title} description={C.description}>
+  <JsonLd schema={schema} />
+
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
+
+  <ContentSection title={C.sightsTitle} variant="crema">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {n.sights.map((s) => (
+        <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+          <h3 class="flex items-center gap-2 text-lg text-antracite">
+            <Icon name="pin" class="size-5 text-terracotta" />{s.name}
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-grigio">{s.note}</p>
+        </article>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection title={C.eatTitle} variant="avorio">
+    <p class="mb-6 max-w-2xl text-grigio">{C.eatIntro}</p>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {n.restaurants.map((r) => (
+        <div class="rounded-xl border border-antracite/8 bg-white p-5">
+          <div class="flex items-baseline justify-between gap-2">
+            <h3 class="text-base font-semibold text-antracite">{r.name}</h3>
+            <span class="text-xs uppercase tracking-wider text-terracotta">{r.type}</span>
+          </div>
+          <p class="mt-1.5 text-sm text-grigio">{r.note}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection title={C.shopTitle} variant="crema">
+    <div class="grid gap-4 sm:grid-cols-3">
+      {n.supermarkets.map((s) => (
+        <div class="rounded-xl bg-avorio p-5">
+          <h3 class="font-semibold text-antracite">{s.name}</h3>
+          <p class="mt-1 text-sm text-grigio">{s.note}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <RelatedLinks locale={locale} items={C.rel as any} />
 </Layout>

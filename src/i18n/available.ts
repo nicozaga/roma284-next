@@ -9,13 +9,21 @@ import { PAGE_KEYS, type PageKey } from "./slugs";
  *
  * Fase 1 (Settimana 4): IT completo + EN su home e pagine commerciali chiave.
  */
+// EN completo su tutte le pagine tranne il blog (routing collection dedicato, da fare).
 const EN_READY: PageKey[] = [
   "home",
   "apartment",
+  "area",
+  "getting-here",
   "stay-near-milan",
   "smart-working",
+  "milan-fairs",
+  "milan-events",
+  "visit-piacenza",
+  "about",
   "contact",
   "book",
+  "faq",
 ];
 
 export const PAGE_LOCALES: Record<PageKey, Locale[]> = Object.fromEntries(

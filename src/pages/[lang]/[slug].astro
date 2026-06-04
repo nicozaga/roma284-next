@@ -1,10 +1,17 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Apartment from "../appartamento.astro";
+import Area from "../quartiere.astro";
+import GettingHere from "../come-arrivare.astro";
 import StayNearMilan from "../dormire-vicino-milano.astro";
 import SmartWorking from "../smart-working.astro";
+import MilanFairs from "../fiere-milano.astro";
+import MilanEvents from "../eventi-milano.astro";
+import VisitPiacenza from "../visitare-piacenza.astro";
+import About from "../chi-siamo.astro";
 import Contact from "../contatti.astro";
 import Book from "../prenota.astro";
+import Faq from "../faq.astro";
 
 import { DEFAULT_LOCALE, type Locale } from "@i18n/config";
 import { SLUGS, type PageKey } from "@i18n/slugs";
@@ -13,7 +20,10 @@ import { localesForPage } from "@i18n/available";
 // getStaticPaths viene estratto da Astro e non può referenziare const della
 // frontmatter (TDZ): l'elenco pagine è definito INLINE qui dentro.
 export const getStaticPaths = (() => {
-  const INNER: PageKey[] = ["apartment", "stay-near-milan", "smart-working", "contact", "book"];
+  const INNER: PageKey[] = [
+    "apartment", "area", "getting-here", "stay-near-milan", "smart-working",
+    "milan-fairs", "milan-events", "visit-piacenza", "about", "contact", "book", "faq",
+  ];
   const paths: { params: { lang: string; slug: string }; props: { locale: Locale; pageKey: PageKey } }[] = [];
   for (const key of INNER) {
     for (const loc of localesForPage(key)) {
@@ -27,10 +37,17 @@ export const getStaticPaths = (() => {
 // Mappa pageKey → componente, usata solo in fase di render.
 const COMP: Partial<Record<PageKey, any>> = {
   apartment: Apartment,
+  area: Area,
+  "getting-here": GettingHere,
   "stay-near-milan": StayNearMilan,
   "smart-working": SmartWorking,
+  "milan-fairs": MilanFairs,
+  "milan-events": MilanEvents,
+  "visit-piacenza": VisitPiacenza,
+  about: About,
   contact: Contact,
   book: Book,
+  faq: Faq,
 };
 
 interface Props { locale: Locale; pageKey: PageKey }

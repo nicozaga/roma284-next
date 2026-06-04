@@ -6,77 +6,105 @@ import ContentSection from "@components/ContentSection.astro";
 import RelatedLinks from "@components/RelatedLinks.astro";
 import BookingWidget from "@components/BookingWidget.astro";
 
+import type { Locale } from "@i18n/config";
 import { localizedPath } from "@i18n/utils";
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
 import { SITE } from "@lib/site";
 
-const locale = "it" as const;
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
 const url = SITE.url + localizedPath("milan-events", locale);
 
-const title = "Eventi a Milano: dormire a Piacenza per concerti e partite | Roma284";
-const description =
-  "Concerti, partite e spettacoli a Milano? Da Roma284 a Piacenza raggiungi San Siro, il Forum di Assago e la Scala in treno, e torni in serata. Base tranquilla a 33 min.";
+const CMAP = {
+  it: {
+    title: "Eventi a Milano: dormire a Piacenza per concerti e partite | Roma284",
+    description: "Concerti, partite e spettacoli a Milano? Da Roma284 a Piacenza raggiungi San Siro, il Forum di Assago e la Scala in treno, e torni in serata. Base tranquilla a 33 min.",
+    eyebrow: "Eventi a Milano", h1: "A Milano per un evento, a Piacenza per dormire",
+    intro: "Concerti a San Siro, partite, spettacoli alla Scala: da Roma284 raggiungi Milano in 33 minuti di Frecciarossa e torni in una città tranquilla. L'ultimo treno per Piacenza parte alle 23:52.",
+    crumbHome: "Home", crumb: "Eventi Milano",
+    venuesTitle: "I principali luoghi degli eventi", backTitle: "Tornare la sera", faqTitle: "Domande frequenti",
+    bookTitle: "Verifica le date dell'evento", bookSub: "Conferma immediata, contatto diretto.",
+    back: "Per gli eventi serali, ricorda che l'ultima corsa diretta da Milano Centrale verso Piacenza parte alle 23:52. Se l'evento finisce più tardi, controlla in anticipo gli orari dei treni regionali serali per organizzare il rientro con tranquillità.",
+    venues: [
+      { t: "Stadio San Siro", d: "Partite di Inter e Milan e grandi concerti: raggiungibile da Milano Centrale con metro e collegamenti dedicati." },
+      { t: "Forum di Assago", d: "Concerti ed eventi sportivi al chiuso, serviti dalla metro M2." },
+      { t: "Ippodromo Snai La Maura / San Siro", d: "Grandi festival musicali estivi nell'area di San Siro." },
+      { t: "Teatro alla Scala e Arcimboldi", d: "Opera, balletto e concerti nel cuore di Milano, a pochi passi dalla stazione." },
+    ],
+    faq: [
+      { q: "Posso tornare a Piacenza dopo un concerto serale a Milano?", a: "Dipende dall'orario di fine evento: l'ultima Frecciarossa da Milano Centrale per Piacenza parte alle 23:52. Per eventi che finiscono tardi conviene verificare gli orari dei treni serali." },
+      { q: "Come raggiungo San Siro da Piacenza?", a: "Prendi la Frecciarossa fino a Milano Centrale (33 minuti) e poi i collegamenti metro/navetta per San Siro." },
+      { q: "Perché dormire a Piacenza per un evento a Milano?", a: "Durante grandi eventi gli hotel di Milano si riempiono. Piacenza offre una base tranquilla, un intero appartamento e collegamenti rapidi con la città." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base intelligente per Milano." },
+      { page: "milan-fairs", title: "Fiere di Milano", text: "La base comoda durante le grandi fiere." },
+      { page: "getting-here", title: "Come arrivare", text: "Tutti i collegamenti con Milano." },
+    ],
+  },
+  en: {
+    title: "Milan events: stay in Piacenza for concerts and matches | Roma284",
+    description: "Concerts, matches and shows in Milan? From Roma284 in Piacenza reach San Siro, the Forum di Assago and La Scala by train, and return in the evening. Quiet base, 33 min.",
+    eyebrow: "Milan events", h1: "In Milan for an event, in Piacenza to sleep",
+    intro: "Concerts at San Siro, matches, shows at La Scala: from Roma284 reach Milan in 33 minutes by Frecciarossa and return to a quiet city. The last train to Piacenza leaves at 23:52.",
+    crumbHome: "Home", crumb: "Milan events",
+    venuesTitle: "The main event venues", backTitle: "Getting back in the evening", faqTitle: "Frequently asked questions",
+    bookTitle: "Check your event dates", bookSub: "Instant confirmation, direct contact.",
+    back: "For evening events, remember that the last direct service from Milan Centrale to Piacenza leaves at 23:52. If the event ends later, check the evening regional train times in advance to plan your return with peace of mind.",
+    venues: [
+      { t: "San Siro Stadium", d: "Inter and Milan matches and big concerts: reachable from Milan Centrale by metro and dedicated connections." },
+      { t: "Forum di Assago", d: "Indoor concerts and sports events, served by metro M2." },
+      { t: "Ippodromo Snai La Maura / San Siro", d: "Major summer music festivals in the San Siro area." },
+      { t: "Teatro alla Scala and Arcimboldi", d: "Opera, ballet and concerts in the heart of Milan, a few steps from the station." },
+    ],
+    faq: [
+      { q: "Can I get back to Piacenza after an evening concert in Milan?", a: "It depends on the event's end time: the last Frecciarossa from Milan Centrale to Piacenza leaves at 23:52. For events that finish late it's worth checking the evening train times." },
+      { q: "How do I reach San Siro from Piacenza?", a: "Take the Frecciarossa to Milan Centrale (33 minutes) and then the metro/shuttle connections to San Siro." },
+      { q: "Why sleep in Piacenza for a Milan event?", a: "During major events Milan hotels fill up. Piacenza offers a quiet base, a whole apartment and fast connections to the city." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Stay near Milan", text: "Why Piacenza is the smart base for Milan." },
+      { page: "milan-fairs", title: "Milan fairs", text: "The handy base during the big trade fairs." },
+      { page: "getting-here", title: "Getting here", text: "All connections to Milan." },
+    ],
+  },
+};
+const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
 
 const crumbs = [
-  { name: "Home", href: localizedPath("home", locale) },
-  { name: "Eventi Milano", href: localizedPath("milan-events", locale) },
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("milan-events", locale) },
 ];
-
-const venues = [
-  { t: "Stadio San Siro", d: "Partite di Inter e Milan e grandi concerti: raggiungibile da Milano Centrale con metro e collegamenti dedicati." },
-  { t: "Forum di Assago", d: "Concerti ed eventi sportivi al chiuso, serviti dalla metro M2." },
-  { t: "Ippodromo Snai La Maura / San Siro", d: "Grandi festival musicali estivi nell'area di San Siro." },
-  { t: "Teatro alla Scala e Arcimboldi", d: "Opera, balletto e concerti nel cuore di Milano, a pochi passi dalla stazione." },
-];
-
-const faq = [
-  { q: "Posso tornare a Piacenza dopo un concerto serale a Milano?", a: "Dipende dall'orario di fine evento: l'ultima Frecciarossa da Milano Centrale per Piacenza parte alle 23:52. Per eventi che finiscono tardi conviene verificare gli orari dei treni serali." },
-  { q: "Come raggiungo San Siro da Piacenza?", a: "Prendi la Frecciarossa fino a Milano Centrale (33 minuti) e poi i collegamenti metro/navetta per San Siro." },
-  { q: "Perché dormire a Piacenza per un evento a Milano?", a: "Durante grandi eventi gli hotel di Milano si riempiono. Piacenza offre una base tranquilla, un intero appartamento e collegamenti rapidi con la città." },
-];
-
 const schema = [
   breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
-  webPageSchema({ name: title, description, url, speakable: ["h1"] }),
-  faqPageSchema(faq.map((f) => ({ question: f.q, answer: f.a }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1"] }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
 ];
 ---
 
-<Layout locale={locale} page="milan-events" title={title} description={description} stickyCtaHref="#book">
+<Layout locale={locale} page="milan-events" title={C.title} description={C.description} stickyCtaHref="#book">
   <JsonLd schema={schema} />
 
-  <PageHero
-    eyebrow="Eventi a Milano"
-    title="A Milano per un evento, a Piacenza per dormire"
-    intro="Concerti a San Siro, partite, spettacoli alla Scala: da Roma284 raggiungi Milano in 33 minuti di Frecciarossa e torni in una città tranquilla. L'ultimo treno per Piacenza parte alle 23:52."
-    crumbs={crumbs}
-  />
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
 
-  <ContentSection title="I principali luoghi degli eventi" variant="crema">
+  <ContentSection title={C.venuesTitle} variant="crema">
     <div class="grid gap-5 sm:grid-cols-2">
-      {
-        venues.map((v) => (
-          <article class="rounded-2xl border border-antracite/8 bg-white p-6">
-            <h3 class="text-lg text-antracite">{v.t}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-grigio">{v.d}</p>
-          </article>
-        ))
-      }
+      {C.venues.map((v) => (
+        <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+          <h3 class="text-lg text-antracite">{v.t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-grigio">{v.d}</p>
+        </article>
+      ))}
     </div>
   </ContentSection>
 
-  <ContentSection title="Tornare la sera" variant="avorio" narrow>
-    <p class="leading-relaxed text-grigio">
-      Per gli eventi serali, ricorda che l'ultima corsa diretta da Milano Centrale verso Piacenza
-      parte alle <strong class="text-antracite">23:52</strong>. Se l'evento finisce più tardi,
-      controlla in anticipo gli orari dei treni regionali serali per organizzare il rientro con
-      tranquillità.
-    </p>
+  <ContentSection title={C.backTitle} variant="avorio" narrow>
+    <p class="leading-relaxed text-grigio" set:html={C.back.replace("23:52", "<strong class='text-antracite'>23:52</strong>")} />
   </ContentSection>
 
-  <ContentSection title="Domande frequenti" variant="crema" narrow>
+  <ContentSection title={C.faqTitle} variant="crema" narrow>
     <div class="space-y-6">
-      {faq.map((f) => (
+      {C.faq.map((f) => (
         <div>
           <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
           <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
@@ -85,14 +113,7 @@ const schema = [
     </div>
   </ContentSection>
 
-  <BookingWidget locale={locale} title="Verifica le date dell'evento" subtitle="Conferma immediata, contatto diretto." />
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
 
-  <RelatedLinks
-    locale={locale}
-    items={[
-      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base intelligente per Milano." },
-      { page: "milan-fairs", title: "Fiere di Milano", text: "La base comoda durante le grandi fiere." },
-      { page: "getting-here", title: "Come arrivare", text: "Tutti i collegamenti con Milano." },
-    ]}
-  />
+  <RelatedLinks locale={locale} items={C.rel as any} />
 </Layout>
