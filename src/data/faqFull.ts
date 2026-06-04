@@ -34,7 +34,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Quanto dista la stazione?", a: "La stazione di Piacenza è a 900 metri, circa 9 minuti a piedi." },
       { q: "Quanto ci vuole per Milano?", a: "Milano Centrale è a 33 minuti in Frecciarossa, con fino a 52 treni diretti al giorno (prima 06:07, ultima 23:52)." },
       { q: "Come raggiungo la Fiera di Rho?", a: "Con la Frecciarossa fino a Milano e poi la metro M1 fino a Rho Fiera, in circa un'ora complessiva." },
-      { q: "C'è parcheggio?", a: "Sì, è disponibile parcheggio gratuito in strada nelle vicinanze." },
+      { q: "C'è parcheggio?", a: "In Via Roma il parcheggio è su strisce blu, a pagamento di giorno e gratuito dopo le 19. A circa 300 metri c'è anche il parcheggio custodito Urban Center Parking, in Stradone Farnese 126." },
     ] },
     { category: "Pagamenti", items: [
       { q: "Come posso pagare?", a: "Il pagamento avviene in modo sicuro tramite il sistema di prenotazione del sito." },
@@ -73,7 +73,7 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "How far is the station?", a: "Piacenza station is 900 metres away, about a 9-minute walk." },
       { q: "How long to Milan?", a: "Milan Centrale is 33 minutes away by Frecciarossa, with up to 52 direct trains a day (first 06:07, last 23:52)." },
       { q: "How do I reach the Rho fairground?", a: "By Frecciarossa to Milan and then metro M1 to Rho Fiera, in about an hour overall." },
-      { q: "Is there parking?", a: "Yes, free on-street parking is available nearby." },
+      { q: "Is there parking?", a: "On Via Roma, parking is on blue lines, paid during the day and free after 7pm. About 300 metres away there's also the guarded Urban Center Parking, at Stradone Farnese 126." },
     ] },
     { category: "Payments", items: [
       { q: "How can I pay?", a: "Payment is handled securely through the site's booking system." },

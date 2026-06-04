@@ -28,11 +28,16 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
       "Macchina caffè Nespresso con cialde omaggio",
       "Tavolo da pranzo",
     ] },
+    { title: "Bagno", items: [
+      "Ampia doccia walk-in",
+      "Shampoo, docciaschiuma e sapone per le mani inclusi",
+      "Asciugamani e set di cortesia",
+    ] },
     { title: "Lavanderia", items: ["Lavasciuga multifunzione", "Stendibiancheria"] },
     { title: "Spazi", items: [
       "Patio privato arredato sul cortile interno",
       "Ingresso al piano terra, nessuna scala",
-      "Parcheggio gratuito in strada",
+      "Parcheggio in strada (strisce blu, gratis dopo le 19)",
     ] },
     { title: "Pet-friendly", items: [
       "Animali domestici sempre benvenuti, gratuitamente",
@@ -60,11 +65,16 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
       "Nespresso coffee machine with complimentary capsules",
       "Dining table",
     ] },
+    { title: "Bathroom", items: [
+      "Spacious walk-in shower",
+      "Shampoo, body wash and hand soap included",
+      "Towels and courtesy set",
+    ] },
     { title: "Laundry", items: ["Multifunction washer-dryer", "Clothes airer"] },
     { title: "Spaces", items: [
       "Furnished private patio on the inner courtyard",
       "Ground-floor entrance, no stairs",
-      "Free on-street parking",
+      "On-street parking (blue lines, free after 7pm)",
     ] },
     { title: "Pet-friendly", items: [
       "Pets always welcome, free of charge",
