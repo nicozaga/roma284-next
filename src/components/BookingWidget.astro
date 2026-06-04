@@ -9,26 +9,77 @@ interface Props {
 }
 const { locale, title, subtitle } = Astro.props;
 
-// Mappa locale sito → codice lingua Lodgify.
+// Mappa locale sito → codice lingua Lodgify (per data-language-code e URL checkout).
 const LODGIFY_LANG: Record<Locale, string> = {
   it: "it", en: "en", fr: "fr", es: "es", pt: "pt", de: "de",
   nl: "nl", sv: "sv", pl: "pl", ja: "ja", "zh-cn": "zh",
 };
 const lang = LODGIFY_LANG[locale];
+const checkoutUrl = `https://checkout.lodgify.com/roma284/${lang}/#/${SITE.lodgify.rentalId}`;
 
-// Etichette del widget Lodgify (il box non le mostra senza questi data-*-label).
-// Verificate dal vivo: check-in/check-out sono indispensabili.
-type WLabels = { checkIn: string; checkOut: string; guests: string };
-const LABELS: Partial<Record<Locale, WLabels>> = {
-  it: { checkIn: "Check-in", checkOut: "Check-out", guests: "Ospiti" },
-  en: { checkIn: "Check-in", checkOut: "Check-out", guests: "Guests" },
-  fr: { checkIn: "Arrivée", checkOut: "Départ", guests: "Voyageurs" },
+/**
+ * Etichette della Portable Search Bar Lodgify, per lingua.
+ * IT/EN forniti dall'owner da Lodgify. Le altre lingue ricadono su EN
+ * finché non vengono tradotte (Settimana traduzioni).
+ */
+interface SB {
+  checkIn: string; checkOut: string; guestsCounter: string;
+  guestsSingular: string; guestsPlural: string; location: string;
+  search: string; minStay: string; guestsBreakdown: string;
+  adults: string; adultsDesc: string; children: string; childrenDesc: string;
+  childrenNo: string; infants: string; infantsDesc: string; infantsNo: string;
+  pets: string; petsNo: string; done: string;
+}
+
+const LABELS: Partial<Record<Locale, SB>> = {
+  it: {
+    checkIn: "Check-in", checkOut: "Check-out", guestsCounter: "Ospiti",
+    guestsSingular: "{{NumberOfGuests}} ospite", guestsPlural: "{{NumberOfGuests}} ospiti",
+    location: "Località", search: "Cerca",
+    minStay: '{"one":"Minimo {minStay} notte","other":"Minimo {minStay} notti"}',
+    guestsBreakdown: "Ospiti",
+    adults: '{"one":"adulto","other":"adulti"}', adultsDesc: "Età {minAge} o superiore",
+    children: '{"one":"bambino","other":"bambini"}', childrenDesc: "Età {minAge} - {maxAge}",
+    childrenNo: "Non adatto ai bambini",
+    infants: '{"one":"neonato","other":"neonati"}', infantsDesc: "Meno di {maxAge}",
+    infantsNo: "Non adatto ai neonati",
+    pets: '{"one":"animale domestico","other":"animali domestici"}', petsNo: "Non consentito",
+    done: "Fatto",
+  },
+  en: {
+    checkIn: "Check-in", checkOut: "Check-out", guestsCounter: "Guests",
+    guestsSingular: "{{NumberOfGuests}} guest", guestsPlural: "{{NumberOfGuests}} guests",
+    location: "Location", search: "Search",
+    minStay: '{"one":"Minimum {minStay} night","other":"Minimum {minStay} nights"}',
+    guestsBreakdown: "Guests",
+    adults: '{"one":"adult","other":"adults"}', adultsDesc: "Ages {minAge} or above",
+    children: '{"one":"child","other":"children"}', childrenDesc: "Ages {minAge}-{maxAge}",
+    childrenNo: "Not suitable for children",
+    infants: '{"one":"infant","other":"infants"}', infantsDesc: "Under {maxAge}",
+    infantsNo: "Not suitable for infants",
+    pets: '{"one":"pet","other":"pets"}', petsNo: "Not allowed",
+    done: "Done",
+  },
+  fr: {
+    checkIn: "Arrivée", checkOut: "Départ", guestsCounter: "Voyageurs",
+    guestsSingular: "{{NumberOfGuests}} voyageur", guestsPlural: "{{NumberOfGuests}} voyageurs",
+    location: "Lieu", search: "Rechercher",
+    minStay: '{"one":"Minimum {minStay} nuit","other":"Minimum {minStay} nuits"}',
+    guestsBreakdown: "Voyageurs",
+    adults: '{"one":"adulte","other":"adultes"}', adultsDesc: "À partir de {minAge} ans",
+    children: '{"one":"enfant","other":"enfants"}', childrenDesc: "De {minAge} à {maxAge} ans",
+    childrenNo: "Non adapté aux enfants",
+    infants: '{"one":"bébé","other":"bébés"}', infantsDesc: "Moins de {maxAge} ans",
+    infantsNo: "Non adapté aux bébés",
+    pets: '{"one":"animal","other":"animaux"}', petsNo: "Non autorisé",
+    done: "Terminé",
+  },
 };
 const L = LABELS[locale] ?? LABELS.en!;
 ---
 
 <section id="book" class="scroll-mt-20 py-16 lg:py-24">
-  <div class="mx-auto max-w-3xl px-6 text-center">
+  <div class="mx-auto max-w-4xl px-6 text-center">
     {title && <h2 class="font-display text-3xl text-antracite lg:text-4xl">{title}</h2>}
     {subtitle && <p class="mt-3 text-grigio">{subtitle}</p>}
     <p class="mt-4 text-sm text-grigio">
@@ -36,16 +87,32 @@ const L = LABELS[locale] ?? LABELS.en!;
       {SITE.rating.airbnbCount} recensioni · Superhost
     </p>
 
-    <div class="mt-8" data-evt-view="booking_widget_view">
+    <div class="mt-8 text-left" data-evt-view="booking_widget_view">
       <div
-        id="lodgify-book-now-box"
-        data-rental-id={SITE.lodgify.rentalId}
+        id="lodgify-search-bar"
         data-website-id={SITE.lodgify.websiteId}
-        data-slug={SITE.lodgify.slug}
         data-language-code={lang}
-        data-check-in-label={L.checkIn}
-        data-check-out-label={L.checkOut}
-        data-guests-label={L.guests}
+        data-checkout-page-url={checkoutUrl}
+        data-dates-check-in-label={L.checkIn}
+        data-dates-check-out-label={L.checkOut}
+        data-guests-counter-label={L.guestsCounter}
+        data-guests-input-singular-label={L.guestsSingular}
+        data-guests-input-plural-label={L.guestsPlural}
+        data-location-input-label={L.location}
+        data-search-button-label={L.search}
+        data-dates-input-min-stay-tooltip-text={L.minStay}
+        data-guests-breakdown-label={L.guestsBreakdown}
+        data-adults-label={L.adults}
+        data-adults-description={L.adultsDesc}
+        data-children-label={L.children}
+        data-children-description={L.childrenDesc}
+        data-children-not-allowed-label={L.childrenNo}
+        data-infants-label={L.infants}
+        data-infants-description={L.infantsDesc}
+        data-infants-not-allowed-label={L.infantsNo}
+        data-pets-label={L.pets}
+        data-pets-not-allowed-label={L.petsNo}
+        data-done-label={L.done}
         data-new-tab="true"
         data-version="stable"
         data-has-guests-breakdown
@@ -55,10 +122,9 @@ const L = LABELS[locale] ?? LABELS.en!;
   </div>
 </section>
 
-{/* Script Lodgify caricato con defer (metodo ufficiale): non blocca il render
-    e si inizializza correttamente dopo il parsing della pagina. */}
+{/* Portable Search Bar — script ufficiale, defer (si inizializza dopo il parsing). */}
 <script
   is:inline
   defer
-  src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js"
+  src="https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js"
 ></script>

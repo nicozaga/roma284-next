@@ -126,24 +126,27 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* ============================================================
-   WIDGET LODGIFY — match con la palette terracotta
+   WIDGET LODGIFY — Portable Search Bar, match palette terracotta
    ============================================================ */
 :root {
-  --ldg-bnb-background: #ffffff;
-  --ldg-bnb-border-radius: 16px;
-  --ldg-bnb-box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.15);
-  --ldg-bnb-padding: 24px;
-  --ldg-bnb-input-background: #f8f8f8;
-  --ldg-bnb-button-border-radius: 50px;
-  --ldg-bnb-color-primary: #c67557;
-  --ldg-bnb-color-primary-lighter: #d4927a;
-  --ldg-bnb-color-primary-darker: #a85c47;
-  --ldg-bnb-color-primary-contrast: #ffffff;
-  --ldg-component-calendar-cell-selection-bg-color: #c67557;
-  --ldg-component-calendar-cell-selection-color: #ffffff;
-  --ldg-component-calendar-cell-selected-bg-color: #d4927a;
-  --ldg-component-calendar-cell-selected-color: #ffffff;
-  --ldg-bnb-font-family: inherit;
+  --ldg-psb-background: #ffffff;
+  --ldg-psb-border-radius: 0.42em;
+  --ldg-psb-box-shadow: 0px 24px 54px 0px rgba(0, 0, 0, 0.1);
+  --ldg-psb-padding: 14px;
+  --ldg-psb-input-background: #ffffff;
+  --ldg-psb-button-border-radius: 0.42em;
+  --ldg-psb-color-primary: #c67557;
+  --ldg-psb-color-primary-lighter: #e3baab;
+  --ldg-psb-color-primary-darker: #633b2c;
+  --ldg-psb-color-primary-contrast: #ffffff;
+  --ldg-semantic-color-primary: #c67557;
+  --ldg-semantic-color-primary-lighter: #e3baab;
+  --ldg-semantic-color-primary-darker: #633b2c;
+  --ldg-semantic-color-primary-contrast: #ffffff;
+  --ldg-component-modal-z-index: 999;
+}
+#lodgify-search-bar {
+  width: 100%;
 }
 
 /* ============================================================
