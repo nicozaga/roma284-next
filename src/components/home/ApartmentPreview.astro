@@ -14,10 +14,15 @@ const { detailsHref, ctaLabel, locale = "it" } = Astro.props;
 const intro = pick(APARTMENT_INTRO, locale);
 const amenities = pick(AMENITIES, locale);
 
-const T = {
+const TMAP = {
   it: { eyebrow: "L'appartamento", h2: "Comfort moderni, anima storica", specs: [`${SITE.stay.sizeSqm} m²`, "1 camera + soggiorno", "1 bagno", `fino a ${SITE.stay.maxGuests} ospiti`] },
   en: { eyebrow: "The apartment", h2: "Modern comforts, historic soul", specs: [`${SITE.stay.sizeSqm} m²`, "1 bedroom + living room", "1 bathroom", `up to ${SITE.stay.maxGuests} guests`] },
-}[locale as "it" | "en"] ?? { eyebrow: "", h2: "", specs: [] };
+  fr: { eyebrow: "L'appartement", h2: "Confort moderne, âme historique", specs: [`${SITE.stay.sizeSqm} m²`, "1 chambre + séjour", "1 salle de bain", `jusqu'à ${SITE.stay.maxGuests} personnes`] },
+  de: { eyebrow: "Die Wohnung", h2: "Moderner Komfort, historische Seele", specs: [`${SITE.stay.sizeSqm} m²`, "1 Schlafzimmer + Wohnzimmer", "1 Bad", `bis zu ${SITE.stay.maxGuests} Gäste`] },
+  es: { eyebrow: "El apartamento", h2: "Comodidades modernas, alma histórica", specs: [`${SITE.stay.sizeSqm} m²`, "1 dormitorio + salón", "1 baño", `hasta ${SITE.stay.maxGuests} huéspedes`] },
+  pt: { eyebrow: "O apartamento", h2: "Conforto moderno, alma histórica", specs: [`${SITE.stay.sizeSqm} m²`, "1 quarto + sala", "1 casa de banho", `até ${SITE.stay.maxGuests} hóspedes`] },
+};
+const T = TMAP[locale as keyof typeof TMAP] ?? { eyebrow: "", h2: "", specs: [] };
 ---
 
 <section id="apartment" class="scroll-mt-20 bg-crema py-16 lg:py-24">

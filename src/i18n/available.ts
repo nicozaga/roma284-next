@@ -4,30 +4,33 @@ import { PAGE_KEYS, type PageKey } from "./slugs";
 /**
  * Disponibilità lingue per pagina — single source of truth.
  * Governa hreflang, language switcher e generazione route.
- * Aggiungere una lingua a una pagina QUI quando il contenuto è pronto,
+ *
+ * IT ha sempre tutte le pagine. Per le altre lingue: aggiungere la lingua
+ * alla mappa READY SOLO quando il contenuto è completo e la build è verde,
  * così non si creano mai link rotti né alternate verso pagine inesistenti.
  *
- * Fase 1 (Settimana 4): IT completo + EN su home e pagine commerciali chiave.
+ * Il blog resta IT-only (routing collection dedicato), quindi è escluso.
  */
-// EN completo su tutte le pagine tranne il blog (routing collection dedicato, da fare).
-const EN_READY: PageKey[] = [
-  "home",
-  "apartment",
-  "area",
-  "getting-here",
-  "stay-near-milan",
-  "smart-working",
-  "milan-fairs",
-  "milan-events",
-  "visit-piacenza",
-  "about",
-  "contact",
-  "book",
-  "faq",
-];
+const ALL_EXCEPT_BLOG: PageKey[] = PAGE_KEYS.filter((p) => p !== "blog");
+
+// Lingue tradotte e PUBBLICATE (oltre a IT). Ogni voce = elenco pagine pronte.
+// Il task notturno aggiunge qui una riga per lingua quando finisce, es. fr: ALL_EXCEPT_BLOG.
+const READY: Partial<Record<Locale, PageKey[]>> = {
+  en: ALL_EXCEPT_BLOG,
+  fr: ALL_EXCEPT_BLOG,
+  de: ALL_EXCEPT_BLOG,
+  es: ALL_EXCEPT_BLOG,
+  pt: ALL_EXCEPT_BLOG,
+};
 
 export const PAGE_LOCALES: Record<PageKey, Locale[]> = Object.fromEntries(
-  PAGE_KEYS.map((p) => [p, EN_READY.includes(p) ? ["it", "en"] : ["it"]]),
+  PAGE_KEYS.map((p) => {
+    const locs: Locale[] = [DEFAULT_LOCALE];
+    for (const [loc, pages] of Object.entries(READY)) {
+      if (loc !== DEFAULT_LOCALE && pages?.includes(p)) locs.push(loc as Locale);
+    }
+    return [p, locs];
+  }),
 ) as Record<PageKey, Locale[]>;
 
 export function localesForPage(page: PageKey): Locale[] {

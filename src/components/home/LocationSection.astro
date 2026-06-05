@@ -12,10 +12,15 @@ interface Props {
 const { ctaHref, ctaLabel, locale = "it" } = Astro.props;
 const connections = pick(CONNECTIONS, locale);
 const poi = pick(POI, locale);
-const T = {
+const TMAP = {
   it: { eyebrow: "Posizione strategica", h2: "Nel centro di Piacenza, a un passo da Milano", intro: "Roma284 si trova in Via Roma 284, nel cuore del centro storico di Piacenza. La Frecciarossa porta a Milano Centrale in 33 minuti e tutto il centro è raggiungibile a piedi.", walk: "A piedi raggiungi:", load: "Carica la mappa" },
   en: { eyebrow: "Prime location", h2: "In central Piacenza, a step from Milan", intro: "Roma284 is on Via Roma 284, in the heart of Piacenza's historic centre. The Frecciarossa reaches Milan Centrale in 33 minutes and the whole centre is walkable.", walk: "On foot you reach:", load: "Load the map" },
-}[locale as "it" | "en"] ?? { eyebrow: "", h2: "", intro: "", walk: "", load: "" };
+  fr: { eyebrow: "Emplacement stratégique", h2: "Au centre de Plaisance, à un pas de Milan", intro: "Roma284 se trouve au Via Roma 284, au cœur du centre historique de Plaisance. La Frecciarossa rejoint Milan Centrale en 33 minutes et tout le centre est accessible à pied.", walk: "À pied, vous rejoignez :", load: "Charger la carte" },
+  de: { eyebrow: "Strategische Lage", h2: "Im Zentrum von Piacenza, einen Schritt von Mailand entfernt", intro: "Roma284 liegt in der Via Roma 284, im Herzen des historischen Zentrums von Piacenza. Der Frecciarossa erreicht Mailand Centrale in 33 Minuten und das gesamte Zentrum ist zu Fuß erreichbar.", walk: "Zu Fuß erreichen Sie:", load: "Karte laden" },
+  es: { eyebrow: "Ubicación estratégica", h2: "En el centro de Piacenza, a un paso de Milán", intro: "Roma284 se encuentra en Via Roma 284, en el corazón del centro histórico de Piacenza. El Frecciarossa llega a Milán Centrale en 33 minutos y todo el centro es accesible a pie.", walk: "A pie llegas a:", load: "Cargar el mapa" },
+  pt: { eyebrow: "Localização estratégica", h2: "No centro de Piacenza, a um passo de Milão", intro: "O Roma284 fica na Via Roma 284, no coração do centro histórico de Piacenza. O Frecciarossa chega a Milão Centrale em 33 minutos e todo o centro é acessível a pé.", walk: "A pé chega a:", load: "Carregar o mapa" },
+};
+const T = TMAP[locale as keyof typeof TMAP] ?? { eyebrow: "", h2: "", intro: "", walk: "", load: "" };
 // Mappa caricata per indirizzo (geocoding di Google): il pin punta sempre al
 // civico corretto senza dipendere da coordinate scritte a mano.
 const mapQuery = "Via Roma 284, 29121 Piacenza, Italia";

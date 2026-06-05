@@ -43,8 +43,60 @@ const CMAP = {
       { page: "area", title: "The area", text: "What's around the apartment, all on foot." },
     ],
   },
+  fr: {
+    title: "Comment venir à Plaisance depuis Milan et les aéroports | Roma284",
+    description: "Comment rejoindre Roma284 à Plaisance : 33 minutes de Milan Centrale en Frecciarossa, depuis les aéroports de Malpensa, Linate, Bergame et Bologne, et en voiture par l'A1.",
+    eyebrow: "Comment venir", h1: "Rejoindre Roma284 est simple",
+    intro: "Plaisance est à 33 minutes de Milan Centrale en Frecciarossa et bien reliée aux principaux aéroports du nord de l'Italie. L'appartement est à 900 mètres (9 minutes à pied) de la gare de Plaisance.",
+    crumbHome: "Accueil", crumb: "Comment venir",
+    howName: "Comment rejoindre Roma284 depuis Milan Centrale",
+    rel: [
+      { page: "stay-near-milan", title: "Dormir près de Milan", text: "Pourquoi Plaisance est la base idéale pour visiter Milan." },
+      { page: "milan-fairs", title: "Foires de Milan", text: "Comment rejoindre la foire de Rho depuis Plaisance." },
+      { page: "area", title: "Le quartier", text: "Ce que vous trouvez autour de l'appartement, tout à pied." },
+    ],
+  },
+  de: {
+    title: "Anreise nach Piacenza von Mailand und den Flughäfen | Roma284",
+    description: "So erreichen Sie Roma284 in Piacenza: 33 Minuten von Mailand Centrale mit dem Frecciarossa, von den Flughäfen Malpensa, Linate, Bergamo und Bologna sowie mit dem Auto über die A1.",
+    eyebrow: "Anreise", h1: "Roma284 zu erreichen ist einfach",
+    intro: "Piacenza ist mit dem Frecciarossa 33 Minuten von Mailand Centrale entfernt und gut an die wichtigsten Flughäfen Norditaliens angebunden. Die Wohnung liegt 900 Meter (9 Gehminuten) vom Bahnhof Piacenza entfernt.",
+    crumbHome: "Home", crumb: "Anreise",
+    howName: "So erreichen Sie Roma284 von Mailand Centrale",
+    rel: [
+      { page: "stay-near-milan", title: "Übernachten bei Mailand", text: "Warum Piacenza die clevere Basis für einen Besuch in Mailand ist." },
+      { page: "milan-fairs", title: "Mailänder Messen", text: "So erreichen Sie die Messe Rho von Piacenza aus." },
+      { page: "area", title: "Das Viertel", text: "Was Sie rund um die Wohnung finden, alles zu Fuß." },
+    ],
+  },
+  es: {
+    title: "Cómo llegar a Piacenza desde Milán y los aeropuertos | Roma284",
+    description: "Cómo llegar a Roma284 en Piacenza: 33 minutos desde Milán Centrale en Frecciarossa, desde los aeropuertos de Malpensa, Linate, Bérgamo y Bolonia, y en coche por la A1.",
+    eyebrow: "Cómo llegar", h1: "Llegar a Roma284 es sencillo",
+    intro: "Piacenza está a 33 minutos de Milán Centrale en Frecciarossa y bien conectada con los principales aeropuertos del norte de Italia. El apartamento está a 900 metros (9 minutos a pie) de la estación de Piacenza.",
+    crumbHome: "Inicio", crumb: "Cómo llegar",
+    howName: "Cómo llegar a Roma284 desde Milán Centrale",
+    rel: [
+      { page: "stay-near-milan", title: "Dormir cerca de Milán", text: "Por qué Piacenza es la base inteligente para visitar Milán." },
+      { page: "milan-fairs", title: "Ferias de Milán", text: "Cómo llegar a la Feria de Rho desde Piacenza." },
+      { page: "area", title: "El barrio", text: "Qué encuentras alrededor del apartamento, todo a pie." },
+    ],
+  },
+  pt: {
+    title: "Como chegar a Piacenza desde Milão e os aeroportos | Roma284",
+    description: "Como chegar ao Roma284 em Piacenza: 33 minutos de Milão Centrale de Frecciarossa, dos aeroportos de Malpensa, Linate, Bérgamo e Bolonha, e de carro pela A1.",
+    eyebrow: "Como chegar", h1: "Chegar ao Roma284 é simples",
+    intro: "Piacenza fica a 33 minutos de Milão Centrale de Frecciarossa e bem ligada aos principais aeroportos do norte de Itália. O apartamento fica a 900 metros (9 minutos a pé) da estação de Piacenza.",
+    crumbHome: "Início", crumb: "Como chegar",
+    howName: "Como chegar ao Roma284 a partir de Milão Centrale",
+    rel: [
+      { page: "stay-near-milan", title: "Dormir perto de Milão", text: "Porque Piacenza é a base inteligente para visitar Milão." },
+      { page: "milan-fairs", title: "Feiras de Milão", text: "Como chegar à Feira de Rho a partir de Piacenza." },
+      { page: "area", title: "O bairro", text: "O que encontra à volta do apartamento, tudo a pé." },
+    ],
+  },
 };
-const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
+const C = CMAP[locale as keyof typeof CMAP] ?? CMAP.it;
 
 const crumbs = [
   { name: C.crumbHome, href: localizedPath("home", locale) },

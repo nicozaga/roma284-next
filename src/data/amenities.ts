@@ -81,4 +81,152 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
       "Private patio handy for those travelling with a dog",
     ] },
   ],
+  fr: [
+    { title: "Confort", items: [
+      "Climatisation chaud/froid dans tout l'appartement",
+      "Chauffage indépendant",
+      "Lit double (152×203) séparable en deux lits simples",
+      "2 fauteuils-lits simples dans le séjour",
+      "Linge de qualité et surmatelas à mémoire de forme",
+    ] },
+    { title: "Technologie", items: [
+      "Wi-Fi fibre 1 Gbit/s",
+      "Smart TV 55\" avec Netflix et YouTube",
+      "Espace de travail dédié",
+    ] },
+    { title: "Cuisine", items: [
+      "Plaque à induction 4 feux",
+      "Four combiné (chaleur tournante + micro-ondes)",
+      "Lave-vaisselle",
+      "Grand réfrigérateur avec congélateur",
+      "Machine à café Nespresso avec capsules offertes",
+      "Table à manger",
+    ] },
+    { title: "Salle de bain", items: [
+      "Grande douche à l'italienne",
+      "Shampooing, gel douche et savon pour les mains inclus",
+      "Serviettes et set de courtoisie",
+    ] },
+    { title: "Buanderie", items: ["Lave-linge séchant multifonction", "Étendoir à linge"] },
+    { title: "Espaces", items: [
+      "Patio privé meublé sur la cour intérieure",
+      "Entrée de plain-pied, sans escaliers",
+      "Stationnement dans la rue (lignes bleues, gratuit après 19h)",
+    ] },
+    { title: "Animaux acceptés", items: [
+      "Animaux toujours les bienvenus, gratuitement",
+      "Patio privé pratique pour ceux qui voyagent avec un chien",
+    ] },
+  ],
+  de: [
+    { title: "Komfort", items: [
+      "Klimaanlage mit Heiz-/Kühlfunktion in der gesamten Wohnung",
+      "Autonome Heizung",
+      "Doppelbett (152×203) in zwei Einzelbetten teilbar",
+      "2 Einzel-Schlafsessel im Wohnzimmer",
+      "Hochwertige Bettwäsche und Memory-Foam-Topper",
+    ] },
+    { title: "Technik", items: [
+      "Glasfaser-WLAN 1 Gbit/s",
+      "55\"-Smart-TV mit Netflix und YouTube",
+      "Eigener Arbeitsplatz",
+    ] },
+    { title: "Küche", items: [
+      "Induktionskochfeld mit 4 Platten",
+      "Kombi-Backofen (Umluft + Mikrowelle)",
+      "Geschirrspüler",
+      "Großer Kühlschrank mit Gefrierfach",
+      "Nespresso-Kaffeemaschine mit Gratis-Kapseln",
+      "Esstisch",
+    ] },
+    { title: "Bad", items: [
+      "Geräumige bodengleiche Dusche",
+      "Shampoo, Duschgel und Handseife inklusive",
+      "Handtücher und Kosmetikset",
+    ] },
+    { title: "Wäsche", items: ["Multifunktionaler Waschtrockner", "Wäscheständer"] },
+    { title: "Bereiche", items: [
+      "Möblierter privater Patio am Innenhof",
+      "Ebenerdiger Eingang, keine Treppen",
+      "Parken auf der Straße (blaue Linien, ab 19 Uhr kostenlos)",
+    ] },
+    { title: "Haustierfreundlich", items: [
+      "Haustiere jederzeit willkommen, kostenlos",
+      "Privater Patio auch praktisch für Reisende mit Hund",
+    ] },
+  ],
+  es: [
+    { title: "Confort", items: [
+      "Climatización frío/calor en todo el apartamento",
+      "Calefacción autónoma",
+      "Cama de matrimonio (152×203) separable en dos individuales",
+      "2 sillones cama individuales en el salón",
+      "Ropa de cama de calidad y topper de espuma viscoelástica",
+    ] },
+    { title: "Tecnología", items: [
+      "Wi-Fi de fibra 1 Gbit/s",
+      "Smart TV de 55\" con Netflix y YouTube",
+      "Espacio de trabajo dedicado",
+    ] },
+    { title: "Cocina", items: [
+      "Placa de inducción de 4 fuegos",
+      "Horno combinado (ventilado + microondas)",
+      "Lavavajillas",
+      "Frigorífico amplio con congelador",
+      "Cafetera Nespresso con cápsulas de regalo",
+      "Mesa de comedor",
+    ] },
+    { title: "Baño", items: [
+      "Amplia ducha walk-in",
+      "Champú, gel de ducha y jabón de manos incluidos",
+      "Toallas y set de cortesía",
+    ] },
+    { title: "Lavandería", items: ["Lavadora-secadora multifunción", "Tendedero"] },
+    { title: "Espacios", items: [
+      "Patio privado amueblado en el patio interior",
+      "Entrada en planta baja, sin escaleras",
+      "Aparcamiento en la calle (línea azul, gratis a partir de las 19)",
+    ] },
+    { title: "Admite mascotas", items: [
+      "Mascotas siempre bienvenidas, de forma gratuita",
+      "Patio privado cómodo también para quienes viajan con perro",
+    ] },
+  ],
+  pt: [
+    { title: "Conforto", items: [
+      "Climatização quente/frio em todo o apartamento",
+      "Aquecimento autónomo",
+      "Cama de casal (152×203) separável em duas individuais",
+      "2 cadeirões-cama individuais na sala",
+      "Roupa de cama de qualidade e topper em espuma viscoelástica",
+    ] },
+    { title: "Tecnologia", items: [
+      "Wi-Fi de fibra 1 Gbit/s",
+      "Smart TV de 55\" com Netflix e YouTube",
+      "Espaço de trabalho dedicado",
+    ] },
+    { title: "Cozinha", items: [
+      "Placa de indução de 4 zonas",
+      "Forno combinado (ventilado + micro-ondas)",
+      "Máquina de lavar loiça",
+      "Frigorífico amplo com congelador",
+      "Máquina de café Nespresso com cápsulas oferecidas",
+      "Mesa de jantar",
+    ] },
+    { title: "Casa de banho", items: [
+      "Ampla base de duche walk-in",
+      "Champô, gel de banho e sabonete para as mãos incluídos",
+      "Toalhas e kit de cortesia",
+    ] },
+    { title: "Lavandaria", items: ["Máquina de lavar e secar multifunções", "Estendal"] },
+    { title: "Espaços", items: [
+      "Pátio privado mobilado no pátio interior",
+      "Entrada no rés-do-chão, sem escadas",
+      "Estacionamento na rua (linhas azuis, gratuito após as 19h)",
+    ] },
+    { title: "Aceita animais", items: [
+      "Animais de estimação sempre bem-vindos, gratuitamente",
+      "Pátio privado prático também para quem viaja com cão",
+    ] },
+  ],
 };

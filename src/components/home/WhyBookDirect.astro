@@ -11,7 +11,7 @@ interface Props {
 const { title, subtitle, locale = "it" } = Astro.props;
 const items = pick(WHY_DIRECT, locale);
 
-const T = {
+const TMAP = {
   it: {
     eyebrow: "Prenotazione diretta",
     saveBadge: "Fino al 15% in meno",
@@ -30,7 +30,26 @@ const T = {
     saveTitle: "Le meilleur prix, c'est ici",
     saveText: "En réservant directement sur ce site, vous évitez les commissions des plateformes de réservation. Pour le même séjour, vous payez généralement jusqu'à 15 % de moins : le même appartement, sans frais d'intermédiaire.",
   },
-}[locale as "it" | "en" | "fr"] ?? null;
+  de: {
+    eyebrow: "Direktbuchung",
+    saveBadge: "Bis zu 15 % weniger",
+    saveTitle: "Den besten Preis finden Sie hier",
+    saveText: "Wenn Sie direkt auf dieser Website buchen, sparen Sie die Gebühren der Buchungsplattformen. Für denselben Aufenthalt zahlen Sie in der Regel bis zu 15 % weniger: dieselbe Wohnung, ohne Vermittlungskosten.",
+  },
+  es: {
+    eyebrow: "Reserva directa",
+    saveBadge: "Hasta un 15% menos",
+    saveTitle: "El mejor precio lo encuentras aquí",
+    saveText: "Reservando directamente en esta web evitas las comisiones de las plataformas de reserva. Por la misma estancia normalmente pagas hasta un 15% menos: el mismo apartamento, sin costes de intermediación.",
+  },
+  pt: {
+    eyebrow: "Reserva direta",
+    saveBadge: "Até 15% menos",
+    saveTitle: "O melhor preço encontra-o aqui",
+    saveText: "Ao reservar diretamente neste site, evita as comissões das plataformas de reserva. Pela mesma estadia paga normalmente até 15% menos: o mesmo apartamento, sem custos de intermediação.",
+  },
+};
+const T = TMAP[locale as keyof typeof TMAP] ?? null;
 const L = T ?? {
   eyebrow: "Direct booking", saveBadge: "Up to 15% less",
   saveTitle: "The best price is right here",

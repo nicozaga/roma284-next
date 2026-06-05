@@ -33,8 +33,40 @@ const CMAP = {
     crumbHome: "Home", crumb: "FAQ",
     search: "Search a question…", empty: "No results. Try other words or message us on WhatsApp.",
   },
+  fr: {
+    title: "Foire aux questions sur Roma284 à Plaisance | Roma284",
+    description: "Toutes les réponses sur Roma284 : réservation, check-in, services, emplacement, paiements et annulation. Wi-Fi 1 Gbit/s, animaux bienvenus, 33 min de Milan.",
+    eyebrow: "FAQ", h1: "Foire aux questions",
+    intro: "Tout ce qu'il faut savoir avant de réserver. Vous ne trouvez pas la réponse ? Écrivez-nous sur WhatsApp.",
+    crumbHome: "Accueil", crumb: "FAQ",
+    search: "Rechercher une question…", empty: "Aucun résultat. Essayez d'autres mots ou écrivez-nous sur WhatsApp.",
+  },
+  de: {
+    title: "Häufig gestellte Fragen zu Roma284 in Piacenza | Roma284",
+    description: "Alle Antworten zu Roma284: Buchung, Check-in, Ausstattung, Lage, Zahlungen und Stornierung. WLAN 1 Gbit/s, Haustiere willkommen, 33 Min. von Mailand.",
+    eyebrow: "FAQ", h1: "Häufig gestellte Fragen",
+    intro: "Alles, was Sie vor der Buchung wissen müssen. Sie finden die Antwort nicht? Schreiben Sie uns auf WhatsApp.",
+    crumbHome: "Home", crumb: "FAQ",
+    search: "Eine Frage suchen…", empty: "Keine Ergebnisse. Versuchen Sie andere Wörter oder schreiben Sie uns auf WhatsApp.",
+  },
+  es: {
+    title: "Preguntas frecuentes sobre Roma284 en Piacenza | Roma284",
+    description: "Todas las respuestas sobre Roma284: reserva, check-in, servicios, ubicación, pagos y cancelación. Wi-Fi 1 Gbit/s, mascotas bienvenidas, 33 min de Milán.",
+    eyebrow: "FAQ", h1: "Preguntas frecuentes",
+    intro: "Todo lo que hay que saber antes de reservar. ¿No encuentras la respuesta? Escríbenos por WhatsApp.",
+    crumbHome: "Inicio", crumb: "FAQ",
+    search: "Buscar una pregunta…", empty: "Sin resultados. Prueba con otras palabras o escríbenos por WhatsApp.",
+  },
+  pt: {
+    title: "Perguntas frequentes sobre o Roma284 em Piacenza | Roma284",
+    description: "Todas as respostas sobre o Roma284: reserva, check-in, serviços, localização, pagamentos e cancelamento. Wi-Fi 1 Gbit/s, animais bem-vindos, 33 min de Milão.",
+    eyebrow: "FAQ", h1: "Perguntas frequentes",
+    intro: "Tudo o que há a saber antes de reservar. Não encontra a resposta? Escreva-nos no WhatsApp.",
+    crumbHome: "Início", crumb: "FAQ",
+    search: "Procurar uma pergunta…", empty: "Sem resultados. Experimente outras palavras ou escreva-nos no WhatsApp.",
+  },
 };
-const C = CMAP[locale as "it" | "en"] ?? CMAP.it;
+const C = CMAP[locale as keyof typeof CMAP] ?? CMAP.it;
 
 const crumbs = [
   { name: C.crumbHome, href: localizedPath("home", locale) },
