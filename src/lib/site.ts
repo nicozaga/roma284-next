@@ -11,7 +11,7 @@ export const SITE = {
   whatsapp: "393478104634",
   ga4: "G-ZWPPWW0T50",
   /** ID progetto Microsoft Clarity. Lascia "" per disattivarlo (l'owner lo incolla qui). */
-  clarityId: "",
+  clarityId: "x279p1twk6",
   address: {
     street: "Via Roma 284",
     postalCode: "29121",
