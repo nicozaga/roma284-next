@@ -19,6 +19,9 @@ const TMAP = {
   de: { eyebrow: "Strategische Lage", h2: "Im Zentrum von Piacenza, einen Schritt von Mailand entfernt", intro: "Roma284 liegt in der Via Roma 284, im Herzen des historischen Zentrums von Piacenza. Der Frecciarossa erreicht Mailand Centrale in 33 Minuten und das gesamte Zentrum ist zu Fuß erreichbar.", walk: "Zu Fuß erreichen Sie:", load: "Karte laden" },
   es: { eyebrow: "Ubicación estratégica", h2: "En el centro de Piacenza, a un paso de Milán", intro: "Roma284 se encuentra en Via Roma 284, en el corazón del centro histórico de Piacenza. El Frecciarossa llega a Milán Centrale en 33 minutos y todo el centro es accesible a pie.", walk: "A pie llegas a:", load: "Cargar el mapa" },
   pt: { eyebrow: "Localização estratégica", h2: "No centro de Piacenza, a um passo de Milão", intro: "O Roma284 fica na Via Roma 284, no coração do centro histórico de Piacenza. O Frecciarossa chega a Milão Centrale em 33 minutos e todo o centro é acessível a pé.", walk: "A pé chega a:", load: "Carregar o mapa" },
+  nl: { eyebrow: "Strategische ligging", h2: "In het centrum van Piacenza, op een stap van Milaan", intro: "Roma284 ligt aan de Via Roma 284, in het hart van het historische centrum van Piacenza. De Frecciarossa bereikt Milaan Centrale in 33 minuten en het hele centrum is te voet bereikbaar.", walk: "Te voet bereik je:", load: "Kaart laden" },
+  pl: { eyebrow: "Strategiczna lokalizacja", h2: "W centrum Piacenzy, o krok od Mediolanu", intro: "Roma284 znajduje się przy Via Roma 284, w sercu historycznego centrum Piacenzy. Frecciarossa dociera do Mediolanu Centrale w 33 minuty, a całe centrum jest osiągalne pieszo.", walk: "Pieszo dotrzesz do:", load: "Załaduj mapę" },
+  sv: { eyebrow: "Strategiskt läge", h2: "I centrala Piacenza, ett stenkast från Milano", intro: "Roma284 ligger på Via Roma 284, i hjärtat av Piacenzas historiska centrum. Frecciarossa når Milano Centrale på 33 minuter och hela centrum nås till fots.", walk: "Till fots når du:", load: "Ladda kartan" },
 };
 const T = TMAP[locale as keyof typeof TMAP] ?? { eyebrow: "", h2: "", intro: "", walk: "", load: "" };
 // Mappa caricata per indirizzo (geocoding di Google): il pin punta sempre al
@@ -79,36 +82,18 @@ const osmSrc = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z
       </a>
     </div>
 
-    {/* Mappa click-to-load — l'iframe NON viene caricato finché non si clicca */}
+    {/* Mappa caricata direttamente: l'iframe è lazy, parte appena la sezione entra in viewport */}
     <div
       data-reveal
       class="relative aspect-4/3 overflow-hidden rounded-2xl border border-antracite/10 bg-avorio"
     >
-      <button
-        type="button"
-        id="map-load"
-        class="group absolute inset-0 flex flex-col items-center justify-center gap-3 bg-salvia/10 text-antracite transition hover:bg-salvia/20"
-      >
-        <span
-          class="flex size-14 items-center justify-center rounded-full bg-white text-terracotta shadow-md transition group-hover:scale-105"
-        >
-          <Icon name="pin" class="size-7" />
-        </span>
-        <span class="font-medium">{T.load}</span>
-        <span class="text-sm text-grigio">Via Roma 284, Piacenza</span>
-      </button>
+      <iframe
+        src={osmSrc}
+        title="Mappa di Roma284 — Via Roma 284, Piacenza"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="absolute inset-0 size-full border-0"
+      ></iframe>
     </div>
   </div>
 </section>
-
-<script is:inline define:vars={{ osmSrc }}>
-  const btn = document.getElementById("map-load");
-  btn?.addEventListener("click", () => {
-    const iframe = document.createElement("iframe");
-    iframe.src = osmSrc;
-    iframe.title = "Mappa di Roma284 — Via Roma 284, Piacenza";
-    iframe.loading = "lazy";
-    iframe.className = "absolute inset-0 size-full border-0";
-    btn.replaceWith(iframe);
-  });
-</script>
