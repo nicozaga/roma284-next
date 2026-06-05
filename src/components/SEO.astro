@@ -13,6 +13,9 @@ interface Props {
   image?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  /** Override per pagine fuori dal sistema PageKey (es. legali). */
+  canonicalUrl?: string;
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const {
@@ -23,10 +26,12 @@ const {
   image = "/og/default.jpg",
   ogType = "website",
   noindex = false,
+  canonicalUrl,
+  alternates: alternatesProp,
 } = Astro.props;
 
-const canonical = localizedUrl(page, locale);
-const alternates = getAlternates(page);
+const canonical = canonicalUrl ?? localizedUrl(page, locale);
+const alternates = alternatesProp ?? getAlternates(page);
 const meta = LOCALE_META[locale];
 const ogImage = image.startsWith("http") ? image : SITE.url + image;
 ---

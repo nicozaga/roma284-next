@@ -1,0 +1,133 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { SITE } from "@lib/site";
+
+const updated = "5 June 2026";
+
+const legalAlternates = [
+  { hreflang: "it", href: `${SITE.url}/privacy-policy` },
+  { hreflang: "en", href: `${SITE.url}/en/privacy-policy` },
+  { hreflang: "x-default", href: `${SITE.url}/privacy-policy` },
+];
+---
+
+<Layout
+  locale="en"
+  page="home"
+  title="Terms & Conditions · Privacy & Cookie Policy | Roma284"
+  description="Booking terms, privacy notice and cookie policy for the Roma284 apartment in Piacenza."
+  canonicalUrl={`${SITE.url}/en/privacy-policy`}
+  alternates={legalAlternates}
+  stickyCta={false}
+>
+  <section class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <p class="text-sm font-medium uppercase tracking-wide text-terracotta">Legal documents</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold text-antracite sm:text-4xl">
+      Terms, Privacy &amp; Cookies
+    </h1>
+    <p class="mt-3 text-sm text-grigio">Last updated: {updated}</p>
+
+    <div class="legal mt-10 space-y-8 text-antracite/90">
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Terms &amp; Conditions</h2>
+
+        <h3>1. Scope</h3>
+        <p>Booking the Roma284 apartment through this website implies full acceptance of the terms below.</p>
+
+        <h3>2. Booking and payment</h3>
+        <ul>
+          <li>A booking is confirmed once payment is received through the booking system integrated into the website.</li>
+          <li>A confirmation is sent to the email address provided by the guest.</li>
+        </ul>
+
+        <h3>3. Flexible cancellation policy</h3>
+        <ul>
+          <li>Bookings can be cancelled free of charge up to 3 days before the scheduled arrival date.</li>
+          <li>If cancelled within that window, the amount paid is fully refunded using the same payment method.</li>
+          <li>Cancellations made less than 3 days before arrival are not eligible for a refund.</li>
+        </ul>
+
+        <h3>4. Check-in and check-out</h3>
+        <ul>
+          <li>Check-in and check-out times are specified at booking and can be agreed upon.</li>
+          <li>Self check-in instructions are provided before arrival.</li>
+        </ul>
+
+        <h3>5. Use of the property and liability</h3>
+        <ul>
+          <li>The apartment must be used in compliance with all laws, building regulations and good-neighbour rules.</li>
+          <li>Parties, subletting and hosting unregistered guests are not allowed.</li>
+          <li>Any damage to the property, furnishings or equipment is the guest's responsibility.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Privacy Policy</h2>
+        <p><strong>Data controller:</strong> Nicolò Zaganelli — Roma284, Via Roma 284, 29121 Piacenza (PC), Italy. Contact: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
+        <h3>Data collected</h3>
+        <p>Personal data collected through the contact/booking form is used for:</p>
+        <ul>
+          <li>Managing the request, the booking and the stay (including public-security obligations such as reporting guests to the authorities).</li>
+          <li>Administrative, accounting and tax obligations related to short-term rentals.</li>
+        </ul>
+
+        <h3>Storage method and retention</h3>
+        <p>Data is processed electronically and kept only for as long as necessary to fulfil the purposes above, in compliance with legal obligations.</p>
+
+        <h3>Your rights</h3>
+        <p>At any time you may exercise the rights under Articles 15-22 GDPR (access, rectification, erasure, restriction, objection, portability) by contacting the controller at the email address above.</p>
+
+        <h3>Data sharing</h3>
+        <ul>
+          <li>Data may be shared only with the competent authorities where required by law.</li>
+          <li>It is not disclosed to third parties or transferred outside the European Economic Area, except as described in the Cookie section for analytics services.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Cookie Policy</h2>
+
+        <h3>Technical cookies</h3>
+        <p>The site uses technical cookies and similar tools required for the pages and the booking widget to work. These do not require consent.</p>
+
+        <h3>Analytics cookies (only with consent)</h3>
+        <p>With your consent, the site uses analytics tools to understand how it is used and improve it:</p>
+        <ul>
+          <li><strong>Google Analytics 4</strong> — aggregated navigation statistics with anonymised IP. Data may be processed by Google LLC.</li>
+          <li><strong>Microsoft Clarity</strong> — anonymous heatmaps and session recordings to detect usability issues.</li>
+        </ul>
+        <p>
+          These tools activate <strong>only after your consent</strong> via the banner; until then analytics
+          storage stays disabled (Google Consent Mode set to <em>denied</em>). You can change your choice
+          at any time using the button below.
+        </p>
+        <p>
+          <button
+            type="button"
+            id="reopen-cookie-settings"
+            class="mt-2 rounded-full border border-antracite/20 px-4 py-2 text-sm font-medium text-antracite transition hover:bg-avorio"
+          >Manage cookie preferences</button>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal h3 { margin-top: 1.5rem; margin-bottom: 0.4rem; font-weight: 600; color: #1a1a1a; }
+  .legal p { margin-bottom: 0.75rem; line-height: 1.7; }
+  .legal ul { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; list-style: disc; }
+  .legal li { margin-bottom: 0.4rem; line-height: 1.7; }
+  .legal a { color: #c67557; text-decoration: underline; }
+</style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const b = document.getElementById("reopen-cookie-settings");
+    if (b && !b.dataset.bound) {
+      b.dataset.bound = "1";
+      b.addEventListener("click", () => { if (window.openCookieSettings) window.openCookieSettings(); });
+    }
+  });
+</script>

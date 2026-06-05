@@ -88,7 +88,7 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   },
   blog: {
     it: "blog", en: "blog", fr: "blog", es: "blog", pt: "blog", de: "blog", nl: "blog",
-    sv: "blogg", pl: "blog", ja: "blog", "zh-cn": "boke",
+    sv: "blog", pl: "blog", ja: "blog", "zh-cn": "blog",
   },
 };
 

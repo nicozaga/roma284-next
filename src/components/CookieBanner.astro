@@ -1,0 +1,116 @@
+---
+import type { Locale } from "@i18n/config";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+// Stringhe: IT nativo, EN per tutto il resto.
+const COPY = {
+  it: {
+    text: "Usiamo cookie tecnici e, solo con il tuo consenso, strumenti di analisi (Google Analytics, Microsoft Clarity) per migliorare il sito.",
+    accept: "Accetta",
+    reject: "Rifiuta",
+    privacy: "Cookie policy",
+    privacyHref: "/privacy-policy",
+    aria: "Avviso cookie",
+  },
+  en: {
+    text: "We use technical cookies and, only with your consent, analytics tools (Google Analytics, Microsoft Clarity) to improve the site.",
+    accept: "Accept",
+    reject: "Reject",
+    privacy: "Cookie policy",
+    privacyHref: "/en/privacy-policy",
+    aria: "Cookie notice",
+  },
+};
+const c = locale === "it" ? COPY.it : COPY.en;
+---
+
+<div
+  id="cookie-banner"
+  role="dialog"
+  aria-label={c.aria}
+  aria-live="polite"
+  hidden
+  class="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-2xl rounded-2xl border border-antracite/10 bg-white/95 p-4 shadow-2xl backdrop-blur sm:inset-x-auto sm:right-4 sm:left-auto sm:bottom-4 sm:w-[26rem]"
+>
+  <p class="text-sm leading-relaxed text-antracite/85">
+    {c.text} <a href={c.privacyHref} class="font-medium text-terracotta underline">{c.privacy}</a>.
+  </p>
+  <div class="mt-3 flex gap-2">
+    <button
+      type="button"
+      data-cookie="accept"
+      class="flex-1 rounded-full bg-terracotta px-4 py-2 text-sm font-medium text-white transition hover:bg-terracotta-dark"
+    >{c.accept}</button>
+    <button
+      type="button"
+      data-cookie="reject"
+      class="flex-1 rounded-full border border-antracite/20 px-4 py-2 text-sm font-medium text-antracite transition hover:bg-avorio"
+    >{c.reject}</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = "r284-consent";
+
+    function apply(granted) {
+      try {
+        window.gtag &&
+          window.gtag("consent", "update", {
+            analytics_storage: granted ? "granted" : "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+          });
+      } catch (e) {}
+      window.__r284Consent = granted ? "granted" : "denied";
+      // Notifica chi deve caricarsi solo col consenso (es. Clarity).
+      try {
+        document.dispatchEvent(
+          new CustomEvent("r284:consent", { detail: { granted: granted } })
+        );
+      } catch (e) {}
+    }
+
+    function hide() {
+      var b = document.getElementById("cookie-banner");
+      if (b) b.hidden = true;
+    }
+    function show() {
+      var b = document.getElementById("cookie-banner");
+      if (b) b.hidden = false;
+    }
+
+    function decide(granted) {
+      try { localStorage.setItem(KEY, granted ? "granted" : "denied"); } catch (e) {}
+      apply(granted);
+      hide();
+    }
+
+    // Permette di riaprire il banner dalla cookie policy.
+    window.openCookieSettings = show;
+
+    function bind() {
+      var b = document.getElementById("cookie-banner");
+      if (!b) return;
+      if (!b.dataset.bound) {
+        b.dataset.bound = "1";
+        b.addEventListener("click", function (e) {
+          var t = e.target.closest("[data-cookie]");
+          if (!t) return;
+          decide(t.getAttribute("data-cookie") === "accept");
+        });
+      }
+      var stored = null;
+      try { stored = localStorage.getItem(KEY); } catch (e) {}
+      if (stored === "granted") { apply(true); hide(); }
+      else if (stored === "denied") { hide(); }
+      else { show(); }
+    }
+
+    bind();
+    document.addEventListener("astro:page-load", bind);
+  })();
+</script>

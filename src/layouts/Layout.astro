@@ -7,6 +7,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import WhatsAppButton from "@components/WhatsAppButton.astro";
 import StickyMobileCta from "@components/StickyMobileCta.astro";
+import CookieBanner from "@components/CookieBanner.astro";
 import { SITE } from "@lib/site";
 import "../styles/global.css";
 
@@ -18,6 +19,9 @@ interface Props {
   image?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  /** Override canonical + hreflang per pagine fuori dal sistema PageKey (es. legali). */
+  canonicalUrl?: string;
+  alternates?: { hreflang: string; href: string }[];
   /** Mostra la sticky CTA mobile (default true). Ancora opzionale es. "#book". */
   stickyCta?: boolean;
   stickyCtaHref?: string;
@@ -31,10 +35,13 @@ const {
   image,
   ogType,
   noindex,
+  canonicalUrl,
+  alternates,
   stickyCta = true,
   stickyCtaHref,
 } = Astro.props;
 const meta = LOCALE_META[locale];
+const clarityId = SITE.clarityId;
 ---
 
 <!doctype html>
@@ -73,6 +80,8 @@ const meta = LOCALE_META[locale];
       image={image}
       ogType={ogType}
       noindex={noindex}
+      canonicalUrl={canonicalUrl}
+      alternates={alternates}
     />
 
     <ClientRouter />
@@ -92,6 +101,22 @@ const meta = LOCALE_META[locale];
       });
       gtag("js", new Date());
       gtag("config", ga, { anonymize_ip: true });
+      // Ripristina il consenso salvato in una visita precedente (prima di tutto il resto).
+      try {
+        if (localStorage.getItem("r284-consent") === "granted") {
+          gtag("consent", "update", {
+            analytics_storage: "granted",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+          });
+          window.__r284Consent = "granted";
+        }
+      } catch (e) {}
+      // Helper unico per gli eventi custom (no-op se gtag non c'è).
+      window.track = function (name, params) {
+        try { window.gtag("event", name, params || {}); } catch (e) {}
+      };
     </script>
     <script
       is:inline
@@ -114,6 +139,39 @@ const meta = LOCALE_META[locale];
     <Footer locale={locale} page={page} />
     <WhatsAppButton />
     {stickyCta && <StickyMobileCta locale={locale} href={stickyCtaHref} />}
+    <CookieBanner locale={locale} />
+
+    {/* Vercel Web Analytics + Speed Insights — cookieless, nessun consenso richiesto.
+        Attivi solo in produzione su Vercel (in locale i path danno 404 innocuo). */}
+    <script is:inline>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script is:inline defer src="/_vercel/insights/script.js"></script>
+    <script is:inline>
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script is:inline defer src="/_vercel/speed-insights/script.js"></script>
+
+    {/* Microsoft Clarity — caricato SOLO col consenso analitico e se l'ID è impostato. */}
+    {clarityId && (
+      <script is:inline define:vars={{ CLARITY_ID: clarityId }}>
+        (function () {
+          var loaded = false;
+          function loadClarity() {
+            if (loaded) return; loaded = true;
+            (function (c, l, a, r, i, t, y) {
+              c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+              t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+              y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", CLARITY_ID);
+          }
+          if (window.__r284Consent === "granted") loadClarity();
+          document.addEventListener("r284:consent", function (e) {
+            if (e.detail && e.detail.granted) loadClarity();
+          });
+        })();
+      </script>
+    )}
 
     {/* Scroll reveal leggero — Intersection Observer, no librerie */}
     <script is:inline>
@@ -153,6 +211,95 @@ const meta = LOCALE_META[locale];
       };
       document.addEventListener("astro:page-load", ensureSearchBar);
       ensureSearchBar();
+    </script>
+
+    {/* Tracking eventi GA4 — dispatcher centrale via delega su document.
+        Sopravvive alle View Transitions (i listener stanno su document). */}
+    <script is:inline>
+      (function () {
+        var T = function (n, p) { if (window.track) window.track(n, p); };
+
+        // --- Click delegation (una sola volta su document) ---
+        if (!window.__r284ClickBound) {
+          window.__r284ClickBound = true;
+          document.addEventListener("click", function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+
+            // 1) Elementi marcati esplicitamente
+            var el = t.closest("[data-evt]");
+            if (el) {
+              var p = {};
+              if (el.dataset.evtLabel) p.label = el.dataset.evtLabel;
+              T(el.dataset.evt, p);
+              return;
+            }
+            // 2) Email
+            var mail = t.closest('a[href^="mailto:"]');
+            if (mail) { T("email_click", {}); return; }
+            // 3) Cambio lingua (i soli <a> con hreflang sono gli switcher)
+            var lang = t.closest("a[hreflang]");
+            if (lang) {
+              T("lang_switch", {
+                from: document.documentElement.lang || "",
+                to: lang.getAttribute("hreflang") || "",
+              });
+              return;
+            }
+            // 4) Interazione col widget di prenotazione (1 volta a pagina)
+            if (!window.__r284BookingInteract && t.closest("#lodgify-search-bar")) {
+              window.__r284BookingInteract = true;
+              T("booking_widget_interact", {});
+            }
+          }, true);
+
+          // FAQ <details> aperta (toggle non bolla → capture)
+          document.addEventListener("toggle", function (e) {
+            var d = e.target;
+            if (!d || !d.matches || !d.matches("details.faq-item") || !d.open) return;
+            var q = d.querySelector("summary");
+            T("faq_open", { question: q ? q.textContent.trim().slice(0, 120) : "" });
+          }, true);
+        }
+
+        // --- Per-pagina: reset flag + view observer + scroll depth ---
+        function setupPage() {
+          window.__r284BookingInteract = false;
+
+          // Eventi "view" (es. booking_widget_view)
+          var views = document.querySelectorAll("[data-evt-view]");
+          if (views.length && "IntersectionObserver" in window) {
+            var vo = new IntersectionObserver(function (ents) {
+              ents.forEach(function (en) {
+                if (en.isIntersecting) {
+                  T(en.target.dataset.evtView, {});
+                  vo.unobserve(en.target);
+                }
+              });
+            }, { threshold: 0.4 });
+            views.forEach(function (v) { vo.observe(v); });
+          }
+
+          // Scroll depth 50/75/100 (una volta a pagina)
+          var hit = {};
+          function onScroll() {
+            var doc = document.documentElement;
+            var max = doc.scrollHeight - doc.clientHeight;
+            if (max <= 0) return;
+            var pct = (doc.scrollTop || window.scrollY) / max * 100;
+            [50, 75, 100].forEach(function (m) {
+              if (!hit[m] && pct >= m - 0.5) { hit[m] = true; T("scroll_depth_" + m, {}); }
+            });
+            if (hit[100]) window.removeEventListener("scroll", onScroll);
+          }
+          window.removeEventListener("scroll", window.__r284Scroll || function(){});
+          window.__r284Scroll = onScroll;
+          window.addEventListener("scroll", onScroll, { passive: true });
+          onScroll();
+        }
+        document.addEventListener("astro:page-load", setupPage);
+        setupPage();
+      })();
     </script>
   </body>
 </html>

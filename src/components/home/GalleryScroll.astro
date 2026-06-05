@@ -177,7 +177,7 @@ const ui =
         cap.textContent = data[idx].cap;
         count.textContent = idx + 1 + " " + ui.of + " " + data.length;
       };
-      const open = (i) => { show(i); lb.classList.add("is-open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; };
+      const open = (i) => { show(i); lb.classList.add("is-open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; if (window.track) window.track("gallery_open", { index: i }); };
       const close = () => { lb.classList.remove("is-open"); lb.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; };
       items.forEach((b, i) => b.addEventListener("click", () => open(i)));
       lb.querySelector("[data-lb-next]").addEventListener("click", (e) => { e.stopPropagation(); show(idx + 1); });

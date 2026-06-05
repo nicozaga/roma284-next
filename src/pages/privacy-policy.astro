@@ -1,0 +1,144 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { SITE } from "@lib/site";
+
+const updated = "5 giugno 2026";
+
+const legalAlternates = [
+  { hreflang: "it", href: `${SITE.url}/privacy-policy` },
+  { hreflang: "en", href: `${SITE.url}/en/privacy-policy` },
+  { hreflang: "x-default", href: `${SITE.url}/privacy-policy` },
+];
+---
+
+<Layout
+  locale="it"
+  page="home"
+  title="Termini e Condizioni · Privacy & Cookie Policy | Roma284"
+  description="Termini di prenotazione, informativa privacy e cookie policy dell'appartamento Roma284 a Piacenza."
+  canonicalUrl={`${SITE.url}/privacy-policy`}
+  alternates={legalAlternates}
+  stickyCta={false}
+>
+  <section class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+    <p class="text-sm font-medium uppercase tracking-wide text-terracotta">Documenti legali</p>
+    <h1 class="mt-2 font-display text-3xl font-semibold text-antracite sm:text-4xl">
+      Termini, Privacy &amp; Cookie
+    </h1>
+    <p class="mt-3 text-sm text-grigio">Ultimo aggiornamento: {updated}</p>
+
+    <div class="legal mt-10 space-y-8 text-antracite/90">
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Termini e Condizioni</h2>
+
+        <h3>1. Oggetto</h3>
+        <p>
+          La prenotazione dell'appartamento Roma284 tramite questo sito implica
+          l'accettazione integrale dei termini riportati di seguito.
+        </p>
+
+        <h3>2. Prenotazione e pagamento</h3>
+        <ul>
+          <li>
+            La prenotazione si considera confermata al momento della ricezione del pagamento
+            dell'importo tramite il sistema di prenotazione integrato nel sito.
+          </li>
+          <li>
+            Al termine della procedura verrà inviata una conferma all'indirizzo email fornito dal cliente.
+          </li>
+        </ul>
+
+        <h3>3. Politica di cancellazione flessibile</h3>
+        <ul>
+          <li>Le prenotazioni possono essere cancellate gratuitamente fino a 3 giorni prima della data di arrivo prevista.</li>
+          <li>In caso di cancellazione entro tale termine, l'importo pagato verrà completamente rimborsato con la stessa modalità utilizzata per il pagamento.</li>
+          <li>Le cancellazioni effettuate a meno di 3 giorni dalla data di arrivo non danno diritto ad alcun rimborso.</li>
+        </ul>
+
+        <h3>4. Check-in e check-out</h3>
+        <ul>
+          <li>Gli orari di check-in e check-out sono specificati in fase di prenotazione e possono essere concordati.</li>
+          <li>Le modalità di accesso self check-in saranno comunicate prima dell'arrivo.</li>
+        </ul>
+
+        <h3>5. Utilizzo dell'alloggio e responsabilità</h3>
+        <ul>
+          <li>L'appartamento deve essere utilizzato nel rispetto di tutte le norme di legge, del regolamento condominiale e delle regole del buon vicinato.</li>
+          <li>È vietato organizzare feste, subaffittare o ospitare persone non registrate.</li>
+          <li>Eventuali danni all'immobile, agli arredi o alle attrezzature saranno a carico dell'ospite.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Privacy Policy</h2>
+        <p><strong>Titolare del trattamento:</strong> Nicolò Zaganelli — Roma284, Via Roma 284, 29121 Piacenza (PC), Italia. Contatto: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
+        <h3>Dati raccolti</h3>
+        <p>I dati personali raccolti tramite il modulo di contatto/prenotazione hanno le seguenti finalità:</p>
+        <ul>
+          <li>Gestione della richiesta, della prenotazione e dell'eventuale soggiorno (incluso l'adempimento degli obblighi in materia di pubblica sicurezza, come la comunicazione degli ospiti alle autorità).</li>
+          <li>Adempimenti amministrativi, contabili e fiscali connessi alla locazione breve.</li>
+        </ul>
+
+        <h3>Modalità e tempi di conservazione</h3>
+        <p>I dati sono trattati con strumenti elettronici e conservati per il tempo strettamente necessario al perseguimento delle finalità sopra indicate, nel rispetto degli obblighi di legge.</p>
+
+        <h3>Diritti dell'interessato</h3>
+        <p>In qualsiasi momento l'interessato può esercitare i diritti previsti dagli artt. 15-22 GDPR (accesso, rettifica, cancellazione, limitazione, opposizione, portabilità) inviando richiesta al Titolare all'indirizzo email sopra indicato.</p>
+
+        <h3>Comunicazione dei dati</h3>
+        <ul>
+          <li>I dati possono essere comunicati esclusivamente alle autorità competenti in caso di obblighi di legge.</li>
+          <li>Non saranno diffusi a terzi né trasferiti fuori dallo Spazio Economico Europeo, salvo quanto indicato nella sezione Cookie per i servizi di analisi.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl font-semibold text-antracite">Cookie Policy</h2>
+
+        <h3>Cookie tecnici</h3>
+        <p>Il sito utilizza cookie tecnici e strumenti analoghi necessari al corretto funzionamento delle pagine e del widget di prenotazione. Questi non richiedono consenso.</p>
+
+        <h3>Cookie analitici (solo previo consenso)</h3>
+        <p>
+          Previo tuo consenso, il sito utilizza strumenti di analisi per capire come viene usato e
+          migliorarlo:
+        </p>
+        <ul>
+          <li><strong>Google Analytics 4</strong> — statistiche di navigazione aggregate, con IP anonimizzato. I dati possono essere trattati da Google LLC.</li>
+          <li><strong>Microsoft Clarity</strong> — mappe di calore e registrazioni anonime di sessione per individuare difficoltà d'uso.</li>
+        </ul>
+        <p>
+          Questi strumenti si attivano <strong>solo dopo il tuo consenso</strong> tramite il banner: fino ad allora
+          la memorizzazione analitica resta disattivata (Google Consent Mode impostato su <em>denied</em>).
+          Puoi modificare la scelta in qualsiasi momento tramite il pulsante qui sotto.
+        </p>
+        <p>
+          <button
+            type="button"
+            id="reopen-cookie-settings"
+            class="mt-2 rounded-full border border-antracite/20 px-4 py-2 text-sm font-medium text-antracite transition hover:bg-avorio"
+          >Gestisci preferenze cookie</button>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal h3 { margin-top: 1.5rem; margin-bottom: 0.4rem; font-weight: 600; color: #1a1a1a; }
+  .legal p { margin-bottom: 0.75rem; line-height: 1.7; }
+  .legal ul { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; list-style: disc; }
+  .legal li { margin-bottom: 0.4rem; line-height: 1.7; }
+  .legal a { color: #c67557; text-decoration: underline; }
+</style>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const b = document.getElementById("reopen-cookie-settings");
+    if (b && !b.dataset.bound) {
+      b.dataset.bound = "1";
+      b.addEventListener("click", () => { if (window.openCookieSettings) window.openCookieSettings(); });
+    }
+  });
+</script>

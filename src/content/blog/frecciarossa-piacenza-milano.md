@@ -4,6 +4,7 @@ description: "Quanto dura, quanti treni ci sono e come muoversi: la guida pratic
 pubDate: 2026-05-20
 category: "Trasporti"
 lang: "it"
+translationKey: "frecciarossa"
 ---
 
 Piacenza è una delle città meglio collegate del Nord Italia, eppure molti non sanno quanto sia veloce raggiungere Milano. La risposta è semplice: **33 minuti in treno Frecciarossa**. Ecco tutto quello che serve sapere.

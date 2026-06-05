@@ -9,8 +9,12 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     category: z.string().default("Guide"),
-    /** Lingua del post (per ora solo it; Settimana 4 aggiunge le altre). */
+    /** Lingua del post. */
     lang: z.string().default("it"),
+    /** Chiave condivisa fra le versioni tradotte dello stesso articolo (per hreflang). */
+    translationKey: z.string().optional(),
+    /** Slug "pulito" del post (senza prefisso lingua/cartella). Se assente si deriva dall'id. */
+    slug: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

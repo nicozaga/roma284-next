@@ -4,6 +4,7 @@ description: "Cosa vedere, dove mangiare e come muoversi a Piacenza in un weeken
 pubDate: 2026-05-28
 category: "Itinerari"
 lang: "it"
+translationKey: "piacenza-48h"
 ---
 
 Piacenza è una città d'arte raccolta e autentica, perfetta per un weekend lontano dalla folla. In 48 ore puoi viverne il meglio camminando, senza bisogno dell'auto. Ecco un itinerario collaudato.
