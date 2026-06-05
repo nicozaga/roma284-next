@@ -141,12 +141,8 @@ const clarityId = SITE.clarityId;
     {stickyCta && <StickyMobileCta locale={locale} href={stickyCtaHref} />}
     <CookieBanner locale={locale} />
 
-    {/* Vercel Web Analytics + Speed Insights — cookieless, nessun consenso richiesto.
-        Attivi solo in produzione su Vercel (in locale i path danno 404 innocuo). */}
-    <script is:inline>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script is:inline defer src="/_vercel/insights/script.js"></script>
+    {/* Vercel Speed Insights — cookieless, nessun consenso richiesto. Attivo solo in
+        produzione su Vercel. (Web Analytics è iniettato dall'adapter Vercel, vedi astro.config.) */}
     <script is:inline>
       window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>

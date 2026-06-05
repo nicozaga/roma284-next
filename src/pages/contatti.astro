@@ -98,7 +98,6 @@ const schema = [
   contactPageSchema({ name: C.schemaName }),
 ];
 const wa = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(C.waMsg)}`;
-const msgs = { sending: C.sending, ok: C.ok, notReady: C.notReady.replace("$WA", wa), err: C.err.replace("$WA", wa) };
 ---
 
 <Layout locale={locale} page="contact" title={C.title} description={C.description} stickyCta={false}>
@@ -107,9 +106,22 @@ const msgs = { sending: C.sending, ok: C.ok, notReady: C.notReady.replace("$WA",
   <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
 
   <ContentSection variant="crema">
-    <div class="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-      <div class="space-y-5">
-        <a href={`mailto:${SITE.email}`} class="flex items-center gap-3 text-antracite hover:text-terracotta">
+    <div class="mx-auto max-w-2xl">
+      {/* CTA principali: WhatsApp ed email aprono direttamente l'app/client dell'utente */}
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a href={wa} target="_blank" rel="noopener" data-evt="whatsapp_click"
+          class="flex items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-4 font-medium text-white transition hover:brightness-95">
+          <Icon name="whatsapp" class="size-5" /> WhatsApp
+        </a>
+        <a href={`mailto:${SITE.email}`} data-evt="email_click"
+          class="flex items-center justify-center gap-3 rounded-full bg-terracotta px-6 py-4 font-medium text-white transition hover:bg-terracotta-dark">
+          <Icon name="email" class="size-5" /> {C.email}
+        </a>
+      </div>
+
+      {/* Recapiti completi */}
+      <div class="mt-10 space-y-5">
+        <a href={`mailto:${SITE.email}`} data-evt="email_click" class="flex items-center gap-3 text-antracite hover:text-terracotta">
           <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta"><Icon name="email" class="size-5" /></span>
           <span>{SITE.email}</span>
         </a>
@@ -117,77 +129,11 @@ const msgs = { sending: C.sending, ok: C.ok, notReady: C.notReady.replace("$WA",
           <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta"><Icon name="chat" class="size-5" /></span>
           <span>{SITE.phone}</span>
         </a>
-        <a href={wa} target="_blank" rel="noopener" data-evt="whatsapp_click" class="flex items-center gap-3 text-antracite hover:text-terracotta">
-          <span class="flex size-11 items-center justify-center rounded-full bg-[#25D366]/15 text-[#1faa52]"><Icon name="whatsapp" class="size-5" /></span>
-          <span>WhatsApp +39 347 810 4634</span>
-        </a>
         <p class="flex items-center gap-3 text-grigio">
           <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta"><Icon name="pin" class="size-5" /></span>
           <span>Via Roma 284, 29121 Piacenza (PC)</span>
         </p>
       </div>
-
-      <form id="contact-form" class="rounded-2xl border border-antracite/8 bg-white p-6 lg:p-8" novalidate>
-        <div class="grid gap-4">
-          <label class="block">
-            <span class="text-sm font-medium text-antracite">{C.name}</span>
-            <input name="name" type="text" required autocomplete="name"
-              class="mt-1 w-full rounded-lg border border-antracite/15 bg-crema/50 px-3 py-2.5 outline-none focus:border-terracotta" />
-          </label>
-          <label class="block">
-            <span class="text-sm font-medium text-antracite">{C.email}</span>
-            <input name="email" type="email" required autocomplete="email"
-              class="mt-1 w-full rounded-lg border border-antracite/15 bg-crema/50 px-3 py-2.5 outline-none focus:border-terracotta" />
-          </label>
-          <label class="block">
-            <span class="text-sm font-medium text-antracite">{C.message}</span>
-            <textarea name="message" rows="5" required
-              class="mt-1 w-full rounded-lg border border-antracite/15 bg-crema/50 px-3 py-2.5 outline-none focus:border-terracotta"></textarea>
-          </label>
-          <input name="company" type="text" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
-          <button type="submit"
-            class="mt-2 rounded-full bg-terracotta px-6 py-3 font-medium text-white transition hover:bg-terracotta-dark disabled:opacity-60">
-            {C.send}
-          </button>
-          <p id="form-status" role="status" aria-live="polite" class="text-sm"></p>
-        </div>
-      </form>
     </div>
   </ContentSection>
 </Layout>
-
-<script is:inline define:vars={{ msgs }}>
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector("button[type=submit]");
-    const data = Object.fromEntries(new FormData(form).entries());
-    btn.disabled = true;
-    status.textContent = msgs.sending;
-    status.className = "text-sm text-grigio";
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const out = await res.json().catch(() => ({}));
-      if (res.ok && out.ok) {
-        status.textContent = msgs.ok;
-        status.className = "text-sm text-salvia-dark";
-        form.reset();
-      } else if (out.error === "email_not_configured") {
-        status.innerHTML = msgs.notReady;
-        status.className = "text-sm text-terracotta-dark";
-      } else {
-        throw new Error("send");
-      }
-    } catch {
-      status.innerHTML = msgs.err;
-      status.className = "text-sm text-terracotta-dark";
-    } finally {
-      btn.disabled = false;
-    }
-  });
-</script>
