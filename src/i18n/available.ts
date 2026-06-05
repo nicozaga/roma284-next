@@ -16,11 +16,12 @@ const ALL_EXCEPT_BLOG: PageKey[] = PAGE_KEYS.filter((p) => p !== "blog");
 // Lingue tradotte e PUBBLICATE (oltre a IT). Ogni voce = elenco pagine pronte.
 // Il task notturno aggiunge qui una riga per lingua quando finisce, es. fr: ALL_EXCEPT_BLOG.
 const READY: Partial<Record<Locale, PageKey[]>> = {
-  en: [...ALL_EXCEPT_BLOG, "blog"], // EN ha anche il blog (articoli tradotti)
-  fr: ALL_EXCEPT_BLOG,
-  de: ALL_EXCEPT_BLOG,
-  es: ALL_EXCEPT_BLOG,
-  pt: ALL_EXCEPT_BLOG,
+  // Lingue con anche il blog tradotto (articoli in src/content/blog/<lang>/)
+  en: [...ALL_EXCEPT_BLOG, "blog"],
+  fr: [...ALL_EXCEPT_BLOG, "blog"],
+  de: [...ALL_EXCEPT_BLOG, "blog"],
+  es: [...ALL_EXCEPT_BLOG, "blog"],
+  pt: [...ALL_EXCEPT_BLOG, "blog"],
 };
 
 export const PAGE_LOCALES: Record<PageKey, Locale[]> = Object.fromEntries(

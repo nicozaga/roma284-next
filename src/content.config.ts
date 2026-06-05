@@ -2,7 +2,13 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/blog",
+    // ID univoco basato sul percorso (cartella lingua inclusa): evita collisioni
+    // tra file con lo stesso nome in lingue diverse (es. en/ e fr/ frecciarossa…).
+    generateId: ({ entry }) => entry.replace(/\.mdx?$/, ""),
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
