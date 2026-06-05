@@ -22,6 +22,12 @@ const READY: Partial<Record<Locale, PageKey[]>> = {
   de: [...ALL_EXCEPT_BLOG, "blog"],
   es: [...ALL_EXCEPT_BLOG, "blog"],
   pt: [...ALL_EXCEPT_BLOG, "blog"],
+  // Tutte le lingue con blog tradotto (articoli in src/content/blog/<lang>/)
+  nl: [...ALL_EXCEPT_BLOG, "blog"],
+  pl: [...ALL_EXCEPT_BLOG, "blog"],
+  sv: [...ALL_EXCEPT_BLOG, "blog"],
+  ja: [...ALL_EXCEPT_BLOG, "blog"],
+  "zh-cn": [...ALL_EXCEPT_BLOG, "blog"],
 };
 
 export const PAGE_LOCALES: Record<PageKey, Locale[]> = Object.fromEntries(

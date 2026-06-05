@@ -21,6 +21,11 @@ const TMAP = {
   de: { eyebrow: "Die Wohnung", h2: "Moderner Komfort, historische Seele", specs: [`${SITE.stay.sizeSqm} m²`, "1 Schlafzimmer + Wohnzimmer", "1 Bad", `bis zu ${SITE.stay.maxGuests} Gäste`] },
   es: { eyebrow: "El apartamento", h2: "Comodidades modernas, alma histórica", specs: [`${SITE.stay.sizeSqm} m²`, "1 dormitorio + salón", "1 baño", `hasta ${SITE.stay.maxGuests} huéspedes`] },
   pt: { eyebrow: "O apartamento", h2: "Conforto moderno, alma histórica", specs: [`${SITE.stay.sizeSqm} m²`, "1 quarto + sala", "1 casa de banho", `até ${SITE.stay.maxGuests} hóspedes`] },
+  nl: { eyebrow: "Het appartement", h2: "Modern comfort, historische ziel", specs: [`${SITE.stay.sizeSqm} m²`, "1 slaapkamer + woonkamer", "1 badkamer", `tot ${SITE.stay.maxGuests} gasten`] },
+  pl: { eyebrow: "Apartament", h2: "Nowoczesny komfort, zabytkowa dusza", specs: [`${SITE.stay.sizeSqm} m²`, "1 sypialnia + salon", "1 łazienka", `do ${SITE.stay.maxGuests} gości`] },
+  sv: { eyebrow: "Lägenheten", h2: "Modern komfort, historisk själ", specs: [`${SITE.stay.sizeSqm} m²`, "1 sovrum + vardagsrum", "1 badrum", `upp till ${SITE.stay.maxGuests} gäster`] },
+  ja: { eyebrow: "アパートメント", h2: "現代の快適さ、歴史の魂", specs: [`${SITE.stay.sizeSqm} m²`, "寝室1 + リビング", "バスルーム1", `最大${SITE.stay.maxGuests}名`] },
+  "zh-cn": { eyebrow: "公寓", h2: "现代舒适，历史灵魂", specs: [`${SITE.stay.sizeSqm} m²`, "1卧室 + 客厅", "1浴室", `最多${SITE.stay.maxGuests}位客人`] },
 };
 const T = TMAP[locale as keyof typeof TMAP] ?? { eyebrow: "", h2: "", specs: [] };
 ---

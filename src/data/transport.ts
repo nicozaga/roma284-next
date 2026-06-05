@@ -292,4 +292,239 @@ export const ROUTES: Partial<Record<Locale, Route[]>> = {
       ],
     },
   ],
+  nl: [
+    {
+      id: "milano-centrale", from: "Vanaf Milaan Centrale", duration: "33 min",
+      summary: "De Frecciarossa-trein verbindt Milaan Centrale in 33 minuten met Piacenza, met tot 52 directe verbindingen per dag (eerste 06:07, laatste 23:52).",
+      steps: [
+        { name: "Neem de Frecciarossa", text: "Stap op Milaan Centrale in de Frecciarossa naar Piacenza: de reis duurt 33 minuten." },
+        { name: "Stap uit in Piacenza", text: "Stap uit op het station van Piacenza, een handig eindpunt in het stadscentrum." },
+        { name: "Loop naar Roma284", text: "Vanaf Piacenza ligt het appartement op 900 meter, ongeveer 9 minuten lopen door het centrum." },
+      ],
+    },
+    {
+      id: "malpensa", from: "Vanaf de luchthaven Malpensa", duration: "~2 u",
+      summary: "Vanaf Malpensa bereik je Piacenza in ongeveer 2 uur met de Malpensa Express naar Milaan en daarna de trein naar Piacenza.",
+      steps: [
+        { name: "Malpensa Express", text: "Neem de Malpensa Express naar Milaan Centrale (ongeveer 50 minuten)." },
+        { name: "Trein naar Piacenza", text: "Neem op Milaan Centrale de trein naar Piacenza (33-50 minuten)." },
+        { name: "Loop naar Roma284", text: "Vanaf het station van Piacenza bereik je het appartement in 9 minuten lopen." },
+      ],
+    },
+    {
+      id: "linate", from: "Vanaf de luchthaven Linate", duration: "~1 u 30",
+      summary: "Vanaf Linate bereik je Piacenza in ongeveer anderhalf uur met de metro M4 naar Milaan en daarna de trein.",
+      steps: [
+        { name: "Metro M4", text: "Bereik vanaf de M4 bij Linate het centrum van Milaan en Milaan Centrale." },
+        { name: "Trein naar Piacenza", text: "Neem de directe trein naar Piacenza (33-50 minuten)." },
+        { name: "Aankomst bij Roma284", text: "Vanaf het station van Piacenza, 9 minuten lopen naar het appartement." },
+      ],
+    },
+    {
+      id: "auto", from: "Met de auto (snelweg A1)", duration: "afrit Piacenza Sud/Ovest",
+      summary: "Piacenza ligt aan de snelweg A1, ongeveer een uur van Milaan met de auto. In de Via Roma is parkeren op blauwe lijnen; als alternatief is er een bewaakte parkeergarage op 300 meter lopen.",
+      steps: [
+        { name: "Verlaat de A1", text: "Neem de afrit Piacenza Sud of Piacenza Ovest en volg de borden naar het historische centrum." },
+        { name: "Bereik de Via Roma", text: "Bereik de Via Roma 284, in het hart van het centrum." },
+        { name: "Parkeren", text: "In de Via Roma is parkeren op blauwe lijnen; als alternatief de bewaakte parkeergarage Urban Center, voor slechts € 4 per dag en op 300 meter lopen. De ingang van het appartement is op de begane grond." },
+      ],
+    },
+    {
+      id: "bergamo-bologna", from: "Vanaf Bergamo Orio al Serio en Bologna", duration: "~1 u 30 – 2 u",
+      summary: "Vanaf Bergamo Orio al Serio en de luchthaven van Bologna bereik je Piacenza met de trein met één overstap, in ongeveer 1u30-2u.",
+      steps: [
+        { name: "Bereik het station", text: "Neem vanaf Orio al Serio de bus naar Bergamo; vanaf Bologna vertrek je vanaf het centraal station." },
+        { name: "Trein naar Piacenza", text: "Neem de trein naar Piacenza, met een mogelijke overstap in Milaan of Bologna." },
+        { name: "Loop naar Roma284", text: "Vanaf het station van Piacenza, 9 minuten lopen." },
+      ],
+    },
+  ],
+  pl: [
+    {
+      id: "milano-centrale", from: "Z Mediolanu Centrale", duration: "33 min",
+      summary: "Pociąg Frecciarossa łączy Mediolan Centrale z Piacenzą w 33 minuty, z nawet 52 bezpośrednimi połączeniami dziennie (pierwsze 06:07, ostatnie 23:52).",
+      steps: [
+        { name: "Wsiądź do Frecciarossy", text: "Na Mediolanie Centrale wsiądź do Frecciarossy do Piacenzy: podróż trwa 33 minuty." },
+        { name: "Wysiądź w Piacenzy", text: "Wysiądź na dworcu w Piacenzy, wygodnej stacji końcowej w centrum miasta." },
+        { name: "Dojdź pieszo do Roma284", text: "Z Piacenzy apartament jest oddalony o 900 metrów, około 9 minut spacerem przez centrum." },
+      ],
+    },
+    {
+      id: "malpensa", from: "Z lotniska Malpensa", duration: "~2 godz.",
+      summary: "Z Malpensy dotrzesz do Piacenzy w około 2 godziny pociągiem Malpensa Express do Mediolanu, a następnie pociągiem do Piacenzy.",
+      steps: [
+        { name: "Malpensa Express", text: "Wsiądź do Malpensa Express do Mediolanu Centrale (około 50 minut)." },
+        { name: "Pociąg do Piacenzy", text: "Na Mediolanie Centrale wsiądź do pociągu do Piacenzy (33–50 minut)." },
+        { name: "Pieszo do Roma284", text: "Z dworca w Piacenzy dotrzesz do apartamentu w 9 minut spacerem." },
+      ],
+    },
+    {
+      id: "linate", from: "Z lotniska Linate", duration: "~1 godz. 30",
+      summary: "Z Linate dotrzesz do Piacenzy w około półtorej godziny, korzystając z metra M4 do Mediolanu, a następnie z pociągu.",
+      steps: [
+        { name: "Metro M4", text: "Metrem M4 z Linate dotrzesz do centrum Mediolanu i na Mediolan Centrale." },
+        { name: "Pociąg do Piacenzy", text: "Wsiądź do bezpośredniego pociągu do Piacenzy (33–50 minut)." },
+        { name: "Przyjazd do Roma284", text: "Z dworca w Piacenzy 9 minut spacerem do apartamentu." },
+      ],
+    },
+    {
+      id: "auto", from: "Samochodem (autostrada A1)", duration: "zjazd Piacenza Sud/Ovest",
+      summary: "Piacenza leży przy autostradzie A1, około godziny jazdy samochodem z Mediolanu. Przy Via Roma parkowanie odbywa się w niebieskiej strefie; alternatywnie dostępny jest strzeżony parking 300 metrów spacerem.",
+      steps: [
+        { name: "Zjedź z A1", text: "Zjedź zjazdem Piacenza Sud lub Piacenza Ovest i kieruj się na centrum historyczne." },
+        { name: "Dotrzyj na Via Roma", text: "Dotrzyj na Via Roma 284, w samym sercu centrum." },
+        { name: "Zaparkuj", text: "Przy Via Roma parkowanie odbywa się w niebieskiej strefie; alternatywnie strzeżony parking Urban Center, za jedyne 4 € dziennie i 300 metrów spacerem. Wejście do apartamentu jest na parterze." },
+      ],
+    },
+    {
+      id: "bergamo-bologna", from: "Z Bergamo Orio al Serio i Bolonii", duration: "~1 godz. 30 – 2 godz.",
+      summary: "Z Bergamo Orio al Serio oraz z lotniska w Bolonii dotrzesz do Piacenzy pociągiem z jedną przesiadką, w około 1,5–2 godziny.",
+      steps: [
+        { name: "Dotrzyj na dworzec", text: "Z Orio al Serio skorzystaj z autobusu do Bergamo; z Bolonii wyrusz z dworca głównego." },
+        { name: "Pociąg do Piacenzy", text: "Wsiądź do pociągu do Piacenzy, z ewentualną przesiadką w Mediolanie lub Bolonii." },
+        { name: "Pieszo do Roma284", text: "Z dworca w Piacenzy 9 minut spacerem." },
+      ],
+    },
+  ],
+  sv: [
+    {
+      id: "milano-centrale", from: "Från Milano Centrale", duration: "33 min",
+      summary: "Frecciarossa-tåget förbinder Milano Centrale med Piacenza på 33 minuter, med upp till 52 direktavgångar om dagen (första 06:07, sista 23:52).",
+      steps: [
+        { name: "Ta Frecciarossa", text: "På Milano Centrale stiger du på Frecciarossa mot Piacenza: resan tar 33 minuter." },
+        { name: "Stig av i Piacenza", text: "Stig av vid Piacenzas station, en bekväm ändstation i stadens centrum." },
+        { name: "Gå till Roma284", text: "Från Piacenza ligger lägenheten 900 meter bort, cirka 9 minuters promenad genom centrum." },
+      ],
+    },
+    {
+      id: "malpensa", from: "Från flygplatsen Malpensa", duration: "~2 tim",
+      summary: "Från Malpensa når du Piacenza på cirka 2 timmar med Malpensa Express till Milano och sedan tåget till Piacenza.",
+      steps: [
+        { name: "Malpensa Express", text: "Ta Malpensa Express till Milano Centrale (cirka 50 minuter)." },
+        { name: "Tåg till Piacenza", text: "På Milano Centrale tar du tåget till Piacenza (33–50 minuter)." },
+        { name: "Gå till Roma284", text: "Från Piacenzas station når du lägenheten på 9 minuters promenad." },
+      ],
+    },
+    {
+      id: "linate", from: "Från flygplatsen Linate", duration: "~1 tim 30",
+      summary: "Från Linate når du Piacenza på cirka en och en halv timme med tunnelbana M4 till Milano och sedan tåget.",
+      steps: [
+        { name: "Tunnelbana M4", text: "Från M4 vid Linate når du centrala Milano och Milano Centrale." },
+        { name: "Tåg till Piacenza", text: "Ta direkttåget till Piacenza (33–50 minuter)." },
+        { name: "Ankomst till Roma284", text: "Från Piacenzas station, 9 minuters promenad till lägenheten." },
+      ],
+    },
+    {
+      id: "auto", from: "Med bil (motorväg A1)", duration: "avfart Piacenza Sud/Ovest",
+      summary: "Piacenza ligger vid motorvägen A1, cirka en timme från Milano med bil. På Via Roma sker parkering i blå zon; alternativt finns ett bevakat parkeringshus 300 meters promenad bort.",
+      steps: [
+        { name: "Lämna A1", text: "Ta avfarten Piacenza Sud eller Piacenza Ovest och följ skyltarna mot historiska centrum." },
+        { name: "Kom fram till Via Roma", text: "Kom fram till Via Roma 284, mitt i centrum." },
+        { name: "Parkera", text: "På Via Roma sker parkering i blå zon; alternativt det bevakade parkeringshuset Urban Center, för endast 4 € om dagen och 300 meters promenad bort. Lägenhetens entré ligger i bottenvåningen." },
+      ],
+    },
+    {
+      id: "bergamo-bologna", from: "Från Bergamo Orio al Serio och Bologna", duration: "~1 tim 30 – 2 tim",
+      summary: "Från Bergamo Orio al Serio och flygplatsen i Bologna når du Piacenza med tåg och ett byte, på cirka 1,5–2 timmar.",
+      steps: [
+        { name: "Ta dig till stationen", text: "Från Orio al Serio tar du bussen till Bergamo; från Bologna utgår du från centralstationen." },
+        { name: "Tåg till Piacenza", text: "Ta tåget till Piacenza, med ett eventuellt byte i Milano eller Bologna." },
+        { name: "Gå till Roma284", text: "Från Piacenzas station, 9 minuters promenad." },
+      ],
+    },
+  ],
+  ja: [
+    {
+      id: "milano-centrale", from: "ミラノ中央駅から", duration: "33分",
+      summary: "高速列車フレッチャロッサがミラノ中央駅とピアチェンツァを33分で結びます。1日最大52本の直通便があります（始発6:07、最終23:52）。",
+      steps: [
+        { name: "フレッチャロッサに乗車", text: "ミラノ中央駅でピアチェンツァ行きのフレッチャロッサに乗車します。所要時間は33分です。" },
+        { name: "ピアチェンツァで下車", text: "市内中心部にある便利な終着駅、ピアチェンツァ駅で下車します。" },
+        { name: "徒歩でRoma284へ", text: "ピアチェンツァ駅からアパートメントまでは900メートル、中心部を通って徒歩約9分です。" },
+      ],
+    },
+    {
+      id: "malpensa", from: "マルペンサ空港から", duration: "約2時間",
+      summary: "マルペンサからは、マルペンサ・エクスプレスでミラノへ、その後ピアチェンツァ行きの列車で約2時間で到着します。",
+      steps: [
+        { name: "マルペンサ・エクスプレス", text: "マルペンサ・エクスプレスでミラノ中央駅まで（約50分）。" },
+        { name: "ピアチェンツァ行きの列車", text: "ミラノ中央駅でピアチェンツァ行きの列車に乗車（33〜50分）。" },
+        { name: "徒歩でRoma284へ", text: "ピアチェンツァ駅から徒歩9分でアパートメントに到着します。" },
+      ],
+    },
+    {
+      id: "linate", from: "リナーテ空港から", duration: "約1時間30分",
+      summary: "リナーテからは、地下鉄M4でミラノへ、その後列車を利用して約1時間半でピアチェンツァに到着します。",
+      steps: [
+        { name: "地下鉄M4", text: "リナーテのM4でミラノ中心部とミラノ中央駅へ向かいます。" },
+        { name: "ピアチェンツァ行きの列車", text: "ピアチェンツァ行きの直通列車に乗車（33〜50分）。" },
+        { name: "Roma284に到着", text: "ピアチェンツァ駅から徒歩9分でアパートメントへ。" },
+      ],
+    },
+    {
+      id: "auto", from: "車で（高速道路A1）", duration: "ピアチェンツァ南／西出口",
+      summary: "ピアチェンツァは高速道路A1沿いにあり、車でミラノから約1時間です。Via Romaでは青線ゾーンでの駐車となります。あるいは徒歩300メートルの場所に管理駐車場があります。",
+      steps: [
+        { name: "A1を降りる", text: "ピアチェンツァ南またはピアチェンツァ西の出口を降り、歴史地区方面に進みます。" },
+        { name: "Via Romaに到着", text: "中心部の中心にあるVia Roma 284に到着します。" },
+        { name: "駐車する", text: "Via Romaでは青線ゾーンでの駐車となります。あるいは管理駐車場Urban Centerは1日わずか4ユーロ、徒歩300メートルです。アパートメントの入口は1階にあります。" },
+      ],
+    },
+    {
+      id: "bergamo-bologna", from: "ベルガモ・オーリオ・アル・セーリオとボローニャから", duration: "約1時間30分〜2時間",
+      summary: "ベルガモ・オーリオ・アル・セーリオやボローニャ空港からは、1回の乗り換えで列車を利用し、約1時間半〜2時間でピアチェンツァに到着します。",
+      steps: [
+        { name: "駅へ向かう", text: "オーリオ・アル・セーリオからはバスでベルガモへ。ボローニャからは中央駅を出発します。" },
+        { name: "ピアチェンツァ行きの列車", text: "ピアチェンツァ行きの列車に乗車。ミラノまたはボローニャで乗り換えの場合があります。" },
+        { name: "徒歩でRoma284へ", text: "ピアチェンツァ駅から徒歩9分です。" },
+      ],
+    },
+  ],
+  "zh-cn": [
+    {
+      id: "milano-centrale", from: "从米兰中央车站", duration: "33分钟",
+      summary: "红箭高铁连接米兰中央车站与皮亚琴察，仅需33分钟，每天最多52班直达列车（首班06:07，末班23:52）。",
+      steps: [
+        { name: "乘坐红箭高铁", text: "在米兰中央车站乘坐开往皮亚琴察的红箭高铁：车程33分钟。" },
+        { name: "在皮亚琴察下车", text: "在皮亚琴察车站下车，这是位于市中心的便利终点站。" },
+        { name: "步行前往Roma284", text: "从皮亚琴察车站到公寓约900米，穿过市中心步行约9分钟。" },
+      ],
+    },
+    {
+      id: "malpensa", from: "从马尔彭萨机场", duration: "约2小时",
+      summary: "从马尔彭萨乘马尔彭萨快线到米兰，再换乘前往皮亚琴察的列车，约2小时即可到达。",
+      steps: [
+        { name: "马尔彭萨快线", text: "乘坐马尔彭萨快线到米兰中央车站（约50分钟）。" },
+        { name: "前往皮亚琴察的列车", text: "在米兰中央车站乘坐前往皮亚琴察的列车（33至50分钟）。" },
+        { name: "步行前往Roma284", text: "从皮亚琴察车站步行9分钟即可到达公寓。" },
+      ],
+    },
+    {
+      id: "linate", from: "从利纳特机场", duration: "约1小时30分",
+      summary: "从利纳特乘地铁M4到米兰，再换乘列车，约一个半小时即可到达皮亚琴察。",
+      steps: [
+        { name: "地铁M4", text: "从利纳特的M4前往米兰市中心和米兰中央车站。" },
+        { name: "前往皮亚琴察的列车", text: "乘坐前往皮亚琴察的直达列车（33至50分钟）。" },
+        { name: "到达Roma284", text: "从皮亚琴察车站步行9分钟到达公寓。" },
+      ],
+    },
+    {
+      id: "auto", from: "自驾（A1高速公路）", duration: "皮亚琴察南/西出口",
+      summary: "皮亚琴察位于A1高速公路沿线，自驾距米兰约一小时。在Via Roma为蓝线区停车；也可选择步行300米处一个有人看管的停车场。",
+      steps: [
+        { name: "驶离A1", text: "从皮亚琴察南或皮亚琴察西出口驶出，沿历史中心区方向行驶。" },
+        { name: "抵达Via Roma", text: "抵达位于市中心核心的Via Roma 284。" },
+        { name: "停车", text: "在Via Roma为蓝线区停车；也可选择有人看管的Urban Center停车场，每天仅需4欧元，步行300米。公寓入口在一楼。" },
+      ],
+    },
+    {
+      id: "bergamo-bologna", from: "从贝加莫奥里奥阿尔塞里奥机场和博洛尼亚", duration: "约1小时30分 – 2小时",
+      summary: "从贝加莫奥里奥阿尔塞里奥机场和博洛尼亚机场，乘火车换乘一次，约1.5至2小时即可到达皮亚琴察。",
+      steps: [
+        { name: "前往车站", text: "从奥里奥阿尔塞里奥乘巴士到贝加莫；从博洛尼亚则从中央车站出发。" },
+        { name: "前往皮亚琴察的列车", text: "乘坐前往皮亚琴察的列车，可能需在米兰或博洛尼亚换乘。" },
+        { name: "步行前往Roma284", text: "从皮亚琴察车站步行9分钟。" },
+      ],
+    },
+  ],
 };
