@@ -57,6 +57,7 @@ const schema = [
     description: post.data.description,
     datePublished: post.data.pubDate.toISOString(),
     dateModified: post.data.updatedDate?.toISOString(),
+    image: `${SITE.url}/og/default.jpg`,
     url: canonicalUrl,
     lang: LOCALE_META[locale].htmlLang,
   }),

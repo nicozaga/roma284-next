@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
 /* ============================================================
+   ACCESSIBILITÀ — focus visibile da tastiera (WCAG 2.4.7).
+   Anello scuro, ben contrastato sia su sfondi chiari sia su terracotta.
+   :focus-visible → compare solo con tastiera, non al click del mouse.
+   ============================================================ */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-antracite, #1a1a1a);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* ============================================================
    FONT SELF-HOSTED — Fraunces (display) + Inter (body)
    Variabili, woff2 in /public/fonts, font-display: swap
    ============================================================ */

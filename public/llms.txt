@@ -4,7 +4,7 @@
 
 ## Key facts
 - Location: Via Roma 284, 29121 Piacenza, Italy
-- Coordinates: 45.052236, 9.692582
+- Coordinates: 45.048520, 9.704401
 - Distance to Milan Centrale: 33 min by Frecciarossa
 - Distance to Piacenza station: 900 m (9 min walk)
 - Capacity: up to 4 guests
@@ -14,12 +14,18 @@
 ## Pages
 - [Home](https://www.roma284.it/): overview
 - [The apartment](https://www.roma284.it/en/the-apartment/): full details
+- [Area](https://www.roma284.it/en/area/): the neighbourhood, what's nearby, where to eat
 - [Getting here](https://www.roma284.it/en/getting-here/): transport from Milan, airports
 - [Stay near Milan](https://www.roma284.it/en/stay-near-milan/): why Piacenza beats Milan hotels
 - [Smart working](https://www.roma284.it/en/smart-working/): remote work setup
+- [Milan fairs](https://www.roma284.it/en/milan-fairs/): staying in Piacenza during Milan trade fairs
+- [Milan events](https://www.roma284.it/en/milan-events/): concerts and events in Milan
+- [Visit Piacenza](https://www.roma284.it/en/visit-piacenza/): things to do in Piacenza
+- [About](https://www.roma284.it/en/about/): the family behind Roma284
 - [Book direct](https://www.roma284.it/en/book/): direct booking with best benefits
 - [FAQ](https://www.roma284.it/en/faq/): common questions
 - [Contact](https://www.roma284.it/en/contact/)
 
 ## Optional
 - [Blog](https://www.roma284.it/en/blog/): travel guides for Piacenza and Milan
+- [Privacy & Terms](https://www.roma284.it/en/privacy-policy/): legal, privacy and cookie policy

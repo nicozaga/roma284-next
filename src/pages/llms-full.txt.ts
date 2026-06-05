@@ -84,6 +84,7 @@ export const GET: APIRoute = async () => {
   p(`- Prenota: ${SITE.url}/prenota/`);
   p(`- FAQ: ${SITE.url}/faq/`);
   p(`- Contatti: ${SITE.url}/contatti/`);
+  p(`- Privacy e Termini: ${SITE.url}/privacy-policy/`);
 
   return new Response(lines.join("\n"), {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
