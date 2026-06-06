@@ -1,0 +1,340 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+
+import type { Locale } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const url = SITE.url + localizedPath("fairs", locale);
+
+const CMAP = {
+  it: {
+    title: "Fiere di Piacenza, Milano e Parma: dove dormire | Roma284",
+    description: "Alloggio per le fiere: Roma284 a Piacenza è a 10 minuti da Piacenza Expo, a un'ora e mezza da Fiera Milano Rho e a circa un'ora dalle Fiere di Parma.",
+    eyebrow: "Fiere", h1: "Una base, tre poli fieristici",
+    intro: "Roma284 è nel centro storico di Piacenza, in posizione baricentrica tra tre quartieri fieristici: Piacenza Expo a pochi minuti, Fiera Milano Rho in circa un'ora e mezza con Frecciarossa e metropolitana, le Fiere di Parma in circa un'ora. Una base tranquilla quando gli hotel delle città fieristiche sono pieni e cari.",
+    crumbHome: "Home", crumb: "Fiere",
+    fairsLabel: "Le fiere principali:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minuti", text: "Il quartiere fieristico di Piacenza è in zona Le Mose, a circa 10 minuti di auto o taxi da Roma284. Dormi in centro storico e raggiungi i padiglioni in un attimo, senza i prezzi gonfiati dei giorni di fiera.", fairs: ["GIS (sollevamento)", "Geofluid (perforazioni e fluidi)", "Apimell (apicoltura)", "Seminat (florovivaismo)", "Armi & Bagagli (rievocazione storica)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1 ora e 30", text: "Dalla stazione di Piacenza il Frecciarossa arriva a Milano Centrale in 33 minuti; da lì la M2 (linea verde) fino a Cadorna e la M1 (linea rossa) direzione Rho Fieramilano ti portano davanti agli ingressi, per circa un'ora e mezza totale. La sera torni in tranquillità grazie alla frequenza dei treni.", fairs: ["Salone del Mobile e Fuorisalone", "MICAM (calzature)", "MIDO (occhialeria)", "HOMI", "Host (ospitalità)", "EICMA (moto)"] },
+      { name: "Fiere di Parma", time: "≈ 1 ora", text: "Il treno regionale collega Piacenza a Parma in circa 45 minuti; dalla stazione, navette e taxi raggiungono il quartiere fieristico di Baganzola in un quarto d'ora. In auto, lungo la A1, circa 45 minuti.", fairs: ["Cibus (alimentare)", "Cibus Tec (tecnologie alimentari)", "Mercanteinfiera (antiquariato)", "Salone del Camper"] },
+    ],
+    faqTitle: "Domande frequenti", bookTitle: "Verifica le date della fiera", bookSub: "Conferma immediata, contatto diretto.",
+    faq: [
+      { q: "Quanto dista Roma284 da Piacenza Expo?", a: "Circa 10 minuti di auto o taxi: il quartiere fieristico è in zona Le Mose, appena fuori dal centro storico dove si trova l'appartamento." },
+      { q: "Come arrivo a Fiera Milano Rho da Piacenza?", a: "Prendi la Frecciarossa fino a Milano Centrale (33 minuti), poi la metro M2 (linea verde) fino a Cadorna e cambia con la M1 (linea rossa) fino a Rho Fieramilano, per un totale di circa un'ora e mezza." },
+      { q: "Come raggiungo le Fiere di Parma?", a: "Con il treno regionale Piacenza–Parma (circa 45 minuti) e poi navetta o taxi fino al quartiere di Baganzola; in auto, lungo la A1, circa 45 minuti." },
+      { q: "Conviene dormire a Piacenza durante le fiere?", a: "Sì: per Piacenza Expo sei praticamente sul posto, e durante le grandi fiere di Milano e Parma gli hotel si riempiono e i prezzi salgono. Roma284 è una base tranquilla con un intero appartamento a disposizione." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base intelligente per Milano." },
+      { page: "getting-here", title: "Come arrivare", text: "Collegamenti da Milano e dagli aeroporti." },
+      { page: "smart-working", title: "Smart working", text: "Wi-Fi 1 Gbit/s se unisci lavoro e fiera." },
+    ],
+  },
+  en: {
+    title: "Trade fairs in Piacenza, Milan and Parma: where to stay | Roma284",
+    description: "Accommodation for trade fairs: Roma284 in Piacenza is 10 minutes from Piacenza Expo, an hour and a half from Fiera Milano Rho and about an hour from Fiere di Parma.",
+    eyebrow: "Trade fairs", h1: "One base, three exhibition hubs",
+    intro: "Roma284 sits in Piacenza's historic centre, right between three exhibition districts: Piacenza Expo a few minutes away, Fiera Milano Rho in about an hour and a half by Frecciarossa and metro, and Fiere di Parma in about an hour. A quiet base when fair-city hotels are full and pricey.",
+    crumbHome: "Home", crumb: "Trade fairs",
+    fairsLabel: "The main fairs:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minutes", text: "Piacenza's exhibition centre is in the Le Mose district, about 10 minutes by car or taxi from Roma284. Sleep in the historic centre and reach the halls in no time, without inflated fair-week prices.", fairs: ["GIS (lifting equipment)", "Geofluid (drilling and fluids)", "Apimell (beekeeping)", "Seminat (gardening)", "Armi & Bagagli (historical re-enactment)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1.5 hours", text: "From Piacenza station the Frecciarossa reaches Milan Centrale in 33 minutes; from there metro M2 (green line) to Cadorna and M1 (red line) towards Rho Fieramilano take you right to the entrances, about an hour and a half in total. In the evening you return in peace thanks to frequent trains.", fairs: ["Salone del Mobile and Fuorisalone", "MICAM (footwear)", "MIDO (eyewear)", "HOMI", "Host (hospitality)", "EICMA (motorcycles)"] },
+      { name: "Fiere di Parma", time: "≈ 1 hour", text: "The regional train links Piacenza to Parma in about 45 minutes; from the station, shuttles and taxis reach the Baganzola exhibition district in a quarter of an hour. By car on the A1, about 45 minutes.", fairs: ["Cibus (food)", "Cibus Tec (food technology)", "Mercanteinfiera (antiques)", "Salone del Camper (campervans)"] },
+    ],
+    faqTitle: "Frequently asked questions", bookTitle: "Check your fair dates", bookSub: "Instant confirmation, direct contact.",
+    faq: [
+      { q: "How far is Roma284 from Piacenza Expo?", a: "About 10 minutes by car or taxi: the exhibition centre is in the Le Mose district, just outside the historic centre where the apartment is located." },
+      { q: "How do I reach Fiera Milano Rho from Piacenza?", a: "Take the Frecciarossa to Milan Centrale (33 minutes), then metro M2 (green line) to Cadorna and change to M1 (red line) to Rho Fieramilano, for about an hour and a half total." },
+      { q: "How do I reach Fiere di Parma?", a: "Take the regional train Piacenza–Parma (about 45 minutes), then a shuttle or taxi to the Baganzola district; by car on the A1, about 45 minutes." },
+      { q: "Is it worth staying in Piacenza during the fairs?", a: "Yes: for Piacenza Expo you are practically on site, and during the big fairs in Milan and Parma hotels fill up and prices rise. Roma284 is a quiet base with a whole apartment available." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Stay near Milan", text: "Why Piacenza is the smart base for Milan." },
+      { page: "getting-here", title: "Getting here", text: "Connections from Milan and the airports." },
+      { page: "smart-working", title: "Smart working", text: "1 Gbit/s Wi-Fi if you combine work and the fair." },
+    ],
+  },
+  fr: {
+    title: "Foires de Plaisance, Milan et Parme : où dormir | Roma284",
+    description: "Logement pour les foires : Roma284 à Plaisance est à 10 minutes de Piacenza Expo, à une heure et demie de Fiera Milano Rho et à environ une heure des Fiere di Parma.",
+    eyebrow: "Foires", h1: "Une base, trois pôles d'exposition",
+    intro: "Roma284 se trouve dans le centre historique de Plaisance, au barycentre de trois quartiers d'exposition : Piacenza Expo à quelques minutes, Fiera Milano Rho à environ une heure et demie en Frecciarossa et métro, les Fiere di Parma à environ une heure. Une base tranquille quand les hôtels des villes de foire sont complets et chers.",
+    crumbHome: "Accueil", crumb: "Foires",
+    fairsLabel: "Les principales foires :",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minutes", text: "Le parc des expositions de Plaisance se trouve dans le quartier Le Mose, à environ 10 minutes en voiture ou en taxi de Roma284. Dormez dans le centre historique et rejoignez les halls en un instant, sans les prix gonflés des jours de foire.", fairs: ["GIS (levage)", "Geofluid (forage et fluides)", "Apimell (apiculture)", "Seminat (horticulture)", "Armi & Bagagli (reconstitution historique)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1 h 30", text: "Depuis la gare de Plaisance, la Frecciarossa atteint Milan Centrale en 33 minutes ; de là, la M2 (ligne verte) jusqu'à Cadorna puis la M1 (ligne rouge) direction Rho Fieramilano vous déposent devant les entrées, pour environ une heure et demie au total. Le soir, vous rentrez au calme grâce à la fréquence des trains.", fairs: ["Salone del Mobile et Fuorisalone", "MICAM (chaussure)", "MIDO (lunetterie)", "HOMI", "Host (hôtellerie)", "EICMA (moto)"] },
+      { name: "Fiere di Parma", time: "≈ 1 heure", text: "Le train régional relie Plaisance à Parme en 45 minutes environ ; depuis la gare, navettes et taxis rejoignent le quartier d'exposition de Baganzola en un quart d'heure. En voiture, par l'A1, environ 45 minutes.", fairs: ["Cibus (agroalimentaire)", "Cibus Tec (technologies alimentaires)", "Mercanteinfiera (antiquités)", "Salone del Camper (camping-cars)"] },
+    ],
+    faqTitle: "Foire aux questions", bookTitle: "Vérifiez les dates de la foire", bookSub: "Confirmation immédiate, contact direct.",
+    faq: [
+      { q: "À quelle distance se trouve Piacenza Expo de Roma284 ?", a: "À environ 10 minutes en voiture ou en taxi : le parc des expositions est dans le quartier Le Mose, juste à l'extérieur du centre historique où se trouve l'appartement." },
+      { q: "Comment rejoindre Fiera Milano Rho depuis Plaisance ?", a: "Prenez la Frecciarossa jusqu'à Milan Centrale (33 minutes), puis le métro M2 (ligne verte) jusqu'à Cadorna et changez pour la M1 (ligne rouge) jusqu'à Rho Fieramilano, pour environ une heure et demie au total." },
+      { q: "Comment rejoindre les Fiere di Parma ?", a: "Avec le train régional Plaisance–Parme (45 minutes environ), puis navette ou taxi jusqu'au quartier de Baganzola ; en voiture, par l'A1, environ 45 minutes." },
+      { q: "Vaut-il mieux dormir à Plaisance pendant les foires ?", a: "Oui : pour Piacenza Expo vous êtes pratiquement sur place, et pendant les grandes foires de Milan et de Parme les hôtels se remplissent et les prix montent. Roma284 est une base tranquille avec un appartement entier à disposition." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormir près de Milan", text: "Pourquoi Plaisance est la base idéale pour Milan." },
+      { page: "getting-here", title: "Comment venir", text: "Liaisons depuis Milan et les aéroports." },
+      { page: "smart-working", title: "Télétravail", text: "Wi-Fi 1 Gbit/s si vous combinez travail et foire." },
+    ],
+  },
+  de: {
+    title: "Messen in Piacenza, Mailand und Parma: wo übernachten | Roma284",
+    description: "Unterkunft für Messen: Roma284 in Piacenza liegt 10 Minuten von Piacenza Expo, eineinhalb Stunden von der Fiera Milano Rho und etwa eine Stunde von den Fiere di Parma entfernt.",
+    eyebrow: "Messen", h1: "Eine Basis, drei Messestandorte",
+    intro: "Roma284 liegt im historischen Zentrum von Piacenza, genau zwischen drei Messegeländen: Piacenza Expo wenige Minuten entfernt, die Fiera Milano Rho in etwa eineinhalb Stunden mit Frecciarossa und Metro, die Fiere di Parma in rund einer Stunde. Eine ruhige Basis, wenn die Hotels der Messestädte ausgebucht und teuer sind.",
+    crumbHome: "Home", crumb: "Messen",
+    fairsLabel: "Die wichtigsten Messen:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 Minuten", text: "Das Messegelände von Piacenza liegt im Viertel Le Mose, etwa 10 Minuten mit dem Auto oder Taxi von Roma284 entfernt. Übernachten Sie im historischen Zentrum und erreichen Sie die Hallen im Handumdrehen, ohne die überhöhten Preise der Messetage.", fairs: ["GIS (Hebetechnik)", "Geofluid (Bohrtechnik und Fluide)", "Apimell (Imkerei)", "Seminat (Gartenbau)", "Armi & Bagagli (historische Reenactments)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1,5 Stunden", text: "Vom Bahnhof Piacenza erreicht der Frecciarossa Mailand Centrale in 33 Minuten; von dort bringen Sie die M2 (grüne Linie) bis Cadorna und die M1 (rote Linie) Richtung Rho Fieramilano direkt vor die Eingänge — insgesamt etwa eineinhalb Stunden. Am Abend kehren Sie dank der Zugfrequenz entspannt zurück.", fairs: ["Salone del Mobile und Fuorisalone", "MICAM (Schuhe)", "MIDO (Brillen)", "HOMI", "Host (Gastgewerbe)", "EICMA (Motorräder)"] },
+      { name: "Fiere di Parma", time: "≈ 1 Stunde", text: "Der Regionalzug verbindet Piacenza in etwa 45 Minuten mit Parma; vom Bahnhof erreichen Shuttles und Taxis das Messegelände in Baganzola in einer Viertelstunde. Mit dem Auto über die A1 etwa 45 Minuten.", fairs: ["Cibus (Lebensmittel)", "Cibus Tec (Lebensmitteltechnologie)", "Mercanteinfiera (Antiquitäten)", "Salone del Camper (Wohnmobile)"] },
+    ],
+    faqTitle: "Häufig gestellte Fragen", bookTitle: "Messetermine prüfen", bookSub: "Sofortige Bestätigung, direkter Kontakt.",
+    faq: [
+      { q: "Wie weit ist Roma284 von Piacenza Expo entfernt?", a: "Etwa 10 Minuten mit dem Auto oder Taxi: Das Messegelände liegt im Viertel Le Mose, direkt außerhalb des historischen Zentrums, in dem sich die Wohnung befindet." },
+      { q: "Wie erreiche ich die Fiera Milano Rho von Piacenza?", a: "Nehmen Sie den Frecciarossa nach Mailand Centrale (33 Minuten), dann die Metro M2 (grüne Linie) bis Cadorna und steigen Sie in die M1 (rote Linie) bis Rho Fieramilano um, insgesamt etwa eineinhalb Stunden." },
+      { q: "Wie erreiche ich die Fiere di Parma?", a: "Mit dem Regionalzug Piacenza–Parma (etwa 45 Minuten), dann mit Shuttle oder Taxi zum Gelände in Baganzola; mit dem Auto über die A1 etwa 45 Minuten." },
+      { q: "Lohnt es sich, während der Messen in Piacenza zu übernachten?", a: "Ja: Für Piacenza Expo sind Sie praktisch vor Ort, und während der großen Messen in Mailand und Parma füllen sich die Hotels und die Preise steigen. Roma284 ist eine ruhige Basis mit einer ganzen Wohnung zur Verfügung." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Übernachten bei Mailand", text: "Warum Piacenza die clevere Basis für Mailand ist." },
+      { page: "getting-here", title: "Anreise", text: "Verbindungen von Mailand und den Flughäfen." },
+      { page: "smart-working", title: "Homeoffice", text: "WLAN 1 Gbit/s, wenn Sie Arbeit und Messe verbinden." },
+    ],
+  },
+  es: {
+    title: "Ferias de Piacenza, Milán y Parma: dónde dormir | Roma284",
+    description: "Alojamiento para las ferias: Roma284 en Piacenza está a 10 minutos de Piacenza Expo, a una hora y media de Fiera Milano Rho y a aproximadamente una hora de Fiere di Parma.",
+    eyebrow: "Ferias", h1: "Una base, tres polos feriales",
+    intro: "Roma284 está en el centro histórico de Piacenza, en posición baricéntrica entre tres recintos feriales: Piacenza Expo a pocos minutos, Fiera Milano Rho a aproximadamente una hora y media con Frecciarossa y metro, y Fiere di Parma a aproximadamente una hora. Una base tranquila cuando los hoteles de las ciudades feriales están llenos y caros.",
+    crumbHome: "Inicio", crumb: "Ferias",
+    fairsLabel: "Las principales ferias:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minutos", text: "El recinto ferial de Piacenza está en la zona Le Mose, a unos 10 minutos en coche o taxi desde Roma284. Duerme en el centro histórico y llega a los pabellones en un momento, sin los precios inflados de los días de feria.", fairs: ["GIS (elevación)", "Geofluid (perforación y fluidos)", "Apimell (apicultura)", "Seminat (horticultura)", "Armi & Bagagli (recreación histórica)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1 h 30", text: "Desde la estación de Piacenza, el Frecciarossa llega a Milán Centrale en 33 minutos; desde allí, la M2 (línea verde) hasta Cadorna y la M1 (línea roja) dirección Rho Fieramilano te dejan frente a las entradas, en total aproximadamente una hora y media. Por la noche vuelves con tranquilidad gracias a la frecuencia de los trenes.", fairs: ["Salone del Mobile y Fuorisalone", "MICAM (calzado)", "MIDO (óptica)", "HOMI", "Host (hostelería)", "EICMA (motos)"] },
+      { name: "Fiere di Parma", time: "≈ 1 hora", text: "El tren regional conecta Piacenza con Parma en unos 45 minutos; desde la estación, lanzaderas y taxis llegan al recinto ferial de Baganzola en un cuarto de hora. En coche, por la A1, unos 45 minutos.", fairs: ["Cibus (alimentación)", "Cibus Tec (tecnología alimentaria)", "Mercanteinfiera (antigüedades)", "Salone del Camper (autocaravanas)"] },
+    ],
+    faqTitle: "Preguntas frecuentes", bookTitle: "Comprueba las fechas de la feria", bookSub: "Confirmación inmediata, contacto directo.",
+    faq: [
+      { q: "¿A qué distancia está Roma284 de Piacenza Expo?", a: "A unos 10 minutos en coche o taxi: el recinto ferial está en la zona Le Mose, justo a las afueras del centro histórico donde se encuentra el apartamento." },
+      { q: "¿Cómo llego a Fiera Milano Rho desde Piacenza?", a: "Toma el Frecciarossa hasta Milán Centrale (33 minutos), luego el metro M2 (línea verde) hasta Cadorna y cambia a la M1 (línea roja) hasta Rho Fieramilano, en total aproximadamente una hora y media." },
+      { q: "¿Cómo llego a Fiere di Parma?", a: "Con el tren regional Piacenza–Parma (unos 45 minutos) y luego lanzadera o taxi hasta la zona de Baganzola; en coche, por la A1, unos 45 minutos." },
+      { q: "¿Conviene dormir en Piacenza durante las ferias?", a: "Sí: para Piacenza Expo estás prácticamente en el lugar, y durante las grandes ferias de Milán y Parma los hoteles se llenan y los precios suben. Roma284 es una base tranquila con un apartamento entero a disposición." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormir cerca de Milán", text: "Por qué Piacenza es la base inteligente para Milán." },
+      { page: "getting-here", title: "Cómo llegar", text: "Conexiones desde Milán y los aeropuertos." },
+      { page: "smart-working", title: "Teletrabajo", text: "Wi-Fi 1 Gbit/s si combinas trabajo y feria." },
+    ],
+  },
+  pt: {
+    title: "Feiras de Piacenza, Milão e Parma: onde dormir | Roma284",
+    description: "Alojamento para as feiras: o Roma284 em Piacenza fica a 10 minutos da Piacenza Expo, a uma hora e meia da Fiera Milano Rho e a cerca de uma hora das Fiere di Parma.",
+    eyebrow: "Feiras", h1: "Uma base, três polos de feiras",
+    intro: "O Roma284 fica no centro histórico de Piacenza, em posição baricêntrica entre três recintos de feiras: Piacenza Expo a poucos minutos, Fiera Milano Rho a cerca de uma hora e meia de Frecciarossa e metro, e as Fiere di Parma a cerca de uma hora. Uma base tranquila quando os hotéis das cidades de feiras estão cheios e caros.",
+    crumbHome: "Início", crumb: "Feiras",
+    fairsLabel: "As principais feiras:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minutos", text: "O recinto de feiras de Piacenza fica na zona Le Mose, a cerca de 10 minutos de carro ou táxi do Roma284. Durma no centro histórico e chegue aos pavilhões num instante, sem os preços inflacionados dos dias de feira.", fairs: ["GIS (elevação)", "Geofluid (perfuração e fluidos)", "Apimell (apicultura)", "Seminat (horticultura)", "Armi & Bagagli (recriação histórica)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1 h 30", text: "Da estação de Piacenza, o Frecciarossa chega a Milão Centrale em 33 minutos; daí, a M2 (linha verde) até Cadorna e a M1 (linha vermelha) em direção a Rho Fieramilano deixam-no diante das entradas, num total de cerca de uma hora e meia. À noite regressa com tranquilidade graças à frequência dos comboios.", fairs: ["Salone del Mobile e Fuorisalone", "MICAM (calçado)", "MIDO (ótica)", "HOMI", "Host (hotelaria)", "EICMA (motos)"] },
+      { name: "Fiere di Parma", time: "≈ 1 hora", text: "O comboio regional liga Piacenza a Parma em cerca de 45 minutos; da estação, shuttles e táxis chegam ao recinto de Baganzola num quarto de hora. De carro, pela A1, cerca de 45 minutos.", fairs: ["Cibus (alimentar)", "Cibus Tec (tecnologia alimentar)", "Mercanteinfiera (antiguidades)", "Salone del Camper (autocaravanas)"] },
+    ],
+    faqTitle: "Perguntas frequentes", bookTitle: "Verifique as datas da feira", bookSub: "Confirmação imediata, contacto direto.",
+    faq: [
+      { q: "A que distância fica o Roma284 da Piacenza Expo?", a: "A cerca de 10 minutos de carro ou táxi: o recinto de feiras fica na zona Le Mose, mesmo fora do centro histórico onde se encontra o apartamento." },
+      { q: "Como chego à Fiera Milano Rho a partir de Piacenza?", a: "Apanhe o Frecciarossa até Milão Centrale (33 minutos), depois o metro M2 (linha verde) até Cadorna e mude para a M1 (linha vermelha) até Rho Fieramilano, num total de cerca de uma hora e meia." },
+      { q: "Como chego às Fiere di Parma?", a: "Com o comboio regional Piacenza–Parma (cerca de 45 minutos) e depois shuttle ou táxi até à zona de Baganzola; de carro, pela A1, cerca de 45 minutos." },
+      { q: "Vale a pena dormir em Piacenza durante as feiras?", a: "Sim: para a Piacenza Expo está praticamente no local, e durante as grandes feiras de Milão e Parma os hotéis enchem-se e os preços sobem. O Roma284 é uma base tranquila com um apartamento inteiro à disposição." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Dormir perto de Milão", text: "Porque Piacenza é a base inteligente para Milão." },
+      { page: "getting-here", title: "Como chegar", text: "Ligações de Milão e dos aeroportos." },
+      { page: "smart-working", title: "Teletrabalho", text: "Wi-Fi 1 Gbit/s se combinar trabalho e feira." },
+    ],
+  },
+  nl: {
+    title: "Beurzen in Piacenza, Milaan en Parma: waar slapen | Roma284",
+    description: "Accommodatie voor beurzen: Roma284 in Piacenza ligt op 10 minuten van Piacenza Expo, anderhalf uur van Fiera Milano Rho en ongeveer een uur van Fiere di Parma.",
+    eyebrow: "Beurzen", h1: "Eén uitvalsbasis, drie beurslocaties",
+    intro: "Roma284 ligt in het historische centrum van Piacenza, precies tussen drie beursterreinen in: Piacenza Expo op een paar minuten, Fiera Milano Rho op ongeveer anderhalf uur met de Frecciarossa en de metro, en Fiere di Parma op ongeveer een uur. Een rustige uitvalsbasis wanneer de hotels in de beurssteden vol en duur zijn.",
+    crumbHome: "Home", crumb: "Beurzen",
+    fairsLabel: "De belangrijkste beurzen:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minuten", text: "Het beursterrein van Piacenza ligt in de wijk Le Mose, op ongeveer 10 minuten met de auto of taxi van Roma284. Slaap in het historische centrum en bereik de hallen in een mum van tijd, zonder de opgedreven prijzen van de beursdagen.", fairs: ["GIS (hijstechniek)", "Geofluid (boortechniek en vloeistoffen)", "Apimell (bijenteelt)", "Seminat (tuinbouw)", "Armi & Bagagli (historische re-enactment)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1,5 uur", text: "Vanaf het station van Piacenza bereikt de Frecciarossa Milaan Centrale in 33 minuten; vandaar brengen de M2 (groene lijn) tot Cadorna en de M1 (rode lijn) richting Rho Fieramilano je tot voor de ingangen, in totaal ongeveer anderhalf uur. 's Avonds keer je rustig terug dankzij de frequente treinen.", fairs: ["Salone del Mobile en Fuorisalone", "MICAM (schoenen)", "MIDO (brillen)", "HOMI", "Host (horeca)", "EICMA (motoren)"] },
+      { name: "Fiere di Parma", time: "≈ 1 uur", text: "De regionale trein verbindt Piacenza in ongeveer 45 minuten met Parma; vanaf het station bereiken shuttles en taxi's het beursterrein van Baganzola in een kwartier. Met de auto via de A1 ongeveer 45 minuten.", fairs: ["Cibus (voeding)", "Cibus Tec (voedingstechnologie)", "Mercanteinfiera (antiek)", "Salone del Camper (campers)"] },
+    ],
+    faqTitle: "Veelgestelde vragen", bookTitle: "Controleer de beursdata", bookSub: "Directe bevestiging, direct contact.",
+    faq: [
+      { q: "Hoe ver ligt Roma284 van Piacenza Expo?", a: "Ongeveer 10 minuten met de auto of taxi: het beursterrein ligt in de wijk Le Mose, net buiten het historische centrum waar het appartement zich bevindt." },
+      { q: "Hoe bereik ik Fiera Milano Rho vanuit Piacenza?", a: "Neem de Frecciarossa naar Milaan Centrale (33 minuten), dan de metro M2 (groene lijn) tot Cadorna en stap over op de M1 (rode lijn) tot Rho Fieramilano, in totaal ongeveer anderhalf uur." },
+      { q: "Hoe bereik ik Fiere di Parma?", a: "Met de regionale trein Piacenza–Parma (ongeveer 45 minuten) en dan een shuttle of taxi naar Baganzola; met de auto via de A1 ongeveer 45 minuten." },
+      { q: "Is het de moeite om in Piacenza te slapen tijdens de beurzen?", a: "Ja: voor Piacenza Expo zit je er praktisch naast, en tijdens de grote beurzen van Milaan en Parma raken de hotels vol en stijgen de prijzen. Roma284 is een rustige uitvalsbasis met een heel appartement tot je beschikking." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Slapen bij Milaan", text: "Waarom Piacenza de slimme uitvalsbasis is voor Milaan." },
+      { page: "getting-here", title: "Hoe te komen", text: "Verbindingen vanuit Milaan en de luchthavens." },
+      { page: "smart-working", title: "Thuiswerken", text: "Wifi 1 Gbit/s als je werk en beurs combineert." },
+    ],
+  },
+  pl: {
+    title: "Targi w Piacenzy, Mediolanie i Parmie: gdzie nocować | Roma284",
+    description: "Nocleg na targi: Roma284 w Piacenzy leży 10 minut od Piacenza Expo, półtorej godziny od Fiera Milano Rho i około godziny od Fiere di Parma.",
+    eyebrow: "Targi", h1: "Jedna baza, trzy ośrodki targowe",
+    intro: "Roma284 znajduje się w historycznym centrum Piacenzy, dokładnie pomiędzy trzema terenami targowymi: Piacenza Expo kilka minut stąd, Fiera Milano Rho około półtorej godziny Frecciarossą i metrem, a Fiere di Parma około godziny. Spokojna baza, gdy hotele w miastach targowych są pełne i drogie.",
+    crumbHome: "Strona główna", crumb: "Targi",
+    fairsLabel: "Najważniejsze targi:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minut", text: "Teren targowy Piacenzy znajduje się w dzielnicy Le Mose, około 10 minut samochodem lub taksówką od Roma284. Nocujesz w historycznym centrum i docierasz do hal w mgnieniu oka, bez zawyżonych cen w dni targowe.", fairs: ["GIS (technika dźwigowa)", "Geofluid (wiertnictwo i płyny)", "Apimell (pszczelarstwo)", "Seminat (ogrodnictwo)", "Armi & Bagagli (rekonstrukcja historyczna)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1,5 godziny", text: "Z dworca w Piacenzy Frecciarossa dojeżdża do Mediolanu Centrale w 33 minuty; stamtąd M2 (zielona linia) do Cadorny i M1 (czerwona linia) w kierunku Rho Fieramilano dowożą cię pod same wejścia, łącznie około półtorej godziny. Wieczorem spokojnie wracasz dzięki częstym pociągom.", fairs: ["Salone del Mobile i Fuorisalone", "MICAM (obuwie)", "MIDO (optyka)", "HOMI", "Host (gastronomia)", "EICMA (motocykle)"] },
+      { name: "Fiere di Parma", time: "≈ 1 godzina", text: "Pociąg regionalny łączy Piacenzę z Parmą w około 45 minut; z dworca autobusy wahadłowe i taksówki dojeżdżają do terenów targowych w Baganzoli w kwadrans. Samochodem, autostradą A1, około 45 minut.", fairs: ["Cibus (żywność)", "Cibus Tec (technologie spożywcze)", "Mercanteinfiera (antyki)", "Salone del Camper (kampery)"] },
+    ],
+    faqTitle: "Najczęściej zadawane pytania", bookTitle: "Sprawdź daty targów", bookSub: "Natychmiastowe potwierdzenie, bezpośredni kontakt.",
+    faq: [
+      { q: "Jak daleko jest Roma284 od Piacenza Expo?", a: "Około 10 minut samochodem lub taksówką: teren targowy znajduje się w dzielnicy Le Mose, tuż za historycznym centrum, w którym mieści się apartament." },
+      { q: "Jak dotrzeć do Fiera Milano Rho z Piacenzy?", a: "Wsiądź do Frecciarossy do Mediolanu Centrale (33 minuty), następnie metrem M2 (zielona linia) do Cadorny i przesiądź się na M1 (czerwona linia) do Rho Fieramilano, łącznie około półtorej godziny." },
+      { q: "Jak dotrzeć do Fiere di Parma?", a: "Pociągiem regionalnym Piacenza–Parma (około 45 minut), a następnie autobusem wahadłowym lub taksówką do Baganzoli; samochodem, autostradą A1, około 45 minut." },
+      { q: "Czy warto nocować w Piacenzy podczas targów?", a: "Tak: na Piacenza Expo jesteś praktycznie na miejscu, a podczas wielkich targów w Mediolanie i Parmie hotele się zapełniają, a ceny rosną. Roma284 to spokojna baza z całym apartamentem do dyspozycji." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Nocleg blisko Mediolanu", text: "Dlaczego Piacenza to inteligentna baza dla Mediolanu." },
+      { page: "getting-here", title: "Jak dojechać", text: "Połączenia z Mediolanu i lotnisk." },
+      { page: "smart-working", title: "Praca zdalna", text: "Wi-Fi 1 Gb/s, jeśli łączysz pracę i targi." },
+    ],
+  },
+  sv: {
+    title: "Mässor i Piacenza, Milano och Parma: var ska man bo | Roma284",
+    description: "Boende för mässor: Roma284 i Piacenza ligger 10 minuter från Piacenza Expo, en och en halv timme från Fiera Milano Rho och cirka en timme från Fiere di Parma.",
+    eyebrow: "Mässor", h1: "En bas, tre mässområden",
+    intro: "Roma284 ligger i Piacenzas historiska centrum, mitt emellan tre mässområden: Piacenza Expo några minuter bort, Fiera Milano Rho på cirka en och en halv timme med Frecciarossa och tunnelbana, och Fiere di Parma på cirka en timme. En lugn bas när hotellen i mässtäderna är fullbokade och dyra.",
+    crumbHome: "Hem", crumb: "Mässor",
+    fairsLabel: "De största mässorna:",
+    venues: [
+      { name: "Piacenza Expo", time: "≈ 10 minuter", text: "Piacenzas mässområde ligger i stadsdelen Le Mose, cirka 10 minuter med bil eller taxi från Roma284. Bo i historiska centrum och nå hallarna på nolltid, utan mässdagarnas uppblåsta priser.", fairs: ["GIS (lyftteknik)", "Geofluid (borrning och vätskor)", "Apimell (biodling)", "Seminat (trädgårdsodling)", "Armi & Bagagli (historiskt återskapande)"] },
+      { name: "Fiera Milano Rho", time: "≈ 1,5 timme", text: "Från Piacenzas station når Frecciarossa Milano Centrale på 33 minuter; därifrån tar M2 (gröna linjen) till Cadorna och M1 (röda linjen) mot Rho Fieramilano dig ända fram till entréerna, sammanlagt cirka en och en halv timme. På kvällen återvänder du lugnt tack vare tågens täthet.", fairs: ["Salone del Mobile och Fuorisalone", "MICAM (skor)", "MIDO (glasögon)", "HOMI", "Host (besöksnäring)", "EICMA (motorcyklar)"] },
+      { name: "Fiere di Parma", time: "≈ 1 timme", text: "Regionaltåget förbinder Piacenza med Parma på cirka 45 minuter; från stationen når shuttlebussar och taxi mässområdet i Baganzola på en kvart. Med bil via A1 cirka 45 minuter.", fairs: ["Cibus (livsmedel)", "Cibus Tec (livsmedelsteknik)", "Mercanteinfiera (antikviteter)", "Salone del Camper (husbilar)"] },
+    ],
+    faqTitle: "Vanliga frågor", bookTitle: "Kontrollera mässdatumen", bookSub: "Omedelbar bekräftelse, direktkontakt.",
+    faq: [
+      { q: "Hur långt är Roma284 från Piacenza Expo?", a: "Cirka 10 minuter med bil eller taxi: mässområdet ligger i stadsdelen Le Mose, strax utanför det historiska centrum där lägenheten finns." },
+      { q: "Hur når jag Fiera Milano Rho från Piacenza?", a: "Ta Frecciarossa till Milano Centrale (33 minuter), sedan tunnelbana M2 (gröna linjen) till Cadorna och byt till M1 (röda linjen) till Rho Fieramilano, på sammanlagt cirka en och en halv timme." },
+      { q: "Hur når jag Fiere di Parma?", a: "Med regionaltåget Piacenza–Parma (cirka 45 minuter) och sedan shuttle eller taxi till Baganzola; med bil via A1 cirka 45 minuter." },
+      { q: "Är det värt att bo i Piacenza under mässorna?", a: "Ja: till Piacenza Expo är du praktiskt taget på plats, och under de stora mässorna i Milano och Parma fylls hotellen och priserna stiger. Roma284 är en lugn bas med en hel lägenhet till förfogande." },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "Bo nära Milano", text: "Varför Piacenza är den smarta basen för Milano." },
+      { page: "getting-here", title: "Hitta hit", text: "Förbindelser från Milano och flygplatserna." },
+      { page: "smart-working", title: "Distansarbete", text: "Wi-Fi 1 Gbit/s om du kombinerar arbete och mässa." },
+    ],
+  },
+  ja: {
+    title: "ピアチェンツァ・ミラノ・パルマの見本市：宿泊先 | Roma284",
+    description: "見本市の宿泊：ピアチェンツァのRoma284はPiacenza Expoまで10分、Fiera Milano Rhoまで約1時間半、Fiere di Parmaまで約1時間。",
+    eyebrow: "見本市", h1: "1つの拠点、3つの見本市会場",
+    intro: "Roma284はピアチェンツァの歴史的中心部にあり、3つの見本市会場の中間に位置します：Piacenza Expoまで数分、Fiera Milano Rhoまでフレッチャロッサと地下鉄で約1時間半、Fiere di Parmaまで約1時間。見本市都市のホテルが満室で高額なときの静かな拠点です。",
+    crumbHome: "ホーム", crumb: "見本市",
+    fairsLabel: "主な見本市：",
+    venues: [
+      { name: "Piacenza Expo", time: "約10分", text: "ピアチェンツァの見本市会場はLe Mose地区にあり、Roma284から車またはタクシーで約10分。歴史的中心部に泊まりながら、見本市期間の高騰した価格を避けてすぐに会場へ行けます。", fairs: ["GIS（昇降機器）", "Geofluid（掘削・流体）", "Apimell（養蜂）", "Seminat（園芸）", "Armi & Bagagli（歴史再現イベント）"] },
+      { name: "Fiera Milano Rho", time: "約1時間半", text: "ピアチェンツァ駅からフレッチャロッサでミラノ中央駅まで33分。そこから地下鉄M2（緑の線）でカドルナへ、M1（赤の線）でRho Fieramilano方面へ乗り継げば入口の目の前に到着、合計約1時間半です。夜は本数の多い列車で静かな拠点へ戻れます。", fairs: ["サローネ・デル・モービレとフオリサローネ", "MICAM（靴）", "MIDO（眼鏡）", "HOMI", "Host（ホスピタリティ）", "EICMA（バイク）"] },
+      { name: "Fiere di Parma", time: "約1時間", text: "ローカル線がピアチェンツァとパルマを約45分で結びます。駅からはシャトルバスやタクシーで15分ほどでBaganzolaの見本市会場へ。車ならA1高速道路で約45分です。", fairs: ["Cibus（食品）", "Cibus Tec（食品技術）", "Mercanteinfiera（アンティーク）", "Salone del Camper（キャンピングカー）"] },
+    ],
+    faqTitle: "よくある質問", bookTitle: "見本市の日程を確認", bookSub: "即時確認、直接やり取り。",
+    faq: [
+      { q: "Roma284からPiacenza Expoまでどのくらいですか？", a: "車またはタクシーで約10分です。見本市会場はLe Mose地区にあり、アパートメントのある歴史的中心部のすぐ外側です。" },
+      { q: "ピアチェンツァからFiera Milano Rhoへはどう行きますか？", a: "フレッチャロッサでミラノ中央駅まで（33分）、その後地下鉄M2（緑の線）でカドルナまで、M1（赤の線）に乗り換えてRho Fieramilanoまで、合計で約1時間半です。" },
+      { q: "Fiere di Parmaへはどう行きますか？", a: "ローカル線ピアチェンツァ～パルマ（約45分）の後、シャトルバスまたはタクシーでBaganzolaへ。車ならA1高速道路で約45分です。" },
+      { q: "見本市の期間にピアチェンツァに泊まる価値はありますか？", a: "はい。Piacenza Expoならほぼ会場のそばですし、ミラノやパルマの大規模見本市の期間はホテルが満室になり価格も上がります。Roma284はアパートメント丸ごと使える静かな拠点です。" },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "ミラノ近郊に泊まる", text: "ピアチェンツァがミラノの賢い拠点である理由。" },
+      { page: "getting-here", title: "アクセス", text: "ミラノと各空港からの交通手段。" },
+      { page: "smart-working", title: "リモートワーク", text: "仕事と見本市を組み合わせるならWi-Fi 1Gbps。" },
+    ],
+  },
+  "zh-cn": {
+    title: "皮亚琴察、米兰和帕尔马展会：住宿指南 | Roma284",
+    description: "展会住宿：皮亚琴察的Roma284距Piacenza Expo仅10分钟，距米兰罗会展中心约一个半小时，距帕尔马展览中心约一小时。",
+    eyebrow: "展会", h1: "一个据点，三大展会中心",
+    intro: "Roma284位于皮亚琴察历史中心，恰好处于三大展会场馆之间：Piacenza Expo仅数分钟路程，乘红箭高铁和地铁约一个半小时可达米兰罗会展中心，约一小时可达帕尔马展览中心。当展会城市的酒店爆满且昂贵时，这里是安静的据点。",
+    crumbHome: "首页", crumb: "展会",
+    fairsLabel: "主要展会：",
+    venues: [
+      { name: "Piacenza Expo", time: "约10分钟", text: "皮亚琴察展览中心位于Le Mose区，从Roma284乘车或出租车约10分钟。住在历史中心，转眼即达展馆，免受展会期间的高昂房价。", fairs: ["GIS（起重设备）", "Geofluid（钻探与流体）", "Apimell（养蜂）", "Seminat（园艺）", "Armi & Bagagli（历史重演活动）"] },
+      { name: "Fiera Milano Rho", time: "约1.5小时", text: "从皮亚琴察车站乘红箭高铁33分钟到达米兰中央车站；再乘M2（绿线）到Cadorna，换乘M1（红线）开往Rho Fieramilano方向，直达展会入口，全程约一个半小时。傍晚得益于密集的班次，可安心返回。", fairs: ["米兰国际家具展和Fuorisalone", "MICAM（鞋类）", "MIDO（眼镜）", "HOMI", "Host（酒店餐饮）", "EICMA（摩托车）"] },
+      { name: "Fiere di Parma", time: "约1小时", text: "区域火车约45分钟连接皮亚琴察和帕尔马；从车站乘摆渡车或出租车一刻钟即可到达Baganzola展区。自驾经A1高速约45分钟。", fairs: ["Cibus（食品）", "Cibus Tec（食品技术）", "Mercanteinfiera（古董）", "Salone del Camper（房车）"] },
+    ],
+    faqTitle: "常见问题", bookTitle: "查询展会日期", bookSub: "即时确认，直接联系。",
+    faq: [
+      { q: "Roma284距Piacenza Expo多远？", a: "乘车或出租车约10分钟：展览中心位于Le Mose区，就在公寓所在的历史中心外侧。" },
+      { q: "如何从皮亚琴察前往米兰罗会展中心？", a: "乘红箭高铁到米兰中央车站（33分钟），再乘地铁M2（绿线）到Cadorna，换乘M1（红线）到Rho Fieramilano，全程约一个半小时。" },
+      { q: "如何前往帕尔马展览中心？", a: "乘皮亚琴察—帕尔马区域火车（约45分钟），再乘摆渡车或出租车到Baganzola展区；自驾经A1高速约45分钟。" },
+      { q: "展会期间住在皮亚琴察值得吗？", a: "值得：去Piacenza Expo几乎就在现场，而米兰和帕尔马大型展会期间酒店爆满且价格上涨。Roma284是安静的据点，整套公寓供您使用。" },
+    ],
+    rel: [
+      { page: "stay-near-milan", title: "住在米兰附近", text: "为什么皮亚琴察是通往米兰的明智据点。" },
+      { page: "getting-here", title: "如何到达", text: "从米兰和各机场的交通方式。" },
+      { page: "smart-working", title: "远程办公", text: "若您兼顾工作与展会，可享Wi-Fi 1 Gbit/s。" },
+    ],
+  },
+};
+const C = CMAP[locale as keyof typeof CMAP] ?? CMAP.it;
+
+const crumbs = [
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("fairs", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1"] }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="fairs" title={C.title} description={C.description} stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
+
+  {C.venues.map((v, i) => (
+    <ContentSection title={v.name} variant={i % 2 === 0 ? "crema" : "avorio"}>
+      <p class="mb-3 text-sm font-medium text-terracotta">{v.time}</p>
+      <p class="mb-5 max-w-2xl text-grigio">{v.text}</p>
+      <p class="mb-3 text-sm font-medium text-antracite">{C.fairsLabel}</p>
+      <ul class="flex flex-wrap gap-2">
+        {v.fairs.map((f) => (
+          <li class="rounded-full bg-white px-4 py-2 text-sm text-antracite">{f}</li>
+        ))}
+      </ul>
+    </ContentSection>
+  ))}
+
+  <ContentSection title={C.faqTitle} variant="avorio" narrow>
+    <div class="space-y-6">
+      {C.faq.map((f) => (
+        <div>
+          <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
+          <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+
+  <RelatedLinks locale={locale} items={C.rel as any} />
+</Layout>

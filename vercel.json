@@ -15,6 +15,17 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
-    }
+    },
+    { "source": "/fiere-milano", "destination": "/fiere", "permanent": true },
+    { "source": "/en/milan-fairs", "destination": "/en/trade-fairs", "permanent": true },
+    { "source": "/fr/foires-milan", "destination": "/fr/foires", "permanent": true },
+    { "source": "/es/ferias-milan", "destination": "/es/ferias", "permanent": true },
+    { "source": "/pt/feiras-milao", "destination": "/pt/feiras", "permanent": true },
+    { "source": "/de/milan-messen", "destination": "/de/messen", "permanent": true },
+    { "source": "/nl/milaan-beurzen", "destination": "/nl/beurzen", "permanent": true },
+    { "source": "/sv/milano-massor", "destination": "/sv/massor", "permanent": true },
+    { "source": "/pl/targi-mediolan", "destination": "/pl/targi", "permanent": true },
+    { "source": "/ja/milan-fair", "destination": "/ja/trade-fairs", "permanent": true },
+    { "source": "/zh-cn/milan-zhanhui", "destination": "/zh-cn/zhanhui", "permanent": true }
   ]
 }

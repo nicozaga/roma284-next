@@ -5,7 +5,7 @@ import Area from "../quartiere.astro";
 import GettingHere from "../come-arrivare.astro";
 import StayNearMilan from "../dormire-vicino-milano.astro";
 import SmartWorking from "../smart-working.astro";
-import MilanFairs from "../fiere-milano.astro";
+import Fairs from "../fiere.astro";
 import MilanEvents from "../eventi-milano.astro";
 import VisitPiacenza from "../visitare-piacenza.astro";
 import About from "../chi-siamo.astro";
@@ -22,7 +22,7 @@ import { localesForPage } from "@i18n/available";
 export const getStaticPaths = (() => {
   const INNER: PageKey[] = [
     "apartment", "area", "getting-here", "stay-near-milan", "smart-working",
-    "milan-fairs", "milan-events", "visit-piacenza", "about", "contact", "book", "faq",
+    "fairs", "milan-events", "visit-piacenza", "about", "contact", "book", "faq",
   ];
   const paths: { params: { lang: string; slug: string }; props: { locale: Locale; pageKey: PageKey } }[] = [];
   for (const key of INNER) {
@@ -41,7 +41,7 @@ const COMP: Partial<Record<PageKey, any>> = {
   "getting-here": GettingHere,
   "stay-near-milan": StayNearMilan,
   "smart-working": SmartWorking,
-  "milan-fairs": MilanFairs,
+  fairs: Fairs,
   "milan-events": MilanEvents,
   "visit-piacenza": VisitPiacenza,
   about: About,

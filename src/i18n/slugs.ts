@@ -11,7 +11,7 @@ export type PageKey =
   | "getting-here"
   | "stay-near-milan"
   | "smart-working"
-  | "milan-fairs"
+  | "fairs"
   | "milan-events"
   | "visit-piacenza"
   | "about"
@@ -54,10 +54,10 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
     pt: "trabalho-remoto", de: "remote-arbeit", nl: "thuiswerken", sv: "distansarbete",
     pl: "praca-zdalna", ja: "remote-work", "zh-cn": "yuancheng",
   },
-  "milan-fairs": {
-    it: "fiere-milano", en: "milan-fairs", fr: "foires-milan", es: "ferias-milan",
-    pt: "feiras-milao", de: "milan-messen", nl: "milaan-beurzen", sv: "milano-massor",
-    pl: "targi-mediolan", ja: "milan-fair", "zh-cn": "milan-zhanhui",
+  fairs: {
+    it: "fiere", en: "trade-fairs", fr: "foires", es: "ferias",
+    pt: "feiras", de: "messen", nl: "beurzen", sv: "massor",
+    pl: "targi", ja: "trade-fairs", "zh-cn": "zhanhui",
   },
   "milan-events": {
     it: "eventi-milano", en: "milan-events", fr: "evenements-milan", es: "eventos-milan",
