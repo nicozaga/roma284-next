@@ -15,7 +15,12 @@ const LODGIFY_LANG: Record<Locale, string> = {
   nl: "nl", sv: "sv", pl: "pl", ja: "ja", "zh-cn": "zh",
 };
 const lang = LODGIFY_LANG[locale];
-const checkoutUrl = `https://checkout.lodgify.com/roma284/${lang}/#/${SITE.lodgify.rentalId}`;
+// URL di checkout nel formato canonico Lodgify (verificato dal checkout reale).
+// `ref` è il tag-sorgente interno di Lodgify: di default il widget mette
+// `ref=bnbox` (booking box), identico su roma284.it e sul sito Lodgify → fonti
+// indistinguibili. Qui lo forziamo a `roma284it` così le prenotazioni partite
+// dal sito ufficiale arrivano a Lodgify con una sorgente riconoscibile.
+const checkoutUrl = `https://checkout.lodgify.com/${lang}/${SITE.lodgify.slug}/${SITE.lodgify.rentalId}/contact?ref=roma284it`;
 
 /**
  * Etichette della Portable Search Bar Lodgify, per lingua.
