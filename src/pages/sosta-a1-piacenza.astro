@@ -1,0 +1,305 @@
+---
+import Layout from "@layouts/Layout.astro";
+import JsonLd from "@components/JsonLd.astro";
+import PageHero from "@components/PageHero.astro";
+import ContentSection from "@components/ContentSection.astro";
+import RelatedLinks from "@components/RelatedLinks.astro";
+import BookingWidget from "@components/BookingWidget.astro";
+import Icon from "@components/Icon.astro";
+
+import type { Locale } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+import { breadcrumbSchema, faqPageSchema, webPageSchema } from "@lib/schema";
+import { SITE } from "@lib/site";
+
+interface Props { locale?: Locale }
+const { locale = "it" } = Astro.props;
+const url = SITE.url + localizedPath("a1-stopover", locale);
+
+const CMAP = {
+  it: {
+    title: "Sosta sull'A1 a Piacenza: una notte per spezzare il viaggio | Roma284",
+    description: "In viaggio sull'A1? Fermati una notte a Piacenza: a pochi minuti dai caselli, ingresso al piano terra, parcheggio vicino. Riparti riposato.",
+    eyebrow: "Sosta sull'A1", h1: "Una notte sull'A1 per spezzare il viaggio",
+    intro: "Piacenza è proprio sull'Autostrada del Sole, dove l'A21 da Torino e dalla Francia incontra l'A1 verso il centro-sud. Il posto giusto per fermarti una notte, dormire bene e ripartire riposato — senza deviazioni.",
+    crumbHome: "Home", crumb: "Sosta sull'A1",
+    featTitle: "Pensato per chi è in viaggio", dayTitle: "Una sosta senza pensieri", faqTitle: "Domande frequenti",
+    bookTitle: "Verifica le date", bookSub: "Conferma immediata, anche per una sola notte.",
+    day: "Esci dall'autostrada e in pochi minuti sei in centro. Parcheggi qui vicino, entri al piano terra senza scale e posi i bagagli. Ceni con calma a 5 minuti a piedi, tra le piazze del centro storico. Dormi in un appartamento silenzioso sul cortile interno, e la mattina, dopo un caffè sul patio, sei di nuovo in autostrada riposato.",
+    features: [
+      { i: "pin", t: "Proprio sull'A1", d: "Piacenza è sull'Autostrada del Sole, dove l'A21 da Torino e dalla Francia incontra l'A1: a pochi minuti dai caselli." },
+      { i: "check", t: "Parcheggio comodo", d: "Strisce blu sotto casa (gratis dopo le 19) e un parcheggio custodito a 300 metri a piedi." },
+      { i: "walk", t: "Piano terra, niente scale", d: "Ingresso a livello strada: scarichi i bagagli ed entri, comodo dopo ore di guida." },
+      { i: "clock", t: "Anche una sola notte", d: "Nessun minimo di notti: ti fermi, riposi e riparti. Centro storico a 5 minuti a piedi per la cena." },
+    ],
+    faq: [
+      { q: "Quanto distano i caselli dell'autostrada?", a: "Piacenza è direttamente sull'A1 (Autostrada del Sole) e vicino all'A21 verso Torino e la Francia. Dai caselli al centro sono pochi minuti in auto." },
+      { q: "C'è parcheggio per chi arriva in auto?", a: "Sì. In Via Roma si parcheggia su strisce blu (a pagamento di giorno, gratis dopo le 19) e a circa 300 metri c'è un parcheggio custodito, l'Urban Center Parking in Stradone Farnese 126." },
+      { q: "Posso prenotare una sola notte? E se arrivo in serata?", a: "Sì, accogliamo volentieri anche soggiorni di una notte. Se arrivi tardi, scrivici l'orario di arrivo e ci organizziamo per la consegna delle chiavi. Di solito rispondiamo entro un'ora." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Come arrivare", text: "Tutti i modi per raggiungere Piacenza, in auto e in treno." },
+      { page: "apartment", title: "L'appartamento", text: "Foto, servizi e dotazioni del bilocale." },
+      { page: "stay-near-milan", title: "Dormire vicino Milano", text: "Perché Piacenza è la base giusta a due passi da Milano." },
+    ],
+  },
+  en: {
+    title: "One night on the A1 in Piacenza: break your journey | Roma284",
+    description: "Driving the A1? Stop for one night in Piacenza: minutes from the exits, ground-floor entrance, parking nearby. Rest and get back on the road.",
+    eyebrow: "A1 stopover", h1: "One night on the A1 to break your journey",
+    intro: "Piacenza sits right on the Autostrada del Sole, where the A21 from Turin and France meets the A1 heading south. The right place to stop for a night, sleep well and set off rested — no detours.",
+    crumbHome: "Home", crumb: "A1 stopover",
+    featTitle: "Made for people on the road", dayTitle: "A hassle-free stop", faqTitle: "Frequently asked questions",
+    bookTitle: "Check your dates", bookSub: "Instant confirmation, even for a single night.",
+    day: "Leave the motorway and you're in the centre within minutes. Park nearby, step in on the ground floor with no stairs and drop your bags. Have a relaxed dinner a 5-minute walk away among the squares of the old town. Sleep in a quiet apartment on the inner courtyard, and in the morning, after a coffee on the patio, you're back on the motorway rested.",
+    features: [
+      { i: "pin", t: "Right on the A1", d: "Piacenza is on the Autostrada del Sole, where the A21 from Turin and France meets the A1: minutes from the exits." },
+      { i: "check", t: "Easy parking", d: "Blue-line parking right outside (free after 7pm) and a guarded car park 300 m away on foot." },
+      { i: "walk", t: "Ground floor, no stairs", d: "Street-level entrance: unload your bags and walk in — handy after hours of driving." },
+      { i: "clock", t: "Even a single night", d: "No minimum stay: stop, rest and go. The historic centre is a 5-minute walk for dinner." },
+    ],
+    faq: [
+      { q: "How far are the motorway exits?", a: "Piacenza is directly on the A1 (Autostrada del Sole) and close to the A21 towards Turin and France. The exits are just a few minutes' drive from the centre." },
+      { q: "Is there parking for those arriving by car?", a: "Yes. On Via Roma there's blue-line parking (paid during the day, free after 7pm) and about 300 metres away there's a guarded car park, the Urban Center Parking at Stradone Farnese 126." },
+      { q: "Can I book just one night? And if I arrive late?", a: "Yes, we're happy to host single-night stays. If you arrive late, message us your arrival time and we'll arrange the key handover. We usually reply within an hour." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Getting here", text: "All the ways to reach Piacenza, by car and by train." },
+      { page: "apartment", title: "The apartment", text: "Photos, amenities and what the apartment offers." },
+      { page: "stay-near-milan", title: "Stay near Milan", text: "Why Piacenza is the right base a step from Milan." },
+    ],
+  },
+  fr: {
+    title: "Une nuit sur l'A1 à Plaisance : faites étape | Roma284",
+    description: "Sur l'A1 ? Faites étape une nuit à Plaisance : à quelques minutes des péages, entrée de plain-pied, parking à côté. Reposez-vous et reprenez la route.",
+    eyebrow: "Étape sur l'A1", h1: "Une nuit sur l'A1 pour couper le voyage",
+    intro: "Plaisance se trouve juste sur l'Autostrada del Sole, là où l'A21 venant de Turin et de France rejoint l'A1 vers le sud. L'endroit idéal pour faire étape une nuit, bien dormir et repartir reposé — sans détour.",
+    crumbHome: "Accueil", crumb: "Étape sur l'A1",
+    featTitle: "Pensé pour ceux qui sont sur la route", dayTitle: "Une étape sans souci", faqTitle: "Foire aux questions",
+    bookTitle: "Vérifiez vos dates", bookSub: "Confirmation immédiate, même pour une seule nuit.",
+    day: "Vous quittez l'autoroute et en quelques minutes vous êtes au centre. Vous vous garez tout près, vous entrez de plain-pied sans escaliers et vous déposez les bagages. Vous dînez tranquillement à 5 minutes à pied, parmi les places de la vieille ville. Vous dormez dans un appartement silencieux sur la cour intérieure, et le matin, après un café sur le patio, vous reprenez l'autoroute reposé.",
+    features: [
+      { i: "pin", t: "Juste sur l'A1", d: "Plaisance est sur l'Autostrada del Sole, là où l'A21 de Turin et de France rejoint l'A1 : à quelques minutes des péages." },
+      { i: "check", t: "Stationnement facile", d: "Stationnement en ligne bleue devant (gratuit après 19h) et un parking gardé à 300 m à pied." },
+      { i: "walk", t: "Plain-pied, sans escaliers", d: "Entrée au niveau de la rue : déchargez les bagages et entrez — pratique après des heures de route." },
+      { i: "clock", t: "Même une seule nuit", d: "Aucun minimum de nuits : on s'arrête, on se repose, on repart. Centre historique à 5 minutes à pied pour le dîner." },
+    ],
+    faq: [
+      { q: "À quelle distance sont les péages ?", a: "Plaisance est directement sur l'A1 (Autostrada del Sole) et proche de l'A21 vers Turin et la France. Les sorties sont à quelques minutes en voiture du centre." },
+      { q: "Y a-t-il un parking pour ceux qui arrivent en voiture ?", a: "Oui. Sur la Via Roma, le stationnement se fait en ligne bleue (payant le jour, gratuit après 19h) et à environ 300 mètres se trouve un parking gardé, l'Urban Center Parking au Stradone Farnese 126." },
+      { q: "Puis-je réserver une seule nuit ? Et si j'arrive tard ?", a: "Oui, nous accueillons volontiers les séjours d'une nuit. Si vous arrivez tard, indiquez-nous votre heure d'arrivée et nous organisons la remise des clés. Nous répondons généralement en moins d'une heure." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Comment venir", text: "Tous les moyens de rejoindre Plaisance, en voiture et en train." },
+      { page: "apartment", title: "L'appartement", text: "Photos, services et équipements du deux-pièces." },
+      { page: "stay-near-milan", title: "Dormir près de Milan", text: "Pourquoi Plaisance est la bonne base à deux pas de Milan." },
+    ],
+  },
+  es: {
+    title: "Una noche en la A1 en Piacenza: parte el viaje | Roma284",
+    description: "¿De ruta por la A1? Para una noche en Piacenza: a pocos minutos de las salidas, entrada a pie de calle, aparcamiento al lado. Descansa y sigue camino.",
+    eyebrow: "Parada en la A1", h1: "Una noche en la A1 para partir el viaje",
+    intro: "Piacenza está justo en la Autostrada del Sole, donde la A21 desde Turín y Francia se une a la A1 hacia el sur. El lugar ideal para parar una noche, dormir bien y seguir descansado, sin desvíos.",
+    crumbHome: "Inicio", crumb: "Parada en la A1",
+    featTitle: "Pensado para quien va de ruta", dayTitle: "Una parada sin complicaciones", faqTitle: "Preguntas frecuentes",
+    bookTitle: "Comprueba tus fechas", bookSub: "Confirmación inmediata, incluso para una sola noche.",
+    day: "Sales de la autopista y en pocos minutos estás en el centro. Aparcas muy cerca, entras a pie de calle sin escaleras y dejas el equipaje. Cenas con calma a 5 minutos a pie, entre las plazas del casco antiguo. Duermes en un apartamento silencioso en el patio interior y, por la mañana, tras un café en el patio, vuelves a la autopista descansado.",
+    features: [
+      { i: "pin", t: "Justo en la A1", d: "Piacenza está en la Autostrada del Sole, donde la A21 desde Turín y Francia se une a la A1: a pocos minutos de las salidas." },
+      { i: "check", t: "Aparcamiento cómodo", d: "Aparcamiento en línea azul delante (gratis después de las 19) y un parking vigilado a 300 m a pie." },
+      { i: "walk", t: "Planta baja, sin escaleras", d: "Entrada a pie de calle: descargas el equipaje y entras, cómodo tras horas de conducción." },
+      { i: "clock", t: "Incluso una sola noche", d: "Sin mínimo de noches: paras, descansas y sigues. Centro histórico a 5 minutos a pie para cenar." },
+    ],
+    faq: [
+      { q: "¿A qué distancia están las salidas de la autopista?", a: "Piacenza está directamente en la A1 (Autostrada del Sole) y cerca de la A21 hacia Turín y Francia. Las salidas están a pocos minutos en coche del centro." },
+      { q: "¿Hay aparcamiento para quien llega en coche?", a: "Sí. En Via Roma se aparca en línea azul (de pago de día, gratis después de las 19) y a unos 300 metros hay un parking vigilado, el Urban Center Parking en Stradone Farnese 126." },
+      { q: "¿Puedo reservar una sola noche? ¿Y si llego tarde?", a: "Sí, acogemos con gusto estancias de una noche. Si llegas tarde, escríbenos tu hora de llegada y organizamos la entrega de llaves. Solemos responder en menos de una hora." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Cómo llegar", text: "Todas las formas de llegar a Piacenza, en coche y en tren." },
+      { page: "apartment", title: "El apartamento", text: "Fotos, servicios y equipamiento del apartamento." },
+      { page: "stay-near-milan", title: "Dormir cerca de Milán", text: "Por qué Piacenza es la base ideal a un paso de Milán." },
+    ],
+  },
+  pt: {
+    title: "Uma noite na A1 em Piacenza: faça paragem | Roma284",
+    description: "Na A1? Faça paragem uma noite em Piacenza: a poucos minutos das saídas, entrada ao nível da rua, estacionamento ao lado. Descanse e siga viagem.",
+    eyebrow: "Paragem na A1", h1: "Uma noite na A1 para dividir a viagem",
+    intro: "Piacenza fica mesmo na Autostrada del Sole, onde a A21 vinda de Turim e de França se junta à A1 para sul. O sítio certo para parar uma noite, dormir bem e seguir descansado — sem desvios.",
+    crumbHome: "Início", crumb: "Paragem na A1",
+    featTitle: "Pensado para quem está em viagem", dayTitle: "Uma paragem sem complicações", faqTitle: "Perguntas frequentes",
+    bookTitle: "Verifique as suas datas", bookSub: "Confirmação imediata, mesmo para uma só noite.",
+    day: "Sai da autoestrada e em poucos minutos está no centro. Estaciona aqui perto, entra ao nível da rua sem escadas e pousa a bagagem. Janta com calma a 5 minutos a pé, entre as praças do centro histórico. Dorme num apartamento silencioso no pátio interior e, de manhã, depois de um café no pátio, volta à autoestrada descansado.",
+    features: [
+      { i: "pin", t: "Mesmo na A1", d: "Piacenza fica na Autostrada del Sole, onde a A21 de Turim e de França se junta à A1: a poucos minutos das saídas." },
+      { i: "check", t: "Estacionamento cómodo", d: "Estacionamento em linha azul à porta (gratuito depois das 19h) e um parque vigiado a 300 m a pé." },
+      { i: "walk", t: "Rés-do-chão, sem escadas", d: "Entrada ao nível da rua: descarrega a bagagem e entra — prático depois de horas de estrada." },
+      { i: "clock", t: "Mesmo uma só noite", d: "Sem mínimo de noites: para, descansa e segue. Centro histórico a 5 minutos a pé para o jantar." },
+    ],
+    faq: [
+      { q: "A que distância ficam as saídas da autoestrada?", a: "Piacenza fica diretamente na A1 (Autostrada del Sole) e perto da A21 para Turim e França. As saídas ficam a poucos minutos de carro do centro." },
+      { q: "Há estacionamento para quem chega de carro?", a: "Sim. Na Via Roma estaciona-se em linha azul (pago durante o dia, gratuito depois das 19h) e a cerca de 300 metros há um parque vigiado, o Urban Center Parking no Stradone Farnese 126." },
+      { q: "Posso reservar apenas uma noite? E se chegar tarde?", a: "Sim, recebemos com gosto estadias de uma noite. Se chegar tarde, escreva-nos a hora de chegada e organizamos a entrega das chaves. Normalmente respondemos em menos de uma hora." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Como chegar", text: "Todas as formas de chegar a Piacenza, de carro e de comboio." },
+      { page: "apartment", title: "O apartamento", text: "Fotografias, serviços e equipamento do apartamento." },
+      { page: "stay-near-milan", title: "Dormir perto de Milão", text: "Porque Piacenza é a base ideal a dois passos de Milão." },
+    ],
+  },
+  de: {
+    title: "Eine Nacht an der A1 in Piacenza: Zwischenstopp | Roma284",
+    description: "Unterwegs auf der A1? Legen Sie einen Zwischenstopp in Piacenza ein: wenige Minuten von den Ausfahrten, ebenerdiger Eingang, Parkplatz nebenan. Ausruhen und weiter.",
+    eyebrow: "Zwischenstopp A1", h1: "Eine Nacht an der A1, um die Fahrt zu teilen",
+    intro: "Piacenza liegt direkt an der Autostrada del Sole, dort wo die A21 aus Turin und Frankreich auf die A1 Richtung Süden trifft. Der richtige Ort für einen Zwischenstopp: gut schlafen und ausgeruht weiterfahren — ohne Umweg.",
+    crumbHome: "Home", crumb: "Zwischenstopp A1",
+    featTitle: "Gemacht für Reisende auf der Straße", dayTitle: "Ein Stopp ohne Stress", faqTitle: "Häufig gestellte Fragen",
+    bookTitle: "Daten prüfen", bookSub: "Sofortige Bestätigung, auch für eine einzige Nacht.",
+    day: "Sie verlassen die Autobahn und sind in wenigen Minuten im Zentrum. Sie parken ganz in der Nähe, treten ebenerdig ohne Treppen ein und stellen das Gepäck ab. Sie essen in Ruhe zu Abend, 5 Gehminuten entfernt zwischen den Plätzen der Altstadt. Sie schlafen in einer ruhigen Wohnung am Innenhof, und am Morgen sind Sie nach einem Kaffee auf dem Patio ausgeruht wieder auf der Autobahn.",
+    features: [
+      { i: "pin", t: "Direkt an der A1", d: "Piacenza liegt an der Autostrada del Sole, wo die A21 aus Turin und Frankreich auf die A1 trifft: wenige Minuten von den Ausfahrten." },
+      { i: "check", t: "Bequemes Parken", d: "Parken mit blauen Linien direkt vor der Tür (ab 19 Uhr kostenlos) und ein bewachter Parkplatz 300 m zu Fuß entfernt." },
+      { i: "walk", t: "Erdgeschoss, keine Treppen", d: "Ebenerdiger Eingang: Gepäck ausladen und eintreten — praktisch nach Stunden am Steuer." },
+      { i: "clock", t: "Auch nur eine Nacht", d: "Keine Mindestübernachtung: anhalten, ausruhen, weiterfahren. Altstadt 5 Gehminuten entfernt zum Abendessen." },
+    ],
+    faq: [
+      { q: "Wie weit sind die Autobahnausfahrten?", a: "Piacenza liegt direkt an der A1 (Autostrada del Sole) und nahe der A21 Richtung Turin und Frankreich. Die Ausfahrten sind nur wenige Autominuten vom Zentrum entfernt." },
+      { q: "Gibt es Parkplätze für Anreisende mit dem Auto?", a: "Ja. In der Via Roma parkt man mit blauen Linien (tagsüber kostenpflichtig, ab 19 Uhr kostenlos) und rund 300 Meter entfernt gibt es einen bewachten Parkplatz, das Urban Center Parking in der Stradone Farnese 126." },
+      { q: "Kann ich nur eine Nacht buchen? Und wenn ich spät ankomme?", a: "Ja, wir nehmen gern auch Aufenthalte von einer Nacht an. Wenn Sie spät ankommen, schreiben Sie uns Ihre Ankunftszeit und wir organisieren die Schlüsselübergabe. Wir antworten meist innerhalb einer Stunde." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Anreise", text: "Alle Wege nach Piacenza, mit dem Auto und mit dem Zug." },
+      { page: "apartment", title: "Die Wohnung", text: "Fotos, Ausstattung und Services der Wohnung." },
+      { page: "stay-near-milan", title: "Übernachten bei Mailand", text: "Warum Piacenza die richtige Basis nahe Mailand ist." },
+    ],
+  },
+  nl: {
+    title: "Een nacht aan de A1 in Piacenza: tussenstop | Roma284",
+    description: "Onderweg op de A1? Maak een tussenstop in Piacenza: minuten van de afritten, gelijkvloerse ingang, parkeren naast de deur. Uitrusten en weer verder.",
+    eyebrow: "Tussenstop A1", h1: "Een nacht aan de A1 om de reis te breken",
+    intro: "Piacenza ligt pal aan de Autostrada del Sole, waar de A21 vanuit Turijn en Frankrijk op de A1 richting het zuiden uitkomt. De juiste plek voor een tussenstop: goed slapen en uitgerust verder — zonder omweg.",
+    crumbHome: "Home", crumb: "Tussenstop A1",
+    featTitle: "Gemaakt voor wie onderweg is", dayTitle: "Een zorgeloze stop", faqTitle: "Veelgestelde vragen",
+    bookTitle: "Controleer je data", bookSub: "Directe bevestiging, ook voor één nacht.",
+    day: "Je verlaat de snelweg en bent binnen enkele minuten in het centrum. Je parkeert vlakbij, stapt gelijkvloers zonder trappen naar binnen en zet je bagage neer. Je dineert rustig op 5 minuten lopen, tussen de pleinen van de oude stad. Je slaapt in een stil appartement aan de binnenplaats en 's ochtends ben je, na een koffie op de patio, uitgerust weer op de snelweg.",
+    features: [
+      { i: "pin", t: "Pal aan de A1", d: "Piacenza ligt aan de Autostrada del Sole, waar de A21 vanuit Turijn en Frankrijk op de A1 uitkomt: minuten van de afritten." },
+      { i: "check", t: "Makkelijk parkeren", d: "Parkeren met blauwe lijnen voor de deur (gratis na 19 uur) en een bewaakte parking op 300 m lopen." },
+      { i: "walk", t: "Gelijkvloers, geen trappen", d: "Ingang op straatniveau: bagage uitladen en naar binnen — handig na uren rijden." },
+      { i: "clock", t: "Ook één enkele nacht", d: "Geen minimum aantal nachten: stoppen, uitrusten en verder. Historisch centrum op 5 minuten lopen voor het diner." },
+    ],
+    faq: [
+      { q: "Hoe ver zijn de snelwegafritten?", a: "Piacenza ligt direct aan de A1 (Autostrada del Sole) en dicht bij de A21 richting Turijn en Frankrijk. De afritten liggen op enkele minuten rijden van het centrum." },
+      { q: "Is er parkeergelegenheid voor wie met de auto komt?", a: "Ja. In de Via Roma parkeer je met blauwe lijnen (overdag betaald, gratis na 19 uur) en op ongeveer 300 meter is er een bewaakte parking, de Urban Center Parking aan de Stradone Farnese 126." },
+      { q: "Kan ik maar één nacht boeken? En als ik laat aankom?", a: "Ja, we ontvangen graag verblijven van één nacht. Kom je laat aan, laat ons je aankomsttijd weten en we regelen de sleuteloverdracht. We antwoorden meestal binnen een uur." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Hoe te komen", text: "Alle manieren om Piacenza te bereiken, met de auto en de trein." },
+      { page: "apartment", title: "Het appartement", text: "Foto's, voorzieningen en uitrusting van het appartement." },
+      { page: "stay-near-milan", title: "Slapen bij Milaan", text: "Waarom Piacenza de juiste uitvalsbasis is vlak bij Milaan." },
+    ],
+  },
+  pl: {
+    title: "Nocleg przy A1 w Piacenzy: przystanek w podróży | Roma284",
+    description: "W trasie A1? Zatrzymaj się na noc w Piacenzy: kilka minut od zjazdów, wejście z poziomu ulicy, parking obok. Odpocznij i ruszaj dalej.",
+    eyebrow: "Przystanek A1", h1: "Jedna noc przy A1, by przerwać podróż",
+    intro: "Piacenza leży tuż przy Autostrada del Sole, tam gdzie A21 z Turynu i Francji łączy się z A1 na południe. Idealne miejsce na nocny postój: dobrze się wyspać i ruszyć dalej wypoczętym — bez objazdów.",
+    crumbHome: "Strona główna", crumb: "Przystanek A1",
+    featTitle: "Stworzone dla podróżujących", dayTitle: "Postój bez stresu", faqTitle: "Najczęściej zadawane pytania",
+    bookTitle: "Sprawdź swoje daty", bookSub: "Natychmiastowe potwierdzenie, nawet na jedną noc.",
+    day: "Zjeżdżasz z autostrady i w kilka minut jesteś w centrum. Parkujesz tuż obok, wchodzisz z poziomu ulicy bez schodów i zostawiasz bagaże. Jesz spokojnie kolację 5 minut spacerem, wśród placów starówki. Śpisz w cichym apartamencie od wewnętrznego dziedzińca, a rano, po kawie na patio, wracasz na autostradę wypoczęty.",
+    features: [
+      { i: "pin", t: "Tuż przy A1", d: "Piacenza leży przy Autostrada del Sole, gdzie A21 z Turynu i Francji łączy się z A1: kilka minut od zjazdów." },
+      { i: "check", t: "Wygodny parking", d: "Parkowanie w niebieskiej strefie pod domem (za darmo po 19) i strzeżony parking 300 m spacerem." },
+      { i: "walk", t: "Parter, bez schodów", d: "Wejście z poziomu ulicy: rozładujesz bagaże i wchodzisz — wygodnie po godzinach jazdy." },
+      { i: "clock", t: "Nawet jedna noc", d: "Bez minimum nocy: zatrzymujesz się, odpoczywasz i jedziesz dalej. Starówka 5 minut spacerem na kolację." },
+    ],
+    faq: [
+      { q: "Jak daleko są zjazdy z autostrady?", a: "Piacenza leży bezpośrednio przy A1 (Autostrada del Sole) i blisko A21 w stronę Turynu i Francji. Zjazdy są kilka minut jazdy od centrum." },
+      { q: "Czy jest parking dla przyjeżdżających autem?", a: "Tak. Przy Via Roma parkuje się w niebieskiej strefie (płatne w dzień, za darmo po 19), a około 300 metrów dalej jest strzeżony parking, Urban Center Parking przy Stradone Farnese 126." },
+      { q: "Czy mogę zarezerwować tylko jedną noc? A jeśli przyjadę późno?", a: "Tak, chętnie przyjmujemy pobyty jednonocne. Jeśli przyjedziesz późno, napisz nam godzinę przyjazdu, a zorganizujemy przekazanie kluczy. Zwykle odpowiadamy w ciągu godziny." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Jak dojechać", text: "Wszystkie sposoby, by dotrzeć do Piacenzy, autem i pociągiem." },
+      { page: "apartment", title: "Apartament", text: "Zdjęcia, udogodnienia i wyposażenie apartamentu." },
+      { page: "stay-near-milan", title: "Nocleg blisko Mediolanu", text: "Dlaczego Piacenza to właściwa baza o krok od Mediolanu." },
+    ],
+  },
+  sv: {
+    title: "En natt vid A1 i Piacenza: mellanstopp | Roma284",
+    description: "På väg längs A1? Gör ett mellanstopp en natt i Piacenza: minuter från avfarterna, entré i markplan, parkering intill. Vila ut och kör vidare.",
+    eyebrow: "Mellanstopp A1", h1: "En natt vid A1 för att dela upp resan",
+    intro: "Piacenza ligger precis vid Autostrada del Sole, där A21 från Turin och Frankrike möter A1 söderut. Rätt plats för ett mellanstopp: sov gott och kör vidare utvilad — utan omväg.",
+    crumbHome: "Hem", crumb: "Mellanstopp A1",
+    featTitle: "Gjort för dig på resande fot", dayTitle: "Ett stopp utan krångel", faqTitle: "Vanliga frågor",
+    bookTitle: "Kontrollera dina datum", bookSub: "Omedelbar bekräftelse, även för en enda natt.",
+    day: "Du lämnar motorvägen och är i centrum på några minuter. Du parkerar alldeles intill, kliver in i markplan utan trappor och ställer ifrån dig bagaget. Du äter middag i lugn och ro 5 minuters promenad bort, bland gamla stans torg. Du sover i en lugn lägenhet mot den inre gården, och på morgonen är du efter en kaffe på uteplatsen tillbaka på motorvägen utvilad.",
+    features: [
+      { i: "pin", t: "Precis vid A1", d: "Piacenza ligger vid Autostrada del Sole, där A21 från Turin och Frankrike möter A1: minuter från avfarterna." },
+      { i: "check", t: "Enkel parkering", d: "Parkering i blå zon utanför dörren (gratis efter 19) och en bevakad parkering 300 m bort till fots." },
+      { i: "walk", t: "Markplan, inga trappor", d: "Entré i gatuplan: lasta ur bagaget och kliv in — skönt efter timmar bakom ratten." },
+      { i: "clock", t: "Även en enda natt", d: "Inget minsta antal nätter: stanna, vila och kör vidare. Historiska centrum 5 minuters promenad bort för middag." },
+    ],
+    faq: [
+      { q: "Hur långt är det till motorvägsavfarterna?", a: "Piacenza ligger direkt vid A1 (Autostrada del Sole) och nära A21 mot Turin och Frankrike. Avfarterna ligger bara några minuters bilfärd från centrum." },
+      { q: "Finns det parkering för den som kommer med bil?", a: "Ja. På Via Roma parkerar man i blå zon (avgift dagtid, gratis efter 19) och cirka 300 meter bort finns en bevakad parkering, Urban Center Parking på Stradone Farnese 126." },
+      { q: "Kan jag boka bara en natt? Och om jag kommer sent?", a: "Ja, vi tar gärna emot vistelser på en natt. Kommer du sent, skriv din ankomsttid så ordnar vi nyckelöverlämningen. Vi svarar oftast inom en timme." },
+    ],
+    rel: [
+      { page: "getting-here", title: "Hitta hit", text: "Alla sätt att ta sig till Piacenza, med bil och med tåg." },
+      { page: "apartment", title: "Lägenheten", text: "Foton, bekvämligheter och utrustning i lägenheten." },
+      { page: "stay-near-milan", title: "Bo nära Milano", text: "Varför Piacenza är rätt bas ett stenkast från Milano." },
+    ],
+  },
+};
+const C = CMAP[locale as keyof typeof CMAP] ?? CMAP.it;
+
+const crumbs = [
+  { name: C.crumbHome, href: localizedPath("home", locale) },
+  { name: C.crumb, href: localizedPath("a1-stopover", locale) },
+];
+const schema = [
+  breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: SITE.url + c.href }))),
+  webPageSchema({ name: C.title, description: C.description, url, speakable: ["h1"] }),
+  faqPageSchema(C.faq.map((f) => ({ question: f.q, answer: f.a }))),
+];
+---
+
+<Layout locale={locale} page="a1-stopover" title={C.title} description={C.description} image="/og/default.jpg" stickyCtaHref="#book">
+  <JsonLd schema={schema} />
+
+  <PageHero eyebrow={C.eyebrow} title={C.h1} intro={C.intro} crumbs={crumbs} />
+
+  <ContentSection title={C.featTitle} variant="crema">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {C.features.map((f) => (
+        <article class="rounded-2xl border border-antracite/8 bg-white p-6">
+          <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta">
+            <Icon name={f.i as any} class="size-6" />
+          </span>
+          <h3 class="mt-4 text-lg text-antracite">{f.t}</h3>
+          <p class="mt-1.5 text-sm leading-relaxed text-grigio">{f.d}</p>
+        </article>
+      ))}
+    </div>
+  </ContentSection>
+
+  <ContentSection title={C.dayTitle} variant="avorio" narrow>
+    <p class="leading-relaxed text-grigio">{C.day}</p>
+  </ContentSection>
+
+  <ContentSection title={C.faqTitle} variant="crema" narrow>
+    <div class="space-y-6">
+      {C.faq.map((f) => (
+        <div>
+          <h3 class="text-lg font-semibold text-antracite">{f.q}</h3>
+          <p class="mt-2 leading-relaxed text-grigio">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+
+  <RelatedLinks locale={locale} items={C.rel as any} />
+</Layout>

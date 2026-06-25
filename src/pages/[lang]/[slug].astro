@@ -12,6 +12,7 @@ import About from "../chi-siamo.astro";
 import Contact from "../contatti.astro";
 import Book from "../prenota.astro";
 import Faq from "../faq.astro";
+import A1Stopover from "../sosta-a1-piacenza.astro";
 
 import { DEFAULT_LOCALE, type Locale } from "@i18n/config";
 import { SLUGS, type PageKey } from "@i18n/slugs";
@@ -23,6 +24,7 @@ export const getStaticPaths = (() => {
   const INNER: PageKey[] = [
     "apartment", "area", "getting-here", "stay-near-milan", "smart-working",
     "fairs", "milan-events", "visit-piacenza", "about", "contact", "book", "faq",
+    "a1-stopover",
   ];
   const paths: { params: { lang: string; slug: string }; props: { locale: Locale; pageKey: PageKey } }[] = [];
   for (const key of INNER) {
@@ -48,6 +50,7 @@ const COMP: Partial<Record<PageKey, any>> = {
   contact: Contact,
   book: Book,
   faq: Faq,
+  "a1-stopover": A1Stopover,
 };
 
 interface Props { locale: Locale; pageKey: PageKey }

@@ -18,7 +18,8 @@ export type PageKey =
   | "contact"
   | "book"
   | "faq"
-  | "blog";
+  | "blog"
+  | "a1-stopover";
 
 /**
  * Slug tradotti per lingua. Coerenza concettuale, ottimizzati per
@@ -89,6 +90,12 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   blog: {
     it: "blog", en: "blog", fr: "blog", es: "blog", pt: "blog", de: "blog", nl: "blog",
     sv: "blog", pl: "blog", ja: "blog", "zh-cn": "blog",
+  },
+  "a1-stopover": {
+    it: "sosta-a1-piacenza", en: "a1-stopover-piacenza", fr: "etape-autoroute-a1",
+    es: "parada-autopista-a1", pt: "paragem-a1-piacenza", de: "zwischenstopp-a1",
+    nl: "tussenstop-a1", sv: "mellanstopp-a1", pl: "przystanek-a1",
+    ja: "a1-stopover", "zh-cn": "a1-stopover",
   },
 };
 

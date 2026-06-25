@@ -19,6 +19,7 @@ export type UIKey =
   | "nav.smart_working"
   | "nav.fairs"
   | "nav.milan_events"
+  | "nav.a1_stopover"
   | "cta.check_availability"
   | "cta.discover_apartment"
   | "cta.book_direct"
@@ -47,6 +48,7 @@ const it: Record<UIKey, string> = {
   "nav.smart_working": "Smart working",
   "nav.fairs": "Fiere",
   "nav.milan_events": "Eventi Milano",
+  "nav.a1_stopover": "Sosta sull'A1",
   "cta.check_availability": "Verifica disponibilità",
   "cta.discover_apartment": "Scopri l'appartamento",
   "cta.book_direct": "Prenota diretto",
@@ -75,6 +77,7 @@ const en: Dict = {
   "nav.smart_working": "Smart working",
   "nav.fairs": "Trade fairs",
   "nav.milan_events": "Milan events",
+  "nav.a1_stopover": "A1 stopover",
   "cta.check_availability": "Check availability",
   "cta.discover_apartment": "Discover the apartment",
   "cta.book_direct": "Book direct",
@@ -103,6 +106,7 @@ const fr: Dict = {
   "nav.smart_working": "Télétravail",
   "nav.fairs": "Foires",
   "nav.milan_events": "Événements à Milan",
+  "nav.a1_stopover": "Étape sur l'A1",
   "cta.check_availability": "Vérifier les disponibilités",
   "cta.discover_apartment": "Découvrir l'appartement",
   "cta.book_direct": "Réserver en direct",
@@ -131,6 +135,7 @@ const de: Dict = {
   "nav.smart_working": "Homeoffice",
   "nav.fairs": "Messen",
   "nav.milan_events": "Events in Mailand",
+  "nav.a1_stopover": "Zwischenstopp A1",
   "cta.check_availability": "Verfügbarkeit prüfen",
   "cta.discover_apartment": "Die Wohnung entdecken",
   "cta.book_direct": "Direkt buchen",
@@ -159,6 +164,7 @@ const es: Dict = {
   "nav.smart_working": "Teletrabajo",
   "nav.fairs": "Ferias",
   "nav.milan_events": "Eventos en Milán",
+  "nav.a1_stopover": "Parada en la A1",
   "cta.check_availability": "Comprobar disponibilidad",
   "cta.discover_apartment": "Descubre el apartamento",
   "cta.book_direct": "Reserva directa",
@@ -187,6 +193,7 @@ const pt: Dict = {
   "nav.smart_working": "Teletrabalho",
   "nav.fairs": "Feiras",
   "nav.milan_events": "Eventos em Milão",
+  "nav.a1_stopover": "Paragem na A1",
   "cta.check_availability": "Verificar disponibilidade",
   "cta.discover_apartment": "Descubra o apartamento",
   "cta.book_direct": "Reservar diretamente",
@@ -215,6 +222,7 @@ const nl: Dict = {
   "nav.smart_working": "Thuiswerken",
   "nav.fairs": "Beurzen",
   "nav.milan_events": "Evenementen in Milaan",
+  "nav.a1_stopover": "Tussenstop A1",
   "cta.check_availability": "Beschikbaarheid bekijken",
   "cta.discover_apartment": "Ontdek het appartement",
   "cta.book_direct": "Direct boeken",
@@ -243,6 +251,7 @@ const pl: Dict = {
   "nav.smart_working": "Praca zdalna",
   "nav.fairs": "Targi",
   "nav.milan_events": "Wydarzenia w Mediolanie",
+  "nav.a1_stopover": "Przystanek A1",
   "cta.check_availability": "Sprawdź dostępność",
   "cta.discover_apartment": "Poznaj apartament",
   "cta.book_direct": "Zarezerwuj bezpośrednio",
@@ -271,6 +280,7 @@ const sv: Dict = {
   "nav.smart_working": "Distansarbete",
   "nav.fairs": "Mässor",
   "nav.milan_events": "Evenemang i Milano",
+  "nav.a1_stopover": "Mellanstopp A1",
   "cta.check_availability": "Kontrollera tillgänglighet",
   "cta.discover_apartment": "Upptäck lägenheten",
   "cta.book_direct": "Boka direkt",

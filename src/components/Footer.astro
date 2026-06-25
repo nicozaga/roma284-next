@@ -1,7 +1,7 @@
 ---
 import { LOCALE_META, type Locale } from "@i18n/config";
 import { localizedPath, switchLocale, bestPath } from "@i18n/utils";
-import { localesForPage } from "@i18n/available";
+import { localesForPage, pageHasLocale } from "@i18n/available";
 import { useTranslations } from "@i18n/ui";
 import type { PageKey } from "@i18n/slugs";
 import { SITE } from "@lib/site";
@@ -29,6 +29,7 @@ const cols: { key: PageKey; label: string }[][] = [
   [
     { key: "stay-near-milan", label: t("nav.stay_near_milan") },
     { key: "smart-working", label: t("nav.smart_working") },
+    { key: "a1-stopover", label: t("nav.a1_stopover") },
     { key: "fairs", label: t("nav.fairs") },
     { key: "milan-events", label: t("nav.milan_events") },
   ],
@@ -66,7 +67,7 @@ const cols: { key: PageKey; label: string }[][] = [
         cols.map((col) => (
           <nav class="text-sm">
             <ul class="space-y-2.5">
-              {col.map((l) => (
+              {col.filter((l) => pageHasLocale(l.key, locale)).map((l) => (
                 <li>
                   <a href={bestPath(l.key, locale)} class="hover:text-white">
                     {l.label}

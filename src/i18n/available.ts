@@ -12,6 +12,8 @@ import { PAGE_KEYS, type PageKey } from "./slugs";
  * Il blog resta IT-only (routing collection dedicato), quindi è escluso.
  */
 const ALL_EXCEPT_BLOG: PageKey[] = PAGE_KEYS.filter((p) => p !== "blog");
+// "a1-stopover" (sosta sull'A1) non è tradotta in giapponese/cinese: esclusa lì.
+const NO_A1: PageKey[] = ALL_EXCEPT_BLOG.filter((p) => p !== "a1-stopover");
 
 // Lingue tradotte e PUBBLICATE (oltre a IT). Ogni voce = elenco pagine pronte.
 // Il task notturno aggiunge qui una riga per lingua quando finisce, es. fr: ALL_EXCEPT_BLOG.
@@ -26,8 +28,8 @@ const READY: Partial<Record<Locale, PageKey[]>> = {
   nl: [...ALL_EXCEPT_BLOG, "blog"],
   pl: [...ALL_EXCEPT_BLOG, "blog"],
   sv: [...ALL_EXCEPT_BLOG, "blog"],
-  ja: [...ALL_EXCEPT_BLOG, "blog"],
-  "zh-cn": [...ALL_EXCEPT_BLOG, "blog"],
+  ja: [...NO_A1, "blog"],
+  "zh-cn": [...NO_A1, "blog"],
 };
 
 export const PAGE_LOCALES: Record<PageKey, Locale[]> = Object.fromEntries(
