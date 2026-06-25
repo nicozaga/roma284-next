@@ -15,7 +15,7 @@ const { locale = "it" } = Astro.props;
 
 const CMAP = {
   it: {
-    title: "Contatti — scrivi a Roma284 a Piacenza | Roma284",
+    title: "Contatti Roma284 — Via Roma 284, Piacenza | Roma284",
     description: "Contatta Roma284: email viaroma284@gmail.com, telefono e WhatsApp +39 347 810 4634. Rispondiamo di solito entro un'ora. Via Roma 284, Piacenza.",
     eyebrow: "Contatti", h1: "Parliamone direttamente",
     intro: "Hai una domanda o vuoi verificare la disponibilità? Scrivici: rispondiamo di solito entro un'ora.",
@@ -24,7 +24,7 @@ const CMAP = {
     waMsg: "Ciao, vorrei info su Roma284",
   },
   en: {
-    title: "Contact Roma284 in Piacenza | Roma284",
+    title: "Contact Roma284 — Via Roma 284, Piacenza | Roma284",
     description: "Contact Roma284: email viaroma284@gmail.com, phone and WhatsApp +39 347 810 4634. We usually reply within an hour. Via Roma 284, Piacenza, Italy.",
     eyebrow: "Contact", h1: "Let's talk directly",
     intro: "Have a question or want to check availability? Write to us — we usually reply within an hour.",
@@ -156,10 +156,10 @@ const wa = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(C.waMsg)}`;
           <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta"><Icon name="chat" class="size-5" /></span>
           <span>{SITE.phone}</span>
         </a>
-        <p class="flex items-center gap-3 text-grigio">
+        <address class="flex items-center gap-3 text-grigio not-italic">
           <span class="flex size-11 items-center justify-center rounded-full bg-avorio text-terracotta"><Icon name="pin" class="size-5" /></span>
-          <span>Via Roma 284, 29121 Piacenza (PC)</span>
-        </p>
+          <span>Via Roma 284, 29121 Piacenza (PC), Italia</span>
+        </address>
       </div>
     </div>
   </ContentSection>
