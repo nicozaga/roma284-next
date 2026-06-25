@@ -16,9 +16,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Posso portare il mio animale domestico?", a: "Sì, gli animali domestici sono sempre benvenuti a Roma284, senza costi aggiuntivi." },
     ] },
     { category: "Check-in e check-out", items: [
-      { q: "A che ora posso fare il check-in?", a: "Il check-in è dalle 15:00. Prenotando in diretta possiamo concordare orari flessibili in base al tuo arrivo." },
+      { q: "A che ora posso fare il check-in?", a: "Il check-in è dalle 15:00. L'ingresso è con smart lock: da quell'ora arrivi quando preferisci, in totale autonomia e senza doverci aspettare." },
       { q: "A che ora devo lasciare l'appartamento?", a: "Il check-out è entro le 10:00. Per esigenze particolari scrivici e cerchiamo una soluzione." },
-      { q: "Come funziona l'ingresso?", a: "L'appartamento è al piano terra, con ingresso diretto e senza scale. Ti forniamo tutte le istruzioni prima dell'arrivo." },
+      { q: "Come funziona l'ingresso?", a: "L'appartamento è al piano terra, con ingresso diretto e senza scale, dotato di smart lock per il self check-in: entri in totale autonomia con un codice, all'orario che preferisci dalle 15:00. Ti inviamo tutte le istruzioni prima dell'arrivo." },
       { q: "Posso lasciare i bagagli prima del check-in?", a: "Contattaci in anticipo: dove possibile cerchiamo di venire incontro alle esigenze di deposito bagagli." },
     ] },
     { category: "Servizi e comfort", items: [
@@ -55,9 +55,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Can I bring my pet?", a: "Yes, pets are always welcome at Roma284, at no extra cost." },
     ] },
     { category: "Check-in and check-out", items: [
-      { q: "What time can I check in?", a: "Check-in is from 15:00. Booking direct, we can arrange flexible times around your arrival." },
+      { q: "What time can I check in?", a: "Check-in is from 15:00. Entry is via a smart lock: from then on you arrive whenever you like, completely on your own and with no need to wait for us." },
       { q: "What time do I have to leave?", a: "Check-out is by 10:00. For special needs, write to us and we'll look for a solution." },
-      { q: "How does the entrance work?", a: "The apartment is on the ground floor, with direct, step-free access. We provide all instructions before arrival." },
+      { q: "How does the entrance work?", a: "The apartment is on the ground floor, with direct, step-free access and a smart lock for self check-in: you get in completely on your own with a code, at whatever time you like from 15:00. We send all the instructions before arrival." },
       { q: "Can I drop off luggage before check-in?", a: "Contact us in advance: where possible we try to accommodate luggage storage needs." },
     ] },
     { category: "Amenities and comfort", items: [
@@ -94,9 +94,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Puis-je amener mon animal de compagnie ?", a: "Oui, les animaux sont toujours les bienvenus à Roma284, sans frais supplémentaires." },
     ] },
     { category: "Check-in et check-out", items: [
-      { q: "À quelle heure puis-je faire le check-in ?", a: "Le check-in est à partir de 15h00. En réservant en direct, nous pouvons convenir d'horaires flexibles selon votre arrivée." },
+      { q: "À quelle heure puis-je faire le check-in ?", a: "Le check-in est à partir de 15h00. L'entrée se fait par une serrure connectée (smart lock) : ensuite, vous arrivez quand vous voulez, en toute autonomie et sans nous attendre." },
       { q: "À quelle heure dois-je quitter l'appartement ?", a: "Le check-out est avant 10h00. Pour des besoins particuliers, écrivez-nous et nous cherchons une solution." },
-      { q: "Comment fonctionne l'entrée ?", a: "L'appartement est au rez-de-chaussée, avec un accès direct et sans escaliers. Nous vous fournissons toutes les instructions avant l'arrivée." },
+      { q: "Comment fonctionne l'entrée ?", a: "L'appartement est au rez-de-chaussée, avec un accès direct et sans escaliers, équipé d'une serrure connectée (smart lock) pour le self check-in : vous entrez en toute autonomie avec un code, à l'heure que vous voulez à partir de 15h00. Nous vous envoyons toutes les instructions avant l'arrivée." },
       { q: "Puis-je déposer mes bagages avant le check-in ?", a: "Contactez-nous à l'avance : dans la mesure du possible, nous essayons de répondre aux besoins de dépôt de bagages." },
     ] },
     { category: "Services et confort", items: [
@@ -133,9 +133,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Darf ich mein Haustier mitbringen?", a: "Ja, Haustiere sind bei Roma284 jederzeit willkommen, ohne Zusatzkosten." },
     ] },
     { category: "Check-in und Check-out", items: [
-      { q: "Um wie viel Uhr kann ich einchecken?", a: "Der Check-in ist ab 15:00 Uhr. Bei einer Direktbuchung können wir flexible Zeiten passend zu Ihrer Ankunft vereinbaren." },
+      { q: "Um wie viel Uhr kann ich einchecken?", a: "Der Check-in ist ab 15:00 Uhr. Der Zugang erfolgt über ein Smart Lock: Ab dann kommen Sie an, wann Sie möchten – völlig selbstständig und ohne auf uns zu warten." },
       { q: "Wann muss ich die Wohnung verlassen?", a: "Der Check-out ist bis 10:00 Uhr. Bei besonderen Anliegen schreiben Sie uns und wir suchen eine Lösung." },
-      { q: "Wie funktioniert der Zugang?", a: "Die Wohnung liegt im Erdgeschoss, mit direktem, ebenerdigem Zugang ohne Treppen. Wir geben Ihnen alle Anweisungen vor der Ankunft." },
+      { q: "Wie funktioniert der Zugang?", a: "Die Wohnung liegt im Erdgeschoss, mit direktem, ebenerdigem Zugang ohne Treppen und einem Smart Lock für den Self check-in: Sie kommen völlig selbstständig mit einem Code herein, zu der Zeit, die Ihnen passt, ab 15:00 Uhr. Wir senden Ihnen alle Anweisungen vor der Ankunft." },
       { q: "Kann ich mein Gepäck vor dem Check-in abgeben?", a: "Kontaktieren Sie uns im Voraus: Wo möglich, versuchen wir, Wünschen zur Gepäckaufbewahrung entgegenzukommen." },
     ] },
     { category: "Ausstattung und Komfort", items: [
@@ -172,9 +172,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "¿Puedo llevar a mi mascota?", a: "Sí, las mascotas son siempre bienvenidas en Roma284, sin coste adicional." },
     ] },
     { category: "Check-in y check-out", items: [
-      { q: "¿A qué hora puedo hacer el check-in?", a: "El check-in es a partir de las 15:00. Reservando directamente podemos acordar horarios flexibles según tu llegada." },
+      { q: "¿A qué hora puedo hacer el check-in?", a: "El check-in es a partir de las 15:00. La entrada es con cerradura inteligente (smart lock): desde esa hora llegas cuando quieras, con total autonomía y sin tener que esperarnos." },
       { q: "¿A qué hora debo dejar el apartamento?", a: "El check-out es antes de las 10:00. Para necesidades especiales, escríbenos y buscamos una solución." },
-      { q: "¿Cómo funciona la entrada?", a: "El apartamento está en la planta baja, con acceso directo y sin escaleras. Te facilitamos todas las instrucciones antes de la llegada." },
+      { q: "¿Cómo funciona la entrada?", a: "El apartamento está en la planta baja, con acceso directo y sin escaleras, con cerradura inteligente (smart lock) para el self check-in: entras con total autonomía mediante un código, a la hora que quieras a partir de las 15:00. Te enviamos todas las instrucciones antes de la llegada." },
       { q: "¿Puedo dejar el equipaje antes del check-in?", a: "Contáctanos con antelación: cuando es posible, intentamos atender las necesidades de consigna de equipaje." },
     ] },
     { category: "Servicios y comodidades", items: [
@@ -211,9 +211,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Posso levar o meu animal de estimação?", a: "Sim, os animais de estimação são sempre bem-vindos no Roma284, sem custos adicionais." },
     ] },
     { category: "Check-in e check-out", items: [
-      { q: "A que horas posso fazer o check-in?", a: "O check-in é a partir das 15:00. Ao reservar diretamente, podemos combinar horários flexíveis consoante a sua chegada." },
+      { q: "A que horas posso fazer o check-in?", a: "O check-in é a partir das 15:00. A entrada é com fechadura inteligente (smart lock): a partir dessa hora chega quando quiser, com total autonomia e sem ter de esperar por nós." },
       { q: "A que horas devo deixar o apartamento?", a: "O check-out é até às 10:00. Para necessidades especiais, escreva-nos e procuramos uma solução." },
-      { q: "Como funciona a entrada?", a: "O apartamento fica no rés-do-chão, com acesso direto e sem escadas. Fornecemos todas as instruções antes da chegada." },
+      { q: "Como funciona a entrada?", a: "O apartamento fica no rés-do-chão, com acesso direto e sem escadas, com fechadura inteligente (smart lock) para o self check-in: entra com total autonomia através de um código, à hora que quiser a partir das 15:00. Fornecemos todas as instruções antes da chegada." },
       { q: "Posso deixar a bagagem antes do check-in?", a: "Contacte-nos com antecedência: sempre que possível, procuramos responder às necessidades de depósito de bagagem." },
     ] },
     { category: "Serviços e conforto", items: [
@@ -250,9 +250,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Mag ik mijn huisdier meenemen?", a: "Ja, huisdieren zijn altijd welkom in Roma284, zonder extra kosten." },
     ] },
     { category: "Check-in en check-out", items: [
-      { q: "Hoe laat kan ik inchecken?", a: "Check-in is vanaf 15:00 uur. Bij een directe boeking kunnen we flexibele tijden afspreken die bij jouw aankomst passen." },
+      { q: "Hoe laat kan ik inchecken?", a: "Check-in is vanaf 15:00 uur. De toegang gaat via een smart lock: daarna kom je aan wanneer je wilt, volledig zelfstandig en zonder op ons te hoeven wachten." },
       { q: "Hoe laat moet ik het appartement verlaten?", a: "Check-out is vóór 10:00 uur. Voor bijzondere wensen, schrijf ons en we zoeken een oplossing." },
-      { q: "Hoe werkt de toegang?", a: "Het appartement ligt op de begane grond, met directe, gelijkvloerse toegang zonder trappen. We geven alle instructies vóór aankomst." },
+      { q: "Hoe werkt de toegang?", a: "Het appartement ligt op de begane grond, met directe, gelijkvloerse toegang zonder trappen en een smart lock voor self check-in: je komt volledig zelfstandig binnen met een code, op het tijdstip dat je wilt vanaf 15:00 uur. We sturen alle instructies vóór aankomst." },
       { q: "Kan ik mijn bagage vóór de check-in afgeven?", a: "Neem vooraf contact met ons op: waar mogelijk proberen we tegemoet te komen aan wensen voor bagageopslag." },
     ] },
     { category: "Voorzieningen en comfort", items: [
@@ -289,9 +289,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Czy mogę przyjechać ze zwierzęciem?", a: "Tak, zwierzęta są zawsze mile widziane w Roma284, bez dodatkowych opłat." },
     ] },
     { category: "Zameldowanie i wymeldowanie", items: [
-      { q: "O której mogę się zameldować?", a: "Zameldowanie od godziny 15:00. Rezerwując bezpośrednio, możemy ustalić elastyczne godziny dopasowane do Twojego przyjazdu." },
+      { q: "O której mogę się zameldować?", a: "Zameldowanie od godziny 15:00. Wejście odbywa się przez inteligentny zamek (smart lock): od tej pory przyjeżdżasz, kiedy chcesz, całkowicie samodzielnie i bez czekania na nas." },
       { q: "O której muszę opuścić apartament?", a: "Wymeldowanie do godziny 10:00. W przypadku szczególnych potrzeb napisz do nas, a poszukamy rozwiązania." },
-      { q: "Jak działa wejście?", a: "Apartament znajduje się na parterze, z bezpośrednim wejściem bez schodów. Wszystkie instrukcje przekazujemy przed przyjazdem." },
+      { q: "Jak działa wejście?", a: "Apartament znajduje się na parterze, z bezpośrednim wejściem bez schodów, wyposażony w inteligentny zamek (smart lock) do samodzielnego zameldowania: wchodzisz całkowicie samodzielnie za pomocą kodu, o dowolnej porze od 15:00. Wszystkie instrukcje przekazujemy przed przyjazdem." },
       { q: "Czy mogę zostawić bagaż przed zameldowaniem?", a: "Skontaktuj się z nami wcześniej: w miarę możliwości staramy się wyjść naprzeciw potrzebom przechowania bagażu." },
     ] },
     { category: "Udogodnienia i komfort", items: [
@@ -328,9 +328,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "Kan jag ta med mitt husdjur?", a: "Ja, husdjur är alltid välkomna på Roma284, utan extra kostnad." },
     ] },
     { category: "In- och utcheckning", items: [
-      { q: "Vilken tid kan jag checka in?", a: "Incheckning sker från 15:00. Vid direktbokning kan vi komma överens om flexibla tider efter din ankomst." },
+      { q: "Vilken tid kan jag checka in?", a: "Incheckning sker från 15:00. Entrén sker med ett smart lås (smart lock): därefter kommer du när du vill, helt självständigt och utan att behöva vänta på oss." },
       { q: "Vilken tid måste jag lämna lägenheten?", a: "Utcheckning senast 10:00. Vid särskilda behov, skriv till oss så letar vi efter en lösning." },
-      { q: "Hur fungerar entrén?", a: "Lägenheten ligger i bottenvåningen, med direkt entré utan trappor. Vi ger alla instruktioner före ankomst." },
+      { q: "Hur fungerar entrén?", a: "Lägenheten ligger i bottenvåningen, med direkt entré utan trappor och ett smart lås (smart lock) för self check-in: du kommer in helt självständigt med en kod, vid den tid du vill från 15:00. Vi skickar alla instruktioner före ankomst." },
       { q: "Kan jag lämna bagaget före incheckning?", a: "Kontakta oss i förväg: när det är möjligt försöker vi tillmötesgå behov av bagageförvaring." },
     ] },
     { category: "Bekvämligheter och komfort", items: [
@@ -367,9 +367,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "ペットを連れて行けますか？", a: "はい、Roma284ではペットはいつでも追加料金なしで歓迎です。" },
     ] },
     { category: "チェックインとチェックアウト", items: [
-      { q: "何時にチェックインできますか？", a: "チェックインは15:00からです。直接予約の場合、ご到着に合わせて柔軟な時間を調整できます。" },
+      { q: "何時にチェックインできますか？", a: "チェックインは15:00からです。入口はスマートロック式なので、それ以降はお好きな時間に、完全にご自身で、私たちを待たずに到着できます。" },
       { q: "何時にアパートメントを出る必要がありますか？", a: "チェックアウトは10:00までです。特別なご要望がある場合は、ご連絡いただければ解決策を探します。" },
-      { q: "入口はどうなっていますか？", a: "アパートメントは1階にあり、段差のない直接入口です。ご到着前にすべての案内をお伝えします。" },
+      { q: "入口はどうなっていますか？", a: "アパートメントは1階にあり、段差のない直接入口で、セルフチェックイン用のスマートロックを備えています。15:00以降のお好きな時間に、コードで完全にご自身で入室できます。ご到着前にすべての案内をお伝えします。" },
       { q: "チェックイン前に荷物を預けられますか？", a: "事前にご連絡ください。可能な場合は荷物保管のご要望にお応えするよう努めます。" },
     ] },
     { category: "設備と快適性", items: [
@@ -406,9 +406,9 @@ export const FAQ_FULL: Partial<Record<Locale, FaqCategory[]>> = {
       { q: "我可以带宠物吗？", a: "可以，Roma284始终欢迎宠物，且不收取额外费用。" },
     ] },
     { category: "入住与退房", items: [
-      { q: "我几点可以入住？", a: "入住时间为15:00起。直接预订时，我们可根据您的到达时间安排灵活的时间。" },
+      { q: "我几点可以入住？", a: "入住时间为15:00起。入口采用智能门锁（smart lock）：之后您可在任意时间自助入住，完全自主，无需等待我们。" },
       { q: "我必须几点离开公寓？", a: "退房时间为10:00前。如有特殊需求，请联系我们，我们会设法找到解决方案。" },
-      { q: "入口是如何安排的？", a: "公寓位于一楼，直接入口且无台阶。我们会在您到达前提供所有说明。" },
+      { q: "入口是如何安排的？", a: "公寓位于一楼，直接入口且无台阶，配有用于自助入住的智能门锁：15:00之后您可在任意时间凭密码完全自主入住。我们会在您到达前提供所有说明。" },
       { q: "我可以在入住前寄存行李吗？", a: "请提前联系我们：在可能的情况下，我们会尽力满足行李寄存的需求。" },
     ] },
     { category: "设施与舒适", items: [

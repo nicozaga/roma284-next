@@ -36,6 +36,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Lavanderia", items: ["Lavasciuga multifunzione", "Stendibiancheria"] },
     { title: "Spazi", items: [
       "Patio privato arredato sul cortile interno",
+      "Self check-in con smart lock (arrivo autonomo dalle 15:00)",
       "Ingresso al piano terra, nessuna scala",
       "Parcheggio in strada (strisce blu, gratis dopo le 19)",
     ] },
@@ -73,6 +74,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Laundry", items: ["Multifunction washer-dryer", "Clothes airer"] },
     { title: "Spaces", items: [
       "Furnished private patio on the inner courtyard",
+      "Self check-in with smart lock (independent arrival from 15:00)",
       "Ground-floor entrance, no stairs",
       "On-street parking (blue lines, free after 7pm)",
     ] },
@@ -110,6 +112,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Buanderie", items: ["Lave-linge séchant multifonction", "Étendoir à linge"] },
     { title: "Espaces", items: [
       "Patio privé meublé sur la cour intérieure",
+      "Self check-in avec serrure connectée (arrivée autonome dès 15h00)",
       "Entrée de plain-pied, sans escaliers",
       "Stationnement dans la rue (lignes bleues, gratuit après 19h)",
     ] },
@@ -147,6 +150,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Wäsche", items: ["Multifunktionaler Waschtrockner", "Wäscheständer"] },
     { title: "Bereiche", items: [
       "Möblierter privater Patio am Innenhof",
+      "Self check-in mit Smart Lock (selbstständige Ankunft ab 15:00 Uhr)",
       "Ebenerdiger Eingang, keine Treppen",
       "Parken auf der Straße (blaue Linien, ab 19 Uhr kostenlos)",
     ] },
@@ -184,6 +188,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Lavandería", items: ["Lavadora-secadora multifunción", "Tendedero"] },
     { title: "Espacios", items: [
       "Patio privado amueblado en el patio interior",
+      "Self check-in con cerradura inteligente (llegada autónoma desde las 15:00)",
       "Entrada en planta baja, sin escaleras",
       "Aparcamiento en la calle (línea azul, gratis a partir de las 19)",
     ] },
@@ -221,6 +226,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Lavandaria", items: ["Máquina de lavar e secar multifunções", "Estendal"] },
     { title: "Espaços", items: [
       "Pátio privado mobilado no pátio interior",
+      "Self check-in com fechadura inteligente (chegada autónoma a partir das 15:00)",
       "Entrada no rés-do-chão, sem escadas",
       "Estacionamento na rua (linhas azuis, gratuito após as 19h)",
     ] },
@@ -258,6 +264,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Wasruimte", items: ["Multifunctionele was-droogcombinatie", "Wasrek"] },
     { title: "Ruimtes", items: [
       "Gemeubileerde privépatio aan de binnenplaats",
+      "Self check-in met smart lock (zelfstandige aankomst vanaf 15:00 uur)",
       "Ingang op de begane grond, geen trappen",
       "Parkeren op straat (blauwe lijnen, gratis na 19 uur)",
     ] },
@@ -295,6 +302,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Pranie", items: ["Wielofunkcyjna pralko-suszarka", "Suszarka na pranie"] },
     { title: "Przestrzenie", items: [
       "Umeblowane prywatne patio na wewnętrznym dziedzińcu",
+      "Self check-in z inteligentnym zamkiem (samodzielny przyjazd od 15:00)",
       "Wejście na parterze, bez schodów",
       "Parkowanie na ulicy (niebieska strefa, bezpłatne po 19:00)",
     ] },
@@ -332,6 +340,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "Tvätt", items: ["Kombinerad tvätt- och torkmaskin", "Torkställning"] },
     { title: "Utrymmen", items: [
       "Möblerad privat uteplats mot den inre gården",
+      "Self check-in med smart lås (självständig ankomst från 15:00)",
       "Entré i bottenvåningen, inga trappor",
       "Gatuparkering (blå zon, gratis efter 19)",
     ] },
@@ -369,6 +378,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "ランドリー", items: ["多機能洗濯乾燥機", "物干し"] },
     { title: "スペース", items: [
       "内庭に面した家具付き専用パティオ",
+      "スマートロックでセルフチェックイン（15:00以降は自分で入室）",
       "1階の入口、階段なし",
       "路上駐車（青線ゾーン、19時以降無料）",
     ] },
@@ -406,6 +416,7 @@ export const AMENITIES: Partial<Record<Locale, AmenityGroup[]>> = {
     { title: "洗衣", items: ["多功能洗烘一体机", "晾衣架"] },
     { title: "空间", items: [
       "面向内庭的带家具私人庭院",
+      "智能门锁自助入住（15:00后自主入住）",
       "一楼入口，无台阶",
       "路边停车（蓝线区，19点后免费）",
     ] },

@@ -239,57 +239,57 @@ export const POI: Partial<Record<Locale, string[]>> = {
 type Why = { icon: string; title: string; text: string };
 export const WHY_DIRECT: Partial<Record<Locale, Why[]>> = {
   it: [
-    { icon: "clock", title: "Check-in flessibile", text: "Concordiamo gli orari su misura per il tuo viaggio, senza vincoli rigidi." },
+    { icon: "clock", title: "Check-in flessibile", text: "Self check-in con smart lock: dalle 15:00 entri quando vuoi, e prenotando diretto concordiamo orari su misura." },
     { icon: "chat", title: "Contatto diretto con noi", text: "Parli direttamente con chi gestisce la casa: risposte rapide, niente intermediari." },
     { icon: "check", title: "Conferma immediata", text: "Prenoti ora e ricevi subito la conferma via WhatsApp o email." },
   ],
   en: [
-    { icon: "clock", title: "Flexible check-in", text: "We arrange times tailored to your trip, with no rigid constraints." },
+    { icon: "clock", title: "Flexible check-in", text: "Self check-in with a smart lock: from 15:00 you arrive whenever you like, and booking direct we tailor the times to you." },
     { icon: "chat", title: "Direct contact with us", text: "You speak directly with the people who run the home: fast replies, no middlemen." },
     { icon: "check", title: "Instant confirmation", text: "Book now and get immediate confirmation by WhatsApp or email." },
   ],
   fr: [
-    { icon: "clock", title: "Check-in flexible", text: "Nous convenons des horaires sur mesure pour votre voyage, sans contraintes rigides." },
+    { icon: "clock", title: "Check-in flexible", text: "Self check-in avec serrure connectée : dès 15h00 vous arrivez quand vous voulez, et en réservant en direct nous adaptons les horaires." },
     { icon: "chat", title: "Contact direct avec nous", text: "Vous parlez directement avec ceux qui gèrent la maison : réponses rapides, sans intermédiaires." },
     { icon: "check", title: "Confirmation immédiate", text: "Réservez maintenant et recevez aussitôt la confirmation par WhatsApp ou e-mail." },
   ],
   de: [
-    { icon: "clock", title: "Flexibler Check-in", text: "Wir stimmen die Zeiten individuell auf Ihre Reise ab, ohne starre Vorgaben." },
+    { icon: "clock", title: "Flexibler Check-in", text: "Self check-in mit Smart Lock: ab 15:00 Uhr kommen Sie, wann Sie möchten, und bei Direktbuchung stimmen wir die Zeiten individuell ab." },
     { icon: "chat", title: "Direkter Kontakt mit uns", text: "Sie sprechen direkt mit den Gastgebern: schnelle Antworten, keine Zwischenhändler." },
     { icon: "check", title: "Sofortige Bestätigung", text: "Jetzt buchen und sofort die Bestätigung per WhatsApp oder E-Mail erhalten." },
   ],
   es: [
-    { icon: "clock", title: "Check-in flexible", text: "Acordamos los horarios a medida de tu viaje, sin restricciones rígidas." },
+    { icon: "clock", title: "Check-in flexible", text: "Self check-in con cerradura inteligente: desde las 15:00 llegas cuando quieras, y reservando directo adaptamos los horarios." },
     { icon: "chat", title: "Contacto directo con nosotros", text: "Hablas directamente con quienes gestionan la casa: respuestas rápidas, sin intermediarios." },
     { icon: "check", title: "Confirmación inmediata", text: "Reserva ahora y recibe al instante la confirmación por WhatsApp o correo electrónico." },
   ],
   pt: [
-    { icon: "clock", title: "Check-in flexível", text: "Combinamos os horários à medida da sua viagem, sem restrições rígidas." },
+    { icon: "clock", title: "Check-in flexível", text: "Self check-in com fechadura inteligente: a partir das 15:00 chega quando quiser, e reservando direto ajustamos os horários." },
     { icon: "chat", title: "Contacto direto connosco", text: "Fala diretamente com quem gere a casa: respostas rápidas, sem intermediários." },
     { icon: "check", title: "Confirmação imediata", text: "Reserve agora e receba de imediato a confirmação por WhatsApp ou e-mail." },
   ],
   nl: [
-    { icon: "clock", title: "Flexibele check-in", text: "We stemmen de tijden af op jouw reis, zonder strakke beperkingen." },
+    { icon: "clock", title: "Flexibele check-in", text: "Self check-in met smart lock: vanaf 15:00 kom je aan wanneer je wilt, en bij direct boeken stemmen we de tijden op jou af." },
     { icon: "chat", title: "Direct contact met ons", text: "Je spreekt rechtstreeks met wie het huis beheert: snelle antwoorden, geen tussenpersonen." },
     { icon: "check", title: "Directe bevestiging", text: "Boek nu en ontvang meteen de bevestiging via WhatsApp of e-mail." },
   ],
   pl: [
-    { icon: "clock", title: "Elastyczne zameldowanie", text: "Ustalamy godziny dopasowane do Twojej podróży, bez sztywnych ograniczeń." },
+    { icon: "clock", title: "Elastyczne zameldowanie", text: "Self check-in z inteligentnym zamkiem: od 15:00 przyjeżdżasz, kiedy chcesz, a przy rezerwacji bezpośredniej dopasujemy godziny." },
     { icon: "chat", title: "Bezpośredni kontakt z nami", text: "Rozmawiasz bezpośrednio z osobami prowadzącymi dom: szybkie odpowiedzi, bez pośredników." },
     { icon: "check", title: "Natychmiastowe potwierdzenie", text: "Zarezerwuj teraz i od razu otrzymaj potwierdzenie przez WhatsApp lub e-mail." },
   ],
   sv: [
-    { icon: "clock", title: "Flexibel incheckning", text: "Vi kommer överens om tider anpassade efter din resa, utan stela krav." },
+    { icon: "clock", title: "Flexibel incheckning", text: "Self check-in med smart lås: från 15:00 kommer du när du vill, och vid direktbokning anpassar vi tiderna." },
     { icon: "chat", title: "Direktkontakt med oss", text: "Du pratar direkt med dem som sköter hemmet: snabba svar, inga mellanhänder." },
     { icon: "check", title: "Omedelbar bekräftelse", text: "Boka nu och få bekräftelse direkt via WhatsApp eller e-post." },
   ],
   ja: [
-    { icon: "clock", title: "柔軟なチェックイン", text: "厳しい制約なく、お客様の旅程に合わせて時間を調整します。" },
+    { icon: "clock", title: "柔軟なチェックイン", text: "スマートロックでセルフチェックイン：15:00以降はお好きな時間に到着でき、直接予約なら時間も個別に調整します。" },
     { icon: "chat", title: "私たちと直接やり取り", text: "住まいを管理する担当者と直接話せます。迅速な返信、仲介者なし。" },
     { icon: "check", title: "即時確認", text: "今すぐ予約すれば、WhatsAppまたはメールですぐに確認が届きます。" },
   ],
   "zh-cn": [
-    { icon: "clock", title: "灵活入住", text: "我们根据您的行程安排时间，没有死板的限制。" },
+    { icon: "clock", title: "灵活入住", text: "智能门锁自助入住：15:00后随时到达，直接预订还可为您定制时间。" },
     { icon: "chat", title: "与我们直接联系", text: "您直接与管理房屋的人沟通：回复迅速，没有中间商。" },
     { icon: "check", title: "即时确认", text: "立即预订，马上通过WhatsApp或电子邮件收到确认。" },
   ],
