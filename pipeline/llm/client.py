@@ -58,15 +58,24 @@ class ClaudeCodeBackend(ModelBackend):
             "--output-format", "json",
             "--append-system-prompt", system,
         ]
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=self.timeout)
-        if proc.returncode != 0:
-            raise RuntimeError(f"claude CLI fallita ({proc.returncode}): {proc.stderr[:500]}")
+        # stdin=DEVNULL: evita l'attesa di 3s su stdin in ambienti non interattivi (CI).
+        proc = subprocess.run(cmd, capture_output=True, text=True,
+                              timeout=self.timeout, stdin=subprocess.DEVNULL)
+        out = (proc.stdout or "").strip()
+        # Claude Code -p --output-format json mette il testo in "result" e segnala
+        # gli errori (es. "Not logged in") con is_error=true NELLO STDOUT (non stderr).
         try:
-            env = json.loads(proc.stdout)
-            # L'envelope JSON di Claude Code mette il testo in "result".
-            return env.get("result", proc.stdout)
+            env = json.loads(out)
         except json.JSONDecodeError:
-            return proc.stdout
+            env = None
+        if isinstance(env, dict):
+            if env.get("is_error") or env.get("subtype") not in (None, "success"):
+                raise RuntimeError(f"claude: {env.get('result') or 'errore sconosciuto'}")
+            return env.get("result", "")
+        if proc.returncode != 0:
+            msg = (proc.stderr or out or "nessun output")[:500]
+            raise RuntimeError(f"claude CLI fallita ({proc.returncode}): {msg}")
+        return out
 
 
 class ApiBackend(ModelBackend):
