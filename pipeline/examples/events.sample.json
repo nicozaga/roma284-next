@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mercanteinfiera-autunno-2026",
+    "title": "Mercanteinfiera Autunno 2026",
+    "type": "fair",
+    "venue": "Fiere di Parma",
+    "city": "Parma",
+    "start_date": "2026-10-03",
+    "end_date": "2026-10-11",
+    "url": "https://www.fiereparma.it/en/events-schedule/",
+    "description": "Grande mostra internazionale di antiquariato, modernariato e collezionismo.",
+    "source": "aefi"
+  },
+  {
+    "id": "salone-camper-parma-2026",
+    "title": "Salone del Camper 2026",
+    "type": "fair",
+    "venue": "Fiere di Parma",
+    "city": "Parma",
+    "start_date": "2026-09-12",
+    "end_date": "2026-09-20",
+    "url": "https://www.fiereparma.it/en/events-schedule/",
+    "description": "Evento dedicato al turismo plein air, camper e caravan.",
+    "source": "aefi"
+  },
+  {
+    "id": "evento-passato-2026",
+    "title": "Evento già passato (test filtro)",
+    "type": "event",
+    "venue": "Piacenza Expo",
+    "city": "Piacenza",
+    "start_date": "2026-05-01",
+    "end_date": "2026-05-02",
+    "url": "https://example.com",
+    "description": "Deve essere scartato perché passato.",
+    "source": "test"
+  },
+  {
+    "id": "evento-troppo-lontano-2027",
+    "title": "Evento troppo lontano (test filtro)",
+    "type": "event",
+    "venue": "Fiera Milano",
+    "city": "Milano",
+    "start_date": "2027-06-01",
+    "end_date": "2027-06-03",
+    "url": "https://example.com",
+    "description": "Deve essere scartato perché oltre la finestra.",
+    "source": "test"
+  }
+]

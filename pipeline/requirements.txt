@@ -1,0 +1,4 @@
+# Dipendenze pipeline (Scout/Writer/Publisher)
+requests>=2.31
+# Solo per il fallback engine=api (con engine=claude_code non serve):
+anthropic>=0.40

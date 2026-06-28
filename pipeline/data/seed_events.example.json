@@ -1,0 +1,30 @@
+[
+  {
+    "_note": "ESEMPIO. Copia in seed_events.json e metti DATE REALI, poi togli _disabled. Le date qui sono placeholder.",
+    "_disabled": true,
+    "id": "eicma-2026",
+    "title": "EICMA — Esposizione Mondiale del Motociclismo",
+    "type": "fair",
+    "venue": "Fiera Milano (Rho)",
+    "city": "Milano",
+    "start_date": "2026-11-05",
+    "end_date": "2026-11-08",
+    "url": "https://www.eicma.it/",
+    "description": "La più grande fiera internazionale dedicata a moto, scooter e accessori.",
+    "source": "seed"
+  },
+  {
+    "_note": "ESEMPIO. Verifica le date dell'edizione prima di abilitare.",
+    "_disabled": true,
+    "id": "salone-del-mobile-2027",
+    "title": "Salone del Mobile.Milano",
+    "type": "fair",
+    "venue": "Fiera Milano (Rho)",
+    "city": "Milano",
+    "start_date": "2027-04-13",
+    "end_date": "2027-04-18",
+    "url": "https://www.salonemilano.it/",
+    "description": "Il principale appuntamento mondiale per il design e l'arredamento.",
+    "source": "seed"
+  }
+]

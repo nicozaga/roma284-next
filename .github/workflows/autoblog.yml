@@ -1,0 +1,116 @@
+name: Roma284 Autoblog
+
+# ATTIVAZIONE (due interruttori, entrambi tuoi):
+#  1) SCHEDULE: di default DISATTIVATO (sotto è commentato) → nessuna esecuzione automatica.
+#     Per andare operativi ogni ~72h: scommenta il blocco "schedule" e fai push su main.
+#  2) DRY-RUN: l'avvio manuale parte in dry-run (genera e verifica, NON pubblica).
+#     Per pubblicare davvero metti dry_run = false all'avvio manuale.
+on:
+  # schedule:
+  #   - cron: "0 2 */3 * *"   # ~ogni 3 giorni, 02:00 UTC (notte) — ATTIVARE SOLO QUANDO PRONTI
+  workflow_dispatch:
+    inputs:
+      max_articles:
+        description: "Numero massimo di articoli da generare"
+        default: "1"
+        required: false
+      dry_run:
+        description: "true = genera e verifica ma NON pubblica (nessun commit/deploy/IndexNow)"
+        default: "true"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: autoblog
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      LLM_ENGINE: claude_code            # "api" per usare l'API key invece del Max
+      LLM_MODEL: sonnet
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Route A (Max)
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}             # Route B / fallback
+      TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+      MAX_ARTICLES_PER_RUN: ${{ github.event.inputs.max_articles || '3' }}
+      # Avvio manuale: dry-run di default. Schedule (input vuoto): pubblica.
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      REPO_ROOT: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze Python
+        run: pip install -r pipeline/requirements.txt
+
+      - name: Installa Claude Code
+        if: env.LLM_ENGINE == 'claude_code'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Scout — raccogli eventi
+        run: python -m pipeline.scout.run --out pipeline/_out/events.json
+
+      - name: Writer — genera articoli
+        run: |
+          # Route A: se c'è il token Max, NON usare l'API key (altrimenti avrebbe precedenza).
+          if [ "$LLM_ENGINE" = "claude_code" ] && [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            unset ANTHROPIC_API_KEY
+          fi
+          python -m pipeline.writer.run --event-file pipeline/_out/events.json
+
+      - name: Verifica build Astro (non pubblica se rossa)
+        run: |
+          npm ci
+          npm run build
+
+      - name: Pacchetto articoli generati (per review)
+        if: always()
+        run: |
+          files=$(git ls-files --others --exclude-standard -- src/content/blog)
+          if [ -n "$files" ]; then
+            tar -czf generated-articles.tgz $files
+            echo "Pacchetto creato con i nuovi articoli."
+          else
+            echo "Nessun nuovo articolo generato."
+          fi
+
+      - name: Carica articoli come artifact (scaricabili dal run)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-articles
+          path: generated-articles.tgz
+          if-no-files-found: ignore
+
+      - name: Commit & push (SOLO se NON dry-run)
+        id: commit
+        if: env.DRY_RUN != 'true'
+        run: |
+          if [ -n "$(git status --porcelain src/content/blog pipeline/state)" ]; then
+            git config user.name "roma284-autoblog[bot]"
+            git config user.email "actions@users.noreply.github.com"
+            git add src/content/blog pipeline/state
+            git commit -m "autoblog: nuovi articoli ($(date -u +%F))"
+            git push
+            echo "pushed=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "Nessun nuovo articolo: niente da pubblicare."
+          fi
+
+      - name: IndexNow — notifica i nuovi URL
+        if: steps.commit.outputs.pushed == '1'
+        run: |
+          sleep 90   # lascia completare il build su Vercel
+          python -m pipeline.publisher.run --since HEAD~1

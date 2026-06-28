@@ -1,0 +1,7 @@
+# Artefatti di test e cache — mai nel repo del sito
+_out/
+__pycache__/
+*.pyc
+.venv/
+events.local.json
+.DS_Store
