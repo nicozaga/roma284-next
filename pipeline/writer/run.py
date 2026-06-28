@@ -34,8 +34,21 @@ def _gen_master(backend, event: dict) -> dict:
 def _gen_translations(backend, event: dict, master: dict, locales: list[str]) -> dict:
     if backend.is_mock:
         return backend.mock_translations(event, master, locales)
-    sys_p, usr_p = build_translation_prompt(event, master, locales)
-    return parse_json(backend.complete(sys_p, usr_p))
+    # UNA lingua per chiamata: più veloce e più affidabile da parsare (evita timeout
+    # e JSON enormi). Ogni chiamata ha 1 retry; una lingua che fallisce viene saltata
+    # e l'articolo verrà scartato (niente pubblicazione parziale).
+    out: dict = {}
+    for loc in locales:
+        sys_p, usr_p = build_translation_prompt(event, master, [loc])
+        for attempt in range(2):
+            try:
+                data = parse_json(backend.complete(sys_p, usr_p))
+                out[loc] = data.get(loc) if isinstance(data, dict) and loc in data else data
+                break
+            except Exception as e:  # noqa: BLE001
+                if attempt == 1:
+                    print(f"  [trad {loc}] errore: {e}")
+    return out
 
 
 def translation_key_for(event: dict) -> str:
@@ -46,11 +59,13 @@ def translation_key_for(event: dict) -> str:
     return f"{base}-{yr}".strip("-")
 
 
-def build_article_set(backend, event: dict):
+def build_article_set(backend, event: dict, target_locales=None):
     """Ritorna (tkey, pub_date, results[list of (locale, relpath, content, slug)], errors)."""
     tkey = translation_key_for(event)
     pub_date = date.today().isoformat()
     errors: list[str] = []
+    # IT (master) sempre incluso; il resto sono le traduzioni richieste.
+    target = list(dict.fromkeys([DEFAULT_LOCALE] + list(target_locales or config.TARGET_LOCALES)))
 
     master = _gen_master(backend, event)
     for k in (*REQ_KEYS, "slug", "category_key"):
@@ -58,7 +73,7 @@ def build_article_set(backend, event: dict):
     if not all(master.get(k) for k in REQ_KEYS):
         return tkey, pub_date, [], ["master incompleto (title/description/body)"]
 
-    other = [l for l in config.TARGET_LOCALES if l != DEFAULT_LOCALE]
+    other = [l for l in target if l != DEFAULT_LOCALE]
     trans = _gen_translations(backend, event, master, other)
 
     en = trans.get("en", {}) or {}
@@ -96,8 +111,8 @@ def build_article_set(backend, event: dict):
             content, locale=loc, translation_key=tkey, pub_date=pub_date, expected_slug=slug)]
         results.append((loc, rel, content, slug))
 
-    if len(results) != len(config.TARGET_LOCALES):
-        errors.append(f"lingue prodotte {len(results)}/{len(config.TARGET_LOCALES)}")
+    if len(results) != len(target):
+        errors.append(f"lingue prodotte {len(results)}/{len(target)}")
     return tkey, pub_date, results, errors
 
 
@@ -129,7 +144,10 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default="pipeline/_out", help="cartella output in dry-run")
     ap.add_argument("--max", type=int, default=config.MAX_ARTICLES_PER_RUN)
     ap.add_argument("--no-filter", action="store_true", help="ignora filtro date/dedup (debug)")
+    ap.add_argument("--locales", default="",
+                    help="SOLO per test: lista lingue CSV (es. 'en,fr'); vuoto = tutte le 11")
     args = ap.parse_args(argv)
+    target_locales = [l.strip() for l in args.locales.split(",") if l.strip()] or None
 
     events = json.loads(Path(args.event_file).read_text(encoding="utf-8"))
     if isinstance(events, dict):
@@ -161,7 +179,7 @@ def main(argv=None) -> int:
     for ev in selected:
         title = ev.get("title", "?")
         try:
-            tkey, pub_date, results, errors = build_article_set(backend, ev)
+            tkey, pub_date, results, errors = build_article_set(backend, ev, target_locales)
         except Exception as e:  # noqa: BLE001
             print(f"✗ «{title}»: errore generazione: {e}")
             skipped += 1

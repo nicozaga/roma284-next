@@ -125,9 +125,11 @@ def validate_article(content: str, *, locale: str, translation_key: str,
 
     if re.search(r"(?m)^#\s", body):
         errs.append("H1 nel corpo")
-    if re.search(r"airbnb|booking", body, re.I):
-        errs.append("nome brand vietato nel corpo")
-    if "€" in body or re.search(r"\beuro\b", body, re.I) or re.search(r"\d+\s?€", body):
+    # Solo i BRAND delle piattaforme (non la parola inglese generica "booking"/"book").
+    if re.search(r"\bairbnb\b|booking\.(?:com|it)", body, re.I):
+        errs.append("nome brand vietato nel corpo (Airbnb/Booking.com)")
+    # Solo PREZZI in euro (cifra + valuta) o simbolo €; un semplice "euro" testuale è ammesso.
+    if "€" in body or re.search(r"\d[\d.,]*\s?(?:€|eur|euro)\b", body, re.I):
         errs.append("prezzo in euro nel corpo")
     if "{{" in body or "}}" in body:
         errs.append("placeholder link non risolto")
