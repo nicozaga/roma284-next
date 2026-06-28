@@ -16,6 +16,11 @@ from pipeline.scout import run as scout
 from pipeline.llm.client import get_backend
 from pipeline.writer.run import build_article_set
 from pipeline.common.urls import blog_file_to_url
+import json
+from pipeline.common.events import classify_tier, make_event
+from pipeline.common.state import next_focus
+from pipeline.writer.roundup import build_roundup
+from pipeline import publish
 
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURE = ROOT / "pipeline" / "tests" / "fixtures" / "aefi_piacenza_2026.txt"
@@ -127,9 +132,93 @@ def test_publisher_urls():
           == "https://www.roma284.it/ja/blog/milan-higaeri/")
 
 
+def test_tiering():
+    check("tier San Siro = international",
+          classify_tier("Concerto", "Stadio San Siro", "Milano", "concert") == "international")
+    check("tier fiera Milano = international",
+          classify_tier("Salone del Mobile", "Fiera Milano", "Milano", "fair") == "international")
+    check("tier sagra Piacenza = local",
+          classify_tier("Sagra del tortello", "", "Piacenza", "event") == "local")
+    check("tier fiera Piacenza = local",
+          classify_tier("GEOFLUID", "Piacenza Expo", "Piacenza", "fair") == "local")
+
+
+def test_focus_rotation():
+    st = {}
+    got = [next_focus(st, ["a", "b", "c"]) for _ in range(4)]
+    check("focus round-robin con wrap", got == ["a", "b", "c", "a"])
+    check("focus salva l'indice nello stato", st.get("focus_index") == 1)
+
+
+def test_roundup_mock():
+    evs = [
+        {"title": "Sagra del tortello", "type": "event", "city": "Piacenza",
+         "start_date": "2026-07-10", "end_date": "2026-07-10"},
+        {"title": "Concerto in piazza", "type": "concert", "city": "Piacenza",
+         "start_date": "2026-07-11", "end_date": "2026-07-11"},
+    ]
+    rel, content, errors = build_roundup(get_backend("mock"), evs, "i prossimi giorni", TODAY)
+    fm = content.split("---")[1]
+    check("roundup file evergreen", rel == "weekend-a-piacenza.md")
+    check("roundup zero errori", errors == [])
+    check("roundup CTA /prenota/", "/prenota/" in content)
+    check("roundup IT senza slug", "slug:" not in fm)
+
+
+def test_local_only_languages():
+    ev = {"id": "loc1", "title": "Evento locale", "type": "event", "city": "Piacenza",
+          "start_date": "2026-10-03", "end_date": "2026-10-03"}
+    _t, _p, results, errors = build_article_set(get_backend("mock"), ev, target_locales=["it"])
+    check("local = solo IT", len(results) == 1 and results[0][0] == "it")
+    check("local zero errori", errors == [])
+
+
+def test_orchestrator_mock():
+    out = ROOT / "pipeline" / "_out" / "orch"
+    evfile = ROOT / "pipeline" / "_out" / "orch_events.json"
+    evfile.parent.mkdir(parents=True, exist_ok=True)
+    t = datetime.date.today()
+    days = datetime.timedelta
+    big = make_event(title="Concertone internazionale", type="concert", venue="Stadio San Siro",
+                     city="Milano", start_date=(t + days(30)).isoformat())
+    near = make_event(title="Sagra del tortello", type="event", city="Piacenza",
+                      start_date=(t + days(5)).isoformat())
+    evfile.write_text(json.dumps([big, near], ensure_ascii=False), encoding="utf-8")
+    check("orchestratore: big classificato international", big["tier"] == "international")
+    rc = publish.run_weekly(str(evfile), engine="mock", model="sonnet",
+                            dry_run=True, out=str(out), cap_big=3)
+    check("orchestratore rc=0", rc == 0)
+    check("orchestratore: roundup scritto", (out / "weekend-a-piacenza.md").exists())
+    check("orchestratore: grande evento in 11 lingue", len(list(out.rglob("*.md"))) >= 12)
+
+
+def test_web_llm_extract():
+    from pipeline.scout.sources import web_llm
+    site = {"name": "test", "url": "https://x", "city": "Piacenza", "type": "event"}
+
+    class _FB:  # backend finto: ritorna un array JSON di eventi
+        is_mock = False
+        def complete(self, system, user):
+            return ('[{"title":"Mostra Klimt","type":"event","venue":"XNL",'
+                    '"start_date":"2026-07-10","end_date":"2026-07-20","description":"d"}]')
+
+    class _FBnone:
+        is_mock = False
+        def complete(self, system, user):
+            return "nessun evento in pagina"
+
+    evs = web_llm.extract(_FB(), "testo pagina", site)
+    check("web_llm estrae 1 evento", len(evs) == 1)
+    check("web_llm city default dal sito", evs[0]["city"] == "Piacenza")
+    check("web_llm source = nome sito", evs[0]["source"] == "test")
+    check("web_llm senza JSON -> []", web_llm.extract(_FBnone(), "x", site) == [])
+
+
 def main():
     for fn in (test_dates, test_aefi, test_ticketmaster, test_seed,
-               test_scout_aggregate, test_writer_mock, test_publisher_urls):
+               test_scout_aggregate, test_writer_mock, test_publisher_urls,
+               test_tiering, test_focus_rotation, test_roundup_mock,
+               test_local_only_languages, test_orchestrator_mock, test_web_llm_extract):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")

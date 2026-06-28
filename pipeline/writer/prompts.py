@@ -2,7 +2,7 @@
 from __future__ import annotations
 import json
 
-from pipeline.common.site_facts import BRAND_FACTS, BRAND_RULES, ARTICLE_STYLE
+from pipeline.common.site_facts import BRAND_FACTS, BRAND_RULES, ARTICLE_STYLE, ROUNDUP_STYLE
 
 _LINK_HELP = """\
 LINK INTERNI: usa SOLO questi placeholder (il codice li sostituisce col path giusto per lingua):
@@ -33,10 +33,15 @@ Mantieni i placeholder {{...}} esattamente come sono.
 Rispondi SOLO con JSON valido, senza prosa né code-fence."""
 
 
-def build_master_prompt(event: dict) -> tuple[str, str]:
+def build_master_prompt(event: dict, focus_feature: str = "") -> tuple[str, str]:
+    focus_line = (
+        f"\nIn questo articolo metti in PRIMO PIANO, dove pertinente e senza forzature, "
+        f"questa caratteristica dell'appartamento: {focus_feature}.\n"
+        if focus_feature else ""
+    )
     user = f"""\
 Scrivi l'articolo MASTER in ITALIANO per questo evento.
-
+{focus_line}
 EVENTO:
 {json.dumps(event, ensure_ascii=False, indent=2)}
 
@@ -72,3 +77,30 @@ Restituisci un JSON con una chiave per lingua, ognuna:
 }}
 Includi esattamente queste lingue: {", ".join(locales)}."""
     return _TRANS_SYSTEM, user
+
+
+_ROUNDUP_SYSTEM = f"""\
+Sei l'editor SEO di Roma284. Scrivi il roundup settimanale degli eventi a Piacenza e dintorni.
+
+{BRAND_FACTS}
+{BRAND_RULES}
+{ROUNDUP_STYLE}
+{_LINK_HELP}
+Rispondi SOLO con JSON valido, senza prosa né code-fence."""
+
+
+def build_roundup_prompt(events: list[dict], week_label: str) -> tuple[str, str]:
+    user = f"""\
+Scrivi il roundup "Il prossimo weekend a Piacenza" in ITALIANO. Periodo: {week_label}.
+
+EVENTI DELLA SETTIMANA (usa SOLO questi, raggruppali per tipo):
+{json.dumps(events, ensure_ascii=False, indent=2)}
+
+Restituisci questo JSON:
+{{
+  "title": "titolo accattivante ≤60 caratteri sul tema 'weekend a Piacenza'",
+  "description": "meta description 150-160 caratteri con i 2-3 eventi clou",
+  "category_key": "eventi",
+  "body": "corpo Markdown: intro breve, sezioni ## per tipo con le segnalazioni, CTA finale con il placeholder del link prenotazione"
+}}"""
+    return _ROUNDUP_SYSTEM, user

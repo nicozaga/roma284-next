@@ -34,3 +34,25 @@ STILE ARTICOLO:
 - Chiudi con una breve lista "## In sintesi" (3–5 punti) e poi UNA frase di CTA soft verso la disponibilità.
 - Collega l'evento al soggiorno a Roma284 (perché conviene fare base a Piacenza).
 """
+
+# Caratteristiche appartamento per la ROTAZIONE: ogni articolo-evento ne mette
+# una diversa in primo piano (round-robin via stato), così a turno le copri tutte.
+FEATURES_ROTATION = [
+    "i 33 minuti da Milano Centrale in Frecciarossa",
+    "il patio privato",
+    "il WiFi in fibra da 1 Gbit/s per lavorare",
+    "la cucina completamente attrezzata",
+    "il self check-in autonomo con smart lock",
+    "l'essere pet-friendly (animali ammessi gratis)",
+    "la posizione nel centro storico, a 9 minuti a piedi dalla stazione",
+]
+
+# Stile del roundup settimanale "Il prossimo weekend a Piacenza" (solo IT).
+ROUNDUP_STYLE = """\
+STILE ROUNDUP "IL PROSSIMO WEEKEND A PIACENZA" (solo italiano):
+- Articolo-format ricorrente: intro breve + sezioni "##" per tipo (Concerti e musica, Cultura e mostre, Food e sagre, Fiere, In città) con le segnalazioni della settimana.
+- Per ogni segnalazione: nome, quando, dove, una riga di perché vale.
+- Ometti le sezioni senza eventi. Niente titolo H1 nel corpo.
+- Chiudi legando a Roma284 come base comoda (centro storico, a due passi dalla stazione) + CTA soft con {{BOOK_URL}}.
+- Usa SOLO i dati forniti negli eventi: non inventare date/luoghi.
+"""

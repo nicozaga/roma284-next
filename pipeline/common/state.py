@@ -29,6 +29,16 @@ def mark_published(state: dict, translation_key: str, event_id: str, meta: dict 
     }
 
 
+def next_focus(state: dict, options: list[str]) -> str:
+    """Round-robin: ritorna la prossima caratteristica da mettere in primo piano e
+    avanza l'indice nello stato (così su N articoli le copri tutte a turno)."""
+    if not options:
+        return ""
+    i = int(state.get("focus_index", 0)) % len(options)
+    state["focus_index"] = (i + 1) % len(options)
+    return options[i]
+
+
 def save_state(path: Path, state: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

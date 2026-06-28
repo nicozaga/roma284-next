@@ -15,7 +15,7 @@ from pathlib import Path
 
 from pipeline import config
 from pipeline.common.events import dedup, future_only, sort_for_selection, relevance_score
-from pipeline.scout.sources import aefi, ticketmaster, seed, rss_local
+from pipeline.scout.sources import aefi, ticketmaster, seed, rss_local, web_llm
 
 
 def aggregate(collectors):
@@ -38,6 +38,7 @@ def default_collectors(year: int, lookahead: int):
         ("aefi", lambda: aefi.collect(year) + aefi.collect(year + 1)),
         ("ticketmaster", lambda: ticketmaster.collect(lookahead_days=lookahead)),
         ("seed", lambda: seed.collect()),
+        ("web_llm", lambda: web_llm.collect()),  # cultura/food locali via estrazione AI
         ("rss_local", lambda: rss_local.collect()),
     ]
 

@@ -42,7 +42,9 @@ def finalize_slug(proposed: str, fallback_en: str, locale: str) -> str:
 
 def resolve_links(body: str, locale: str) -> str:
     for token, page_key in LINK_PLACEHOLDERS.items():
-        body = body.replace(token, localized_path(page_key, locale))
+        path = localized_path(page_key, locale)
+        body = body.replace(token, path)        # {{BOOK_URL}}
+        body = body.replace(token[1:-1], path)  # {BOOK_URL} (fallback parentesi singole)
     return body
 
 

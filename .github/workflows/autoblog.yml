@@ -7,12 +7,12 @@ name: Roma284 Autoblog
 #     Per pubblicare davvero metti dry_run = false all'avvio manuale.
 on:
   # schedule:
-  #   - cron: "0 2 */3 * *"   # ~ogni 3 giorni, 02:00 UTC (notte) — ATTIVARE SOLO QUANDO PRONTI
+  #   - cron: "0 5 * * 1"   # ogni LUNEDÌ 05:00 UTC (~07:00 in Italia) — ATTIVARE SOLO QUANDO PRONTI
   workflow_dispatch:
     inputs:
-      max_articles:
-        description: "Numero massimo di articoli da generare"
-        default: "1"
+      max_big:
+        description: "Max grandi eventi internazionali (11 lingue) per run"
+        default: "3"
         required: false
       dry_run:
         description: "true = genera e verifica ma NON pubblica (nessun commit/deploy/IndexNow)"
@@ -35,7 +35,7 @@ jobs:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Route A (Max)
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}             # Route B / fallback
       TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
-      MAX_ARTICLES_PER_RUN: ${{ github.event.inputs.max_articles || '3' }}
+      MAX_BIG_PER_RUN: ${{ github.event.inputs.max_big || '3' }}
       # Avvio manuale: dry-run di default. Schedule (input vuoto): pubblica.
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       REPO_ROOT: ${{ github.workspace }}
@@ -59,16 +59,21 @@ jobs:
         if: env.LLM_ENGINE == 'claude_code'
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Scout — raccogli eventi
-        run: python -m pipeline.scout.run --out pipeline/_out/events.json
+      - name: Scout — raccogli eventi (incl. estrazione AI)
+        run: |
+          # Lo Scout ora usa l'LLM (estrazione fonti culturali): stessa regola auth del Writer.
+          if [ "$LLM_ENGINE" = "claude_code" ] && [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            unset ANTHROPIC_API_KEY
+          fi
+          python -m pipeline.scout.run --out pipeline/_out/events.json
 
-      - name: Writer — genera articoli
+      - name: Orchestratore — grandi eventi (11 lingue) + roundup settimanale (IT)
         run: |
           # Route A: se c'è il token Max, NON usare l'API key (altrimenti avrebbe precedenza).
           if [ "$LLM_ENGINE" = "claude_code" ] && [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
             unset ANTHROPIC_API_KEY
           fi
-          python -m pipeline.writer.run --event-file pipeline/_out/events.json
+          python -m pipeline.publish --event-file pipeline/_out/events.json
 
       - name: Verifica build Astro (non pubblica se rossa)
         run: |

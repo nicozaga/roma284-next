@@ -24,10 +24,10 @@ from pipeline.writer.prompts import build_master_prompt, build_translation_promp
 REQ_KEYS = ("title", "description", "body")
 
 
-def _gen_master(backend, event: dict) -> dict:
+def _gen_master(backend, event: dict, focus_feature: str = "") -> dict:
     if backend.is_mock:
         return backend.mock_master(event)
-    sys_p, usr_p = build_master_prompt(event)
+    sys_p, usr_p = build_master_prompt(event, focus_feature)
     return parse_json(backend.complete(sys_p, usr_p))
 
 
@@ -59,7 +59,7 @@ def translation_key_for(event: dict) -> str:
     return f"{base}-{yr}".strip("-")
 
 
-def build_article_set(backend, event: dict, target_locales=None):
+def build_article_set(backend, event: dict, target_locales=None, focus_feature: str = ""):
     """Ritorna (tkey, pub_date, results[list of (locale, relpath, content, slug)], errors)."""
     tkey = translation_key_for(event)
     pub_date = date.today().isoformat()
@@ -67,7 +67,7 @@ def build_article_set(backend, event: dict, target_locales=None):
     # IT (master) sempre incluso; il resto sono le traduzioni richieste.
     target = list(dict.fromkeys([DEFAULT_LOCALE] + list(target_locales or config.TARGET_LOCALES)))
 
-    master = _gen_master(backend, event)
+    master = _gen_master(backend, event, focus_feature)
     for k in (*REQ_KEYS, "slug", "category_key"):
         master.setdefault(k, "")
     if not all(master.get(k) for k in REQ_KEYS):
