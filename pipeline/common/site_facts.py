@@ -7,7 +7,7 @@ mai nominare Airbnb/Booking, leve corrette (33 min Milano, pet-friendly, ecc.).
 BRAND_FACTS = """\
 Roma284 — appartamento per affitti brevi in Via Roma 284, 29121 Piacenza (Emilia-Romagna).
 - Boutique nel centro storico; 50 m², 2 locali, max 4 ospiti; patio privato; cucina attrezzata.
-- A 33 minuti da Milano Centrale in Frecciarossa; stazione di Piacenza a 900 m / ~9 min a piedi; fino a 52 treni diretti/giorno.
+- Ben collegata a Milano in treno (i Frecciarossa più rapidi ~33 min, molti collegamenti 45–60 min); stazione di Piacenza a 900 m / ~9 min a piedi.
 - Pet-friendly: animali sempre ammessi gratis.
 - Self check-in con smart lock dalle 15:00 (ingresso autonomo); check-out 10:00.
 - WiFi in fibra 1 Gbit/s. Rating eccellenti (Superhost).
@@ -20,7 +20,8 @@ REGOLE DI BRAND (vincolanti):
 - NESSUN prezzo in euro, nessuna cifra monetaria, nessuna garanzia di sconto.
 - L'unica leva prezzo ammessa è il messaggio soft: prenotando in diretta si risparmia ("fino al 15% in meno"). Usalo al massimo una volta, con tatto.
 - Tono pratico, concreto, utile. Niente markettese. Niente claim non verificabili.
-- Valorizza quando pertinente: 33 min da Milano in treno, patio privato, pet-friendly gratis, self check-in con smart lock, WiFi 1 Gbit, cucina attrezzata, centro storico tranquillo.
+- Valorizza quando pertinente: vicinanza a Milano in treno, patio privato, pet-friendly gratis, self check-in con smart lock, WiFi 1 Gbit, cucina attrezzata, centro storico tranquillo.
+- NON usare «33 minuti da Milano» come gancio ripetuto: è vero solo per alcuni treni e sul sito è già detto spesso. Nei blog preferisci formule MORBIDE e variate ("a poco più di mezz'ora–un'ora di treno da Milano", "comodamente collegata a Milano in treno", "a breve distanza da Milano in treno"). Cita un tempo preciso solo se davvero utile, e al massimo una volta per articolo.
 - NON inventare orari, prezzi dei biglietti dell'evento o dettagli non forniti. Se un dato non è nei fatti dell'evento, non scriverlo.
 """
 
@@ -38,7 +39,7 @@ STILE ARTICOLO:
 # Caratteristiche appartamento per la ROTAZIONE: ogni articolo-evento ne mette
 # una diversa in primo piano (round-robin via stato), così a turno le copri tutte.
 FEATURES_ROTATION = [
-    "i 33 minuti da Milano Centrale in Frecciarossa",
+    "la comodità del collegamento in treno con Milano",
     "il patio privato",
     "il WiFi in fibra da 1 Gbit/s per lavorare",
     "la cucina completamente attrezzata",
