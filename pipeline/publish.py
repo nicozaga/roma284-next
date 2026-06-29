@@ -24,6 +24,7 @@ from pipeline.writer.run import build_article_set, translation_key_for, _eligibl
 from pipeline.writer.roundup import build_roundup, ROUNDUP_TKEY
 
 ROUNDUP_WINDOW_DAYS = 16  # eventi che iniziano entro ~2 weekend
+ROUNDUP_MAX_EVENTS = 15   # tetto segnalazioni nel roundup (prompt/tempi sotto controllo)
 
 
 def _near(ev: dict, days: int) -> bool:
@@ -88,9 +89,13 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
 
     # 2) Roundup settimanale (solo IT) dagli eventi locali vicini
     near = [e for e in events if _near(e, ROUNDUP_WINDOW_DAYS)
-            and translation_key_for(e) not in big_keys]
+            and translation_key_for(e) not in big_keys][:ROUNDUP_MAX_EVENTS]
     if near:
-        rel, content, errors = build_roundup(backend, near, "i prossimi giorni", today)
+        try:
+            rel, content, errors = build_roundup(backend, near, "i prossimi giorni", today)
+        except Exception as e:  # noqa: BLE001  (es. timeout) — non far fallire l'intero run
+            print(f"✗ roundup errore: {e}")
+            rel, content, errors = None, None, ["roundup non generato"]
         if errors:
             print(f"✗ roundup NON scritto: {errors[:6]}")
             skipped += 1
@@ -108,7 +113,9 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
     if not dry_run and written:
         state_mod.save_state(config.STATE_FILE, state)
     print(f"\nFatto. Scritti: {written} | saltati: {skipped}")
-    return 0 if skipped == 0 else 1
+    # Verde se abbiamo prodotto qualcosa (gli skip sono warning, non fanno fallire il run);
+    # rosso solo se c'erano candidati ma non è uscito NULLA.
+    return 0 if (written > 0 or (not big and not near)) else 1
 
 
 def main(argv=None) -> int:

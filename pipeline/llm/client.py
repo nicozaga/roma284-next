@@ -28,11 +28,12 @@ def parse_json(text: str) -> dict:
         raise ValueError("risposta vuota dal modello")
     t = text.strip()
     t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t, flags=re.S)
-    start = t.find("{")
-    end = t.rfind("}")
-    if start == -1 or end == -1:
+    starts = [i for i in (t.find("{"), t.find("[")) if i != -1]
+    if not starts:
         raise ValueError(f"nessun JSON nella risposta: {text[:200]}")
-    return json.loads(t[start:end + 1])
+    # Decodifica il PRIMO valore JSON e ignora eventuale testo dopo (evita "Extra data").
+    obj, _end = json.JSONDecoder().raw_decode(t[min(starts):])
+    return obj
 
 
 class ModelBackend:

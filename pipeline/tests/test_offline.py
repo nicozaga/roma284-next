@@ -214,11 +214,20 @@ def test_web_llm_extract():
     check("web_llm senza JSON -> []", web_llm.extract(_FBnone(), "x", site) == [])
 
 
+def test_parse_json_robust():
+    from pipeline.llm.client import parse_json
+    obj = parse_json('{"title":"x","body":"y"}\n\nEcco fatto!')  # caso reale "Extra data"
+    check("parse_json ignora testo extra dopo il JSON", obj.get("title") == "x")
+    obj2 = parse_json('```json\n{"a":1}\n```')
+    check("parse_json toglie i code-fence", obj2.get("a") == 1)
+
+
 def main():
     for fn in (test_dates, test_aefi, test_ticketmaster, test_seed,
                test_scout_aggregate, test_writer_mock, test_publisher_urls,
                test_tiering, test_focus_rotation, test_roundup_mock,
-               test_local_only_languages, test_orchestrator_mock, test_web_llm_extract):
+               test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
+               test_parse_json_robust):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")
