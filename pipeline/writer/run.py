@@ -22,6 +22,7 @@ from pipeline.llm.client import get_backend, parse_json
 from pipeline.writer.prompts import build_master_prompt, build_translation_prompt
 
 REQ_KEYS = ("title", "description", "body")
+TRANS_BATCH_SIZE = 4  # lingue per chiamata di traduzione (meno chiamate = più veloce)
 
 
 def _gen_master(backend, event: dict, focus_feature: str = "") -> dict:
@@ -31,23 +32,35 @@ def _gen_master(backend, event: dict, focus_feature: str = "") -> dict:
     return parse_json(backend.complete(sys_p, usr_p))
 
 
+def _call_translation(backend, event: dict, master: dict, locales: list[str]) -> dict | None:
+    """Una chiamata LLM per un gruppo di lingue. Ritorna il dict {locale: {...}} o None."""
+    sys_p, usr_p = build_translation_prompt(event, master, locales)
+    for attempt in range(2):
+        try:
+            data = parse_json(backend.complete(sys_p, usr_p))
+            return data if isinstance(data, dict) else None
+        except Exception as e:  # noqa: BLE001
+            if attempt == 1:
+                print(f"  [trad {','.join(locales)}] errore: {e}")
+    return None
+
+
 def _gen_translations(backend, event: dict, master: dict, locales: list[str]) -> dict:
     if backend.is_mock:
         return backend.mock_translations(event, master, locales)
-    # UNA lingua per chiamata: più veloce e più affidabile da parsare (evita timeout
-    # e JSON enormi). Ogni chiamata ha 1 retry; una lingua che fallisce viene saltata
-    # e l'articolo verrà scartato (niente pubblicazione parziale).
+    # Traduzioni a GRUPPI di lingue per chiamata (molte meno chiamate = più veloce).
+    # Se un gruppo fallisce o omette una lingua, si ripiega su una-lingua-per-volta.
     out: dict = {}
-    for loc in locales:
-        sys_p, usr_p = build_translation_prompt(event, master, [loc])
-        for attempt in range(2):
-            try:
-                data = parse_json(backend.complete(sys_p, usr_p))
-                out[loc] = data.get(loc) if isinstance(data, dict) and loc in data else data
-                break
-            except Exception as e:  # noqa: BLE001
-                if attempt == 1:
-                    print(f"  [trad {loc}] errore: {e}")
+    for i in range(0, len(locales), TRANS_BATCH_SIZE):
+        batch = locales[i:i + TRANS_BATCH_SIZE]
+        data = _call_translation(backend, event, master, batch) or {}
+        for loc in batch:
+            if loc in data:
+                out[loc] = data[loc]
+            else:
+                d = _call_translation(backend, event, master, [loc])  # fallback singolo
+                if d:
+                    out[loc] = d.get(loc, d)
     return out
 
 

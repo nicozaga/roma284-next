@@ -222,12 +222,29 @@ def test_parse_json_robust():
     check("parse_json toglie i code-fence", obj2.get("a") == 1)
 
 
+def test_translations_batched():
+    from pipeline.writer.run import _gen_translations
+
+    class _FBtrans:  # ritorna 4 lingue in un'unica risposta
+        is_mock = False
+        calls = 0
+        def complete(self, system, user):
+            self.calls += 1
+            obj = {loc: {"title": "t", "description": "d", "slug": "s", "body": "b"}
+                   for loc in ("en", "fr", "de", "es")}
+            return json.dumps(obj)
+
+    fb = _FBtrans()
+    out = _gen_translations(fb, {}, {}, ["en", "fr", "de", "es"])
+    check("batch: 4 lingue in 1 sola chiamata", len(out) == 4 and fb.calls == 1)
+
+
 def main():
     for fn in (test_dates, test_aefi, test_ticketmaster, test_seed,
                test_scout_aggregate, test_writer_mock, test_publisher_urls,
                test_tiering, test_focus_rotation, test_roundup_mock,
                test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
-               test_parse_json_robust):
+               test_parse_json_robust, test_translations_batched):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")
