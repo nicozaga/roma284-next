@@ -5,6 +5,19 @@
       "date": "2026-06-28",
       "title": "GEOFLUID",
       "pubDate": "2026-06-28"
+    },
+    "tm-zf98xzkrzeek6fzup5qqkr": {
+      "event_id": "tm-Zf98xZKrZeek6FZup5QQKr",
+      "date": "2026-07-01",
+      "title": "Max Forever - Stadi 2026",
+      "tier": "international"
+    },
+    "weekend-a-piacenza": {
+      "event_id": "roundup",
+      "date": "2026-07-01",
+      "title": "weekend roundup",
+      "refreshed": "2026-07-01"
     }
-  }
+  },
+  "focus_index": 1
 }
