@@ -239,12 +239,59 @@ def test_translations_batched():
     check("batch: 4 lingue in 1 sola chiamata", len(out) == 4 and fb.calls == 1)
 
 
+def test_resolve_links_wrapping():
+    from pipeline.common.frontmatter import resolve_links
+    # 1) placeholder già dentro sintassi markdown -> resta solo il path nel link
+    check("link markdown -> path",
+          resolve_links("Guida: [come arrivare]({{GETTING_HERE_URL}}).", "it")
+          == "Guida: [come arrivare](/come-arrivare/).")
+    # 2) placeholder NUDO -> avvolto in link markdown completo (rete di sicurezza)
+    check("nudo IT avvolto in link",
+          resolve_links("Prenota su {{BOOK_URL}} subito.", "it")
+          == "Prenota su [prenota](/prenota/) subito.")
+    check("nudo EN avvolto in link",
+          resolve_links("Book at {{BOOK_URL}} now.", "en")
+          == "Book at [book](/en/book/) now.")
+    # 3) fallback parentesi singole
+    check("nudo graffe singole avvolto",
+          "[prenota](/prenota/)" in resolve_links("Vai a {BOOK_URL}.", "it"))
+
+
+def test_validator_bare_paths():
+    from pipeline.common.frontmatter import assemble_article, validate_article
+    kw = dict(locale="it", title="T", description="D", slug="slug-test",
+              translation_key="k", pub_date=TODAY, category_key="eventi")
+    _rel, bad = assemble_article(body_md="Testo con path nudo /prenota/ nel corpo.", **kw)
+    errs = validate_article(bad, locale="it", translation_key="k",
+                            pub_date=TODAY, expected_slug="slug-test")
+    check("validatore segnala path nudo", any("path interno nudo" in e for e in errs))
+    _rel2, ok = assemble_article(body_md="CTA finale: [prenota qui]({{BOOK_URL}}).", **kw)
+    errs2 = validate_article(ok, locale="it", translation_key="k",
+                             pub_date=TODAY, expected_slug="slug-test")
+    check("validatore ok con link markdown", errs2 == [])
+
+
+def test_big_selection_prefers_lead():
+    from pipeline.common.events import sort_for_big_selection
+    t = datetime.date.today()
+    d = datetime.timedelta
+    a = make_event(title="Concerto vicino", type="concert", venue="Stadio San Siro",
+                   city="Milano", start_date=(t + d(days=30)).isoformat())
+    b = make_event(title="Concerto lontano", type="concert", venue="Stadio San Siro",
+                   city="Milano", start_date=(t + d(days=90)).isoformat())
+    out = sort_for_big_selection([a, b])
+    check("big selection: a parità di rilevanza vince il lead lungo",
+          out[0]["title"] == "Concerto lontano")
+
+
 def main():
     for fn in (test_dates, test_aefi, test_ticketmaster, test_seed,
                test_scout_aggregate, test_writer_mock, test_publisher_urls,
                test_tiering, test_focus_rotation, test_roundup_mock,
                test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
-               test_parse_json_robust, test_translations_batched):
+               test_parse_json_robust, test_translations_batched,
+               test_resolve_links_wrapping, test_validator_bare_paths,
+               test_big_selection_prefers_lead):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")

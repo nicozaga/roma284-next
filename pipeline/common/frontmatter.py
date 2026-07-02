@@ -9,7 +9,7 @@ import re
 from datetime import date
 
 from pipeline.common.i18n import (
-    DEFAULT_LOCALE, LOCALES, localized_path, category_label, slugify,
+    DEFAULT_LOCALE, LOCALES, SLUGS, localized_path, category_label, slugify,
 )
 
 # Placeholder che l'LLM usa nel corpo al posto dei link interni.
@@ -40,11 +40,26 @@ def finalize_slug(proposed: str, fallback_en: str, locale: str) -> str:
     return s
 
 
+def _anchor_for(page_key: str, locale: str) -> str:
+    """Ancora testuale di fallback derivata dallo slug localizzato della pagina."""
+    slug = SLUGS[page_key].get(locale) or SLUGS[page_key].get("en") or page_key
+    return slug.replace("-", " ")
+
+
 def resolve_links(body: str, locale: str) -> str:
+    """Sostituisce i placeholder con path localizzati.
+
+    Due casi:
+      1) placeholder dentro sintassi markdown `[testo]({{TOKEN}})` -> `[testo](/path/)`;
+      2) placeholder NUDO nel testo -> rete di sicurezza: diventa un link markdown
+         completo `[ancora](/path/)` (mai un path nudo non cliccabile nel corpo).
+    """
     for token, page_key in LINK_PLACEHOLDERS.items():
         path = localized_path(page_key, locale)
-        body = body.replace(token, path)        # {{BOOK_URL}}
-        body = body.replace(token[1:-1], path)  # {BOOK_URL} (fallback parentesi singole)
+        wrapped = f"[{_anchor_for(page_key, locale)}]({path})"
+        for tok in (token, token[1:-1]):  # {{BOOK_URL}} e fallback {BOOK_URL}
+            body = body.replace(f"]({tok})", f"]({path})")  # prima i link già formati
+            body = body.replace(tok, wrapped)               # poi i nudi -> link completo
     return body
 
 
@@ -135,6 +150,14 @@ def validate_article(content: str, *, locale: str, translation_key: str,
         errs.append("prezzo in euro nel corpo")
     if "{{" in body or "}}" in body:
         errs.append("placeholder link non risolto")
+    # I path interni devono comparire SOLO dentro link markdown "](/path/)":
+    # un path nudo nel testo non è cliccabile (CTA rotta, internal linking perso).
+    for page_key in set(LINK_PLACEHOLDERS.values()):
+        path = localized_path(page_key, locale)
+        for occ in re.finditer(re.escape(path), body):
+            if body[max(0, occ.start() - 2):occ.start()] != "](":
+                errs.append(f"path interno nudo (non linkato): {path}")
+                break
     if not body.strip():
         errs.append("corpo vuoto")
     return errs

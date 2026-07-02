@@ -12,6 +12,7 @@ import Testimonials from "@components/home/Testimonials.astro";
 import WhyBookDirect from "@components/home/WhyBookDirect.astro";
 import BookingWidget from "@components/BookingWidget.astro";
 import FinalCta from "@components/home/FinalCta.astro";
+import LatestPosts from "@components/home/LatestPosts.astro";
 
 import type { Locale } from "@i18n/config";
 import { LOCALE_META } from "@i18n/config";
@@ -263,6 +264,7 @@ const schema = [
   <LocationSection ctaHref={localizedPath("getting-here", locale)} ctaLabel={C.gettingHere} locale={locale} />
   <Faq title={C.faqTitle} ctaHref={localizedPath("faq", locale)} ctaLabel={C.allFaq} locale={locale} />
   <Testimonials title={C.reviewsTitle} locale={locale} />
+  <LatestPosts locale={locale} />
   <WhyBookDirect title={C.whyTitle} subtitle={C.whySub} locale={locale} />
   <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
   <FinalCta title={C.finalTitle} text={C.finalText} buttonLabel={C.finalBtn} />

@@ -116,3 +116,11 @@ def future_only(events: list[dict], today: date | None = None) -> list[dict]:
 def sort_for_selection(events: list[dict]) -> list[dict]:
     """Più rilevanti prima; a parità, quelli che iniziano prima."""
     return sorted(events, key=lambda e: (-relevance_score(e), e.get("start_date", "9999")))
+
+
+def sort_for_big_selection(events: list[dict]) -> list[dict]:
+    """Selezione degli articoli 11-lingue: più rilevanti prima; a parità,
+    lead time PIÙ LUNGO prima (SEO: la pagina deve avere settimane per essere
+    indicizzata e posizionarsi PRIMA che la gente cerchi dove dormire)."""
+    tmp = sorted(events, key=lambda e: e.get("start_date", "0000"), reverse=True)
+    return sorted(tmp, key=lambda e: -relevance_score(e))  # sort stabile

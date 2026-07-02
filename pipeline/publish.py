@@ -17,7 +17,7 @@ from pathlib import Path
 
 from pipeline import config
 from pipeline.common import state as state_mod
-from pipeline.common.events import dedup, future_only, sort_for_selection
+from pipeline.common.events import dedup, future_only, sort_for_selection, sort_for_big_selection
 from pipeline.common.site_facts import FEATURES_ROTATION
 from pipeline.llm.client import get_backend
 from pipeline.writer.run import build_article_set, translation_key_for, _eligible
@@ -53,9 +53,11 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
 
     written, skipped = 0, 0
 
-    # 1) Grandi eventi internazionali nuovi (11 lingue, focus a rotazione)
+    # 1) Grandi eventi internazionali nuovi (11 lingue, focus a rotazione).
+    # Ordine SEO: a parità di rilevanza, prima gli eventi con lead più lungo
+    # (la pagina ha settimane per indicizzarsi e posizionarsi prima dell'evento).
     big = []
-    for ev in events:
+    for ev in sort_for_big_selection(events):
         if ev.get("tier") != "international":
             continue
         ok, _why = _eligible(ev, state)

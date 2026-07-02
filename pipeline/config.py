@@ -33,8 +33,10 @@ MAX_ARTICLES_PER_RUN = int(os.environ.get("MAX_ARTICLES_PER_RUN", "3"))
 
 # Finestra temporale eventi da considerare (giorni nel futuro)
 EVENT_LOOKAHEAD_DAYS = int(os.environ.get("EVENT_LOOKAHEAD_DAYS", "120"))
-# Scarta eventi troppo vicini (non c'è tempo per indicizzare/prenotare)
-EVENT_MIN_LEAD_DAYS = int(os.environ.get("EVENT_MIN_LEAD_DAYS", "10"))
+# Scarta eventi troppo vicini: sotto ~3 settimane Google non ha tempo di
+# indicizzare e posizionare la pagina prima dell'evento (l'evento resta comunque
+# coperto dal roundup settimanale, che ha URL evergreen già indicizzato).
+EVENT_MIN_LEAD_DAYS = int(os.environ.get("EVENT_MIN_LEAD_DAYS", "21"))
 
 # Lingue target (tutte per default)
 from pipeline.common.i18n import LOCALES  # noqa: E402

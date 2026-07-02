@@ -8,6 +8,9 @@ _LINK_HELP = """\
 LINK INTERNI: usa SOLO questi placeholder (il codice li sostituisce col path giusto per lingua):
 - {{BOOK_URL}}  (pagina prenotazione — usalo nella CTA finale)
 - {{FAIRS_URL}}, {{EVENTS_URL}}, {{GETTING_HERE_URL}}, {{VISIT_PIACENZA_URL}}, {{STAY_NEAR_MILAN_URL}}
+REGOLA OBBLIGATORIA: ogni placeholder va SEMPRE dentro un link Markdown con ancora testuale.
+  Giusto: "consulta la guida su [come arrivare]({{GETTING_HERE_URL}})" — "[prenota il soggiorno]({{BOOK_URL}})"
+  Sbagliato: "consulta la guida su {{GETTING_HERE_URL}}" (placeholder nudo nel testo)
 Non scrivere mai URL reali a mano. Inserisci 1–2 link interni pertinenti nel corpo, oltre alla CTA.
 """
 

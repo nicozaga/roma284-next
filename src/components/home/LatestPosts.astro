@@ -1,0 +1,79 @@
+---
+/**
+ * Ultimi articoli del blog in homepage.
+ *
+ * Scopo SEO: la homepage è la pagina più ricrawlata da Google — linkare qui i
+ * nuovi articoli (anche quelli generati dalla pipeline autoblog) li fa scoprire
+ * e indicizzare molto più in fretta rispetto al solo /blog/ (profondità 3).
+ * Se una lingua non ha articoli, la sezione non viene renderizzata.
+ */
+import { getCollection } from "astro:content";
+import ContentSection from "@components/ContentSection.astro";
+import type { Locale } from "@i18n/config";
+import { LOCALE_META } from "@i18n/config";
+import { localizedPath } from "@i18n/utils";
+
+interface Props {
+  locale: Locale;
+  /** Quanti articoli mostrare (default 3). */
+  count?: number;
+}
+const { locale, count = 3 } = Astro.props;
+
+const COPY: Record<string, { eyebrow: string; title: string; all: string }> = {
+  it: { eyebrow: "Blog", title: "Ultimi dal blog", all: "Tutti gli articoli" },
+  en: { eyebrow: "Blog", title: "Latest from the blog", all: "All articles" },
+  fr: { eyebrow: "Blog", title: "Derniers articles du blog", all: "Tous les articles" },
+  es: { eyebrow: "Blog", title: "Lo último del blog", all: "Todos los artículos" },
+  pt: { eyebrow: "Blog", title: "Últimos artigos do blog", all: "Todos os artigos" },
+  de: { eyebrow: "Blog", title: "Neues aus dem Blog", all: "Alle Artikel" },
+  nl: { eyebrow: "Blog", title: "Nieuw op de blog", all: "Alle artikelen" },
+  sv: { eyebrow: "Blogg", title: "Senaste från bloggen", all: "Alla artiklar" },
+  pl: { eyebrow: "Blog", title: "Najnowsze z bloga", all: "Wszystkie artykuły" },
+  ja: { eyebrow: "ブログ", title: "ブログの最新記事", all: "記事一覧" },
+  "zh-cn": { eyebrow: "博客", title: "博客最新文章", all: "全部文章" },
+};
+const c = COPY[locale] ?? COPY.en;
+
+const posts = (await getCollection("blog", (p) => !p.data.draft && p.data.lang === locale))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, count);
+
+const blogBase = localizedPath("blog", locale);
+const slugOf = (p: (typeof posts)[number]) => p.data.slug ?? p.id.split("/").pop()!;
+const fmt = (d: Date) =>
+  d.toLocaleDateString(LOCALE_META[locale].htmlLang, { day: "numeric", month: "long", year: "numeric" });
+---
+
+{
+  posts.length > 0 && (
+    <ContentSection variant="avorio" eyebrow={c.eyebrow} title={c.title}>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <article class="flex flex-col rounded-2xl border border-antracite/8 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
+            <p class="text-xs font-medium uppercase tracking-wider text-terracotta">
+              {post.data.category}
+            </p>
+            <h3 class="mt-2 font-display text-xl text-antracite">
+              <a href={`${blogBase}${slugOf(post)}/`} class="hover:text-terracotta">
+                {post.data.title}
+              </a>
+            </h3>
+            <p class="mt-2 grow text-sm leading-relaxed text-grigio">{post.data.description}</p>
+            <time class="mt-4 text-xs text-grigio" datetime={post.data.pubDate.toISOString()}>
+              {fmt(post.data.pubDate)}
+            </time>
+          </article>
+        ))}
+      </div>
+      <p class="mt-8">
+        <a
+          href={blogBase}
+          class="font-medium text-terracotta underline-offset-4 hover:underline"
+        >
+          {c.all} →
+        </a>
+      </p>
+    </ContentSection>
+  )
+}
