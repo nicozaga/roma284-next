@@ -6,8 +6,8 @@ name: Roma284 Autoblog
 #  2) DRY-RUN: l'avvio manuale parte in dry-run (genera e verifica, NON pubblica).
 #     Per pubblicare davvero metti dry_run = false all'avvio manuale.
 on:
-  # schedule:
-  #   - cron: "0 5 * * 1"   # ogni LUNEDÌ 05:00 UTC (~07:00 in Italia) — ATTIVARE SOLO QUANDO PRONTI
+  schedule:
+    - cron: "0 5 * * 1" # ogni LUNEDÌ 05:00 UTC (~07:00 in Italia) — ATTIVO dal 2026-07-02
   workflow_dispatch:
     inputs:
       max_big:
