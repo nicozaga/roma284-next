@@ -15,7 +15,7 @@ import json
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from pipeline import config
+from pipeline import config, lifecycle
 from pipeline.common import state as state_mod
 from pipeline.common.events import dedup, future_only, sort_for_selection, sort_for_big_selection
 from pipeline.common.site_facts import FEATURES_ROTATION
@@ -85,7 +85,12 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
         big_keys.add(tkey)
         if not dry_run:
             state_mod.mark_published(state, tkey, ev.get("id", ""),
-                                     {"title": ev.get("title"), "tier": "international"})
+                                     {"title": ev.get("title"), "tier": "international",
+                                      **lifecycle.event_meta(ev, results)})
+            # Fiera: se esisteva l'edizione precedente, rimuovila con 301 al nuovo articolo
+            lifecycle.supersede_old_fairs(state, tkey, blog_dir=config.BLOG_DIR,
+                                          redirects_file=config.REDIRECTS_FILE,
+                                          public_dir=config.PUBLIC_DIR)
         written += 1
         print(f"✓ GRANDE «{ev.get('title','?')}» — 11 lingue (focus: {focus})")
 
@@ -112,9 +117,16 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
     else:
         print("• roundup saltato: nessun evento locale nella finestra")
 
-    if not dry_run and written:
+    # 3) Lifecycle: concerti finiti da >7 giorni → articolo rimosso + 301 all'hub
+    cleaned = 0
+    if not dry_run:
+        cleaned = lifecycle.cleanup_expired_concerts(state, blog_dir=config.BLOG_DIR,
+                                                     redirects_file=config.REDIRECTS_FILE,
+                                                     public_dir=config.PUBLIC_DIR)
+
+    if not dry_run and (written or cleaned):
         state_mod.save_state(config.STATE_FILE, state)
-    print(f"\nFatto. Scritti: {written} | saltati: {skipped}")
+    print(f"\nFatto. Scritti: {written} | saltati: {skipped} | rimossi (lifecycle): {cleaned}")
     # Verde se abbiamo prodotto qualcosa (gli skip sono warning, non fanno fallire il run);
     # rosso solo se c'erano candidati ma non è uscito NULLA.
     return 0 if (written > 0 or (not big and not near)) else 1

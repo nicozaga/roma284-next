@@ -41,12 +41,25 @@ function blogLastmods() {
 }
 const BLOG_LASTMOD = blogLastmods();
 
+/**
+ * Redirect 301 gestiti dal lifecycle della pipeline (articoli evento rimossi:
+ * concerti passati -> hub eventi; fiere sostituite -> edizione nuova).
+ */
+function loadRedirects() {
+  try {
+    return JSON.parse(readFileSync("redirects.json", "utf-8"));
+  } catch {
+    return {};
+  }
+}
+
 // 11 lingue. IT default servito sulla root, le altre con prefisso /{lang}/.
 const LOCALES = ["it", "en", "fr", "es", "pt", "de", "nl", "sv", "pl", "ja", "zh-cn"];
 
 export default defineConfig({
   site: SITE,
   output: "static",
+  redirects: loadRedirects(),
   adapter: vercel({
     webAnalytics: { enabled: true },
     imageService: false,

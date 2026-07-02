@@ -13,6 +13,11 @@ REPO_ROOT = Path(os.environ.get("REPO_ROOT", ".")).resolve()
 # Dove vivono gli articoli (content collection del sito)
 BLOG_DIR = REPO_ROOT / "src" / "content" / "blog"
 
+# Redirect 301 gestiti dal lifecycle (letti da astro.config.mjs a ogni build)
+REDIRECTS_FILE = REPO_ROOT / "redirects.json"
+# Stub statici meta-refresh per gli URL rimossi (variante con slash finale)
+PUBLIC_DIR = REPO_ROOT / "public"
+
 # Stato pipeline (dedup). Vive nella cartella pipeline/ del repo.
 STATE_FILE = Path(os.environ.get(
     "STATE_FILE", str(REPO_ROOT / "pipeline" / "state" / "published.json")

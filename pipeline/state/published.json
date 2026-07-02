@@ -4,13 +4,70 @@
       "event_id": "geofluid-2026",
       "date": "2026-06-28",
       "title": "GEOFLUID",
-      "pubDate": "2026-06-28"
+      "pubDate": "2026-06-28",
+      "kind": "fair",
+      "end_date": "2026-10-10",
+      "paths": [
+        "de/geofluid-2026-piacenza-expo-unterkunft.md",
+        "en/geofluid-2026-piacenza-expo-where-to-stay.md",
+        "es/geofluid-2026-piacenza-expo-donde-alojarse.md",
+        "fr/geofluid-2026-piacenza-expo-ou-se-loger.md",
+        "geofluid-2026-piacenza-expo-dove-alloggiare.md",
+        "ja/geofluid-2026-piacenza-expo-stay.md",
+        "nl/geofluid-2026-piacenza-expo-overnachten.md",
+        "pl/geofluid-2026-piacenza-expo-gdzie-sie-zatrzymac.md",
+        "pt/geofluid-2026-piacenza-expo-onde-se-hospedar.md",
+        "sv/geofluid-2026-piacenza-expo-boende.md",
+        "zh-cn/geofluid-2026-piacenza-expo-zhusu-tuijian.md"
+      ],
+      "urls": {
+        "it": "/blog/geofluid-2026-piacenza-expo-dove-alloggiare/",
+        "pl": "/pl/blog/geofluid-2026-piacenza-expo-gdzie-sie-zatrzymac/",
+        "sv": "/sv/blog/geofluid-2026-piacenza-expo-boende/",
+        "ja": "/ja/blog/geofluid-2026-piacenza-expo-stay/",
+        "zh-cn": "/zh-cn/blog/geofluid-2026-piacenza-expo-zhusu-tuijian/",
+        "pt": "/pt/blog/geofluid-2026-piacenza-expo-onde-se-hospedar/",
+        "nl": "/nl/blog/geofluid-2026-piacenza-expo-overnachten/",
+        "de": "/de/blog/geofluid-2026-piacenza-expo-unterkunft/",
+        "fr": "/fr/blog/geofluid-2026-piacenza-expo-ou-se-loger/",
+        "es": "/es/blog/geofluid-2026-piacenza-expo-donde-alojarse/",
+        "en": "/en/blog/geofluid-2026-piacenza-expo-where-to-stay/"
+      },
+      "fair_key": "geofluid"
     },
     "tm-zf98xzkrzeek6fzup5qqkr": {
       "event_id": "tm-Zf98xZKrZeek6FZup5QQKr",
       "date": "2026-07-01",
       "title": "Max Forever - Stadi 2026",
-      "tier": "international"
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-07-11",
+      "paths": [
+        "de/max-forever-san-siro-mailand-2026.md",
+        "en/max-forever-san-siro-milan-2026.md",
+        "es/max-forever-san-siro-milan-2026.md",
+        "fr/max-forever-san-siro-milan-2026.md",
+        "ja/max-forever-san-siro-milano-2026.md",
+        "max-forever-san-siro-milano-2026.md",
+        "nl/max-forever-san-siro-milaan-2026.md",
+        "pl/max-forever-san-siro-mediolan-2026.md",
+        "pt/max-forever-san-siro-milao-2026.md",
+        "sv/max-forever-san-siro-milano-2026.md",
+        "zh-cn/max-forever-san-siro-milano-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/max-forever-san-siro-milano-2026/",
+        "pl": "/pl/blog/max-forever-san-siro-mediolan-2026/",
+        "sv": "/sv/blog/max-forever-san-siro-milano-2026/",
+        "ja": "/ja/blog/max-forever-san-siro-milano-2026/",
+        "zh-cn": "/zh-cn/blog/max-forever-san-siro-milano-2026/",
+        "pt": "/pt/blog/max-forever-san-siro-milao-2026/",
+        "nl": "/nl/blog/max-forever-san-siro-milaan-2026/",
+        "de": "/de/blog/max-forever-san-siro-mailand-2026/",
+        "fr": "/fr/blog/max-forever-san-siro-milan-2026/",
+        "es": "/es/blog/max-forever-san-siro-milan-2026/",
+        "en": "/en/blog/max-forever-san-siro-milan-2026/"
+      }
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",

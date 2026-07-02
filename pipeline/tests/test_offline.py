@@ -239,6 +239,77 @@ def test_translations_batched():
     check("batch: 4 lingue in 1 sola chiamata", len(out) == 4 and fb.calls == 1)
 
 
+def test_lifecycle():
+    import tempfile
+    from pipeline import lifecycle
+
+    with tempfile.TemporaryDirectory() as tmp:
+        blog = Path(tmp) / "blog"
+        rjson = Path(tmp) / "redirects.json"
+        public = Path(tmp) / "public"
+
+        def mk(rel):
+            f = blog / rel
+            f.parent.mkdir(parents=True, exist_ok=True)
+            f.write_text("x", encoding="utf-8")
+            return rel
+
+        # --- concerto finito da >7 giorni -> rimosso + 301 hub localizzato
+        state = {"published": {
+            "vecchio-live": {"title": "Vecchio Live", "kind": "concert",
+                             "end_date": "2026-01-10",
+                             "paths": [mk("vecchio-live.md"), mk("en/old-live.md")],
+                             "urls": {"it": "/blog/vecchio-live/", "en": "/en/blog/old-live/"}},
+            "live-futuro": {"title": "Live Futuro", "kind": "concert",
+                            "end_date": "2099-01-01",
+                            "paths": [mk("live-futuro.md")],
+                            "urls": {"it": "/blog/live-futuro/"}},
+        }}
+        n = lifecycle.cleanup_expired_concerts(
+            state, blog_dir=blog, redirects_file=rjson, public_dir=public,
+            today=datetime.date(2026, 1, 20))
+        red = lifecycle.load_redirects(rjson)
+        check("lifecycle: 1 concerto scaduto gestito", n == 1)
+        check("lifecycle: file rimossi", not (blog / "vecchio-live.md").exists()
+              and not (blog / "en/old-live.md").exists())
+        check("lifecycle: 301 verso hub localizzato",
+              red.get("/blog/vecchio-live/") == "/eventi-milano/"
+              and red.get("/en/blog/old-live/") == "/en/milan-events/")
+        check("lifecycle: concerto futuro intatto", (blog / "live-futuro.md").exists()
+              and not state["published"]["live-futuro"].get("cleaned"))
+        check("lifecycle: marcato cleaned", bool(state["published"]["vecchio-live"]["cleaned"]))
+        stub = public / "blog/vecchio-live/index.html"
+        check("lifecycle: stub meta-refresh scritto", stub.exists()
+              and 'url=/eventi-milano/' in stub.read_text()
+              and 'canonical' in stub.read_text())
+        # idempotente: secondo giro non fa nulla
+        check("lifecycle: idempotente", lifecycle.cleanup_expired_concerts(
+            state, blog_dir=blog, redirects_file=rjson, public_dir=public,
+            today=datetime.date(2026, 1, 21)) == 0)
+
+        # --- fiera: edizione nuova sostituisce la vecchia con 301 per-lingua
+        state2 = {"published": {
+            "expo-2026": {"title": "EXPO 2026", "kind": "fair", "fair_key": "expo",
+                          "end_date": "2026-10-10",
+                          "paths": [mk("expo-2026.md"), mk("en/expo-2026-en.md")],
+                          "urls": {"it": "/blog/expo-2026/", "en": "/en/blog/expo-2026-en/"}},
+            "expo-2027": {"title": "EXPO 2027", "kind": "fair", "fair_key": "expo",
+                          "end_date": "2027-10-10",
+                          "paths": ["expo-2027.md"],
+                          "urls": {"it": "/blog/expo-2027/", "en": "/en/blog/expo-2027-en/"}},
+        }}
+        n2 = lifecycle.supersede_old_fairs(state2, "expo-2027", blog_dir=blog,
+                                           redirects_file=rjson, public_dir=public)
+        red2 = lifecycle.load_redirects(rjson)
+        check("lifecycle: fiera sostituita", n2 == 1
+              and not (blog / "expo-2026.md").exists())
+        check("lifecycle: 301 fiera per-lingua",
+              red2.get("/blog/expo-2026/") == "/blog/expo-2027/"
+              and red2.get("/en/blog/expo-2026-en/") == "/en/blog/expo-2027-en/")
+        check("lifecycle: fair_key normalizza l'anno",
+              lifecycle.fair_key("GEOFLUID 2026") == lifecycle.fair_key("Geofluid 2028"))
+
+
 def test_resolve_links_wrapping():
     from pipeline.common.frontmatter import resolve_links
     # 1) placeholder già dentro sintassi markdown -> resta solo il path nel link
@@ -291,7 +362,7 @@ def main():
                test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
                test_parse_json_robust, test_translations_batched,
                test_resolve_links_wrapping, test_validator_bare_paths,
-               test_big_selection_prefers_lead):
+               test_big_selection_prefers_lead, test_lifecycle):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")
