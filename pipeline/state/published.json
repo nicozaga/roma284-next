@@ -71,10 +71,114 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-07-01",
+      "date": "2026-07-06",
       "title": "weekend roundup",
-      "refreshed": "2026-07-01"
+      "refreshed": "2026-07-06"
+    },
+    "cibus-tec-2026": {
+      "event_id": "cibus-tec-2026",
+      "date": "2026-07-06",
+      "title": "CIBUS TEC",
+      "tier": "international",
+      "kind": "fair",
+      "end_date": "2026-10-30",
+      "paths": [
+        "cibus-tec-2026-parma-dove-dormire-piacenza.md",
+        "en/cibus-tec-2026-parma-where-to-stay-piacenza.md",
+        "fr/cibus-tec-2026-parme-ou-loger-plaisance.md",
+        "es/cibus-tec-2026-parma-donde-dormir-piacenza.md",
+        "pt/cibus-tec-2026-parma-onde-ficar-piacenza.md",
+        "de/cibus-tec-2026-parma-unterkunft-piacenza.md",
+        "nl/cibus-tec-2026-parma-overnachten-piacenza.md",
+        "sv/cibus-tec-2026-parma-boende-piacenza.md",
+        "pl/cibus-tec-2026-parma-nocleg-piacenza.md",
+        "ja/cibus-tec-2026-parma-piacenza-stay-guide.md",
+        "zh-cn/cibus-tec-2026-parma-piacenza-accommodation-guide.md"
+      ],
+      "urls": {
+        "it": "/blog/cibus-tec-2026-parma-dove-dormire-piacenza/",
+        "en": "/en/blog/cibus-tec-2026-parma-where-to-stay-piacenza/",
+        "fr": "/fr/blog/cibus-tec-2026-parme-ou-loger-plaisance/",
+        "es": "/es/blog/cibus-tec-2026-parma-donde-dormir-piacenza/",
+        "pt": "/pt/blog/cibus-tec-2026-parma-onde-ficar-piacenza/",
+        "de": "/de/blog/cibus-tec-2026-parma-unterkunft-piacenza/",
+        "nl": "/nl/blog/cibus-tec-2026-parma-overnachten-piacenza/",
+        "sv": "/sv/blog/cibus-tec-2026-parma-boende-piacenza/",
+        "pl": "/pl/blog/cibus-tec-2026-parma-nocleg-piacenza/",
+        "ja": "/ja/blog/cibus-tec-2026-parma-piacenza-stay-guide/",
+        "zh-cn": "/zh-cn/blog/cibus-tec-2026-parma-piacenza-accommodation-guide/"
+      },
+      "fair_key": "cibus-tec"
+    },
+    "mercanteinfiera-2026": {
+      "event_id": "mercanteinfiera-2026-",
+      "date": "2026-07-06",
+      "title": "MERCANTEINFIERA AUTUNNO",
+      "tier": "international",
+      "kind": "fair",
+      "end_date": "2026-10-11",
+      "paths": [
+        "mercanteinfiera-2026-parma-dove-dormire-piacenza.md",
+        "en/mercanteinfiera-2026-parma-where-to-stay-piacenza.md",
+        "fr/mercanteinfiera-2026-parme-ou-loger-plaisance.md",
+        "es/mercanteinfiera-2026-parma-donde-alojarse-piacenza.md",
+        "pt/mercanteinfiera-2026-parma-onde-ficar-piacenza.md",
+        "de/mercanteinfiera-2026-parma-uebernachten-piacenza.md",
+        "nl/mercanteinfiera-2026-parma-overnachten-piacenza.md",
+        "sv/mercanteinfiera-2026-parma-boende-piacenza.md",
+        "pl/mercanteinfiera-2026-parma-nocleg-piacenza.md",
+        "ja/mercanteinfiera-2026-parma-piacenza-stay-guide.md",
+        "zh-cn/mercanteinfiera-2026-parma-piacenza-accommodation-guide.md"
+      ],
+      "urls": {
+        "it": "/blog/mercanteinfiera-2026-parma-dove-dormire-piacenza/",
+        "en": "/en/blog/mercanteinfiera-2026-parma-where-to-stay-piacenza/",
+        "fr": "/fr/blog/mercanteinfiera-2026-parme-ou-loger-plaisance/",
+        "es": "/es/blog/mercanteinfiera-2026-parma-donde-alojarse-piacenza/",
+        "pt": "/pt/blog/mercanteinfiera-2026-parma-onde-ficar-piacenza/",
+        "de": "/de/blog/mercanteinfiera-2026-parma-uebernachten-piacenza/",
+        "nl": "/nl/blog/mercanteinfiera-2026-parma-overnachten-piacenza/",
+        "sv": "/sv/blog/mercanteinfiera-2026-parma-boende-piacenza/",
+        "pl": "/pl/blog/mercanteinfiera-2026-parma-nocleg-piacenza/",
+        "ja": "/ja/blog/mercanteinfiera-2026-parma-piacenza-stay-guide/",
+        "zh-cn": "/zh-cn/blog/mercanteinfiera-2026-parma-piacenza-accommodation-guide/"
+      },
+      "fair_key": "mercanteinfiera-autunno"
+    },
+    "tm-zf98xzkrzeka1dzup5qqkr": {
+      "event_id": "tm-Zf98xZKrZekA1dZup5QQKr",
+      "date": "2026-07-06",
+      "title": "A$AP Rocky - Don’t Be Dumb World Tour | I-Days Milano Coca Cola 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-10",
+      "paths": [
+        "aap-rocky-milano-2026-dove-dormire-piacenza.md",
+        "en/aap-rocky-milan-2026-where-to-stay-piacenza.md",
+        "fr/aap-rocky-milan-2026-ou-loger-plaisance.md",
+        "es/aap-rocky-milan-2026-donde-alojarse-piacenza.md",
+        "pt/aap-rocky-milao-2026-onde-ficar-piacenza.md",
+        "de/aap-rocky-mailand-2026-uebernachten-piacenza.md",
+        "nl/aap-rocky-milaan-2026-overnachten-piacenza.md",
+        "sv/aap-rocky-milano-2026-boende-piacenza.md",
+        "pl/aap-rocky-mediolan-2026-nocleg-piacenza.md",
+        "ja/aap-rocky-milano-2026-piacenza-stay-guide.md",
+        "zh-cn/aap-rocky-milano-2026-piacenza-accommodation-guide.md"
+      ],
+      "urls": {
+        "it": "/blog/aap-rocky-milano-2026-dove-dormire-piacenza/",
+        "en": "/en/blog/aap-rocky-milan-2026-where-to-stay-piacenza/",
+        "fr": "/fr/blog/aap-rocky-milan-2026-ou-loger-plaisance/",
+        "es": "/es/blog/aap-rocky-milan-2026-donde-alojarse-piacenza/",
+        "pt": "/pt/blog/aap-rocky-milao-2026-onde-ficar-piacenza/",
+        "de": "/de/blog/aap-rocky-mailand-2026-uebernachten-piacenza/",
+        "nl": "/nl/blog/aap-rocky-milaan-2026-overnachten-piacenza/",
+        "sv": "/sv/blog/aap-rocky-milano-2026-boende-piacenza/",
+        "pl": "/pl/blog/aap-rocky-mediolan-2026-nocleg-piacenza/",
+        "ja": "/ja/blog/aap-rocky-milano-2026-piacenza-stay-guide/",
+        "zh-cn": "/zh-cn/blog/aap-rocky-milano-2026-piacenza-accommodation-guide/"
+      }
     }
   },
-  "focus_index": 1
+  "focus_index": 4
 }

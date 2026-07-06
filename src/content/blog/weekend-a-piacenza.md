@@ -1,50 +1,38 @@
 ---
-title: "Weekend a Piacenza: concerti, sagre e mostre 3-6/7"
-description: "Dal 3 al 6 luglio Piacenza vive i Venerdì Piacentini e il Val Tidone Festival, mentre Milano ospita Florence + The Machine, Foo Fighters e System Of A Down."
-pubDate: 2026-07-01
+title: "Weekend a Piacenza tra concerti a Milano, jazz e cinema"
+description: "Weekend tra Piacenza e Milano: Max Forever a San Siro, poi Bruno Mars e Bad Bunny in arrivo, più il Val Tidone Festival e le serate di jazz a Piacenza."
+pubDate: 2026-07-06
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Il weekend del 3-6 luglio 2026 mette d'accordo chi resta in città e chi si sposta per un concerto: a Piacenza aprono i Venerdì Piacentini e prosegue il Val Tidone Festival, mentre Milano, comodamente collegata in treno, richiama con tre date consecutive di I-Days. Ecco il programma diviso per categoria.
+Da San Siro alle sere di jazz in centro, i prossimi giorni tra Piacenza e Milano offrono parecchia scelta: Val Tidone Festival e Piacenza Summer Cult tengono viva l'estate cittadina, mentre a Milano il calendario dei grandi concerti è particolarmente fitto. Ecco cosa segnare in agenda.
 
 ## Concerti e musica
 
-**Florence + The Machine – I-Days Milano Coca-Cola 2026**
-Quando: 3 luglio 2026. Dove: Ippodromo SNAI San Siro, Milano.
-Apre la tre giorni di I-Days con uno dei live più attesi dell'estate.
+**System Of A Down – I-Days Milano Coca Cola 2026** — stasera, 6 luglio, Ippodromo SNAI La Maura (Milano). Chiusura in grande stile della rassegna I-Days, per chi vuole concedersi un concerto internazionale prima del weekend.
 
-**Foo Fighters – I-Days Milano 2026**
-Quando: 5 luglio 2026. Dove: Ippodromo SNAI La Maura, Milano.
-Una delle rock band più solide in circolazione, per chi non vuole perdersi il weekend musicale a Milano.
+**Val Tidone Festival** — dal 16 giugno al 16 ottobre, Piacenza. La kermesse musicale che accompagna l'estate piacentina con appuntamenti diffusi in città e provincia.
 
-**System Of A Down – I-Days Milano Coca-Cola 2026**
-Quando: 6 luglio 2026. Dove: Ippodromo SNAI La Maura, Milano.
-Chiude la sequenza di grandi concerti milanesi della settimana, con la band armeno-americana in gran forma.
+**Summertime in jazz** — dal 24 giugno al 22 agosto, Piacenza. La rassegna estiva del Piacenza Jazz Club porta il jazz nelle serate cittadine, ideale per un'uscita più raccolta.
 
-**Val Tidone Festival**
-Quando: dal 16 giugno (in corso). Dove: Piacenza e Val Tidone.
-La kermesse musicale diffusa che anima l'estate piacentina con appuntamenti in più location.
+**Tricky** — 9 luglio, Giardino della Triennale (Milano). Un live in una delle cornici più suggestive della città, a metà settimana.
 
-**Summertime in Jazz**
-Quando: dal 24 giugno (in corso). Dove: Piacenza Jazz Club.
-La rassegna jazz estiva del club piacentino, per chi cerca una serata più raccolta.
+**Max Forever – Stadi 2026** — 11 e 12 luglio, Stadio San Siro (Milano). Due date consecutive proprio nel weekend, comode da abbinare a una trasferta da Piacenza sfruttando i collegamenti ferroviari diretti.
+
+**Bruno Mars – The Romantic Tour** — 14 e 15 luglio, Stadio San Siro (Milano). Due serate molto attese, con Milano presa d'assalto: muoversi con calma conviene.
+
+**Bad Bunny – DeBÍ TiRAR MáS FOToS World Tour** — 17 e 18 luglio, Ippodromo SNAI La Maura (Milano). Chiude il mese un altro doppio appuntamento internazionale, guardando già al weekend successivo.
 
 ## Cultura e mostre
 
-**Oltre le nuvole**
-Quando: fino al 5 luglio 2026 (ultimi giorni). Dove: Piacenza.
-Mostra d'arte con 20 artisti, trittico teatrale e percorso sonoro: un'occasione per un weekend anche culturale, da non perdere prima della chiusura.
+**Piacenza Summer Cult** — dal 26 giugno al 17 luglio, Piacenza. La rassegna culturale che anima l'estate cittadina con eventi diffusi nel centro storico.
 
-**Cinema Sotto le Stelle**
-Quando: fino al 31 agosto (in corso). Dove: Ex Caserma Cantore, Piacenza.
-La rassegna cinematografica all'aperto dell'estate piacentina, ideale per una serata più tranquilla in città.
+**Visite d'Estate** — fino al 16 luglio, Piacenza. Tre visite guidate condotte dalla direttrice Lucia Pini, per riscoprire luoghi e collezioni della città con uno sguardo diverso.
 
-## Fiere
+## In città
 
-**Venerdì Piacentini 2026**
-Quando: 3, 10 e 17 luglio 2026. Dove: centro storico di Piacenza.
-Il festival più partecipato dell'estate cittadina, con negozi aperti, musica e spettacoli diffusi nelle vie del centro: trovi il programma completo nella nostra pagina dedicata alle [fiere e agli eventi di Piacenza](/fiere/).
+**Cinema Sotto le Stelle** — dal 12 giugno al 31 agosto, Ex Caserma Cantore (Piacenza). La rassegna cinematografica all'aperto che accompagna le sere d'estate, comoda da raggiungere dal centro.
 
-Che la meta sia un concerto a Milano o una serata ai Venerdì Piacentini, **Roma284** resta la base pratica: appartamento nel centro storico di Piacenza, a due passi dalla stazione, con self check-in tramite smart lock che lascia liberi di arrivare quando serve, WiFi in fibra 1 Gbit/s per lavorare o organizzare la trasferta, e patio privato dove rilassarsi al rientro. Gli animali sono sempre ammessi senza costi aggiuntivi. Per chi punta ai concerti milanesi, la stazione di Piacenza è comodamente collegata a Milano in treno, utile per non rinunciare a un pernottamento tranquillo lontano dalla folla dello stadio; trovi qualche spunto anche nella pagina su [come muoversi tra Piacenza e Milano](/dormire-vicino-milano/). Prenotando in diretta il soggiorno si risparmia fino al 15% in meno rispetto ad altri canali. Verifica la disponibilità e prenota qui: /prenota/.
+Con il calendario dei concerti a Milano particolarmente fitto e l'estate piacentina che non si ferma, avere una base comoda fa la differenza. Roma284 è nel centro storico di Piacenza, a due passi dalla stazione: utile sia per seguire le rassegne locali sia per spostarsi verso Milano [consultando gli orari dei treni](/come-arrivare/) senza rinunciare a un rientro tranquillo anche a tarda sera. Patio privato, cucina attrezzata e self check-in con smart lock rendono il soggiorno pratico pure dopo un concerto. Prenotando in diretta, inoltre, si risparmia fino al 15% in meno rispetto ad altri canali. Dai un'occhiata al [calendario completo degli eventi](/eventi-milano/) e poi [prenota il soggiorno](/prenota/).
