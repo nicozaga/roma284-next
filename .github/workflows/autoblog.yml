@@ -99,7 +99,7 @@ jobs:
           path: generated-articles.tgz
           if-no-files-found: ignore
 
-     - name: Commit & push (SOLO se NON dry-run)
+      - name: Commit & push (SOLO se NON dry-run)
         id: commit
         if: env.DRY_RUN != 'true'
         run: |
