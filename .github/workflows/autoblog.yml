@@ -99,14 +99,18 @@ jobs:
           path: generated-articles.tgz
           if-no-files-found: ignore
 
-      - name: Commit & push (SOLO se NON dry-run)
+     - name: Commit & push (SOLO se NON dry-run)
         id: commit
         if: env.DRY_RUN != 'true'
         run: |
-          if [ -n "$(git status --porcelain src/content/blog pipeline/state redirects.json public/blog)" ]; then
+          PATHS=""
+          for p in src/content/blog pipeline/state redirects.json public/blog; do
+            [ -e "$p" ] && PATHS="$PATHS $p"
+          done
+          if [ -n "$(git status --porcelain -- $PATHS)" ]; then
             git config user.name "roma284-autoblog[bot]"
             git config user.email "actions@users.noreply.github.com"
-            git add src/content/blog pipeline/state redirects.json public/blog
+            git add -- $PATHS
             git commit -m "autoblog: nuovi articoli + lifecycle ($(date -u +%F))"
             git push
             echo "pushed=1" >> "$GITHUB_OUTPUT"
