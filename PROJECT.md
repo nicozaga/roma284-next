@@ -107,7 +107,7 @@ Immagini sorgente in `src/assets/` (`gallery/`, `hero/` — hero: `IMG_4058`, cu
 
 Frontmatter (Zod): `title`, `description`, `pubDate`, `updatedDate?`, `category` (default "Guide"), **`lang`** (default "it"), **`translationKey`** (lega le traduzioni per hreflang), **`slug?`** (pulito, localizzato), `draft` (default false). Contratto completo per la pipeline: `pipeline/docs/FRONTMATTER_SPEC.md`.
 
-File in `src/content/blog/` (IT in root, altre lingue in `<lang>/`). Al 2026-07-10: **89 file .md totali, 9 articoli IT**, tra cui i 6 evergreen originali (`piacenza-48h`, `frecciarossa`, `milan-fairs-stay`, `remote-working`, `food-piacenza`, `milan-day-trip`), gli articoli evento generati dall'autoblog (es. `geofluid-2026`, `max-forever-san-siro`) e il roundup `weekend-a-piacenza` (solo IT, si riscrive ogni settimana). Solo `frecciarossa` ha CTA finale al `book` localizzato.
+File in `src/content/blog/` (IT in root, altre lingue in `<lang>/`). Al 2026-07-10: **~122 file .md** (il numero cresce a ogni run dell'autoblog e cala col lifecycle), tra cui i 6 evergreen originali (`piacenza-48h`, `frecciarossa`, `milan-fairs-stay`, `remote-working`, `food-piacenza`, `milan-day-trip`), gli articoli evento generati dall'autoblog (es. `geofluid-2026`, `max-forever-san-siro`) e il roundup `weekend-a-piacenza` (solo IT, si riscrive ogni settimana). Solo `frecciarossa` ha CTA finale al `book` localizzato.
 
 In homepage la sezione **"Ultimi dal blog"** (`src/components/home/LatestPosts.astro`) linka gli ultimi 3 articoli della lingua corrente → indicizzazione rapida dei nuovi articoli.
 
@@ -206,7 +206,8 @@ python -m pipeline.publisher.run --files src/content/blog/foo.md --dry-run
 - **Giu 2026**: rifacimento completo del sito (il vecchio single-page faceva 57 clic in 6 mesi da GSC). Spec iniziale: `docs/archive/PROMPT_MASTER.md`.
 - **Fine giu 2026**: sito completo (11 lingue, 274 pagine); progettata e costruita la pipeline autoblog.
 - **2026-07-01**: primi articoli pubblicati dall'autoblog. **2026-07-02**: schedule attivata (commit `8ddb409`) + lifecycle articoli evento (commit `6c3a72b`).
-- **Oggi**: pipeline operativa ogni lunedì; 89 file .md nel blog; da monitorare: qualità output multilingua, impatto SEO (GSC), conversioni dirette (GA4 `booking_widget_interact`).
+- **2026-07-06**: primo run completamente automatico da schedule, riuscito (commit `fd911e5`).
+- **Oggi**: pipeline operativa ogni lunedì; ~122 file .md nel blog; da monitorare: qualità output multilingua, impatto SEO (GSC), conversioni dirette (GA4 `booking_widget_interact`).
 
 **Roadmap aperta**: monitoraggio SEO/conversioni man mano che i contenuti scalano; eventuale attivazione sorgenti RSS locali dopo verifica; valutare nuove pagine landing per intenti specifici.
 
