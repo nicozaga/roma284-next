@@ -71,9 +71,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-07-06",
+      "date": "2026-07-13",
       "title": "weekend roundup",
-      "refreshed": "2026-07-06"
+      "refreshed": "2026-07-13"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -178,7 +178,109 @@
         "ja": "/ja/blog/aap-rocky-milano-2026-piacenza-stay-guide/",
         "zh-cn": "/zh-cn/blog/aap-rocky-milano-2026-piacenza-accommodation-guide/"
       }
+    },
+    "tm-zf98xzkrzeke1ezup5qqkr": {
+      "event_id": "tm-Zf98xZKrZeke1eZup5QQKr",
+      "date": "2026-07-13",
+      "title": "Emma - Ippodromo Snai Milano 2026 - Outdoor 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-09",
+      "paths": [
+        "emma-concerto-ippodromo-snai-milano-2026.md",
+        "en/emma-concert-ippodromo-snai-milan-2026.md",
+        "fr/emma-concert-ippodromo-snai-milan-2026.md",
+        "es/emma-concierto-ippodromo-snai-milan-2026.md",
+        "pt/emma-show-ippodromo-snai-milao-2026.md",
+        "de/emma-konzert-ippodromo-snai-mailand-2026.md",
+        "nl/emma-concert-ippodromo-snai-milaan-2026.md",
+        "sv/emma-konsert-ippodromo-snai-milano-2026.md",
+        "pl/emma-koncert-ippodromo-snai-mediolan-2026.md",
+        "ja/emma-milano-live-2026-piacenza.md",
+        "zh-cn/emma-milano-concert-2026-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/emma-concerto-ippodromo-snai-milano-2026/",
+        "en": "/en/blog/emma-concert-ippodromo-snai-milan-2026/",
+        "fr": "/fr/blog/emma-concert-ippodromo-snai-milan-2026/",
+        "es": "/es/blog/emma-concierto-ippodromo-snai-milan-2026/",
+        "pt": "/pt/blog/emma-show-ippodromo-snai-milao-2026/",
+        "de": "/de/blog/emma-konzert-ippodromo-snai-mailand-2026/",
+        "nl": "/nl/blog/emma-concert-ippodromo-snai-milaan-2026/",
+        "sv": "/sv/blog/emma-konsert-ippodromo-snai-milano-2026/",
+        "pl": "/pl/blog/emma-koncert-ippodromo-snai-mediolan-2026/",
+        "ja": "/ja/blog/emma-milano-live-2026-piacenza/",
+        "zh-cn": "/zh-cn/blog/emma-milano-concert-2026-piacenza/"
+      }
+    },
+    "tm-zf98xzkrzek7f1zup5qqkr": {
+      "event_id": "tm-Zf98xZKrZek7F1Zup5QQKr",
+      "date": "2026-07-13",
+      "title": "David Guetta | I-Days Milano Coca Cola 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-06",
+      "paths": [
+        "david-guetta-milano-2026-piacenza-pet-friendly.md",
+        "en/david-guetta-milan-2026-piacenza-pet-friendly.md",
+        "fr/david-guetta-milan-2026-piacenza-pet-friendly.md",
+        "es/david-guetta-milan-2026-piacenza-pet-friendly.md",
+        "pt/david-guetta-milao-2026-piacenza-pet-friendly.md",
+        "de/david-guetta-mailand-2026-piacenza-haustierfreundlich.md",
+        "nl/david-guetta-milaan-2026-piacenza-huisdiervriendelijk.md",
+        "sv/david-guetta-milano-2026-piacenza-husdjursvanlig.md",
+        "pl/david-guetta-mediolan-2026-piacenza-przyjazna-zwierzetom.md",
+        "ja/david-guetta-milano-2026-piacenza-pet-friendly.md",
+        "zh-cn/david-guetta-milano-2026-piacenza-pet-friendly.md"
+      ],
+      "urls": {
+        "it": "/blog/david-guetta-milano-2026-piacenza-pet-friendly/",
+        "en": "/en/blog/david-guetta-milan-2026-piacenza-pet-friendly/",
+        "fr": "/fr/blog/david-guetta-milan-2026-piacenza-pet-friendly/",
+        "es": "/es/blog/david-guetta-milan-2026-piacenza-pet-friendly/",
+        "pt": "/pt/blog/david-guetta-milao-2026-piacenza-pet-friendly/",
+        "de": "/de/blog/david-guetta-mailand-2026-piacenza-haustierfreundlich/",
+        "nl": "/nl/blog/david-guetta-milaan-2026-piacenza-huisdiervriendelijk/",
+        "sv": "/sv/blog/david-guetta-milano-2026-piacenza-husdjursvanlig/",
+        "pl": "/pl/blog/david-guetta-mediolan-2026-piacenza-przyjazna-zwierzetom/",
+        "ja": "/ja/blog/david-guetta-milano-2026-piacenza-pet-friendly/",
+        "zh-cn": "/zh-cn/blog/david-guetta-milano-2026-piacenza-pet-friendly/"
+      }
+    },
+    "tm-z498xzkrzek6vk6zq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6vk6ZQ5jrb2j",
+      "date": "2026-07-13",
+      "title": "Niall Horan: Dinner Party Live On Tour - Posti riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-28",
+      "paths": [
+        "niall-horan-milano-2026-piacenza.md",
+        "en/niall-horan-milan-2026-piacenza.md",
+        "fr/niall-horan-milan-2026-piacenza.md",
+        "es/niall-horan-milan-2026-piacenza.md",
+        "pt/niall-horan-milao-2026-piacenza.md",
+        "de/niall-horan-mailand-2026-piacenza.md",
+        "nl/niall-horan-milaan-2026-piacenza.md",
+        "sv/niall-horan-milano-2026-piacenza.md",
+        "pl/niall-horan-mediolan-2026-piacenza.md",
+        "ja/niall-horan-milano-2026-piacenza.md",
+        "zh-cn/niall-horan-milano-2026-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/niall-horan-milano-2026-piacenza/",
+        "en": "/en/blog/niall-horan-milan-2026-piacenza/",
+        "fr": "/fr/blog/niall-horan-milan-2026-piacenza/",
+        "es": "/es/blog/niall-horan-milan-2026-piacenza/",
+        "pt": "/pt/blog/niall-horan-milao-2026-piacenza/",
+        "de": "/de/blog/niall-horan-mailand-2026-piacenza/",
+        "nl": "/nl/blog/niall-horan-milaan-2026-piacenza/",
+        "sv": "/sv/blog/niall-horan-milano-2026-piacenza/",
+        "pl": "/pl/blog/niall-horan-mediolan-2026-piacenza/",
+        "ja": "/ja/blog/niall-horan-milano-2026-piacenza/",
+        "zh-cn": "/zh-cn/blog/niall-horan-milano-2026-piacenza/"
+      }
     }
   },
-  "focus_index": 4
+  "focus_index": 0
 }

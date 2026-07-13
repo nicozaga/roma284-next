@@ -1,38 +1,26 @@
 ---
-title: "Weekend a Piacenza tra concerti a Milano, jazz e cinema"
-description: "Weekend tra Piacenza e Milano: Max Forever a San Siro, poi Bruno Mars e Bad Bunny in arrivo, più il Val Tidone Festival e le serate di jazz a Piacenza."
-pubDate: 2026-07-06
+title: "Weekend a Piacenza: Bruno Mars e Bad Bunny a Milano"
+description: "Il weekend a Piacenza: Bruno Mars e Bad Bunny infiammano Milano tra San Siro e Ippodromo, mentre Venerdì Piacentini e Val Tidone Festival animano il centro."
+pubDate: 2026-07-13
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Da San Siro alle sere di jazz in centro, i prossimi giorni tra Piacenza e Milano offrono parecchia scelta: Val Tidone Festival e Piacenza Summer Cult tengono viva l'estate cittadina, mentre a Milano il calendario dei grandi concerti è particolarmente fitto. Ecco cosa segnare in agenda.
+I prossimi giorni portano a Milano un trittico di concerti internazionali da non perdere, mentre Piacenza resta viva tra le vetrine aperte dei Venerdì Piacentini e le note del Val Tidone Festival. Ecco cosa segnare in agenda.
 
 ## Concerti e musica
 
-**System Of A Down – I-Days Milano Coca Cola 2026** — stasera, 6 luglio, Ippodromo SNAI La Maura (Milano). Chiusura in grande stile della rassegna I-Days, per chi vuole concedersi un concerto internazionale prima del weekend.
+**Bruno Mars – The Romantic Tour** — 14 e 15 luglio, Stadio San Siro (Milano). Due serate consecutive che aprono la settimana: chi arriva da Piacenza può muoversi con calma sfruttando i collegamenti ferroviari diretti.
+
+**Bad Bunny – DeBÍ TiRAR MáS FOToS World Tour** — 17 e 18 luglio, Ippodromo SNAI La Maura (Milano). Doppio appuntamento internazionale che chiude la settimana, tra i più attesi dell'estate milanese.
+
+**The Weeknd – After Hours Til Dawn Tour** — 24, 25 e 26 luglio, Stadio San Siro (Milano). Tre serate già in calendario per il weekend successivo, utili per chi vuole organizzare per tempo.
 
 **Val Tidone Festival** — dal 16 giugno al 16 ottobre, Piacenza. La kermesse musicale che accompagna l'estate piacentina con appuntamenti diffusi in città e provincia.
 
-**Summertime in jazz** — dal 24 giugno al 22 agosto, Piacenza. La rassegna estiva del Piacenza Jazz Club porta il jazz nelle serate cittadine, ideale per un'uscita più raccolta.
+## Fiere
 
-**Tricky** — 9 luglio, Giardino della Triennale (Milano). Un live in una delle cornici più suggestive della città, a metà settimana.
+**Venerdì Piacentini** — dal 19 giugno al 17 luglio, Piacenza. Cinque serate con oltre 200 eventi in programma e 300 negozi aperti nel centro storico: l'occasione giusta per una passeggiata serale tra shopping e iniziative culturali.
 
-**Max Forever – Stadi 2026** — 11 e 12 luglio, Stadio San Siro (Milano). Due date consecutive proprio nel weekend, comode da abbinare a una trasferta da Piacenza sfruttando i collegamenti ferroviari diretti.
-
-**Bruno Mars – The Romantic Tour** — 14 e 15 luglio, Stadio San Siro (Milano). Due serate molto attese, con Milano presa d'assalto: muoversi con calma conviene.
-
-**Bad Bunny – DeBÍ TiRAR MáS FOToS World Tour** — 17 e 18 luglio, Ippodromo SNAI La Maura (Milano). Chiude il mese un altro doppio appuntamento internazionale, guardando già al weekend successivo.
-
-## Cultura e mostre
-
-**Piacenza Summer Cult** — dal 26 giugno al 17 luglio, Piacenza. La rassegna culturale che anima l'estate cittadina con eventi diffusi nel centro storico.
-
-**Visite d'Estate** — fino al 16 luglio, Piacenza. Tre visite guidate condotte dalla direttrice Lucia Pini, per riscoprire luoghi e collezioni della città con uno sguardo diverso.
-
-## In città
-
-**Cinema Sotto le Stelle** — dal 12 giugno al 31 agosto, Ex Caserma Cantore (Piacenza). La rassegna cinematografica all'aperto che accompagna le sere d'estate, comoda da raggiungere dal centro.
-
-Con il calendario dei concerti a Milano particolarmente fitto e l'estate piacentina che non si ferma, avere una base comoda fa la differenza. Roma284 è nel centro storico di Piacenza, a due passi dalla stazione: utile sia per seguire le rassegne locali sia per spostarsi verso Milano [consultando gli orari dei treni](/come-arrivare/) senza rinunciare a un rientro tranquillo anche a tarda sera. Patio privato, cucina attrezzata e self check-in con smart lock rendono il soggiorno pratico pure dopo un concerto. Prenotando in diretta, inoltre, si risparmia fino al 15% in meno rispetto ad altri canali. Dai un'occhiata al [calendario completo degli eventi](/eventi-milano/) e poi [prenota il soggiorno](/prenota/).
+Con un calendario di concerti a Milano così fitto e Piacenza che non si ferma tra fiere e musica, avere una base comoda in centro fa la differenza. Roma284 è nel cuore del centro storico di Piacenza, a due passi dalla stazione: comodo sia per godersi le serate dei Venerdì Piacentini sia per raggiungere Milano in treno per i concerti a San Siro e all'Ippodromo, [consultando gli orari dei treni](/come-arrivare/) per pianificare con calma anche il rientro serale. Patio privato, cucina attrezzata, WiFi in fibra e self check-in con smart lock rendono il soggiorno pratico in ogni momento, e gli animali sono sempre benvenuti senza costi aggiuntivi. Prenotando in diretta, inoltre, si risparmia fino al 15% in meno rispetto ad altri canali. Dai un'occhiata al [calendario completo degli eventi](/eventi-milano/) e poi [prenota il soggiorno](/prenota/).
