@@ -1,26 +1,22 @@
 ---
-title: "Weekend a Piacenza: Bruno Mars e Bad Bunny a Milano"
-description: "Il weekend a Piacenza: Bruno Mars e Bad Bunny infiammano Milano tra San Siro e Ippodromo, mentre Venerdì Piacentini e Val Tidone Festival animano il centro."
-pubDate: 2026-07-13
+title: "Weekend a Piacenza: The Weeknd, Lorde e i concerti vicini"
+description: "Il weekend porta grandi concerti vicino a Piacenza: The Weeknd a San Siro, Lorde all'Unaltrofestival e Angélique Kidjo al Castello Sforzesco di Milano."
+pubDate: 2026-07-20
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-I prossimi giorni portano a Milano un trittico di concerti internazionali da non perdere, mentre Piacenza resta viva tra le vetrine aperte dei Venerdì Piacentini e le note del Val Tidone Festival. Ecco cosa segnare in agenda.
+Il weekend che si avvicina porta grandi nomi della musica internazionale a un passo da Piacenza: da Milano a Segrate, la scena concerti si accende con appuntamenti da non perdere, comodamente raggiungibili in treno dalla città.
 
 ## Concerti e musica
 
-**Bruno Mars – The Romantic Tour** — 14 e 15 luglio, Stadio San Siro (Milano). Due serate consecutive che aprono la settimana: chi arriva da Piacenza può muoversi con calma sfruttando i collegamenti ferroviari diretti.
+- **Angélique Kidjo** — martedì 21 luglio, Castello Sforzesco (Milano). Icona della world music africana, un classico appuntamento nella cornice estiva del Castello.
+- **Lorde – Unaltrofestival plus guest** — giovedì 23 luglio, Parco della Musica di Milano (Segrate). Uno dei nomi pop più attesi dell'estate in una delle rassegne open air più seguite della zona.
+- **The Weeknd – After Hours Til Dawn Tour** — venerdì 24, sabato 25 e domenica 26 luglio, Stadio San Siro (Milano). Tre serate consecutive per uno degli show più imponenti dell'anno: prevedibile grande afflusso su Milano in quei giorni.
+- **Noa** — sabato 25 luglio, Castello Sforzesco (Milano). Voce e chitarra per un concerto intimo, un'alternativa più raccolta ai grandi palazzetti.
+- **Patrick Watson** — sabato 25 luglio, Circolo Magnolia (Segrate). Atmosfere cantautorali raffinate in uno dei club all'aperto più amati dell'hinterland milanese.
 
-**Bad Bunny – DeBÍ TiRAR MáS FOToS World Tour** — 17 e 18 luglio, Ippodromo SNAI La Maura (Milano). Doppio appuntamento internazionale che chiude la settimana, tra i più attesi dell'estate milanese.
+Con più concerti in contemporanea tra Milano e Segrate, in questi giorni la zona sarà più trafficata del solito: conviene organizzarsi con anticipo, magari scegliendo come base il centro storico di Piacenza, a due passi dalla stazione e comodamente collegata a Milano in treno. Roma284 offre self check-in autonomo con smart lock, WiFi in fibra 1 Gbit/s, patio privato e accoglienza per animali senza costi aggiuntivi. Per orientarti tra treni e collegamenti consulta la guida su [come arrivare](/come-arrivare/); se invece segui spesso eventi a Milano, scopri perché conviene [soggiornare vicino a Milano](/dormire-vicino-milano/) restando a Piacenza. Prenotando in diretta, inoltre, si risparmia fino al 15% rispetto alle tariffe standard.
 
-**The Weeknd – After Hours Til Dawn Tour** — 24, 25 e 26 luglio, Stadio San Siro (Milano). Tre serate già in calendario per il weekend successivo, utili per chi vuole organizzare per tempo.
-
-**Val Tidone Festival** — dal 16 giugno al 16 ottobre, Piacenza. La kermesse musicale che accompagna l'estate piacentina con appuntamenti diffusi in città e provincia.
-
-## Fiere
-
-**Venerdì Piacentini** — dal 19 giugno al 17 luglio, Piacenza. Cinque serate con oltre 200 eventi in programma e 300 negozi aperti nel centro storico: l'occasione giusta per una passeggiata serale tra shopping e iniziative culturali.
-
-Con un calendario di concerti a Milano così fitto e Piacenza che non si ferma tra fiere e musica, avere una base comoda in centro fa la differenza. Roma284 è nel cuore del centro storico di Piacenza, a due passi dalla stazione: comodo sia per godersi le serate dei Venerdì Piacentini sia per raggiungere Milano in treno per i concerti a San Siro e all'Ippodromo, [consultando gli orari dei treni](/come-arrivare/) per pianificare con calma anche il rientro serale. Patio privato, cucina attrezzata, WiFi in fibra e self check-in con smart lock rendono il soggiorno pratico in ogni momento, e gli animali sono sempre benvenuti senza costi aggiuntivi. Prenotando in diretta, inoltre, si risparmia fino al 15% in meno rispetto ad altri canali. Dai un'occhiata al [calendario completo degli eventi](/eventi-milano/) e poi [prenota il soggiorno](/prenota/).
+[Prenota il tuo soggiorno](/prenota/) e goditi il weekend con una base tranquilla, comoda e ben collegata.

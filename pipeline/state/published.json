@@ -67,13 +67,14 @@
         "fr": "/fr/blog/max-forever-san-siro-milan-2026/",
         "es": "/es/blog/max-forever-san-siro-milan-2026/",
         "en": "/en/blog/max-forever-san-siro-milan-2026/"
-      }
+      },
+      "cleaned": "2026-07-20"
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-07-13",
+      "date": "2026-07-20",
       "title": "weekend roundup",
-      "refreshed": "2026-07-13"
+      "refreshed": "2026-07-20"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -280,7 +281,109 @@
         "ja": "/ja/blog/niall-horan-milano-2026-piacenza/",
         "zh-cn": "/zh-cn/blog/niall-horan-milano-2026-piacenza/"
       }
+    },
+    "tm-zg9rmiynyzedfa": {
+      "event_id": "tm-ZG9rmIYnyZedFA",
+      "date": "2026-07-20",
+      "title": "Niall Horan: Dinner Party Live On Tour",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-28",
+      "paths": [
+        "niall-horan-assago-concerto-28-ottobre-2026.md",
+        "en/niall-horan-assago-concert-october-28-2026.md",
+        "fr/niall-horan-assago-concert-28-octobre-2026.md",
+        "es/niall-horan-assago-concierto-28-octubre-2026.md",
+        "pt/niall-horan-assago-show-28-outubro-2026.md",
+        "de/niall-horan-assago-konzert-28-oktober-2026.md",
+        "nl/niall-horan-assago-concert-28-oktober-2026.md",
+        "sv/niall-horan-assago-konsert-28-oktober-2026.md",
+        "pl/niall-horan-assago-koncert-28-pazdziernika-2026.md",
+        "ja/niall-horan-assago-concert-28-october-2026.md",
+        "zh-cn/niall-horan-assago-concert-28-october-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/niall-horan-assago-concerto-28-ottobre-2026/",
+        "en": "/en/blog/niall-horan-assago-concert-october-28-2026/",
+        "fr": "/fr/blog/niall-horan-assago-concert-28-octobre-2026/",
+        "es": "/es/blog/niall-horan-assago-concierto-28-octubre-2026/",
+        "pt": "/pt/blog/niall-horan-assago-show-28-outubro-2026/",
+        "de": "/de/blog/niall-horan-assago-konzert-28-oktober-2026/",
+        "nl": "/nl/blog/niall-horan-assago-concert-28-oktober-2026/",
+        "sv": "/sv/blog/niall-horan-assago-konsert-28-oktober-2026/",
+        "pl": "/pl/blog/niall-horan-assago-koncert-28-pazdziernika-2026/",
+        "ja": "/ja/blog/niall-horan-assago-concert-28-october-2026/",
+        "zh-cn": "/zh-cn/blog/niall-horan-assago-concert-28-october-2026/"
+      }
+    },
+    "tm-z498xzkrzek6va1zq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6va1ZQ5jrb2j",
+      "date": "2026-07-20",
+      "title": "DON TOLIVER: NITROUS - OCTANE WORLD TOUR LEG 2 - Posti riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-27",
+      "paths": [
+        "don-toliver-assago-concerto-27-ottobre-2026.md",
+        "en/don-toliver-assago-concert-october-27-2026.md",
+        "fr/don-toliver-assago-concert-27-octobre-2026.md",
+        "es/don-toliver-assago-concierto-27-octubre-2026.md",
+        "pt/don-toliver-assago-show-27-outubro-2026.md",
+        "de/don-toliver-assago-konzert-27-oktober-2026.md",
+        "nl/don-toliver-assago-concert-27-oktober-2026.md",
+        "sv/don-toliver-assago-konsert-27-oktober-2026.md",
+        "pl/don-toliver-assago-koncert-27-pazdziernika-2026.md",
+        "ja/don-toliver-assago-concert-october-27-2026.md",
+        "zh-cn/don-toliver-assago-concert-october-27-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/don-toliver-assago-concerto-27-ottobre-2026/",
+        "en": "/en/blog/don-toliver-assago-concert-october-27-2026/",
+        "fr": "/fr/blog/don-toliver-assago-concert-27-octobre-2026/",
+        "es": "/es/blog/don-toliver-assago-concierto-27-octubre-2026/",
+        "pt": "/pt/blog/don-toliver-assago-show-27-outubro-2026/",
+        "de": "/de/blog/don-toliver-assago-konzert-27-oktober-2026/",
+        "nl": "/nl/blog/don-toliver-assago-concert-27-oktober-2026/",
+        "sv": "/sv/blog/don-toliver-assago-konsert-27-oktober-2026/",
+        "pl": "/pl/blog/don-toliver-assago-koncert-27-pazdziernika-2026/",
+        "ja": "/ja/blog/don-toliver-assago-concert-october-27-2026/",
+        "zh-cn": "/zh-cn/blog/don-toliver-assago-concert-october-27-2026/"
+      }
+    },
+    "tm-zg9rmiynyzef1a": {
+      "event_id": "tm-ZG9rmIYnyZeF1a",
+      "date": "2026-07-20",
+      "title": "DON TOLIVER: NITROUS - OCTANE WORLD TOUR LEG 2",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-27",
+      "paths": [
+        "don-toliver-assago-concerto-27-ottobre-2026.md",
+        "en/don-toliver-assago-concert-october-27-2026.md",
+        "fr/don-toliver-assago-concert-27-octobre-2026.md",
+        "es/don-toliver-assago-concierto-27-octubre-2026.md",
+        "pt/don-toliver-assago-show-27-outubro-2026.md",
+        "de/don-toliver-assago-konzert-27-oktober-2026.md",
+        "nl/don-toliver-assago-concert-27-oktober-2026.md",
+        "sv/don-toliver-assago-konsert-27-oktober-2026.md",
+        "pl/don-toliver-assago-koncert-27-pazdziernika-2026.md",
+        "ja/don-toliver-assago-dokode-tomaru-27-october-2026.md",
+        "zh-cn/don-toliver-assago-zhusu-27-october-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/don-toliver-assago-concerto-27-ottobre-2026/",
+        "en": "/en/blog/don-toliver-assago-concert-october-27-2026/",
+        "fr": "/fr/blog/don-toliver-assago-concert-27-octobre-2026/",
+        "es": "/es/blog/don-toliver-assago-concierto-27-octubre-2026/",
+        "pt": "/pt/blog/don-toliver-assago-show-27-outubro-2026/",
+        "de": "/de/blog/don-toliver-assago-konzert-27-oktober-2026/",
+        "nl": "/nl/blog/don-toliver-assago-concert-27-oktober-2026/",
+        "sv": "/sv/blog/don-toliver-assago-konsert-27-oktober-2026/",
+        "pl": "/pl/blog/don-toliver-assago-koncert-27-pazdziernika-2026/",
+        "ja": "/ja/blog/don-toliver-assago-dokode-tomaru-27-october-2026/",
+        "zh-cn": "/zh-cn/blog/don-toliver-assago-zhusu-27-october-2026/"
+      }
     }
   },
-  "focus_index": 0
+  "focus_index": 3
 }
