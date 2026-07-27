@@ -1,22 +1,32 @@
 ---
-title: "Weekend a Piacenza: The Weeknd, Lorde e i concerti vicini"
-description: "Il weekend porta grandi concerti vicino a Piacenza: The Weeknd a San Siro, Lorde all'Unaltrofestival e Angélique Kidjo al Castello Sforzesco di Milano."
-pubDate: 2026-07-20
+title: "Il weekend a Piacenza: jazz, mostre e cinema"
+description: "Il weekend a Piacenza tra rassegne jazz, la mostra Acqua a km zero in scadenza, cinema all'aperto alla Ex Caserma Cantore e Musei Civici a ingresso ridotto."
+pubDate: 2026-07-27
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Il weekend che si avvicina porta grandi nomi della musica internazionale a un passo da Piacenza: da Milano a Segrate, la scena concerti si accende con appuntamenti da non perdere, comodamente raggiungibili in treno dalla città.
+Il primo weekend di agosto a Piacenza si muove tra note jazz, una mostra in scadenza e serate di cinema all'aperto, con un'occasione in più a poca distanza di treno verso Milano per chi vuole allungare la trasferta.
 
 ## Concerti e musica
 
-- **Angélique Kidjo** — martedì 21 luglio, Castello Sforzesco (Milano). Icona della world music africana, un classico appuntamento nella cornice estiva del Castello.
-- **Lorde – Unaltrofestival plus guest** — giovedì 23 luglio, Parco della Musica di Milano (Segrate). Uno dei nomi pop più attesi dell'estate in una delle rassegne open air più seguite della zona.
-- **The Weeknd – After Hours Til Dawn Tour** — venerdì 24, sabato 25 e domenica 26 luglio, Stadio San Siro (Milano). Tre serate consecutive per uno degli show più imponenti dell'anno: prevedibile grande afflusso su Milano in quei giorni.
-- **Noa** — sabato 25 luglio, Castello Sforzesco (Milano). Voce e chitarra per un concerto intimo, un'alternativa più raccolta ai grandi palazzetti.
-- **Patrick Watson** — sabato 25 luglio, Circolo Magnolia (Segrate). Atmosfere cantautorali raffinate in uno dei club all'aperto più amati dell'hinterland milanese.
+**Summertime in jazz** — rassegna in corso fino al 22 agosto 2026, Piacenza. Il cartellone estivo del Piacenza Jazz Club porta appuntamenti live in città per tutta l'estate: buona scusa per una serata all'aperto tra un impegno e l'altro.
 
-Con più concerti in contemporanea tra Milano e Segrate, in questi giorni la zona sarà più trafficata del solito: conviene organizzarsi con anticipo, magari scegliendo come base il centro storico di Piacenza, a due passi dalla stazione e comodamente collegata a Milano in treno. Roma284 offre self check-in autonomo con smart lock, WiFi in fibra 1 Gbit/s, patio privato e accoglienza per animali senza costi aggiuntivi. Per orientarti tra treni e collegamenti consulta la guida su [come arrivare](/come-arrivare/); se invece segui spesso eventi a Milano, scopri perché conviene [soggiornare vicino a Milano](/dormire-vicino-milano/) restando a Piacenza. Prenotando in diretta, inoltre, si risparmia fino al 15% rispetto alle tariffe standard.
+**Val Tidone Festival** — kermesse musicale che prosegue fino al 16 ottobre 2026, Piacenza. Un festival diffuso che accompagna la stagione con concerti a scadenza regolare: vale la pena tenerlo d'occhio anche nelle settimane successive.
 
-[Prenota il tuo soggiorno](/prenota/) e goditi il weekend con una base tranquilla, comoda e ben collegata.
+**Of Mice & Men + Unearth / Unearth** — lunedì 3 agosto 2026, Circolo Magnolia, Segrate (Milano). Per chi soggiorna a Piacenza e vuole chiudere il weekend con un concerto metal/hardcore, Milano è comodamente collegata in treno: i dettagli sui collegamenti sono nella guida su [come arrivare](/come-arrivare/).
+
+## Cultura e mostre
+
+**Manifestazioni antoniniane** — la mostra "Acqua a km zero" è visitabile fino al 2 agosto 2026, Piacenza. Ultimi giorni utili per vederla, nell'ambito delle iniziative per la festa patronale.
+
+**Salita alle Cupole – Pordenone e Guercino** — visita guidata in programma fino al 31 agosto 2026, Piacenza. Un modo per salire fin sotto gli affreschi di due maestri del Rinascimento e guardare la città dall'alto.
+
+**Prima domenica del mese al Museo** — domenica 2 agosto 2026, Musei Civici di Piacenza. Ingresso ridotto per la prima domenica del mese: un'occasione comoda per una visita last minute nel weekend.
+
+## In città
+
+**Cinema Sotto le Stelle** — rassegna cinematografica estiva fino al 31 agosto 2026, Ex Caserma Cantore, Piacenza. Proiezioni all'aperto per le serate più calde, tra un evento e l'altro in centro.
+
+Per il weekend in giro tra rassegne e mostre, [Roma284](/prenota/) resta una base comoda nel centro storico di Piacenza, a due passi dalla stazione: patio privato per rilassarsi tra un appuntamento e l'altro, cucina attrezzata, WiFi in fibra e self check-in con smart lock per arrivare quando si vuole. Animali ammessi senza costi aggiuntivi. Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali. Per organizzare meglio la trasferta, consulta anche il calendario completo su [eventi a Piacenza](/eventi-milano/) e la guida [cosa vedere in città](/visitare-piacenza/). [Prenota il soggiorno](/prenota/) e parti da qui per il weekend.

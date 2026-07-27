@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-07-20",
+      "date": "2026-07-27",
       "title": "weekend roundup",
-      "refreshed": "2026-07-20"
+      "refreshed": "2026-07-27"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -383,7 +383,109 @@
         "ja": "/ja/blog/don-toliver-assago-dokode-tomaru-27-october-2026/",
         "zh-cn": "/zh-cn/blog/don-toliver-assago-zhusu-27-october-2026/"
       }
+    },
+    "tm-z498xzkrzek6vk7zq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6vk7ZQ5jrb2j",
+      "date": "2026-07-27",
+      "title": "Placebo - 30th Anniversary Tour - Posti riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-06",
+      "paths": [
+        "placebo-assago-unipol-forum-2026.md",
+        "en/placebo-assago-unipol-forum-2026.md",
+        "fr/placebo-assago-unipol-forum-2026.md",
+        "es/placebo-assago-unipol-forum-2026.md",
+        "pt/placebo-assago-unipol-forum-2026.md",
+        "de/placebo-assago-unipol-forum-2026.md",
+        "nl/placebo-assago-unipol-forum-2026.md",
+        "sv/placebo-assago-unipol-forum-2026.md",
+        "pl/placebo-assago-unipol-forum-2026.md",
+        "ja/placebo-assago-unipol-forum-2026.md",
+        "zh-cn/placebo-assago-unipol-forum-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/placebo-assago-unipol-forum-2026/",
+        "en": "/en/blog/placebo-assago-unipol-forum-2026/",
+        "fr": "/fr/blog/placebo-assago-unipol-forum-2026/",
+        "es": "/es/blog/placebo-assago-unipol-forum-2026/",
+        "pt": "/pt/blog/placebo-assago-unipol-forum-2026/",
+        "de": "/de/blog/placebo-assago-unipol-forum-2026/",
+        "nl": "/nl/blog/placebo-assago-unipol-forum-2026/",
+        "sv": "/sv/blog/placebo-assago-unipol-forum-2026/",
+        "pl": "/pl/blog/placebo-assago-unipol-forum-2026/",
+        "ja": "/ja/blog/placebo-assago-unipol-forum-2026/",
+        "zh-cn": "/zh-cn/blog/placebo-assago-unipol-forum-2026/"
+      }
+    },
+    "tm-zg9rmiynyzed6a": {
+      "event_id": "tm-ZG9rmIYnyZed6A",
+      "date": "2026-07-27",
+      "title": "Placebo - 30th Anniversary Tour",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-06",
+      "paths": [
+        "placebo-assago-unipol-forum-2026.md",
+        "en/placebo-assago-unipol-forum-2026.md",
+        "fr/placebo-assago-unipol-forum-2026.md",
+        "es/placebo-assago-unipol-forum-2026.md",
+        "pt/placebo-assago-unipol-forum-2026.md",
+        "de/placebo-assago-unipol-forum-2026.md",
+        "nl/placebo-assago-unipol-forum-2026.md",
+        "sv/placebo-assago-unipol-forum-2026.md",
+        "pl/placebo-assago-unipol-forum-2026.md",
+        "ja/placebo-assago-unipol-forum-2026.md",
+        "zh-cn/placebo-assago-unipol-forum-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/placebo-assago-unipol-forum-2026/",
+        "en": "/en/blog/placebo-assago-unipol-forum-2026/",
+        "fr": "/fr/blog/placebo-assago-unipol-forum-2026/",
+        "es": "/es/blog/placebo-assago-unipol-forum-2026/",
+        "pt": "/pt/blog/placebo-assago-unipol-forum-2026/",
+        "de": "/de/blog/placebo-assago-unipol-forum-2026/",
+        "nl": "/nl/blog/placebo-assago-unipol-forum-2026/",
+        "sv": "/sv/blog/placebo-assago-unipol-forum-2026/",
+        "pl": "/pl/blog/placebo-assago-unipol-forum-2026/",
+        "ja": "/ja/blog/placebo-assago-unipol-forum-2026/",
+        "zh-cn": "/zh-cn/blog/placebo-assago-unipol-forum-2026/"
+      }
+    },
+    "tm-z59rmiynyza7a": {
+      "event_id": "tm-Z59rmIYnyZA7a",
+      "date": "2026-07-27",
+      "title": "Marco Masini - PALASPORT 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-03",
+      "paths": [
+        "marco-masini-assago-unipol-forum-2026.md",
+        "en/marco-masini-assago-unipol-forum-2026.md",
+        "fr/marco-masini-assago-unipol-forum-2026.md",
+        "es/marco-masini-assago-unipol-forum-2026.md",
+        "pt/marco-masini-assago-unipol-forum-2026.md",
+        "de/marco-masini-assago-unipol-forum-2026.md",
+        "nl/marco-masini-assago-unipol-forum-2026.md",
+        "sv/marco-masini-assago-unipol-forum-2026.md",
+        "pl/marco-masini-assago-unipol-forum-2026.md",
+        "ja/marco-masini-assago-unipol-forum-2026.md",
+        "zh-cn/marco-masini-assago-unipol-forum-2026.md"
+      ],
+      "urls": {
+        "it": "/blog/marco-masini-assago-unipol-forum-2026/",
+        "en": "/en/blog/marco-masini-assago-unipol-forum-2026/",
+        "fr": "/fr/blog/marco-masini-assago-unipol-forum-2026/",
+        "es": "/es/blog/marco-masini-assago-unipol-forum-2026/",
+        "pt": "/pt/blog/marco-masini-assago-unipol-forum-2026/",
+        "de": "/de/blog/marco-masini-assago-unipol-forum-2026/",
+        "nl": "/nl/blog/marco-masini-assago-unipol-forum-2026/",
+        "sv": "/sv/blog/marco-masini-assago-unipol-forum-2026/",
+        "pl": "/pl/blog/marco-masini-assago-unipol-forum-2026/",
+        "ja": "/ja/blog/marco-masini-assago-unipol-forum-2026/",
+        "zh-cn": "/zh-cn/blog/marco-masini-assago-unipol-forum-2026/"
+      }
     }
   },
-  "focus_index": 3
+  "focus_index": 6
 }
