@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-07-27",
+      "date": "2026-08-03",
       "title": "weekend roundup",
-      "refreshed": "2026-07-27"
+      "refreshed": "2026-08-03"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -485,7 +485,109 @@
         "ja": "/ja/blog/marco-masini-assago-unipol-forum-2026/",
         "zh-cn": "/zh-cn/blog/marco-masini-assago-unipol-forum-2026/"
       }
+    },
+    "tm-zf98xzkrzekeaezup5qqkr": {
+      "event_id": "tm-Zf98xZKrZekeaeZup5QQKr",
+      "date": "2026-08-03",
+      "title": "POOH60 - La nostra storia",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-19",
+      "paths": [
+        "pooh60-unipol-forum-assago-dormire-piacenza.md",
+        "en/pooh60-unipol-forum-assago-stay-piacenza.md",
+        "fr/pooh60-unipol-forum-assago-dormir-plaisance.md",
+        "es/pooh60-unipol-forum-assago-dormir-piacenza.md",
+        "pt/pooh60-unipol-forum-assago-dormir-piacenza.md",
+        "de/pooh60-unipol-forum-assago-uebernachten-piacenza.md",
+        "nl/pooh60-unipol-forum-assago-overnachten-piacenza.md",
+        "sv/pooh60-unipol-forum-assago-bo-i-piacenza.md",
+        "pl/pooh60-unipol-forum-assago-nocleg-piacenza.md",
+        "ja/pooh60-unipol-forum-assago-piacenza.md",
+        "zh-cn/pooh60-unipol-forum-assago-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/pooh60-unipol-forum-assago-dormire-piacenza/",
+        "en": "/en/blog/pooh60-unipol-forum-assago-stay-piacenza/",
+        "fr": "/fr/blog/pooh60-unipol-forum-assago-dormir-plaisance/",
+        "es": "/es/blog/pooh60-unipol-forum-assago-dormir-piacenza/",
+        "pt": "/pt/blog/pooh60-unipol-forum-assago-dormir-piacenza/",
+        "de": "/de/blog/pooh60-unipol-forum-assago-uebernachten-piacenza/",
+        "nl": "/nl/blog/pooh60-unipol-forum-assago-overnachten-piacenza/",
+        "sv": "/sv/blog/pooh60-unipol-forum-assago-bo-i-piacenza/",
+        "pl": "/pl/blog/pooh60-unipol-forum-assago-nocleg-piacenza/",
+        "ja": "/ja/blog/pooh60-unipol-forum-assago-piacenza/",
+        "zh-cn": "/zh-cn/blog/pooh60-unipol-forum-assago-piacenza/"
+      }
+    },
+    "tm-z59rmiynyza76": {
+      "event_id": "tm-Z59rmIYnyZA76",
+      "date": "2026-08-03",
+      "title": "RAF - INFINITO PALASPORT 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-12",
+      "paths": [
+        "raf-infinito-unipol-forum-assago-dormire-piacenza.md",
+        "en/raf-infinito-unipol-forum-assago-stay-piacenza.md",
+        "fr/raf-infinito-unipol-forum-assago-dormir-plaisance.md",
+        "es/raf-infinito-unipol-forum-assago-dormir-piacenza.md",
+        "pt/raf-infinito-unipol-forum-assago-dormir-piacenza.md",
+        "de/raf-infinito-unipol-forum-assago-uebernachten-piacenza.md",
+        "nl/raf-infinito-unipol-forum-assago-overnachten-piacenza.md",
+        "sv/raf-infinito-unipol-forum-assago-bo-i-piacenza.md",
+        "pl/raf-infinito-unipol-forum-assago-nocleg-piacenza.md",
+        "ja/raf-infinito-unipol-forum-assago-piacenza.md",
+        "zh-cn/raf-infinito-unipol-forum-assago-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/raf-infinito-unipol-forum-assago-dormire-piacenza/",
+        "en": "/en/blog/raf-infinito-unipol-forum-assago-stay-piacenza/",
+        "fr": "/fr/blog/raf-infinito-unipol-forum-assago-dormir-plaisance/",
+        "es": "/es/blog/raf-infinito-unipol-forum-assago-dormir-piacenza/",
+        "pt": "/pt/blog/raf-infinito-unipol-forum-assago-dormir-piacenza/",
+        "de": "/de/blog/raf-infinito-unipol-forum-assago-uebernachten-piacenza/",
+        "nl": "/nl/blog/raf-infinito-unipol-forum-assago-overnachten-piacenza/",
+        "sv": "/sv/blog/raf-infinito-unipol-forum-assago-bo-i-piacenza/",
+        "pl": "/pl/blog/raf-infinito-unipol-forum-assago-nocleg-piacenza/",
+        "ja": "/ja/blog/raf-infinito-unipol-forum-assago-piacenza/",
+        "zh-cn": "/zh-cn/blog/raf-infinito-unipol-forum-assago-piacenza/"
+      }
+    },
+    "tm-z59rmiynyz1kd": {
+      "event_id": "tm-Z59rmIYnyZ1kd",
+      "date": "2026-08-03",
+      "title": "KID YUGI - Anche gli Eroi Muoiono Tour - Palasport 2026",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-10",
+      "paths": [
+        "kid-yugi-unipol-forum-assago-dormire-piacenza.md",
+        "en/kid-yugi-unipol-forum-assago-stay-piacenza.md",
+        "fr/kid-yugi-unipol-forum-assago-dormir-plaisance.md",
+        "es/kid-yugi-unipol-forum-assago-dormir-piacenza.md",
+        "pt/kid-yugi-unipol-forum-assago-dormir-piacenza.md",
+        "de/kid-yugi-unipol-forum-assago-uebernachten-piacenza.md",
+        "nl/kid-yugi-unipol-forum-assago-overnachten-piacenza.md",
+        "sv/kid-yugi-unipol-forum-assago-bo-i-piacenza.md",
+        "pl/kid-yugi-unipol-forum-assago-nocleg-piacenza.md",
+        "ja/kid-yugi-unipol-forum-assago-piacenza.md",
+        "zh-cn/kid-yugi-unipol-forum-assago-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/kid-yugi-unipol-forum-assago-dormire-piacenza/",
+        "en": "/en/blog/kid-yugi-unipol-forum-assago-stay-piacenza/",
+        "fr": "/fr/blog/kid-yugi-unipol-forum-assago-dormir-plaisance/",
+        "es": "/es/blog/kid-yugi-unipol-forum-assago-dormir-piacenza/",
+        "pt": "/pt/blog/kid-yugi-unipol-forum-assago-dormir-piacenza/",
+        "de": "/de/blog/kid-yugi-unipol-forum-assago-uebernachten-piacenza/",
+        "nl": "/nl/blog/kid-yugi-unipol-forum-assago-overnachten-piacenza/",
+        "sv": "/sv/blog/kid-yugi-unipol-forum-assago-bo-i-piacenza/",
+        "pl": "/pl/blog/kid-yugi-unipol-forum-assago-nocleg-piacenza/",
+        "ja": "/ja/blog/kid-yugi-unipol-forum-assago-piacenza/",
+        "zh-cn": "/zh-cn/blog/kid-yugi-unipol-forum-assago-piacenza/"
+      }
     }
   },
-  "focus_index": 6
+  "focus_index": 2
 }
