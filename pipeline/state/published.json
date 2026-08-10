@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-08-03",
+      "date": "2026-08-10",
       "title": "weekend roundup",
-      "refreshed": "2026-08-03"
+      "refreshed": "2026-08-10"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -587,7 +587,109 @@
         "ja": "/ja/blog/kid-yugi-unipol-forum-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/kid-yugi-unipol-forum-assago-piacenza/"
       }
+    },
+    "tm-z498xzkrzek6v7fzq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6v7FZQ5jrb2j",
+      "date": "2026-08-10",
+      "title": "nayt: Noi Individui Tour - Posti Riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-07",
+      "paths": [
+        "nayt-noi-individui-tour-assago-piacenza.md",
+        "en/nayt-noi-individui-tour-assago-piacenza.md",
+        "fr/nayt-noi-individui-tour-assago-piacenza.md",
+        "es/nayt-noi-individui-tour-assago-piacenza.md",
+        "pt/nayt-noi-individui-tour-assago-piacenza.md",
+        "de/nayt-noi-individui-tour-assago-piacenza.md",
+        "nl/nayt-noi-individui-tour-assago-piacenza.md",
+        "sv/nayt-noi-individui-tour-assago-piacenza.md",
+        "pl/nayt-noi-individui-tour-assago-piacenza.md",
+        "ja/nayt-live-assago-milan-hotel-guide.md",
+        "zh-cn/nayt-concert-assago-milan-hotel-guide.md"
+      ],
+      "urls": {
+        "it": "/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "en": "/en/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "fr": "/fr/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "es": "/es/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "pt": "/pt/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "de": "/de/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "nl": "/nl/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "sv": "/sv/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "pl": "/pl/blog/nayt-noi-individui-tour-assago-piacenza/",
+        "ja": "/ja/blog/nayt-live-assago-milan-hotel-guide/",
+        "zh-cn": "/zh-cn/blog/nayt-concert-assago-milan-hotel-guide/"
+      }
+    },
+    "tm-zf98xzkrzea61dzup5qqkr": {
+      "event_id": "tm-Zf98xZKrZeA61dZup5QQKr",
+      "date": "2026-08-10",
+      "title": "Laura Pausini - Io Canto World Tour",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-07",
+      "paths": [
+        "laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "en/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "fr/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "es/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "pt/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "de/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "nl/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "sv/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "pl/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "ja/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "zh-cn/laura-pausini-io-canto-world-tour-assago-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "en": "/en/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "fr": "/fr/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "es": "/es/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "pt": "/pt/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "de": "/de/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "nl": "/nl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "sv": "/sv/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "pl": "/pl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "ja": "/ja/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "zh-cn": "/zh-cn/blog/laura-pausini-io-canto-world-tour-assago-piacenza/"
+      }
+    },
+    "tm-zf98xzkrzea61vzup5qqkr": {
+      "event_id": "tm-Zf98xZKrZeA61vZup5QQKr",
+      "date": "2026-08-10",
+      "title": "Laura Pausini - Io Canto World Tour",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-10-06",
+      "paths": [
+        "laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "en/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "fr/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "es/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "pt/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "de/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "nl/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "sv/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "pl/laura-pausini-io-canto-world-tour-assago-piacenza.md",
+        "ja/laura-pausini-live-assago-milan-hotel-guide.md",
+        "zh-cn/laura-pausini-concert-assago-milan-hotel-guide.md"
+      ],
+      "urls": {
+        "it": "/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "en": "/en/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "fr": "/fr/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "es": "/es/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "pt": "/pt/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "de": "/de/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "nl": "/nl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "sv": "/sv/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "pl": "/pl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
+        "ja": "/ja/blog/laura-pausini-live-assago-milan-hotel-guide/",
+        "zh-cn": "/zh-cn/blog/laura-pausini-concert-assago-milan-hotel-guide/"
+      }
     }
   },
-  "focus_index": 2
+  "focus_index": 5
 }
