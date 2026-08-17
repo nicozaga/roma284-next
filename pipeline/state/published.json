@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-08-10",
+      "date": "2026-08-17",
       "title": "weekend roundup",
-      "refreshed": "2026-08-10"
+      "refreshed": "2026-08-17"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -689,7 +689,109 @@
         "ja": "/ja/blog/laura-pausini-live-assago-milan-hotel-guide/",
         "zh-cn": "/zh-cn/blog/laura-pausini-concert-assago-milan-hotel-guide/"
       }
+    },
+    "tm-z59rmiynyz1ed": {
+      "event_id": "tm-Z59rmIYnyZ1ed",
+      "date": "2026-08-17",
+      "title": "nayt: Noi Individui Tour",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-07",
+      "paths": [
+        "nayt-assago-2026-dormire-pet-friendly-piacenza.md",
+        "en/nayt-assago-2026-pet-friendly-stay-piacenza.md",
+        "fr/nayt-assago-2026-sejour-pet-friendly-piacenza.md",
+        "es/nayt-assago-2026-alojamiento-pet-friendly-piacenza.md",
+        "pt/nayt-assago-2026-estadia-pet-friendly-piacenza.md",
+        "de/nayt-assago-2026-tierfreundlich-uebernachten-piacenza.md",
+        "nl/nayt-assago-2026-huisdiervriendelijk-overnachten-piacenza.md",
+        "sv/nayt-assago-2026-husdjursvanligt-boende-piacenza.md",
+        "pl/nayt-assago-2026-nocleg-przyjazny-zwierzetom-piacenza.md",
+        "ja/nayt-assago-2026-pet-friendly-piacenza.md",
+        "zh-cn/nayt-assago-2026-pet-friendly-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/nayt-assago-2026-dormire-pet-friendly-piacenza/",
+        "en": "/en/blog/nayt-assago-2026-pet-friendly-stay-piacenza/",
+        "fr": "/fr/blog/nayt-assago-2026-sejour-pet-friendly-piacenza/",
+        "es": "/es/blog/nayt-assago-2026-alojamiento-pet-friendly-piacenza/",
+        "pt": "/pt/blog/nayt-assago-2026-estadia-pet-friendly-piacenza/",
+        "de": "/de/blog/nayt-assago-2026-tierfreundlich-uebernachten-piacenza/",
+        "nl": "/nl/blog/nayt-assago-2026-huisdiervriendelijk-overnachten-piacenza/",
+        "sv": "/sv/blog/nayt-assago-2026-husdjursvanligt-boende-piacenza/",
+        "pl": "/pl/blog/nayt-assago-2026-nocleg-przyjazny-zwierzetom-piacenza/",
+        "ja": "/ja/blog/nayt-assago-2026-pet-friendly-piacenza/",
+        "zh-cn": "/zh-cn/blog/nayt-assago-2026-pet-friendly-piacenza/"
+      }
+    },
+    "tm-z59rmiynyz1vf": {
+      "event_id": "tm-Z59rmIYnyZ1vF",
+      "date": "2026-08-17",
+      "title": "FEDEZ – CASA 360°",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-25",
+      "paths": [
+        "fedez-assago-2026-dormire-piacenza.md",
+        "en/fedez-assago-2026-where-to-stay-piacenza.md",
+        "fr/fedez-assago-2026-ou-dormir-plaisance.md",
+        "es/fedez-assago-2026-donde-alojarse-piacenza.md",
+        "pt/fedez-assago-2026-onde-ficar-piacenza.md",
+        "de/fedez-assago-2026-uebernachten-piacenza.md",
+        "nl/fedez-assago-2026-overnachten-piacenza.md",
+        "sv/fedez-assago-2026-bo-piacenza.md",
+        "pl/fedez-assago-2026-nocleg-piacenza.md",
+        "ja/fedez-assago-2026-where-to-stay-piacenza.md",
+        "zh-cn/fedez-assago-2026-where-to-stay-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/fedez-assago-2026-dormire-piacenza/",
+        "en": "/en/blog/fedez-assago-2026-where-to-stay-piacenza/",
+        "fr": "/fr/blog/fedez-assago-2026-ou-dormir-plaisance/",
+        "es": "/es/blog/fedez-assago-2026-donde-alojarse-piacenza/",
+        "pt": "/pt/blog/fedez-assago-2026-onde-ficar-piacenza/",
+        "de": "/de/blog/fedez-assago-2026-uebernachten-piacenza/",
+        "nl": "/nl/blog/fedez-assago-2026-overnachten-piacenza/",
+        "sv": "/sv/blog/fedez-assago-2026-bo-piacenza/",
+        "pl": "/pl/blog/fedez-assago-2026-nocleg-piacenza/",
+        "ja": "/ja/blog/fedez-assago-2026-where-to-stay-piacenza/",
+        "zh-cn": "/zh-cn/blog/fedez-assago-2026-where-to-stay-piacenza/"
+      }
+    },
+    "tm-z498xzkrzek6v6dzq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6v6dZQ5jrb2j",
+      "date": "2026-08-17",
+      "title": "Melanie Martinez – HADES: THE SACRIFICE - Posti riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-17",
+      "paths": [
+        "melanie-martinez-assago-2026-dormire-piacenza.md",
+        "en/melanie-martinez-assago-2026-where-to-stay-piacenza.md",
+        "fr/melanie-martinez-assago-2026-ou-dormir-plaisance.md",
+        "es/melanie-martinez-assago-2026-donde-alojarse-piacenza.md",
+        "pt/melanie-martinez-assago-2026-onde-ficar-piacenza.md",
+        "de/melanie-martinez-assago-2026-uebernachten-piacenza.md",
+        "nl/melanie-martinez-assago-2026-overnachten-piacenza.md",
+        "sv/melanie-martinez-assago-2026-bo-piacenza.md",
+        "pl/melanie-martinez-assago-2026-nocleg-piacenza.md",
+        "ja/melanie-martinez-assago-2026-where-to-stay-piacenza.md",
+        "zh-cn/melanie-martinez-assago-2026-where-to-stay-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/melanie-martinez-assago-2026-dormire-piacenza/",
+        "en": "/en/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/",
+        "fr": "/fr/blog/melanie-martinez-assago-2026-ou-dormir-plaisance/",
+        "es": "/es/blog/melanie-martinez-assago-2026-donde-alojarse-piacenza/",
+        "pt": "/pt/blog/melanie-martinez-assago-2026-onde-ficar-piacenza/",
+        "de": "/de/blog/melanie-martinez-assago-2026-uebernachten-piacenza/",
+        "nl": "/nl/blog/melanie-martinez-assago-2026-overnachten-piacenza/",
+        "sv": "/sv/blog/melanie-martinez-assago-2026-bo-piacenza/",
+        "pl": "/pl/blog/melanie-martinez-assago-2026-nocleg-piacenza/",
+        "ja": "/ja/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/",
+        "zh-cn": "/zh-cn/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/"
+      }
     }
   },
-  "focus_index": 5
+  "focus_index": 1
 }
