@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-08-17",
+      "date": "2026-08-24",
       "title": "weekend roundup",
-      "refreshed": "2026-08-17"
+      "refreshed": "2026-08-24"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -791,7 +791,41 @@
         "ja": "/ja/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/",
         "zh-cn": "/zh-cn/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/"
       }
+    },
+    "tm-zg9rmiynyzeaa1": {
+      "event_id": "tm-ZG9rmIYnyZeAa1",
+      "date": "2026-08-24",
+      "title": "Melanie Martinez - HADES: THE SACRIFICE",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-09-17",
+      "paths": [
+        "melanie-martinez-unipol-forum-assago-piacenza.md",
+        "en/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "fr/melanie-martinez-unipol-forum-assago-plaisance.md",
+        "es/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "pt/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "de/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "nl/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "sv/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "pl/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "ja/melanie-martinez-unipol-forum-assago-piacenza.md",
+        "zh-cn/melanie-martinez-unipol-forum-assago-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "en": "/en/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "fr": "/fr/blog/melanie-martinez-unipol-forum-assago-plaisance/",
+        "es": "/es/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "pt": "/pt/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "de": "/de/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "nl": "/nl/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "sv": "/sv/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "pl": "/pl/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "ja": "/ja/blog/melanie-martinez-unipol-forum-assago-piacenza/",
+        "zh-cn": "/zh-cn/blog/melanie-martinez-unipol-forum-assago-piacenza/"
+      }
     }
   },
-  "focus_index": 1
+  "focus_index": 2
 }

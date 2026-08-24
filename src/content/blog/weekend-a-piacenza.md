@@ -1,28 +1,32 @@
 ---
-title: "Il weekend a Piacenza: concerti e cultura nei dintorni"
-description: "Tra fine agosto e inizio settembre: Tyler, The Creator a Rho, Gianni Morandi a Vigevano e il Festival della Bellezza a Milano. Piacenza, base comoda in treno."
-pubDate: 2026-08-17
+title: "Il weekend a Piacenza: festival, mercatino e concerti"
+description: "Weekend a Piacenza tra il Radio Sound Party, il Val Tidone Festival e il mercatino di Via Roma, con i concerti internazionali di Milano a portata di treno."
+pubDate: 2026-08-24
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Tra fine agosto e i primi giorni di settembre l'area tra Milano e la bassa lombarda si anima con concerti internazionali e appuntamenti culturali. Ecco le segnalazioni della settimana, comode da raggiungere restando a Piacenza.
+Tra fine agosto e i primi giorni di settembre Piacenza si anima con musica dal vivo e mercatini, mentre a poca distanza in treno l'hinterland milanese ospita alcuni dei nomi più attesi dell'anno. Ecco le segnalazioni della settimana.
 
 ## Concerti e musica
 
-**GEESE - Unaltrofestival 2026** — mercoledì 19 agosto, Circolo Magnolia, Segrate (Milano). Una delle band indie rock più chiacchierate del momento sul palco del festival milanese, per chi ama scoprire live la scena emergente.
+**Tyler, The Creator** — martedì 25 agosto, Fiera Milano Live, Rho. Ultima chiamata per una delle date hip hop più attese dell'estate, in uno degli spazi live più capienti dell'hinterland milanese.
 
-**Tyler, The Creator** — martedì 25 agosto, Fiera Milano Live, Rho. Una delle tappe italiane più attese dell'estate per gli amanti dell'hip hop internazionale, in uno degli spazi live più capienti dell'hinterland milanese.
+**Radio Sound Party** — venerdì 28 - domenica 30 agosto, Piacenza. La storica radio locale festeggia 50 anni con un evento a ingresso gratuito, tre giorni di musica per tutta la città.
 
-**Gianni Morandi - "C'era un ragazzo" Estate 2026** — mercoledì 2 settembre, Castello Visconteo-Sforzesco, Vigevano. Il tour estivo di uno degli artisti più amati della musica italiana, in una cornice scenografica come il castello vigevanese.
+**Val Tidone Festival** — fino al 16 ottobre, Piacenza. La kermesse musicale diffusa continua a portare live in giro per il territorio piacentino nelle prossime settimane.
 
-## Cultura e mostre
+**Tendenze Festival** — venerdì 4 - domenica 6 settembre, Piacenza. Tre giorni di musica dal vivo per l'appuntamento storico di inizio settembre.
 
-**Igor Sibaldi - "Sensazioni e sentimenti e la vera storia di Adamo ed Eva" | Festival della Bellezza 2026** — lunedì 31 agosto, Castello Sforzesco, Milano. Un appuntamento di riflessione e approfondimento nell'ambito di uno dei festival culturali più seguiti dell'estate milanese.
+Pochi giorni dopo, tra Milano e l'hinterland, si concentrano diversi grandi nomi internazionali: **JOJI: Solaris** (3 settembre, Unipol Forum, Assago), **Hermanos Gutiérrez** (3 settembre, Teatro degli Arcimboldi, Milano) ed **ECCA VANDAL** (3 settembre, Santeria Toscana 31, Milano); **Diljit Dosanjh - Aura World Tour** (5 settembre, Unipol Forum, Assago) e **KRS-One** (5 settembre, Main Club, Milano); **David Guetta** (6 settembre, Ippodromo SNAI San Siro) e **CA7RIEL & Paco Amoroso** (7 settembre, Alcatraz, Milano); infine **Emma** (9 settembre, Ippodromo SNAI San Siro). Per orientarsi tra le date può tornare utile la [guida agli eventi a Piacenza e dintorni](/eventi-milano/).
 
-## Dove dormire per non perdersi nulla
+## Fiere
 
-Con appuntamenti che si susseguono tra Rho, Segrate, Milano e Vigevano, avere una base stabile aiuta a muoversi senza stress: Piacenza è comodamente collegata a Milano in treno, con la stazione a due passi dal centro storico. Per organizzare gli spostamenti può essere utile la guida su [come muoversi tra Piacenza e Milano](/come-arrivare/), oltre all'approfondimento su [dove dormire vicino a Milano](/dormire-vicino-milano/) restando fuori dal traffico e dai prezzi del capoluogo.
+**Via Roma Street Market** — domenica 6 settembre, Via Roma, Piacenza. L'appuntamento mensile con hobbistica, oggettistica e libri, ogni prima domenica del mese; nel calendario completo delle [fiere e mercatini](/fiere/) si trovano anche le prossime date.
 
-Roma284 è un appartamento nel cuore del centro storico di Piacenza, a pochi passi dalla stazione: self check-in con smart lock per orari flessibili, WiFi in fibra per lavorare senza pensieri, patio privato per rilassarsi al ritorno da un concerto e cucina attrezzata per chi preferisce non uscire ogni sera. È pet-friendly, animali sempre benvenuti senza costi aggiuntivi. Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali: [prenota il soggiorno](/prenota/) e organizza il tuo giro di concerti ed eventi con una base comoda e tranquilla.
+## In città
+
+Con appuntamenti che si susseguono tra Piacenza, Assago e Milano, avere una base stabile aiuta a muoversi senza pensieri: la città è comodamente collegata a Milano in treno, con la stazione a due passi dal centro storico. Utile anche la guida su [come arrivare e muoversi](/come-arrivare/) per organizzare gli spostamenti.
+
+Roma284 è un appartamento nel cuore del centro storico di Piacenza, a pochi passi dalla stazione: self check-in con smart lock per orari flessibili, WiFi in fibra per lavorare senza pensieri, patio privato per rilassarsi al rientro da un concerto e cucina attrezzata per chi preferisce non uscire ogni sera. È pet-friendly, animali sempre benvenuti senza costi aggiuntivi. Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali: [prenota il soggiorno](/prenota/) e organizza il tuo weekend tra musica, mercatini e concerti con una base comoda e tranquilla.
