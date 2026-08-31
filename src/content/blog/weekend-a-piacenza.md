@@ -1,32 +1,36 @@
 ---
-title: "Il weekend a Piacenza: festival, mercatino e concerti"
-description: "Weekend a Piacenza tra il Radio Sound Party, il Val Tidone Festival e il mercatino di Via Roma, con i concerti internazionali di Milano a portata di treno."
-pubDate: 2026-08-24
+title: "Weekend a Piacenza: sagre, mercatini e concerti a Milano"
+description: "Dal 4 al 6 settembre a Piacenza: Tendenza Festival, la Festa di settembre e lo Sbaracco. A un passo da Milano anche i concerti di David Guetta e Diljit Dosanjh."
+pubDate: 2026-08-31
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Tra fine agosto e i primi giorni di settembre Piacenza si anima con musica dal vivo e mercatini, mentre a poca distanza in treno l'hinterland milanese ospita alcuni dei nomi più attesi dell'anno. Ecco le segnalazioni della settimana.
+Il weekend del 4-6 settembre porta a Piacenza musica dal vivo, la sagra di quartiere e le vendite di fine stagione in centro, mentre a Milano si accendono i grandi concerti all'aperto. Ecco cosa segnare in agenda.
 
 ## Concerti e musica
 
-**Tyler, The Creator** — martedì 25 agosto, Fiera Milano Live, Rho. Ultima chiamata per una delle date hip hop più attese dell'estate, in uno degli spazi live più capienti dell'hinterland milanese.
+**Tendenza Festival** — dal 4 al 6 settembre, Piacenza. Tre giorni di musica dal vivo con lo storico festival che apre settembre in città: un buon motivo per restare in centro anche di sera.
 
-**Radio Sound Party** — venerdì 28 - domenica 30 agosto, Piacenza. La storica radio locale festeggia 50 anni con un evento a ingresso gratuito, tre giorni di musica per tutta la città.
+**Val Tidone Festival** — in corso fino al 16 ottobre, Piacenza e Val Tidone. La kermesse musicale diffusa tra la città e la valle prosegue per tutta la stagione, comoda da abbinare a una gita fuori porta.
 
-**Val Tidone Festival** — fino al 16 ottobre, Piacenza. La kermesse musicale diffusa continua a portare live in giro per il territorio piacentino nelle prossime settimane.
+**David Guetta – I-Days Milano Coca-Cola 2026** — 6 settembre, Ippodromo SNAI San Siro, Milano. Uno degli appuntamenti clou dell'estate milanese, per chi vuole unire il weekend piacentino a una serata di musica elettronica.
 
-**Tendenze Festival** — venerdì 4 - domenica 6 settembre, Piacenza. Tre giorni di musica dal vivo per l'appuntamento storico di inizio settembre.
+**Diljit Dosanjh – Aura World Tour** — 5 settembre, Unipol Forum, Assago. Data italiana del tour mondiale dell'artista punjabi, altro grande nome di passaggio nell'area milanese in questi giorni.
 
-Pochi giorni dopo, tra Milano e l'hinterland, si concentrano diversi grandi nomi internazionali: **JOJI: Solaris** (3 settembre, Unipol Forum, Assago), **Hermanos Gutiérrez** (3 settembre, Teatro degli Arcimboldi, Milano) ed **ECCA VANDAL** (3 settembre, Santeria Toscana 31, Milano); **Diljit Dosanjh - Aura World Tour** (5 settembre, Unipol Forum, Assago) e **KRS-One** (5 settembre, Main Club, Milano); **David Guetta** (6 settembre, Ippodromo SNAI San Siro) e **CA7RIEL & Paco Amoroso** (7 settembre, Alcatraz, Milano); infine **Emma** (9 settembre, Ippodromo SNAI San Siro). Per orientarsi tra le date può tornare utile la [guida agli eventi a Piacenza e dintorni](/eventi-milano/).
+**JOJI: SOLARIS** — 3 settembre, Unipol Forum, Assago. Per chi anticipa il weekend, l'artista giapponese apre la sua tappa italiana proprio a ridosso di Milano.
 
-## Fiere
+Chi arriva per questi eventi trova comodo appoggiarsi a Piacenza e spostarsi comodamente in treno verso Milano: qualche indicazione utile nella guida su [dove alloggiare vicino a Milano](/dormire-vicino-milano/).
 
-**Via Roma Street Market** — domenica 6 settembre, Via Roma, Piacenza. L'appuntamento mensile con hobbistica, oggettistica e libri, ogni prima domenica del mese; nel calendario completo delle [fiere e mercatini](/fiere/) si trovano anche le prossime date.
+## Food e sagre
+
+**Festa di settembre** — dal 4 al 6 settembre, Parrocchia del Preziosissimo Sangue, Piacenza. La classica sagra parrocchiale di inizio autunno, tra stand gastronomici e socialità di quartiere.
 
 ## In città
 
-Con appuntamenti che si susseguono tra Piacenza, Assago e Milano, avere una base stabile aiuta a muoversi senza pensieri: la città è comodamente collegata a Milano in treno, con la stazione a due passi dal centro storico. Utile anche la guida su [come arrivare e muoversi](/come-arrivare/) per organizzare gli spostamenti.
+**Via Roma Street Market** — 6 settembre, Via Roma, Piacenza. Il mercatino di hobbistica, oggettistica e libri che torna ogni prima domenica del mese, a pochi passi dall'appartamento.
 
-Roma284 è un appartamento nel cuore del centro storico di Piacenza, a pochi passi dalla stazione: self check-in con smart lock per orari flessibili, WiFi in fibra per lavorare senza pensieri, patio privato per rilassarsi al rientro da un concerto e cucina attrezzata per chi preferisce non uscire ogni sera. È pet-friendly, animali sempre benvenuti senza costi aggiuntivi. Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali: [prenota il soggiorno](/prenota/) e organizza il tuo weekend tra musica, mercatini e concerti con una base comoda e tranquilla.
+**La domenica dello Sbaracco** — 6 settembre, Piacenza. I negozi del centro svuotano le vetrine di fine stagione: una buona occasione per unire shopping e passeggiata nel centro storico.
+
+Con così tanto in programma tra Piacenza e Milano, avere una base nel cuore della città aiuta a muoversi senza pensieri: Roma284 è nel centro storico, a due passi dalla stazione, con patio privato, cucina attrezzata e WiFi in fibra per chi lavora anche in trasferta. Gli animali sono sempre benvenuti gratis e il self check-in con smart lock permette di arrivare con i propri orari. Per il weekend o per qualche notte in più, trovi tutti gli appuntamenti aggiornati nella [pagina eventi](/eventi-milano/) e i dettagli per arrivare nella guida su [come arrivare a Piacenza](/come-arrivare/). Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali: [prenota il soggiorno](/prenota/).
