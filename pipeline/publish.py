@@ -1,8 +1,10 @@
 """Orchestratore settimanale roma284.
 
 Per ogni run (lunedì mattina):
-  1) fino a N grandi eventi INTERNAZIONALI nuovi → articolo pieno in 11 lingue
-     (con rotazione della caratteristica appartamento in primo piano);
+  1) fino a N grandi eventi INTERNAZIONALI nuovi → articolo pieno nelle lingue
+     previste dal profilo del tipo di evento (vedi common/locale_profiles.py:
+     fiere 11 lingue, concerti IT+EN), con rotazione della caratteristica
+     appartamento in primo piano;
   2) un ROUNDUP "Il prossimo weekend a Piacenza" (solo IT, URL evergreen) con gli
      eventi locali del periodo (i minori confluiscono qui, non diventano articoli singoli).
 
@@ -18,6 +20,7 @@ from pathlib import Path
 from pipeline import config, lifecycle
 from pipeline.common import state as state_mod
 from pipeline.common.events import dedup, future_only, sort_for_selection, sort_for_big_selection
+from pipeline.common.locale_profiles import locales_for_event
 from pipeline.common.site_facts import FEATURES_ROTATION
 from pipeline.llm.client import get_backend
 from pipeline.writer.run import build_article_set, translation_key_for, _eligible
@@ -69,8 +72,10 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
     big_keys = set()
     for ev in big:
         focus = state_mod.next_focus(state, FEATURES_ROTATION)
+        locales = locales_for_event(ev)
         try:
-            tkey, pub_date, results, errors = build_article_set(backend, ev, focus_feature=focus)
+            tkey, pub_date, results, errors = build_article_set(
+                backend, ev, target_locales=locales, focus_feature=focus)
         except Exception as e:  # noqa: BLE001
             print(f"✗ grande «{ev.get('title','?')}»: {e}")
             skipped += 1
@@ -92,7 +97,8 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
                                           redirects_file=config.REDIRECTS_FILE,
                                           public_dir=config.PUBLIC_DIR)
         written += 1
-        print(f"✓ GRANDE «{ev.get('title','?')}» — 11 lingue (focus: {focus})")
+        print(f"✓ GRANDE «{ev.get('title','?')}» — {len(locales)} lingue "
+              f"({','.join(locales)}) (focus: {focus})")
 
     # 2) Roundup settimanale (solo IT) dagli eventi locali vicini
     near = [e for e in events if _near(e, ROUNDUP_WINDOW_DAYS)
