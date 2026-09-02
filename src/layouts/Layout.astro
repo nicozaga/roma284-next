@@ -234,8 +234,39 @@ const clarityId = SITE.clarityId;
           document.body.appendChild(s);
         });
       };
-      document.addEventListener("astro:page-load", ensureLodgifyWidgets);
+      // Lodgify scrive le date scelte in formato ISO ("2026-09-24"): le
+      // riscriviamo nella forma locale ("24 set 2026"). Non è possibile via CSS
+      // (il testo è contenuto, non stile). L'observer rimette a posto il testo
+      // se il widget si ri-renderizza; non cicla, perché dopo la riscrittura la
+      // stringa non è più ISO e la regex non matcha.
+      const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
+      const localizeLodgifyDates = (root) => {
+        root.querySelectorAll('[data-testid^="book-now-box.date-picker.trigger.section"]')
+          .forEach((el) => {
+            const m = ISO_DATE.exec(el.textContent.trim());
+            if (!m) return;
+            const d = new Date(+m[1], +m[2] - 1, +m[3]);
+            if (isNaN(d)) return;
+            el.textContent = d.toLocaleDateString(document.documentElement.lang || "it", {
+              day: "numeric", month: "short", year: "numeric",
+            });
+          });
+      };
+      const watchLodgifyDates = () => {
+        const box = document.getElementById("lodgify-book-now-box");
+        if (!box || box.dataset.datesWatched) return;
+        box.dataset.datesWatched = "1";
+        localizeLodgifyDates(box);
+        new MutationObserver(() => localizeLodgifyDates(box)).observe(box, {
+          childList: true, subtree: true, characterData: true,
+        });
+      };
+      document.addEventListener("astro:page-load", () => {
+        ensureLodgifyWidgets();
+        watchLodgifyDates();
+      });
       ensureLodgifyWidgets();
+      watchLodgifyDates();
     </script>
 
     {/* Tracking eventi GA4 — dispatcher centrale via delega su document.

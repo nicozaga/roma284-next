@@ -185,6 +185,24 @@ h1, h2, h3, h4, .font-display {
   width: 100%;
 }
 
+/* Ordine e gerarchia dentro il Book Now Box.
+   Lodgify mette la CTA sopra ai prezzi: la spostiamo in fondo, così si legge
+   date → ospiti → da quanto si parte → il tuo prezzo → prenota.
+   I selettori usano i data-testid del widget (stabili) e non le classi
+   generate da emotion (css-xxxxx), che cambiano a ogni loro release. */
+#lodgify-book-now-box [data-testid="book-now-box.cta-button"] {
+  order: 5;
+  margin-top: 0.85rem;
+}
+#lodgify-book-now-box [data-testid="book-now-box.minimum-price-per-night.text"] {
+  font-size: 0.8125rem;
+  color: var(--color-grigio);
+}
+#lodgify-book-now-box [data-testid="text"] {
+  font-size: 0.9375rem;
+  color: var(--color-antracite);
+}
+
 /* ============================================================
    POST BODY — stile contenuto markdown del blog (no typography plugin)
    ============================================================ */
