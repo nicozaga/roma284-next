@@ -1,0 +1,89 @@
+[
+  {
+    "key": "fiera-milano-rho",
+    "topic_it": "Dove dormire per le fiere di Fiera Milano Rho",
+    "angle": "Chi viene alle grandi fiere di Rho (Salone del Mobile, EICMA, HOST, MICAM, TuttoFood) e cerca un letto quando Milano è piena e cara. Confronta onestamente: quanto tempo serve davvero da Piacenza a Rho Fiera, come si combina treno e metro, per chi ha senso e per chi no.",
+    "category_key": "fiere",
+    "primary_link_page_key": "fairs",
+    "target_locales": ["it", "en", "fr", "es", "pt", "de", "nl", "sv", "pl", "ja", "zh-cn"],
+    "slugs": {
+      "it": "dove-dormire-fiera-milano-rho",
+      "en": "where-to-stay-fiera-milano-rho",
+      "fr": "ou-dormir-fiera-milano-rho",
+      "es": "donde-dormir-fiera-milano-rho",
+      "pt": "onde-ficar-fiera-milano-rho",
+      "de": "uebernachten-messe-mailand-rho",
+      "nl": "overnachten-beurs-milaan-rho",
+      "sv": "bo-massan-milano-rho",
+      "pl": "nocleg-targi-mediolan-rho",
+      "ja": "fiera-milano-rho-stay",
+      "zh-cn": "milan-rho-zhanhui-zhusu"
+    }
+  },
+  {
+    "key": "concerto-san-siro",
+    "topic_it": "Dove dormire per un concerto a San Siro",
+    "angle": "Chi ha un biglietto per uno stadio pieno e deve decidere dove passare la notte. Il nodo vero è il rientro dopo il concerto: ultimi treni, orari realistici, quando conviene fermarsi a Piacenza e quando invece no. Nessuna promessa su orari specifici di treni.",
+    "category_key": "eventi",
+    "primary_link_page_key": "milan-events",
+    "target_locales": ["it", "en"],
+    "slugs": {
+      "it": "dove-dormire-concerto-san-siro",
+      "en": "where-to-stay-san-siro-concert"
+    }
+  },
+  {
+    "key": "forum-assago",
+    "topic_it": "Dove dormire per un concerto al Forum di Assago",
+    "angle": "Assago è a sud di Milano, quindi la geografia è diversa da San Siro: chi arriva in auto dall'A1 se lo trova quasi sulla strada. Parla di parcheggio, rientro in serata e di chi viene da fuori regione.",
+    "category_key": "eventi",
+    "primary_link_page_key": "milan-events",
+    "target_locales": ["it", "en"],
+    "slugs": {
+      "it": "dove-dormire-forum-assago",
+      "en": "where-to-stay-forum-assago"
+    }
+  },
+  {
+    "key": "fiere-parma",
+    "topic_it": "Dove dormire per le fiere di Parma",
+    "angle": "Cibus, Cibus Tec e Mercanteinfiera portano a Parma un pubblico professionale che trova gli alberghi pieni. Piacenza è sulla stessa direttrice e a poca distanza: spiega il tragitto e per quale tipo di visitatore ha senso.",
+    "category_key": "fiere",
+    "primary_link_page_key": "fairs",
+    "target_locales": ["it", "en", "de", "fr"],
+    "slugs": {
+      "it": "dove-dormire-fiere-parma",
+      "en": "where-to-stay-parma-fairs",
+      "de": "uebernachten-messen-parma",
+      "fr": "ou-dormir-salons-parme"
+    }
+  },
+  {
+    "key": "notte-in-a1",
+    "topic_it": "Dormire una notte lungo l'A1 tra Milano e Bologna",
+    "angle": "Chi guida verso sud o verso nord e vuole spezzare il viaggio senza dormire in un motel sull'autostrada. Angolo pratico: cosa cambia a fermarsi in un centro storico invece che a un casello, cena e parcheggio inclusi. NON ripetere il contenuto della pagina dedicata alla sosta in A1: qui il taglio è il viaggio, non la struttura.",
+    "category_key": "itinerari",
+    "primary_link_page_key": "a1-stopover",
+    "target_locales": ["it", "de", "fr", "nl"],
+    "slugs": {
+      "it": "dormire-una-notte-sulla-a1",
+      "de": "uebernachtung-autobahn-a1",
+      "fr": "dormir-une-nuit-autoroute-a1",
+      "nl": "overnachten-snelweg-a1"
+    }
+  },
+  {
+    "key": "piacenza-con-il-cane",
+    "topic_it": "Dormire a Piacenza con il cane",
+    "angle": "Chi viaggia con un animale e passa metà del tempo a cercare strutture che li accettino davvero e senza supplementi. Parla del centro storico a misura di passeggiata, del patio, e di cosa serve sapere per un soggiorno con un cane in città.",
+    "category_key": "guide",
+    "primary_link_page_key": "stay-near-milan",
+    "target_locales": ["it", "en", "de", "nl"],
+    "slugs": {
+      "it": "dormire-a-piacenza-con-il-cane",
+      "en": "pet-friendly-stay-piacenza",
+      "de": "uebernachten-mit-hund-piacenza",
+      "nl": "overnachten-met-hond-piacenza"
+    }
+  }
+]

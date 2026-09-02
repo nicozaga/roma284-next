@@ -22,6 +22,7 @@ LINK_PLACEHOLDERS = {
     "{{VISIT_PIACENZA_URL}}": "visit-piacenza",
     "{{STAY_NEAR_MILAN_URL}}": "stay-near-milan",
     "{{BLOG_URL}}": "blog",
+    "{{A1_STOPOVER_URL}}": "a1-stopover",
 }
 
 

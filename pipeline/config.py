@@ -43,6 +43,12 @@ EVENT_LOOKAHEAD_DAYS = int(os.environ.get("EVENT_LOOKAHEAD_DAYS", "120"))
 # coperto dal roundup settimanale, che ha URL evergreen già indicizzato).
 EVENT_MIN_LEAD_DAYS = int(os.environ.get("EVENT_MIN_LEAD_DAYS", "21"))
 
+# --- Guide evergreen "dove dormire per X" ---
+# Quante guide riscrivere per run (sono poche e si rinfrescano a rotazione).
+STAY_GUIDE_CAP_PER_RUN = int(os.environ.get("STAY_GUIDE_CAP_PER_RUN", "1"))
+# Dopo quanti giorni una guida è considerata da rinfrescare.
+STAY_GUIDE_REFRESH_DAYS = int(os.environ.get("STAY_GUIDE_REFRESH_DAYS", "90"))
+
 # Lingue target (tutte per default)
 from pipeline.common.i18n import LOCALES  # noqa: E402
 TARGET_LOCALES = LOCALES

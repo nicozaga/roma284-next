@@ -48,6 +48,19 @@ FEATURES_ROTATION = [
     "la posizione nel centro storico, a 9 minuti a piedi dalla stazione",
 ]
 
+# Stile delle guide evergreen "Dove dormire per X" (intento alloggio, non evento).
+STAY_GUIDE_STYLE = """\
+STILE GUIDA "DOVE DORMIRE PER X":
+- ~350-450 parole. Tono di chi risponde a un amico che deve decidere dove dormire, non di chi vende.
+- NIENTE titolo H1 nel corpo. 3-4 sezioni con intestazioni "##".
+- Rispondi presto alla domanda pratica (quanto dista, quanto ci vuole, come ci si arriva).
+- Sii ONESTO sui limiti: di' anche per chi questa soluzione NON e' comoda. Una guida che
+  ammette un limite viene creduta; una che promette tutto no.
+- NON duplicare la pagina del sito a cui rimandi: quella e' la scheda, questa e' la guida.
+- Non inventare orari di treni, prezzi di biglietti, date o servizi non forniti.
+- Chiudi con una lista "## In sintesi" (3-5 punti) e UNA frase di CTA soft verso la disponibilita'.
+"""
+
 # Stile del roundup settimanale "Il prossimo weekend a Piacenza" (solo IT).
 ROUNDUP_STYLE = """\
 STILE ROUNDUP "IL PROSSIMO WEEKEND A PIACENZA" (solo italiano):

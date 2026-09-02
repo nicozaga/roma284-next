@@ -379,10 +379,78 @@ def test_locale_profiles():
     rc = publish.run_weekly(str(evfile), engine="mock", model="sonnet",
                             dry_run=True, out=str(out), cap_big=1)
     check("orchestratore concerto rc=0", rc == 0)
-    mds = sorted(q.relative_to(out).as_posix() for q in out.rglob("*.md"))
+    # Nello stesso run l'orchestratore scrive anche una guida evergreen: qui
+    # contiamo solo i file dell'articolo-concerto.
+    mds = sorted(q.relative_to(out).as_posix() for q in out.rglob("*.md")
+                 if "concertone" in q.name)
     check(f"concerto: solo 2 lingue ({mds})", len(mds) == 2)
     check("concerto: master IT in radice", any("/" not in m for m in mds))
     check("concerto: traduzione EN in en/", any(m.startswith("en/") for m in mds))
+
+
+def test_stay_guides():
+    """Guide evergreen: slug pinnati, stabili al refresh e senza collisioni."""
+    from pipeline.llm.client import MockBackend
+    from pipeline.writer import stay_guides as sg
+
+    topics = sg.load_topics()
+    check("guide: elenco topic non vuoto", len(topics) > 0)
+
+    # Ogni topic deve avere uno slug per OGNI lingua che dichiara di voler coprire:
+    # senza, ricadrebbe sull'italiano e due lingue avrebbero lo stesso URL.
+    mancanti = [(t["key"], loc) for t in topics for loc in sg.topic_locales(t)
+                if loc not in (t.get("slugs") or {})]
+    check(f"guide: slug presenti per tutte le lingue dichiarate ({mancanti})", not mancanti)
+
+    # Nessuna collisione di slug fra topic diversi nella stessa lingua.
+    visti, collisioni = {}, []
+    for t in topics:
+        for loc in sg.topic_locales(t):
+            k = (loc, sg.slug_for(t, loc))
+            if k in visti:
+                collisioni.append((k, visti[k], t["key"]))
+            visti[k] = t["key"]
+    check(f"guide: nessuna collisione di slug ({collisioni})", not collisioni)
+
+    check("guide: translationKey con prefisso dedicato",
+          sg.translation_key_for_topic({"key": "foo"}) == "stay-guide-foo")
+
+    backend = MockBackend()
+    topic = topics[0]
+    tkey, pub, results, errors = sg.build_stay_guide_set(backend, topic, pub_date="2026-01-01")
+    check(f"guide: nessun errore di validazione ({errors[:3]})", not errors)
+    check("guide: una lingua per ogni locale del topic",
+          len(results) == len(sg.topic_locales(topic)))
+    check("guide: master IT senza prefisso lingua nel path",
+          any(loc == "it" and "/" not in rel.split("blog/")[-1] for loc, rel, _c, _s in results))
+
+    # Refresh: rigenerando lo stesso topic gli slug NON devono cambiare, altrimenti
+    # il file vecchio resterebbe orfano (il lifecycle non copre le guide).
+    _t2, _p2, results2, _e2 = sg.build_stay_guide_set(backend, topic, pub_date="2026-06-01")
+    check("guide: slug stabili fra due generazioni",
+          [r[3] for r in results] == [r[3] for r in results2])
+    check("guide: path stabili fra due generazioni",
+          [r[1] for r in results] == [r[1] for r in results2])
+
+    # Il corpo deve rimandare alla pagina commerciale del topic, non solo a /prenota.
+    from pipeline.common.i18n import localized_path
+    it_body = next(c for loc, _r, c, _s in results if loc == "it")
+    target = localized_path(topic["primary_link_page_key"], "it")
+    check(f"guide: link alla money page {target} presente nel corpo IT",
+          f"]({target})" in it_body)
+
+
+def test_stay_guide_in_orchestrator():
+    """L'orchestratore scrive la guida dovuta e non tocca il lifecycle."""
+    out = ROOT / "pipeline" / "_out" / "orch_guide"
+    evfile = ROOT / "pipeline" / "_out" / "orch_guide_events.json"
+    evfile.parent.mkdir(parents=True, exist_ok=True)
+    evfile.write_text("[]", encoding="utf-8")
+    rc = publish.run_weekly(str(evfile), engine="mock", model="sonnet",
+                            dry_run=True, out=str(out), cap_big=1)
+    check("orchestratore guide rc=0", rc == 0)
+    mds = list(out.rglob("*.md"))
+    check(f"orchestratore: guida scritta ({len(mds)} file)", len(mds) > 0)
 
 
 def main():
@@ -392,7 +460,8 @@ def main():
                test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
                test_parse_json_robust, test_translations_batched,
                test_resolve_links_wrapping, test_validator_bare_paths,
-               test_big_selection_prefers_lead, test_locale_profiles, test_lifecycle):
+               test_big_selection_prefers_lead, test_locale_profiles,
+               test_stay_guides, test_stay_guide_in_orchestrator, test_lifecycle):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")
