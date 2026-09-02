@@ -5,6 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import JsonLd from "@components/JsonLd.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import RelatedLinks from "@components/RelatedLinks.astro";
+import StayCta from "@components/StayCta.astro";
 
 import { DEFAULT_LOCALE, LOCALE_META, type Locale } from "@i18n/config";
 import { localizedPath } from "@i18n/utils";
@@ -89,6 +90,8 @@ const fmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: 
       <Content />
     </div>
   </article>
+
+  <StayCta locale={locale} />
 
   <RelatedLinks
     locale={locale}

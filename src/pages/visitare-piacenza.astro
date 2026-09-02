@@ -4,7 +4,7 @@ import JsonLd from "@components/JsonLd.astro";
 import PageHero from "@components/PageHero.astro";
 import ContentSection from "@components/ContentSection.astro";
 import RelatedLinks from "@components/RelatedLinks.astro";
-import BookingWidget from "@components/BookingWidget.astro";
+import StayCta from "@components/StayCta.astro";
 
 import type { Locale } from "@i18n/config";
 import { localizedPath } from "@i18n/utils";
@@ -398,7 +398,7 @@ const schema = [
     </div>
   </ContentSection>
 
-  <BookingWidget locale={locale} title={C.bookTitle} subtitle={C.bookSub} />
+  <StayCta locale={locale} />
 
   <RelatedLinks locale={locale} items={C.rel as any} />
 </Layout>

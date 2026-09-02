@@ -89,7 +89,7 @@ const clarityId = SITE.clarityId;
 
     {/* GA4 con Consent Mode default DENIED (GDPR-safe).
         Il banner cookie (Settimana 5) farà l'update del consenso. */}
-    <script is:inline define:vars={{ ga: SITE.ga4 }}>
+    <script is:inline define:vars={{ ga: SITE.ga4, pageKey: page, loc: locale }}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
       window.gtag = gtag;
@@ -114,9 +114,22 @@ const clarityId = SITE.clarityId;
           window.__r284Consent = "granted";
         }
       } catch (e) {}
+      // Contesto di pagina allegato a OGNI evento (custom dimension in GA4).
+      // Aggiornato ad ogni navigazione client-side (View Transitions) dal
+      // dispatcher più in basso, che rilegge questi valori dal DOM.
+      window.__r284PageKey = pageKey;
+      window.__r284Locale = loc;
       // Helper unico per gli eventi custom (no-op se gtag non c'è).
       window.track = function (name, params) {
-        try { window.gtag("event", name, params || {}); } catch (e) {}
+        try {
+          var base = {
+            page_key: window.__r284PageKey || "",
+            locale: window.__r284Locale || document.documentElement.lang || "",
+          };
+          var merged = params || {};
+          for (var k in base) { if (!(k in merged)) merged[k] = base[k]; }
+          window.gtag("event", name, merged);
+        } catch (e) {}
       };
     </script>
     <script
@@ -125,7 +138,7 @@ const clarityId = SITE.clarityId;
       src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}
     ></script>
   </head>
-  <body>
+  <body data-page-key={page} data-locale={locale}>
     <a
       href="#main"
       class="sr-only rounded-full bg-terracotta px-4 py-2 text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
@@ -216,12 +229,43 @@ const clarityId = SITE.clarityId;
       (function () {
         var T = function (n, p) { if (window.track) window.track(n, p); };
 
+        // checkout_open può essere intercettato da due strade (link o window.open):
+        // dedup a finestra breve, così l'evento resta uno solo per apertura.
+        var checkoutOpen = function (via) {
+          var now = Date.now();
+          if (window.__r284CheckoutAt && now - window.__r284CheckoutAt < 1500) return;
+          window.__r284CheckoutAt = now;
+          T("checkout_open", { via: via });
+        };
+
+        // Il widget Lodgify apre il checkout in una nuova scheda: intercettiamo
+        // window.open in sola lettura per misurare l'intento di prenotazione.
+        // Non modifica né l'URL né il comportamento (delega sempre all'originale).
+        if (!window.__r284CheckoutHooked) {
+          window.__r284CheckoutHooked = true;
+          var _open = window.open;
+          window.open = function (url) {
+            try {
+              if (typeof url === "string" && url.indexOf("checkout.lodgify.com") !== -1) {
+                checkoutOpen("window_open");
+              }
+            } catch (e) {}
+            return _open.apply(window, arguments);
+          };
+        }
+
         // --- Click delegation (una sola volta su document) ---
         if (!window.__r284ClickBound) {
           window.__r284ClickBound = true;
           document.addEventListener("click", function (e) {
             var t = e.target;
             if (!t || !t.closest) return;
+
+            // 0) Apertura del checkout Lodgify (se esposto come <a>).
+            //    NB: non tocchiamo data-checkout-page-url (vedi PROJECT.md §8):
+            //    osserviamo soltanto, senza alterare l'URL di destinazione.
+            var checkoutLink = t.closest('a[href*="checkout.lodgify.com"]');
+            if (checkoutLink) { checkoutOpen("link"); return; }
 
             // 1) Elementi marcati esplicitamente
             var el = t.closest("[data-evt]");
@@ -262,6 +306,14 @@ const clarityId = SITE.clarityId;
         // --- Per-pagina: reset flag + view observer + scroll depth ---
         function setupPage() {
           window.__r284BookingInteract = false;
+
+          // Contesto di pagina: riletto dal <body> ad ogni navigazione, perché
+          // lo script inline nel <head> non viene rieseguito con le View Transitions.
+          var b = document.body;
+          if (b) {
+            window.__r284PageKey = b.dataset.pageKey || window.__r284PageKey || "";
+            window.__r284Locale = b.dataset.locale || document.documentElement.lang || "";
+          }
 
           // Eventi "view" (es. booking_widget_view)
           var views = document.querySelectorAll("[data-evt-view]");

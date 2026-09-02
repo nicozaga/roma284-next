@@ -179,7 +179,9 @@ def test_orchestrator_mock():
     evfile.parent.mkdir(parents=True, exist_ok=True)
     t = datetime.date.today()
     days = datetime.timedelta
-    big = make_event(title="Concertone internazionale", type="concert", venue="Stadio San Siro",
+    # Fiera internazionale: profilo lingue pieno (11). Per il profilo ridotto
+    # dei concerti vedi test_locale_profiles.
+    big = make_event(title="EICMA 2026", type="fair", venue="Fiera Milano Rho",
                      city="Milano", start_date=(t + days(30)).isoformat())
     near = make_event(title="Sagra del tortello", type="event", city="Piacenza",
                       start_date=(t + days(5)).isoformat())
@@ -189,7 +191,7 @@ def test_orchestrator_mock():
                             dry_run=True, out=str(out), cap_big=3)
     check("orchestratore rc=0", rc == 0)
     check("orchestratore: roundup scritto", (out / "weekend-a-piacenza.md").exists())
-    check("orchestratore: grande evento in 11 lingue", len(list(out.rglob("*.md"))) >= 12)
+    check("orchestratore: fiera internazionale in 11 lingue", len(list(out.rglob("*.md"))) >= 12)
 
 
 def test_web_llm_extract():
@@ -355,6 +357,34 @@ def test_big_selection_prefers_lead():
           out[0]["title"] == "Concerto lontano")
 
 
+def test_locale_profiles():
+    """Fan-out linguistico per tipo: concerti IT+EN, fiere tutte le lingue."""
+    from pipeline.common.i18n import LOCALES
+    from pipeline.common.locale_profiles import locales_for_event
+
+    check("profilo concerto = it+en", locales_for_event({"type": "concert"}) == ["it", "en"])
+    check("profilo fiera = tutte le lingue", locales_for_event({"type": "fair"}) == LOCALES)
+    check("tipo sconosciuto: fallback conservativo a tutte le lingue",
+          locales_for_event({"type": "boh"}) == LOCALES and locales_for_event({}) == LOCALES)
+
+    # End-to-end: un concerto passa dall'orchestratore e produce solo it + en.
+    out = ROOT / "pipeline" / "_out" / "orch_concert"
+    evfile = ROOT / "pipeline" / "_out" / "orch_concert_events.json"
+    evfile.parent.mkdir(parents=True, exist_ok=True)
+    t = datetime.date.today()
+    ev = make_event(title="Concertone internazionale", type="concert", venue="Stadio San Siro",
+                    city="Milano", start_date=(t + datetime.timedelta(days=30)).isoformat())
+    evfile.write_text(json.dumps([ev], ensure_ascii=False), encoding="utf-8")
+    check("concerto classificato international", ev["tier"] == "international")
+    rc = publish.run_weekly(str(evfile), engine="mock", model="sonnet",
+                            dry_run=True, out=str(out), cap_big=1)
+    check("orchestratore concerto rc=0", rc == 0)
+    mds = sorted(q.relative_to(out).as_posix() for q in out.rglob("*.md"))
+    check(f"concerto: solo 2 lingue ({mds})", len(mds) == 2)
+    check("concerto: master IT in radice", any("/" not in m for m in mds))
+    check("concerto: traduzione EN in en/", any(m.startswith("en/") for m in mds))
+
+
 def main():
     for fn in (test_dates, test_aefi, test_ticketmaster, test_seed,
                test_scout_aggregate, test_writer_mock, test_publisher_urls,
@@ -362,7 +392,7 @@ def main():
                test_local_only_languages, test_orchestrator_mock, test_web_llm_extract,
                test_parse_json_robust, test_translations_batched,
                test_resolve_links_wrapping, test_validator_bare_paths,
-               test_big_selection_prefers_lead, test_lifecycle):
+               test_big_selection_prefers_lead, test_locale_profiles, test_lifecycle):
         print(f"\n[{fn.__name__}]")
         fn()
     print(f"\n=== {_passed} check superati — TUTTO VERDE ✅ ===")
