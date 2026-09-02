@@ -40,8 +40,9 @@ Appartamento **Roma284**, Via Roma 284, 29121 Piacenza (Emilia-Romagna). Owner: 
 - Contatti: `viaroma284@gmail.com`, tel/WhatsApp `+39 347 810 4634`. **Nessun form di contatto**: solo CTA WhatsApp + mailto + tel → sito 100% statico, zero serverless.
 
 **Regole editoriali vincolanti** (valgono per umani e per la pipeline):
-- **Mai nominare Airbnb/Booking** nei testi del sito; leva commerciale soft: prenotando diretto si risparmia «fino al 15% in meno». Mai cifre in euro, mai garanzie.
-- **Niente prezzi in euro** da nessuna parte.
+- **Mai nominare Airbnb/Booking** nei testi del sito; leva commerciale soft: prenotando diretto si risparmia «fino al 15% in meno». Mai garanzie.
+- **Niente prezzi in euro nei TESTI**: né nelle pagine scritte a mano, né negli articoli generati dalla pipeline (il validatore in `pipeline/common/frontmatter.py` li rifiuta). Motivo: una cifra scritta in un testo invecchia e diventa una promessa che il calendario smentisce.
+  L'eccezione è il **widget Lodgify**, che dal 09/2026 mostra «Da X a notte» e, scelte le date, il prezzo totale reale: quelle cifre non le scriviamo noi, arrivano dal calendario e si aggiornano da sole. Vedi §8.
 - Tono morbido sul collegamento con Milano (non ripetere ovunque il claim "33 min" — commit `a6b33b7`).
 - Recensioni reali in `src/data/reviews.ts` (scala /10, fonte Booking) → emesse come schema.org `Review`. L'owner incolla i testi nuovi, non modifica il `.ts` da solo.
 
@@ -115,11 +116,16 @@ In homepage la sezione **"Ultimi dal blog"** (`src/components/home/LatestPosts.a
 
 ## 8. Booking widget (Lodgify) — ATTENZIONE
 
-`BookingWidget.astro` = `<div id="lodgify-search-bar">` + script `renderPortableSearchBar.js`. IDs in `site.ts`: `rentalId 742039`, `websiteId 624345`, `slug roma284`. Usa `data-website-id` (NON rental-id). Label localizzate via `data-*` (`LABELS` nel componente).
+`BookingWidget.astro` = `<div id="lodgify-book-now-box">` + script `renderBookNowBox.js`. IDs in `site.ts`: `rentalId 742039`, `websiteId 624345`, `slug roma284`. Label localizzate via `data-*` (`LABELS` nel componente, 11 lingue).
 
-⚠️ **Due gotcha critici**:
-1. **View Transitions**: lo script Lodgify non si riesegue sulle navigazioni client-side. Init centralizzata in `Layout.astro` su `astro:page-load` (se `#lodgify-search-bar` è vuoto, rimuove e ri-appende lo script). NON rimettere lo script nel componente.
-2. **`data-checkout-page-url`: NON modificarlo** (tentativo `?ref=roma284it` revertito, commit `178e18a`: rompeva il flusso). Per misurare l'intento di prenotazione usare l'evento GA4 `booking_widget_interact`.
+Dal 09/2026 il widget è il **Book Now Box** al posto della Portable Search Bar: mostra «Da X a notte» calcolato da Lodgify e, appena si scelgono le date, il **prezzo totale reale** dentro il box, sul nostro sito. È la risposta al problema per cui un visitatore non vedeva mai un prezzo prima di saltare su un dominio terzo. Il componente è usato ovunque, anche in fondo agli articoli del blog tramite `StayCta.astro`.
+
+⚠️ **Gotcha critici**:
+1. **View Transitions**: lo script Lodgify non si riesegue sulle navigazioni client-side. Init centralizzata in `Layout.astro` su `astro:page-load` (lista `LODGIFY_WIDGETS`: se il contenitore è vuoto, rimuove e ri-appende lo script). NON rimettere lo script nel componente.
+2. **Un solo widget per pagina**: l'init cerca il contenitore con `getElementById`, quindi un secondo widget nella stessa pagina resterebbe vuoto. Se una pagina ha già un `BookingWidget`, va SOSTITUITO da `StayCta`, non affiancato.
+3. **Etichette mai vuote**: una stringa vuota viene omessa dall'HTML e Lodgify ricade sulla sua etichetta inglese di default (successo il caso di `fromPrice` in giapponese).
+4. **`data-checkout-page-url` non esiste più** in questo widget (il Book Now Box usa `rental-id` + `slug`). Resta valido il divieto storico di manomettere l'URL di checkout: il tentativo `?ref=roma284it` fu revertito (commit `178e18a`) perché rompeva il flusso.
+5. **Tracking**: `booking_widget_view` (in-viewport), `booking_widget_interact` (primo click nel contenitore, coperti sia `#lodgify-book-now-box` sia `#lodgify-search-bar`) e `checkout_open` (apertura del checkout, intercettata sia sul click a un link verso `checkout.lodgify.com` sia via patch in sola lettura di `window.open`). Tutti gli eventi portano `page_key` e `locale`.
 
 ---
 

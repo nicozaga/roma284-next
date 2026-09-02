@@ -25,6 +25,9 @@ from pipeline.common.site_facts import FEATURES_ROTATION
 from pipeline.llm.client import get_backend
 from pipeline.writer.run import build_article_set, translation_key_for, _eligible
 from pipeline.writer.roundup import build_roundup, ROUNDUP_TKEY
+from pipeline.writer.stay_guides import (
+    build_stay_guide_set, load_topics, topic_locales, translation_key_for_topic,
+)
 
 ROUNDUP_WINDOW_DAYS = 16  # eventi che iniziano entro ~2 weekend
 ROUNDUP_MAX_EVENTS = 15   # tetto segnalazioni nel roundup (prompt/tempi sotto controllo)
@@ -38,6 +41,26 @@ def _near(ev: dict, days: int) -> bool:
         return False
     today = date.today()
     return end >= today and start <= today + timedelta(days=days)
+
+
+def _due_stay_guides(state: dict, topics: list[dict], cap: int) -> list[dict]:
+    """Guide mai pubblicate o più stantie, in ordine di anzianità. Al massimo `cap`."""
+    pub = state.get("published", {})
+    due = []
+    for t in topics:
+        meta = pub.get(translation_key_for_topic(t)) or {}
+        last = meta.get("date") or ""
+        if not last:
+            due.append((t, ""))
+            continue
+        try:
+            stale = date.fromisoformat(last) + timedelta(days=config.STAY_GUIDE_REFRESH_DAYS) <= date.today()
+        except ValueError:
+            stale = True
+        if stale:
+            due.append((t, last))
+    due.sort(key=lambda x: x[1])
+    return [t for t, _ in due[:cap]]
 
 
 def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
@@ -122,6 +145,39 @@ def run_weekly(event_file: str, engine: str, model: str, dry_run: bool,
             print(f"✓ ROUNDUP «Il prossimo weekend a Piacenza» — {len(near)} segnalazioni")
     else:
         print("• roundup saltato: nessun evento locale nella finestra")
+
+    # 2-bis) Guide evergreen "dove dormire per X": intento alloggio, URL fisso.
+    #        Cap e cadenza separati dagli eventi: non competono per lo stesso budget.
+    try:
+        topics = load_topics()
+    except Exception as e:  # noqa: BLE001 — un file dati rotto non deve far fallire il run
+        print(f"• guide saltate: {e}")
+        topics = []
+    for topic in _due_stay_guides(state, topics, config.STAY_GUIDE_CAP_PER_RUN):
+        try:
+            gkey, gdate, gresults, gerrors = build_stay_guide_set(backend, topic)
+        except Exception as e:  # noqa: BLE001
+            print(f"✗ guida «{topic.get('key','?')}»: {e}")
+            skipped += 1
+            continue
+        if gerrors:
+            print(f"✗ guida «{topic.get('key','?')}» NON scritta: {gerrors[:6]}")
+            skipped += 1
+            continue
+        for _loc, rel, content, _slug in gresults:
+            (base / rel).parent.mkdir(parents=True, exist_ok=True)
+            (base / rel).write_text(content, encoding="utf-8")
+        if not dry_run:
+            urls = {loc: (f"/blog/{slug}/" if loc == "it" else f"/{loc}/blog/{slug}/")
+                    for loc, _rel, _c, slug in gresults}
+            state_mod.mark_published(state, gkey, f"stay-guide:{topic['key']}", {
+                "title": topic.get("topic_it"), "kind": "stay-guide",
+                "topic_key": topic["key"], "urls": urls,
+                "paths": [rel for _l, rel, _c, _s in gresults],
+            })
+        written += 1
+        print(f"✓ GUIDA «{topic.get('topic_it','?')}» — "
+              f"{len(gresults)} lingue ({','.join(topic_locales(topic))})")
 
     # 3) Lifecycle: concerti finiti da >7 giorni → articolo rimosso + 301 all'hub
     cleaned = 0

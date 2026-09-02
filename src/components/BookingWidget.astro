@@ -15,7 +15,6 @@ const LODGIFY_LANG: Record<Locale, string> = {
   nl: "nl", sv: "sv", pl: "pl", ja: "ja", "zh-cn": "zh",
 };
 const lang = LODGIFY_LANG[locale];
-const checkoutUrl = `https://checkout.lodgify.com/roma284/${lang}/#/${SITE.lodgify.rentalId}`;
 
 /**
  * Etichette della Portable Search Bar Lodgify, per lingua.
@@ -29,6 +28,8 @@ interface SB {
   adults: string; adultsDesc: string; children: string; childrenDesc: string;
   childrenNo: string; infants: string; infantsDesc: string; infantsNo: string;
   pets: string; petsNo: string; done: string;
+  /* Book Now Box: prezzo reale mostrato dentro il widget */
+  totalPrice: string; pickDates: string; fromPrice: string; perNight: string; book: string;
 }
 
 const LABELS: Partial<Record<Locale, SB>> = {
@@ -44,6 +45,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"neonato","other":"neonati"}', infantsDesc: "Meno di {maxAge}",
     infantsNo: "Non adatto ai neonati",
     pets: '{"one":"animale domestico","other":"animali domestici"}', petsNo: "Non consentito",
+    totalPrice: "Prezzo totale:", pickDates: "Scegli le date per vedere il prezzo",
+    fromPrice: "Da", perNight: "a notte", book: "Prenota ora",
     done: "Fatto",
   },
   en: {
@@ -58,6 +61,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"infant","other":"infants"}', infantsDesc: "Under {maxAge}",
     infantsNo: "Not suitable for infants",
     pets: '{"one":"pet","other":"pets"}', petsNo: "Not allowed",
+    totalPrice: "Total price:", pickDates: "Pick your dates to see the price",
+    fromPrice: "From", perNight: "per night", book: "Book now",
     done: "Done",
   },
   fr: {
@@ -72,6 +77,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"bébé","other":"bébés"}', infantsDesc: "Moins de {maxAge} ans",
     infantsNo: "Non adapté aux bébés",
     pets: '{"one":"animal","other":"animaux"}', petsNo: "Non autorisé",
+    totalPrice: "Prix total :", pickDates: "Choisissez vos dates pour voir le prix",
+    fromPrice: "À partir de", perNight: "par nuit", book: "Réserver",
     done: "Terminé",
   },
   de: {
@@ -86,6 +93,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"Kleinkind","other":"Kleinkinder"}', infantsDesc: "Unter {maxAge} Jahren",
     infantsNo: "Nicht für Kleinkinder geeignet",
     pets: '{"one":"Haustier","other":"Haustiere"}', petsNo: "Nicht erlaubt",
+    totalPrice: "Gesamtpreis:", pickDates: "Wählen Sie Ihre Daten, um den Preis zu sehen",
+    fromPrice: "Ab", perNight: "pro Nacht", book: "Jetzt buchen",
     done: "Fertig",
   },
   es: {
@@ -100,6 +109,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"bebé","other":"bebés"}', infantsDesc: "Menores de {maxAge} años",
     infantsNo: "No apto para bebés",
     pets: '{"one":"mascota","other":"mascotas"}', petsNo: "No permitido",
+    totalPrice: "Precio total:", pickDates: "Elige las fechas para ver el precio",
+    fromPrice: "Desde", perNight: "por noche", book: "Reservar",
     done: "Hecho",
   },
   pt: {
@@ -114,6 +125,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"bebé","other":"bebés"}', infantsDesc: "Menos de {maxAge} anos",
     infantsNo: "Não adequado a bebés",
     pets: '{"one":"animal de estimação","other":"animais de estimação"}', petsNo: "Não permitido",
+    totalPrice: "Preço total:", pickDates: "Escolha as datas para ver o preço",
+    fromPrice: "A partir de", perNight: "por noite", book: "Reservar",
     done: "Concluído",
   },
   nl: {
@@ -128,6 +141,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"baby","other":"baby\'s"}', infantsDesc: "Jonger dan {maxAge}",
     infantsNo: "Niet geschikt voor baby's",
     pets: '{"one":"huisdier","other":"huisdieren"}', petsNo: "Niet toegestaan",
+    totalPrice: "Totaalprijs:", pickDates: "Kies je data om de prijs te zien",
+    fromPrice: "Vanaf", perNight: "per nacht", book: "Nu boeken",
     done: "Klaar",
   },
   pl: {
@@ -142,6 +157,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"niemowlę","other":"niemowlęta"}', infantsDesc: "Poniżej {maxAge}",
     infantsNo: "Nieodpowiednie dla niemowląt",
     pets: '{"one":"zwierzę","other":"zwierzęta"}', petsNo: "Niedozwolone",
+    totalPrice: "Cena całkowita:", pickDates: "Wybierz daty, aby zobaczyć cenę",
+    fromPrice: "Od", perNight: "za noc", book: "Zarezerwuj",
     done: "Gotowe",
   },
   sv: {
@@ -156,6 +173,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"spädbarn","other":"spädbarn"}', infantsDesc: "Under {maxAge}",
     infantsNo: "Inte lämpligt för spädbarn",
     pets: '{"one":"husdjur","other":"husdjur"}', petsNo: "Inte tillåtet",
+    totalPrice: "Totalpris:", pickDates: "Välj dina datum för att se priset",
+    fromPrice: "Från", perNight: "per natt", book: "Boka nu",
     done: "Klar",
   },
   ja: {
@@ -170,6 +189,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"乳児","other":"乳児"}', infantsDesc: "{maxAge}歳未満",
     infantsNo: "乳児には適していません",
     pets: '{"one":"ペット","other":"ペット"}', petsNo: "許可されていません",
+    totalPrice: "合計料金：", pickDates: "日付を選ぶと料金が表示されます",
+    fromPrice: "1泊", perNight: "〜", book: "予約する",
     done: "完了",
   },
   "zh-cn": {
@@ -184,6 +205,8 @@ const LABELS: Partial<Record<Locale, SB>> = {
     infants: '{"one":"婴儿","other":"婴儿"}', infantsDesc: "{maxAge}岁以下",
     infantsNo: "不适合婴儿",
     pets: '{"one":"宠物","other":"宠物"}', petsNo: "不允许",
+    totalPrice: "总价：", pickDates: "选择日期查看价格",
+    fromPrice: "低至", perNight: "每晚", book: "立即预订",
     done: "完成",
   },
 };
@@ -201,18 +224,22 @@ const L = LABELS[locale] ?? LABELS.en!;
 
     <div class="mt-8 text-left" data-evt-view="booking_widget_view">
       <div
-        id="lodgify-search-bar"
+        id="lodgify-book-now-box"
+        data-rental-id={SITE.lodgify.rentalId}
         data-website-id={SITE.lodgify.websiteId}
+        data-slug={SITE.lodgify.slug}
         data-language-code={lang}
-        data-checkout-page-url={checkoutUrl}
-        data-dates-check-in-label={L.checkIn}
-        data-dates-check-out-label={L.checkOut}
-        data-guests-counter-label={L.guestsCounter}
-        data-guests-input-singular-label={L.guestsSingular}
-        data-guests-input-plural-label={L.guestsPlural}
+        data-check-in-label={L.checkIn}
+        data-check-out-label={L.checkOut}
+        data-guests-label={L.guestsCounter}
+        data-guests-singular-label={L.guestsSingular}
+        data-guests-plural-label={L.guestsPlural}
         data-location-input-label={L.location}
-        data-search-button-label={L.search}
-        data-dates-input-min-stay-tooltip-text={L.minStay}
+        data-total-price-label={L.totalPrice}
+        data-select-dates-to-see-price-label={L.pickDates}
+        data-minimum-price-per-night-first-label={L.fromPrice}
+        data-minimum-price-per-night-second-label={L.perNight}
+        data-book-button-label={L.book}
         data-guests-breakdown-label={L.guestsBreakdown}
         data-adults-label={L.adults}
         data-adults-description={L.adultsDesc}

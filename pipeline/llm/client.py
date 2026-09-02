@@ -142,6 +142,47 @@ class MockBackend(ModelBackend):
             }
         return out
 
+    # --- Guide evergreen "dove dormire per X" -------------------------------
+
+    def mock_stay_guide_master(self, topic: dict) -> dict:
+        from pipeline.writer.prompts import page_placeholder
+        ph = page_placeholder(topic.get("primary_link_page_key", ""))
+        titolo = topic.get("topic_it", "Dove dormire")
+        return {
+            "title": titolo[:70],
+            "description": (
+                f"{titolo}: quanto dista davvero Piacenza, come ci si arriva e per chi "
+                "questa soluzione ha senso. Guida pratica al soggiorno."
+            )[:160],
+            "body": (
+                f"{topic.get('angle', '')[:200]}\n\n"
+                "## Quanto dista davvero\n\n"
+                "Il centro di Piacenza è a **9 minuti a piedi** dalla stazione, e da lì "
+                "i collegamenti in treno sono frequenti.\n\n"
+                "## Per chi ha senso (e per chi no)\n\n"
+                "Ha senso se cerchi un appartamento intero e non ti pesa un tratto in treno. "
+                "Meno, se devi rientrare a notte fonda senza auto.\n\n"
+                "## Approfondimento\n\n"
+                f"I dettagli sono nella pagina dedicata: [scopri di più]({ph}).\n\n"
+                "## In sintesi\n\n"
+                "- **Base:** centro storico di Piacenza\n"
+                "- **Stazione:** 9 minuti a piedi\n"
+                "- **Animali:** ammessi gratis\n\n"
+                "Se le date sono queste, [verifica la disponibilità]({{BOOK_URL}})."
+            ),
+        }
+
+    def mock_stay_guide_translations(self, topic: dict, master: dict,
+                                     locales: list[str]) -> dict:
+        return {
+            loc: {
+                "title": f"[{loc}] {master['title']}",
+                "description": f"[{loc}] {master['description']}",
+                "body": master["body"],
+            }
+            for loc in locales
+        }
+
 
 def get_backend(engine: str, model: str = "sonnet") -> ModelBackend:
     if engine == "claude_code":
