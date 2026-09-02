@@ -207,20 +207,35 @@ const clarityId = SITE.clarityId;
       reveal();
       document.addEventListener("astro:after-swap", reveal);
 
-      // Widget Lodgify (Portable Search Bar): (ri)render ad ogni page-load,
-      // così compare anche con le View Transitions e alla prima visita.
-      const ensureSearchBar = () => {
-        const box = document.getElementById("lodgify-search-bar");
-        if (!box || box.children.length > 0) return;
-        const old = document.getElementById("lodgify-psb-script");
-        if (old) old.remove();
-        const s = document.createElement("script");
-        s.id = "lodgify-psb-script";
-        s.src = "https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js";
-        document.body.appendChild(s);
+      // Widget Lodgify: (ri)render ad ogni page-load, così compaiono anche con
+      // le View Transitions e alla prima visita. Lo script non si riesegue da
+      // solo sulle navigazioni client-side: va rimosso e riappeso.
+      const LODGIFY_WIDGETS = [
+        {
+          box: "lodgify-book-now-box",
+          tag: "lodgify-bnb-script",
+          src: "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js",
+        },
+        {
+          box: "lodgify-search-bar",
+          tag: "lodgify-psb-script",
+          src: "https://app.lodgify.com/portable-search-bar/stable/renderPortableSearchBar.js",
+        },
+      ];
+      const ensureLodgifyWidgets = () => {
+        LODGIFY_WIDGETS.forEach((w) => {
+          const box = document.getElementById(w.box);
+          if (!box || box.children.length > 0) return;
+          const old = document.getElementById(w.tag);
+          if (old) old.remove();
+          const s = document.createElement("script");
+          s.id = w.tag;
+          s.src = w.src;
+          document.body.appendChild(s);
+        });
       };
-      document.addEventListener("astro:page-load", ensureSearchBar);
-      ensureSearchBar();
+      document.addEventListener("astro:page-load", ensureLodgifyWidgets);
+      ensureLodgifyWidgets();
     </script>
 
     {/* Tracking eventi GA4 — dispatcher centrale via delega su document.
@@ -287,8 +302,10 @@ const clarityId = SITE.clarityId;
               });
               return;
             }
-            // 4) Interazione col widget di prenotazione (1 volta a pagina)
-            if (!window.__r284BookingInteract && t.closest("#lodgify-search-bar")) {
+            // 4) Interazione col widget di prenotazione (1 volta a pagina).
+            //    Copre sia il Book Now Box sia la vecchia Portable Search Bar.
+            if (!window.__r284BookingInteract
+                && t.closest("#lodgify-book-now-box, #lodgify-search-bar")) {
               window.__r284BookingInteract = true;
               T("booking_widget_interact", {});
             }

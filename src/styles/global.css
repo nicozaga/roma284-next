@@ -139,7 +139,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* ============================================================
-   WIDGET LODGIFY — Portable Search Bar, match palette terracotta
+   WIDGET LODGIFY — match palette terracotta
    ============================================================ */
 :root {
   --ldg-psb-background: #ffffff;
@@ -159,6 +159,29 @@ h1, h2, h3, h4, .font-display {
   --ldg-component-modal-z-index: 999;
 }
 #lodgify-search-bar {
+  width: 100%;
+}
+
+/* Book Now Box (mostra il prezzo reale): stessa palette, bottone pill come le
+   CTA del sito, celle calendario in terracotta. */
+:root {
+  --ldg-bnb-background: #ffffff;
+  --ldg-bnb-border-radius: 1rem;
+  --ldg-bnb-box-shadow: 0 20px 45px rgba(26, 26, 26, 0.08);
+  --ldg-bnb-padding: 16px;
+  --ldg-bnb-input-background: #ffffff;
+  --ldg-bnb-button-border-radius: 9999px;
+  --ldg-bnb-color-primary: #c67557;
+  --ldg-bnb-color-primary-lighter: #e3baab;
+  --ldg-bnb-color-primary-darker: #a85c47;
+  --ldg-bnb-color-primary-contrast: #ffffff;
+  --ldg-component-calendar-cell-selection-bg-color: #c67557;
+  --ldg-component-calendar-cell-selection-color: #ffffff;
+  --ldg-component-calendar-cell-selected-bg-color: #efdcd3;
+  --ldg-component-calendar-cell-selected-color: #1a1a1a;
+  --ldg-bnb-font-family: inherit;
+}
+#lodgify-book-now-box {
   width: 100%;
 }
 
