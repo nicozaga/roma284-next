@@ -1,36 +1,28 @@
 ---
-title: "Weekend a Piacenza: sagre, mercatini e concerti a Milano"
-description: "Dal 4 al 6 settembre a Piacenza: Tendenza Festival, la Festa di settembre e lo Sbaracco. A un passo da Milano anche i concerti di David Guetta e Diljit Dosanjh."
-pubDate: 2026-08-31
+title: "Weekend a Piacenza: festival, concerti e Salone del Camper"
+description: "Il weekend a Piacenza tra Bleech Festival e Femme Fest, i concerti a Milano come Emma e The Black Keys, e il Salone del Camper in arrivo a Parma dal 12/9."
+pubDate: 2026-09-07
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Il weekend del 4-6 settembre porta a Piacenza musica dal vivo, la sagra di quartiere e le vendite di fine stagione in centro, mentre a Milano si accendono i grandi concerti all'aperto. Ecco cosa segnare in agenda.
+Settimana piena a Piacenza e dintorni: in città torna il Bleech Festival per il decennale, si accende il Femme Fest e non manca una serata di musica e poesia sotto le stelle. Poco più in là, tra Milano e Parma, il calendario si arricchisce di grandi concerti e del Salone del Camper. Ecco tutte le segnalazioni della settimana.
 
 ## Concerti e musica
 
-**Tendenza Festival** — dal 4 al 6 settembre, Piacenza. Tre giorni di musica dal vivo con lo storico festival che apre settembre in città: un buon motivo per restare in centro anche di sera.
+**Poesie e serenate sotto le stelle** — 7 settembre, Piacenza. Una serata all'aperto tra musica e parole, comoda per una passeggiata serale in centro storico.
 
-**Val Tidone Festival** — in corso fino al 16 ottobre, Piacenza e Val Tidone. La kermesse musicale diffusa tra la città e la valle prosegue per tutta la stagione, comoda da abbinare a una gita fuori porta.
+**Bleech Festival** — dal 7 al 13 settembre, Piacenza. Il festival di musica indipendente torna in città per il decennale, con più giorni di programmazione diffusa.
 
-**David Guetta – I-Days Milano Coca-Cola 2026** — 6 settembre, Ippodromo SNAI San Siro, Milano. Uno degli appuntamenti clou dell'estate milanese, per chi vuole unire il weekend piacentino a una serata di musica elettronica.
+**Femme Fest** — dal 10 al 13 settembre, Piacenza. Quattro giorni tra musica, cultura e confronto per costruire nuovi immaginari.
 
-**Diljit Dosanjh – Aura World Tour** — 5 settembre, Unipol Forum, Assago. Data italiana del tour mondiale dell'artista punjabi, altro grande nome di passaggio nell'area milanese in questi giorni.
+**Val Tidone Festival** — fino al 16 ottobre, Val Tidone (Piacenza). La kermesse musicale diffusa nel territorio piacentino prosegue con nuovi appuntamenti nelle prossime settimane.
 
-**JOJI: SOLARIS** — 3 settembre, Unipol Forum, Assago. Per chi anticipa il weekend, l'artista giapponese apre la sua tappa italiana proprio a ridosso di Milano.
+Chi vuole allungare la serata fino a Milano ha diversi appuntamenti internazionali in calendario: **CA7RIEL & Paco Amoroso** il 7 settembre e **The Black Keys** il 10 e l'11 settembre all'Alcatraz, **Emma** il 9 settembre e **A$AP Rocky** il 10 settembre all'Ippodromo SNAI San Siro, **Rawayana** l'11 settembre al Fabrique, **ZEYNE** il 14 settembre alla Santeria Toscana 31 e, un po' più avanti, **Melanie Martinez** il 17 settembre all'Unipol Forum di Assago. La città è comodamente collegata a Milano in treno, utile per chi vuole vivere il concerto la sera e rientrare in giornata: tutti i dettagli nella guida su [come arrivare](/come-arrivare/).
 
-Chi arriva per questi eventi trova comodo appoggiarsi a Piacenza e spostarsi comodamente in treno verso Milano: qualche indicazione utile nella guida su [dove alloggiare vicino a Milano](/dormire-vicino-milano/).
+## Fiere
 
-## Food e sagre
+**Salone del Camper** — dal 12 al 20 settembre, Fiere di Parma. L'appuntamento di riferimento per il turismo en plein air torna alle porte di Piacenza: comodo da raggiungere in giornata, con pernottamento più tranquillo fuori dai poli fieristici. Per orientarsi tra le fiere della zona consulta la [rassegna aggiornata](/fiere/).
 
-**Festa di settembre** — dal 4 al 6 settembre, Parrocchia del Preziosissimo Sangue, Piacenza. La classica sagra parrocchiale di inizio autunno, tra stand gastronomici e socialità di quartiere.
-
-## In città
-
-**Via Roma Street Market** — 6 settembre, Via Roma, Piacenza. Il mercatino di hobbistica, oggettistica e libri che torna ogni prima domenica del mese, a pochi passi dall'appartamento.
-
-**La domenica dello Sbaracco** — 6 settembre, Piacenza. I negozi del centro svuotano le vetrine di fine stagione: una buona occasione per unire shopping e passeggiata nel centro storico.
-
-Con così tanto in programma tra Piacenza e Milano, avere una base nel cuore della città aiuta a muoversi senza pensieri: Roma284 è nel centro storico, a due passi dalla stazione, con patio privato, cucina attrezzata e WiFi in fibra per chi lavora anche in trasferta. Gli animali sono sempre benvenuti gratis e il self check-in con smart lock permette di arrivare con i propri orari. Per il weekend o per qualche notte in più, trovi tutti gli appuntamenti aggiornati nella [pagina eventi](/eventi-milano/) e i dettagli per arrivare nella guida su [come arrivare a Piacenza](/come-arrivare/). Prenotando in diretta si risparmia fino al 15% rispetto ad altri canali: [prenota il soggiorno](/prenota/).
+Con tutti questi appuntamenti tra Piacenza, Milano e Parma, avere una base comoda fa la differenza. Roma284 è un appartamento nel centro storico di Piacenza, a due passi dalla stazione: ideale sia per chi segue i festival cittadini sia per chi si sposta in giornata per un concerto o una fiera. Prenotando in diretta si risparmia, fino al 15% in meno rispetto ad altri canali. Per il weekend, [prenota il tuo soggiorno](/prenota/).
