@@ -1,28 +1,34 @@
 ---
-title: "Weekend a Piacenza: festival, concerti e Salone del Camper"
-description: "Il weekend a Piacenza tra Bleech Festival e Femme Fest, i concerti a Milano come Emma e The Black Keys, e il Salone del Camper in arrivo a Parma dal 12/9."
-pubDate: 2026-09-07
+title: "Il weekend a Piacenza: musica, arte e sagre di paese"
+description: "Melanie Martinez ad Assago, il Concerto di Gala al Teatro Municipale e Vial Dante in festa: gli eventi del weekend a Piacenza e dintorni, tra musica e arte."
+pubDate: 2026-09-14
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Settimana piena a Piacenza e dintorni: in città torna il Bleech Festival per il decennale, si accende il Femme Fest e non manca una serata di musica e poesia sotto le stelle. Poco più in là, tra Milano e Parma, il calendario si arricchisce di grandi concerti e del Salone del Camper. Ecco tutte le segnalazioni della settimana.
+Il weekend del 19-20 settembre a Piacenza mette insieme musica dal vivo, arte contemporanea e la classica sagra di quartiere, con qualche occasione in più per chi vuole allungare la gita fino a Milano. Ecco cosa segnare in agenda.
 
 ## Concerti e musica
 
-**Poesie e serenate sotto le stelle** — 7 settembre, Piacenza. Una serata all'aperto tra musica e parole, comoda per una passeggiata serale in centro storico.
+- **Melanie Martinez – HADES: THE SACRIFICE** — 17 settembre, Unipol Forum, Assago. Uno dei live internazionali più attesi della stagione: da Piacenza è comodamente raggiungibile in treno via Milano.
+- **Concerto di Gala – Da Vivaldi a Piazzolla** — 19 settembre, Teatro Municipale, Piacenza. Una serata di musica classica nel teatro storico della città, a due passi dal centro.
+- **I Parchi della Musica** — 20 settembre, Piacenza. Tappa piacentina del festival itinerante che unisce musica classica, opera e luoghi storici della città.
+- **Val Tidone Festival** — fino al 16 ottobre, Piacenza. La kermesse musicale prosegue nelle prossime settimane con appuntamenti diffusi in città.
+- **ONLY THE POETS** — 21 settembre, Santeria Toscana 31, Milano. Per chi vuole abbinare il weekend piacentino a una serata di musica live a Milano.
 
-**Bleech Festival** — dal 7 al 13 settembre, Piacenza. Il festival di musica indipendente torna in città per il decennale, con più giorni di programmazione diffusa.
+## Cultura e mostre
 
-**Femme Fest** — dal 10 al 13 settembre, Piacenza. Quattro giorni tra musica, cultura e confronto per costruire nuovi immaginari.
+- **Nell'ombra – Lucesuononatura** — dal 19 settembre al 10 ottobre, Ex Consorzio Agrario, Piacenza. Mostra collettiva di arte contemporanea in uno spazio industriale recuperato, aperta per tutto l'autunno.
+- **dAS Festival** — 17-20 settembre, Piacenza. Il festival cittadino di danza e coreografia porta spettacoli in diversi luoghi della città.
+- **StraLunà, Festival di comicità e circo contemporaneo** — 19 settembre, Piacenza. Una serata dedicata al circo contemporaneo e acrobatico, per un programma culturale diverso dal solito.
 
-**Val Tidone Festival** — fino al 16 ottobre, Val Tidone (Piacenza). La kermesse musicale diffusa nel territorio piacentino prosegue con nuovi appuntamenti nelle prossime settimane.
+## Food e sagre
 
-Chi vuole allungare la serata fino a Milano ha diversi appuntamenti internazionali in calendario: **CA7RIEL & Paco Amoroso** il 7 settembre e **The Black Keys** il 10 e l'11 settembre all'Alcatraz, **Emma** il 9 settembre e **A$AP Rocky** il 10 settembre all'Ippodromo SNAI San Siro, **Rawayana** l'11 settembre al Fabrique, **ZEYNE** il 14 settembre alla Santeria Toscana 31 e, un po' più avanti, **Melanie Martinez** il 17 settembre all'Unipol Forum di Assago. La città è comodamente collegata a Milano in treno, utile per chi vuole vivere il concerto la sera e rientrare in giornata: tutti i dettagli nella guida su [come arrivare](/come-arrivare/).
+- **Vial Dante in festa** — 19 settembre, Vial Dante, Piacenza. Stand gastronomici e musica dal vivo per una serata di festa di quartiere, comoda da raggiungere anche a piedi dal centro storico.
 
-## Fiere
+## In città
 
-**Salone del Camper** — dal 12 al 20 settembre, Fiere di Parma. L'appuntamento di riferimento per il turismo en plein air torna alle porte di Piacenza: comodo da raggiungere in giornata, con pernottamento più tranquillo fuori dai poli fieristici. Per orientarsi tra le fiere della zona consulta la [rassegna aggiornata](/fiere/).
+- **Visite guidate** — 17 settembre, Piacenza. City tour pensati per turisti, famiglie e gruppi, un buon modo per scoprire il centro storico tra un evento e l'altro.
 
-Con tutti questi appuntamenti tra Piacenza, Milano e Parma, avere una base comoda fa la differenza. Roma284 è un appartamento nel centro storico di Piacenza, a due passi dalla stazione: ideale sia per chi segue i festival cittadini sia per chi si sposta in giornata per un concerto o una fiera. Prenotando in diretta si risparmia, fino al 15% in meno rispetto ad altri canali. Per il weekend, [prenota il tuo soggiorno](/prenota/).
+Per chi segue anche solo un paio di questi appuntamenti, Roma284 resta la base più comoda: siamo nel centro storico di Piacenza, a due passi dalla stazione, quindi vicini sia al Teatro Municipale e a Vial Dante sia ai treni per Assago e Milano. Trovi tutti gli altri appuntamenti della città nella [guida agli eventi di Piacenza](/eventi-milano/), mentre per i concerti fuori porta puoi consultare la pagina su [come arrivare in treno da Milano](/come-arrivare/). L'appartamento è pet-friendly senza costi aggiuntivi, con self check-in tramite smart lock, WiFi in fibra da 1 Gbit/s e cucina attrezzata per chi si ferma più di una notte. Prenotando in diretta il soggiorno si risparmia fino al 15% rispetto ad altri canali: [prenota il tuo soggiorno](/prenota/).
