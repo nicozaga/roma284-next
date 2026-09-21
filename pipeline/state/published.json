@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-09-14",
+      "date": "2026-09-21",
       "title": "weekend roundup",
-      "refreshed": "2026-09-14"
+      "refreshed": "2026-09-21"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -178,7 +178,8 @@
         "pl": "/pl/blog/aap-rocky-mediolan-2026-nocleg-piacenza/",
         "ja": "/ja/blog/aap-rocky-milano-2026-piacenza-stay-guide/",
         "zh-cn": "/zh-cn/blog/aap-rocky-milano-2026-piacenza-accommodation-guide/"
-      }
+      },
+      "cleaned": "2026-09-21"
     },
     "tm-zf98xzkrzeke1ezup5qqkr": {
       "event_id": "tm-Zf98xZKrZeke1eZup5QQKr",
@@ -212,7 +213,8 @@
         "pl": "/pl/blog/emma-koncert-ippodromo-snai-mediolan-2026/",
         "ja": "/ja/blog/emma-milano-live-2026-piacenza/",
         "zh-cn": "/zh-cn/blog/emma-milano-concert-2026-piacenza/"
-      }
+      },
+      "cleaned": "2026-09-21"
     },
     "tm-zf98xzkrzek7f1zup5qqkr": {
       "event_id": "tm-Zf98xZKrZek7F1Zup5QQKr",
@@ -826,7 +828,56 @@
         "ja": "/ja/blog/melanie-martinez-unipol-forum-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/melanie-martinez-unipol-forum-assago-piacenza/"
       }
+    },
+    "tm-z498xzkrzek6va6zq5jrb2j": {
+      "event_id": "tm-Z498xZKrZek6vA6ZQ5jrb2j",
+      "date": "2026-09-21",
+      "title": "Korn - Posti Riservati Mastercard",
+      "tier": "international",
+      "kind": "concert",
+      "end_date": "2026-11-21",
+      "paths": [
+        "korn-assago-2026-dove-dormire-piacenza.md",
+        "en/korn-assago-2026-where-to-stay-piacenza.md"
+      ],
+      "urls": {
+        "it": "/blog/korn-assago-2026-dove-dormire-piacenza/",
+        "en": "/en/blog/korn-assago-2026-where-to-stay-piacenza/"
+      }
+    },
+    "stay-guide-fiera-milano-rho": {
+      "event_id": "stay-guide:fiera-milano-rho",
+      "date": "2026-09-21",
+      "title": "Dove dormire per le fiere di Fiera Milano Rho",
+      "kind": "stay-guide",
+      "topic_key": "fiera-milano-rho",
+      "urls": {
+        "it": "/blog/dove-dormire-fiera-milano-rho/",
+        "en": "/en/blog/where-to-stay-fiera-milano-rho/",
+        "fr": "/fr/blog/ou-dormir-fiera-milano-rho/",
+        "es": "/es/blog/donde-dormir-fiera-milano-rho/",
+        "pt": "/pt/blog/onde-ficar-fiera-milano-rho/",
+        "de": "/de/blog/uebernachten-messe-mailand-rho/",
+        "nl": "/nl/blog/overnachten-beurs-milaan-rho/",
+        "sv": "/sv/blog/bo-massan-milano-rho/",
+        "pl": "/pl/blog/nocleg-targi-mediolan-rho/",
+        "ja": "/ja/blog/fiera-milano-rho-stay/",
+        "zh-cn": "/zh-cn/blog/milan-rho-zhanhui-zhusu/"
+      },
+      "paths": [
+        "dove-dormire-fiera-milano-rho.md",
+        "en/where-to-stay-fiera-milano-rho.md",
+        "fr/ou-dormir-fiera-milano-rho.md",
+        "es/donde-dormir-fiera-milano-rho.md",
+        "pt/onde-ficar-fiera-milano-rho.md",
+        "de/uebernachten-messe-mailand-rho.md",
+        "nl/overnachten-beurs-milaan-rho.md",
+        "sv/bo-massan-milano-rho.md",
+        "pl/nocleg-targi-mediolan-rho.md",
+        "ja/fiera-milano-rho-stay.md",
+        "zh-cn/milan-rho-zhanhui-zhusu.md"
+      ]
     }
   },
-  "focus_index": 2
+  "focus_index": 3
 }

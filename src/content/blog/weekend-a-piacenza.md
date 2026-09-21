@@ -1,34 +1,38 @@
 ---
-title: "Il weekend a Piacenza: musica, arte e sagre di paese"
-description: "Melanie Martinez ad Assago, il Concerto di Gala al Teatro Municipale e Vial Dante in festa: gli eventi del weekend a Piacenza e dintorni, tra musica e arte."
-pubDate: 2026-09-14
+title: "Il prossimo weekend a Piacenza: musica e mercatini"
+description: "Weekend tra Piacenza e dintorni: Fedez ad Assago, l'A/mano market in centro e il Val Tidone Festival ancora in corso. Idee ed eventi da non perdere."
+pubDate: 2026-09-21
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Il weekend del 19-20 settembre a Piacenza mette insieme musica dal vivo, arte contemporanea e la classica sagra di quartiere, con qualche occasione in più per chi vuole allungare la gita fino a Milano. Ecco cosa segnare in agenda.
+Un weekend a cavallo tra musica dal vivo, mercatini di quartiere e rassegne che accompagnano Piacenza fino all'autunno. Ecco cosa segnare in agenda nei prossimi giorni.
 
 ## Concerti e musica
 
-- **Melanie Martinez – HADES: THE SACRIFICE** — 17 settembre, Unipol Forum, Assago. Uno dei live internazionali più attesi della stagione: da Piacenza è comodamente raggiungibile in treno via Milano.
-- **Concerto di Gala – Da Vivaldi a Piazzolla** — 19 settembre, Teatro Municipale, Piacenza. Una serata di musica classica nel teatro storico della città, a due passi dal centro.
-- **I Parchi della Musica** — 20 settembre, Piacenza. Tappa piacentina del festival itinerante che unisce musica classica, opera e luoghi storici della città.
-- **Val Tidone Festival** — fino al 16 ottobre, Piacenza. La kermesse musicale prosegue nelle prossime settimane con appuntamenti diffusi in città.
-- **ONLY THE POETS** — 21 settembre, Santeria Toscana 31, Milano. Per chi vuole abbinare il weekend piacentino a una serata di musica live a Milano.
+**Fedez – Casa 360°**
+Quando: venerdì 25 settembre 2026
+Dove: Unipol Forum, Assago
+Perché andarci: una delle date più attese del tour, in un palazzetto comodamente raggiungibile in giornata da Piacenza.
 
-## Cultura e mostre
+**Val Tidone Festival**
+Quando: in corso fino al 16 ottobre 2026
+Dove: Piacenza
+Perché andarci: la kermesse musicale che anima l'autunno piacentino con appuntamenti diffusi in città, occasione buona per più di una serata fuori.
 
-- **Nell'ombra – Lucesuononatura** — dal 19 settembre al 10 ottobre, Ex Consorzio Agrario, Piacenza. Mostra collettiva di arte contemporanea in uno spazio industriale recuperato, aperta per tutto l'autunno.
-- **dAS Festival** — 17-20 settembre, Piacenza. Il festival cittadino di danza e coreografia porta spettacoli in diversi luoghi della città.
-- **StraLunà, Festival di comicità e circo contemporaneo** — 19 settembre, Piacenza. Una serata dedicata al circo contemporaneo e acrobatico, per un programma culturale diverso dal solito.
-
-## Food e sagre
-
-- **Vial Dante in festa** — 19 settembre, Vial Dante, Piacenza. Stand gastronomici e musica dal vivo per una serata di festa di quartiere, comoda da raggiungere anche a piedi dal centro storico.
+**Settimana Organistica Internazionale e Rassegna G. Zanaboni**
+Quando: fino al 15 novembre 2026
+Dove: Piacenza
+Perché andarci: rassegna dedicata alla musica d'organo, per chi cerca un programma più raccolto tra le chiese del centro storico.
 
 ## In città
 
-- **Visite guidate** — 17 settembre, Piacenza. City tour pensati per turisti, famiglie e gruppi, un buon modo per scoprire il centro storico tra un evento e l'altro.
+**A/mano market**
+Quando: sabato 26 settembre 2026
+Dove: Piacenza
+Perché andarci: il mercatino delle autoproduzioni locali, comodo per una passeggiata del sabato tra banchi di artigianato e piccole idee regalo.
 
-Per chi segue anche solo un paio di questi appuntamenti, Roma284 resta la base più comoda: siamo nel centro storico di Piacenza, a due passi dalla stazione, quindi vicini sia al Teatro Municipale e a Vial Dante sia ai treni per Assago e Milano. Trovi tutti gli altri appuntamenti della città nella [guida agli eventi di Piacenza](/eventi-milano/), mentre per i concerti fuori porta puoi consultare la pagina su [come arrivare in treno da Milano](/come-arrivare/). L'appartamento è pet-friendly senza costi aggiuntivi, con self check-in tramite smart lock, WiFi in fibra da 1 Gbit/s e cucina attrezzata per chi si ferma più di una notte. Prenotando in diretta il soggiorno si risparmia fino al 15% rispetto ad altri canali: [prenota il tuo soggiorno](/prenota/).
+Se il weekend prevede il concerto ad Assago, Piacenza resta una base pratica: la città è comodamente collegata a Milano in treno, con la stazione a due passi dal centro storico. Per organizzare gli spostamenti può essere utile la guida su [come arrivare a Piacenza](/come-arrivare/), mentre chi vuole restare in zona più a lungo trova spunti nella pagina [cosa vedere a Piacenza](/visitare-piacenza/).
+
+Roma284 è un appartamento nel cuore del centro storico, a pochi passi dalla stazione: patio privato, cucina attrezzata, WiFi in fibra e self check-in con smart lock per arrivare quando si vuole, animali sempre benvenuti senza costi aggiuntivi. Prenotando in diretta si risparmia (fino al 15% in meno rispetto ad altri canali). Per il weekend puoi [prenotare il soggiorno](/prenota/).
