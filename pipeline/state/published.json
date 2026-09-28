@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-09-21",
+      "date": "2026-09-28",
       "title": "weekend roundup",
-      "refreshed": "2026-09-21"
+      "refreshed": "2026-09-28"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -793,7 +793,8 @@
         "pl": "/pl/blog/melanie-martinez-assago-2026-nocleg-piacenza/",
         "ja": "/ja/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/",
         "zh-cn": "/zh-cn/blog/melanie-martinez-assago-2026-where-to-stay-piacenza/"
-      }
+      },
+      "cleaned": "2026-09-28"
     },
     "tm-zg9rmiynyzeaa1": {
       "event_id": "tm-ZG9rmIYnyZeAa1",
@@ -827,7 +828,8 @@
         "pl": "/pl/blog/melanie-martinez-unipol-forum-assago-piacenza/",
         "ja": "/ja/blog/melanie-martinez-unipol-forum-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/melanie-martinez-unipol-forum-assago-piacenza/"
-      }
+      },
+      "cleaned": "2026-09-28"
     },
     "tm-z498xzkrzek6va6zq5jrb2j": {
       "event_id": "tm-Z498xZKrZek6vA6ZQ5jrb2j",
@@ -876,6 +878,21 @@
         "pl/nocleg-targi-mediolan-rho.md",
         "ja/fiera-milano-rho-stay.md",
         "zh-cn/milan-rho-zhanhui-zhusu.md"
+      ]
+    },
+    "stay-guide-concerto-san-siro": {
+      "event_id": "stay-guide:concerto-san-siro",
+      "date": "2026-09-28",
+      "title": "Dove dormire per un concerto a San Siro",
+      "kind": "stay-guide",
+      "topic_key": "concerto-san-siro",
+      "urls": {
+        "it": "/blog/dove-dormire-concerto-san-siro/",
+        "en": "/en/blog/where-to-stay-san-siro-concert/"
+      },
+      "paths": [
+        "dove-dormire-concerto-san-siro.md",
+        "en/where-to-stay-san-siro-concert.md"
       ]
     }
   },
