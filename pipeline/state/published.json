@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-09-28",
+      "date": "2026-10-05",
       "title": "weekend roundup",
-      "refreshed": "2026-09-28"
+      "refreshed": "2026-10-05"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -759,7 +759,8 @@
         "pl": "/pl/blog/fedez-assago-2026-nocleg-piacenza/",
         "ja": "/ja/blog/fedez-assago-2026-where-to-stay-piacenza/",
         "zh-cn": "/zh-cn/blog/fedez-assago-2026-where-to-stay-piacenza/"
-      }
+      },
+      "cleaned": "2026-10-05"
     },
     "tm-z498xzkrzek6v6dzq5jrb2j": {
       "event_id": "tm-Z498xZKrZek6v6dZQ5jrb2j",
@@ -893,6 +894,21 @@
       "paths": [
         "dove-dormire-concerto-san-siro.md",
         "en/where-to-stay-san-siro-concert.md"
+      ]
+    },
+    "stay-guide-forum-assago": {
+      "event_id": "stay-guide:forum-assago",
+      "date": "2026-10-05",
+      "title": "Dove dormire per un concerto al Forum di Assago",
+      "kind": "stay-guide",
+      "topic_key": "forum-assago",
+      "urls": {
+        "it": "/blog/dove-dormire-forum-assago/",
+        "en": "/en/blog/where-to-stay-forum-assago/"
+      },
+      "paths": [
+        "dove-dormire-forum-assago.md",
+        "en/where-to-stay-forum-assago.md"
       ]
     }
   },
