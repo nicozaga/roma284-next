@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-10-05",
+      "date": "2026-10-12",
       "title": "weekend roundup",
-      "refreshed": "2026-10-05"
+      "refreshed": "2026-10-12"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -909,6 +909,25 @@
       "paths": [
         "dove-dormire-forum-assago.md",
         "en/where-to-stay-forum-assago.md"
+      ]
+    },
+    "stay-guide-fiere-parma": {
+      "event_id": "stay-guide:fiere-parma",
+      "date": "2026-10-12",
+      "title": "Dove dormire per le fiere di Parma",
+      "kind": "stay-guide",
+      "topic_key": "fiere-parma",
+      "urls": {
+        "it": "/blog/dove-dormire-fiere-parma/",
+        "en": "/en/blog/where-to-stay-parma-fairs/",
+        "de": "/de/blog/uebernachten-messen-parma/",
+        "fr": "/fr/blog/ou-dormir-salons-parme/"
+      },
+      "paths": [
+        "dove-dormire-fiere-parma.md",
+        "en/where-to-stay-parma-fairs.md",
+        "de/uebernachten-messen-parma.md",
+        "fr/ou-dormir-salons-parme.md"
       ]
     }
   },
