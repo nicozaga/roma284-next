@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-10-12",
+      "date": "2026-10-19",
       "title": "weekend roundup",
-      "refreshed": "2026-10-12"
+      "refreshed": "2026-10-19"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -589,7 +589,8 @@
         "pl": "/pl/blog/kid-yugi-unipol-forum-assago-nocleg-piacenza/",
         "ja": "/ja/blog/kid-yugi-unipol-forum-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/kid-yugi-unipol-forum-assago-piacenza/"
-      }
+      },
+      "cleaned": "2026-10-19"
     },
     "tm-z498xzkrzek6v7fzq5jrb2j": {
       "event_id": "tm-Z498xZKrZek6v7FZQ5jrb2j",
@@ -657,7 +658,8 @@
         "pl": "/pl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
         "ja": "/ja/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/laura-pausini-io-canto-world-tour-assago-piacenza/"
-      }
+      },
+      "cleaned": "2026-10-19"
     },
     "tm-zf98xzkrzea61vzup5qqkr": {
       "event_id": "tm-Zf98xZKrZeA61vZup5QQKr",
@@ -691,7 +693,8 @@
         "pl": "/pl/blog/laura-pausini-io-canto-world-tour-assago-piacenza/",
         "ja": "/ja/blog/laura-pausini-live-assago-milan-hotel-guide/",
         "zh-cn": "/zh-cn/blog/laura-pausini-concert-assago-milan-hotel-guide/"
-      }
+      },
+      "cleaned": "2026-10-19"
     },
     "tm-z59rmiynyz1ed": {
       "event_id": "tm-Z59rmIYnyZ1ed",
@@ -928,6 +931,25 @@
         "en/where-to-stay-parma-fairs.md",
         "de/uebernachten-messen-parma.md",
         "fr/ou-dormir-salons-parme.md"
+      ]
+    },
+    "stay-guide-notte-in-a1": {
+      "event_id": "stay-guide:notte-in-a1",
+      "date": "2026-10-19",
+      "title": "Dormire una notte lungo l'A1 tra Milano e Bologna",
+      "kind": "stay-guide",
+      "topic_key": "notte-in-a1",
+      "urls": {
+        "it": "/blog/dormire-una-notte-sulla-a1/",
+        "de": "/de/blog/uebernachtung-autobahn-a1/",
+        "fr": "/fr/blog/dormir-une-nuit-autoroute-a1/",
+        "nl": "/nl/blog/overnachten-snelweg-a1/"
+      },
+      "paths": [
+        "dormire-una-notte-sulla-a1.md",
+        "de/uebernachtung-autobahn-a1.md",
+        "fr/dormir-une-nuit-autoroute-a1.md",
+        "nl/overnachten-snelweg-a1.md"
       ]
     }
   },

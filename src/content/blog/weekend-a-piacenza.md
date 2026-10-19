@@ -1,34 +1,39 @@
 ---
-title: "Weekend a Piacenza: concerti, teatro e fiere vicine"
-description: "Cosa fare a Piacenza e dintorni nei prossimi giorni: Ruben Xhaferi al Teatro Municipale, Val Tidone Festival, concerti a Milano e fiere a Parma e Piacenza."
-pubDate: 2026-10-12
+title: "Weekend a Piacenza: fiere a Expo e concerti a Milano"
+description: "Il prossimo weekend a Piacenza: T3 Truck Tyre Trailer e AGV EXPO a Piacenza Expo dal 22 al 24 ottobre, poi Cibus Tec a Parma e concerti in area milanese."
+pubDate: 2026-10-19
 category: "Eventi"
 lang: "it"
 translationKey: "weekend-a-piacenza"
 ---
 
-Il weekend si avvicina e l'agenda di Piacenza e dintorni è già ricca: un concerto a teatro, gli ultimi giorni di un festival musicale e diversi appuntamenti nelle città vicine. Ecco le segnalazioni della settimana, con date e luoghi.
-
-## Concerti e musica
-
-- **Ruben Xhaferi** – venerdì 16 ottobre, ore 20:30, Teatro Municipale, Piacenza. Un concerto in teatro, a pochi passi dal centro storico: la serata giusta per iniziare il weekend senza spostarsi.
-- **Val Tidone Festival** – fino al 16 ottobre, con apertura a Piacenza. Una kermesse musicale iniziata a giugno: questi sono gli ultimi giorni per intercettarla. Il programma completo è sul calendario eventi del Comune di Piacenza.
-- **Jack Savoretti** – giovedì 15 ottobre, Fabrique, Milano. Per chi vuole spingersi in città, Milano è comodamente collegata in treno.
-- **Myles Smith – My Mess, My Heart, My Life. Tour** – venerdì 16 ottobre, Fabrique, Milano.
-- **POOH60 – La nostra storia** – lunedì 19 ottobre, Unipol Forum, Assago (Milano). Una data di grande richiamo subito dopo il weekend.
+Il weekend si apre con due fiere a Piacenza Expo, mentre nei dintorni ci sono Parma con una grande fiera internazionale e Milano con una serie di concerti. Ecco le segnalazioni dei prossimi giorni, con Piacenza come base comoda per muoversi.
 
 ## Fiere
 
-- **Colloquium Dental Show** – dal 15 al 17 ottobre, Fiere di Parma. Appuntamento di settore che cade proprio nel weekend.
-- **T3 Truck Tyre Trailer** e **AGV EXPO** – dal 22 al 24 ottobre, Piacenza Expo. Due fiere in contemporanea a Piacenza, da mettere in agenda se viaggi per lavoro.
-- **CIBUS TEC** – dal 27 al 30 ottobre, Fiere di Parma. Per il calendario completo di date e sedi trovi la nostra pagina sulle [fiere in zona](/fiere/).
+- **T3 Truck Tyre Trailer** – dal 22 al 24 ottobre 2026, Piacenza Expo (Piacenza). Appuntamento di settore per chi lavora nel mondo del trasporto e dei veicoli industriali, a pochi minuti dal centro.
+- **AGV EXPO** – dal 22 al 24 ottobre 2026, Piacenza Expo (Piacenza). Si svolge negli stessi giorni e nello stesso quartiere fieristico: comodo per chi vuole visitare entrambe le manifestazioni nella stessa trasferta.
+- **CIBUS TEC** – dal 27 al 30 ottobre 2026, Fiere di Parma (Parma). Manifestazione di respiro internazionale, raggiungibile da Piacenza restando comodamente nella stessa direttrice emiliana.
 
-## In città
+Per il calendario completo delle manifestazioni consulta la pagina dedicata alle [fiere a Piacenza e dintorni](/fiere/).
 
-Per altre idee tra musei, locali e passeggiate, consulta la [guida agli eventi a Piacenza](/eventi-milano/): il centro storico si gira tranquillamente a piedi.
+## Concerti e musica
 
-## Dove dormire
+Chi ama la musica dal vivo può spostarsi in area milanese, a breve distanza da Milano in treno da Piacenza.
 
-Roma284 è un appartamento nel centro storico di Piacenza, a due passi dalla stazione: comodo per teatro e serate in città, ma anche per muoversi in treno verso Milano o Parma. Ha patio privato, cucina attrezzata, WiFi in fibra da 1 Gbit/s e self check-in con smart lock dalle 15:00. Gli animali sono sempre ammessi, gratis. Se prenoti direttamente dal sito puoi risparmiare fino al 15% in meno.
+- **Erykah Badu IMEHO – JAZZMI 26** – 19 e 20 ottobre 2026, Teatro Nazionale Italiana Assicurazioni (Milano). Due serate "intime" nel cartellone del festival JAZZMI.
+- **Willie Peyote – Club Tour 2026** – 20 ottobre 2026, Fabrique (Milano). Una data del suo tour nei club.
+- **SAYF – Santissimo Tour** – 21 e 22 ottobre 2026, Alcatraz (Milano). Due appuntamenti consecutivi.
+- **L'Antidote – JAZZMI 2026** – 22 ottobre 2026, Santeria Toscana 31 (Milano). Un'altra tappa del programma JAZZMI.
+- **Don Toliver: Nitrous – Octane World Tour Leg 2** – 27 ottobre 2026, Unipol Forum (Assago).
+- **Niall Horan: Dinner Party Live On Tour** – 28 ottobre 2026, Unipol Forum (Assago).
 
-Pronto a organizzare il weekend? [Prenota il tuo soggiorno a Roma284](/prenota/).
+In arrivo anche **Marco Masini – PALASPORT 2026** il 3 novembre 2026 all'Unipol Forum (Assago), per chi programma con un po' di anticipo.
+
+Se stai pensando di fermarti qualche notte, trovi qualche spunto nella guida a [dormire a Piacenza vicino a Milano](/dormire-vicino-milano/).
+
+## Una base comoda a Piacenza
+
+Chi viene per le fiere o per un concerto fuori città ha bisogno di un posto semplice da vivere: Roma284 è nel centro storico, tranquillo, a due passi dalla stazione. L'ingresso è autonomo con smart lock (self check-in), il WiFi in fibra 1 Gbit/s è utile per lavorare tra un impegno e l'altro, la cucina è attrezzata e il patio privato è un buon posto per staccare a fine giornata. Gli animali sono sempre ammessi, gratis.
+
+Se vuoi organizzare il soggiorno, [prenota il tuo soggiorno a Roma284](/prenota/): prenotando in diretta si risparmia fino al 15% in meno.
