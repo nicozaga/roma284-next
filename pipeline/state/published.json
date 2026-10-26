@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-10-19",
+      "date": "2026-10-26",
       "title": "weekend roundup",
-      "refreshed": "2026-10-19"
+      "refreshed": "2026-10-26"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -555,7 +555,8 @@
         "pl": "/pl/blog/raf-infinito-unipol-forum-assago-nocleg-piacenza/",
         "ja": "/ja/blog/raf-infinito-unipol-forum-assago-piacenza/",
         "zh-cn": "/zh-cn/blog/raf-infinito-unipol-forum-assago-piacenza/"
-      }
+      },
+      "cleaned": "2026-10-26"
     },
     "tm-z59rmiynyz1kd": {
       "event_id": "tm-Z59rmIYnyZ1kd",
@@ -950,6 +951,25 @@
         "de/uebernachtung-autobahn-a1.md",
         "fr/dormir-une-nuit-autoroute-a1.md",
         "nl/overnachten-snelweg-a1.md"
+      ]
+    },
+    "stay-guide-piacenza-con-il-cane": {
+      "event_id": "stay-guide:piacenza-con-il-cane",
+      "date": "2026-10-26",
+      "title": "Dormire a Piacenza con il cane",
+      "kind": "stay-guide",
+      "topic_key": "piacenza-con-il-cane",
+      "urls": {
+        "it": "/blog/dormire-a-piacenza-con-il-cane/",
+        "en": "/en/blog/pet-friendly-stay-piacenza/",
+        "de": "/de/blog/uebernachten-mit-hund-piacenza/",
+        "nl": "/nl/blog/overnachten-met-hond-piacenza/"
+      },
+      "paths": [
+        "dormire-a-piacenza-con-il-cane.md",
+        "en/pet-friendly-stay-piacenza.md",
+        "de/uebernachten-mit-hund-piacenza.md",
+        "nl/overnachten-met-hond-piacenza.md"
       ]
     }
   },
