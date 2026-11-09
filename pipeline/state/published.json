@@ -72,9 +72,9 @@
     },
     "weekend-a-piacenza": {
       "event_id": "roundup",
-      "date": "2026-11-02",
+      "date": "2026-11-09",
       "title": "weekend roundup",
-      "refreshed": "2026-11-02"
+      "refreshed": "2026-11-09"
     },
     "cibus-tec-2026": {
       "event_id": "cibus-tec-2026",
@@ -283,7 +283,8 @@
         "pl": "/pl/blog/niall-horan-mediolan-2026-piacenza/",
         "ja": "/ja/blog/niall-horan-milano-2026-piacenza/",
         "zh-cn": "/zh-cn/blog/niall-horan-milano-2026-piacenza/"
-      }
+      },
+      "cleaned": "2026-11-09"
     },
     "tm-zg9rmiynyzedfa": {
       "event_id": "tm-ZG9rmIYnyZedFA",
@@ -317,7 +318,8 @@
         "pl": "/pl/blog/niall-horan-assago-koncert-28-pazdziernika-2026/",
         "ja": "/ja/blog/niall-horan-assago-concert-28-october-2026/",
         "zh-cn": "/zh-cn/blog/niall-horan-assago-concert-28-october-2026/"
-      }
+      },
+      "cleaned": "2026-11-09"
     },
     "tm-z498xzkrzek6va1zq5jrb2j": {
       "event_id": "tm-Z498xZKrZek6va1ZQ5jrb2j",
@@ -351,7 +353,8 @@
         "pl": "/pl/blog/don-toliver-assago-koncert-27-pazdziernika-2026/",
         "ja": "/ja/blog/don-toliver-assago-concert-october-27-2026/",
         "zh-cn": "/zh-cn/blog/don-toliver-assago-concert-october-27-2026/"
-      }
+      },
+      "cleaned": "2026-11-09"
     },
     "tm-zg9rmiynyzef1a": {
       "event_id": "tm-ZG9rmIYnyZeF1a",
@@ -385,7 +388,8 @@
         "pl": "/pl/blog/don-toliver-assago-koncert-27-pazdziernika-2026/",
         "ja": "/ja/blog/don-toliver-assago-dokode-tomaru-27-october-2026/",
         "zh-cn": "/zh-cn/blog/don-toliver-assago-zhusu-27-october-2026/"
-      }
+      },
+      "cleaned": "2026-11-09"
     },
     "tm-z498xzkrzek6vk7zq5jrb2j": {
       "event_id": "tm-Z498xZKrZek6vk7ZQ5jrb2j",
